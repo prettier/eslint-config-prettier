@@ -1,0 +1,37 @@
+{
+  "name": "eslint-config-prettier",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Simon Lydell",
+  "description": "Turns all rules that are unnecessary or might conflict with prettier off.",
+  "repository": "lydell/eslint-config-prettier",
+  "files": [
+    "index.js",
+    "cli.js",
+    "rules"
+  ],
+  "bin": {
+    "eslint-config-prettier-check": "cli.js"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "prettier"
+  ],
+  "scripts": {
+    "test": "eslint ."
+  },
+  "dependencies": {
+    "get-stdin": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": ">=3.14.1",
+    "eslint-config-google": "^0.7.1",
+    "eslint-plugin-prettier": "^2.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "prettier": "^0.13.1"
+  },
+  "peerDependencies": {
+    "eslint": ">=3.14.1"
+  }
+}
