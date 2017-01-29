@@ -14,7 +14,7 @@ First, install [eslint-plugin-prettier]. Follow the instructions over there.
 Then, install eslint-config-prettier:
 
 ```
-$ npm install eslint-config-prettier
+$ npm install --save-dev eslint-config-prettier
 ```
 
 Finally, add eslint-config-prettier to the "extends" array in your `.eslintrc.*`
