@@ -6,10 +6,10 @@
   "description": "Turns all rules that are unnecessary or might conflict with prettier off.",
   "repository": "lydell/eslint-config-prettier",
   "files": [
-    "index.js",
     "cli.js",
     "rules"
   ],
+  "main": "rules/core.js",
   "bin": {
     "eslint-config-prettier-check": "cli.js"
   },
