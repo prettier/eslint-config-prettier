@@ -48,14 +48,21 @@ eslint-plugin-prettier could turn off? Send a pull request!
 
 eslint-config-prettier also ships with a little CLI tool to help you check if
 your configuration contains any rules that are unnecessary or conflict with
-prettier. You can run it like this:
+prettier.
 
-```
-eslint --print-config .eslintrc.js | ./node_modules/.bin/eslint-config-prettier-check
+First, add a script for it to package.json:
+
+```json
+{
+  "scripts": {
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+  }
+}
 ```
 
-(Swap out .eslintrc.js with the path to your config, and the path to this tool
-if needed.)
+Then run `npm run eslint-check`.
+
+(Swap out .eslintrc.js with the path to your config if needed.)
 
 ## Example configuration
 

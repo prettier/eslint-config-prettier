@@ -10,10 +10,12 @@ if (process.argv.length > 2 || process.stdin.isTTY) {
       "This tool checks whether an ESLint configuration contains rules that are",
       "unnecessary or conflict with prettier. It’s supposed to be run like this:",
       "",
-      "eslint --print-config .eslintrc.js | ./node_modules/.bin/eslint-config-prettier-check",
+      "  eslint --print-config .eslintrc.js | eslint-config-prettier-check",
       "",
-      "(Swap out .eslintrc.js with the path to your config, and the path to this",
-      "tool if needed.)"
+      "(Swap out .eslintrc.js with the path to your config if needed.)",
+      "",
+      "For more information, see:",
+      "https://github.com/lydell/eslint-config-prettier#cli-helper-tool"
     ].join("\n")
   );
   process.exit(1);
