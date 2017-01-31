@@ -11,7 +11,7 @@ module.exports = {
     // script can distinguish them.)
     "max-len": 0,
     "no-mixed-operators": 0,
-    quotes: "off",
+    "quotes": "off",
     // The rest are rules that you never need to enable when using prettier.
     "array-bracket-spacing": "off",
     "arrow-parens": "off",
@@ -26,7 +26,7 @@ module.exports = {
     "eol-last": "off",
     "func-call-spacing": "off",
     "generator-star-spacing": "off",
-    indent: "off",
+    "indent": "off",
     "jsx-quotes": "off",
     "key-spacing": "off",
     "keyword-spacing": "off",
@@ -48,7 +48,7 @@ module.exports = {
     "quote-props": "off",
     "rest-spread-spacing": "off",
     "semi-spacing": "off",
-    semi: "off",
+    "semi": "off",
     "space-before-blocks": "off",
     "space-before-function-paren": "off",
     "space-infix-ops": "off",
