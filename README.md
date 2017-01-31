@@ -66,8 +66,8 @@ Then run `npm run eslint-check`.
 
 ## Example configuration
 
-```js
-module.exports = {
+```json
+{
   "extends": [
     "google",
     "plugin:react/all",
@@ -92,7 +92,7 @@ module.exports = {
   "rules": {
     "prettier/prettier": "error"
   }
-};
+}
 ```
 
 ## Exceptions
