@@ -1,3 +1,7 @@
+### Version 1.0.3 (2017-02-03)
+
+- Fixed: `"extends": "prettier/react"` now actually works.
+
 ### Version 1.0.2 (2017-01-30)
 
 - Improved: CLI helper tool instructions.
