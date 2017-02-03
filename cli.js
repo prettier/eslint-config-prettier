@@ -41,8 +41,7 @@ function processString(string) {
     reactRules.rules
   );
 
-  const specialRules = Object
-    .keys(allRules)
+  const specialRules = Object.keys(allRules)
     .filter(ruleName => allRules[ruleName] === 0)
     .reduce(
       (obj, ruleName) => {
