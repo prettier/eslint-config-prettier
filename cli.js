@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+"use strict";
+
 const getStdin = require("get-stdin");
 const coreRules = require("./rules/core");
 const reactRules = require("./rules/react");
