@@ -7,9 +7,9 @@
   "repository": "lydell/eslint-config-prettier",
   "files": [
     "cli.js",
-    "rules"
+    "index.js",
+    "react.js"
   ],
-  "main": "rules/core.js",
   "bin": {
     "eslint-config-prettier-check": "cli.js"
   },

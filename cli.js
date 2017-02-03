@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const getStdin = require("get-stdin");
-const coreRules = require("./rules/core");
-const reactRules = require("./rules/react");
+const coreRules = require("./");
+const reactRules = require("./react");
 
 if (process.argv.length > 2 || process.stdin.isTTY) {
   console.error(

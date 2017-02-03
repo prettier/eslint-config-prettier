@@ -1,10 +1,5 @@
 module.exports = {
-  extends: [
-    "google",
-    "plugin:react/all",
-    "./rules/core.js",
-    "./rules/react.js"
-  ],
+  extends: ["google", "plugin:react/all", "./index.js", "./react.js"],
   plugins: ["react", "prettier"],
   env: {
     es6: true,
