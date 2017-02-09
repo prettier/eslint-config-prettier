@@ -3,8 +3,8 @@
 "use strict";
 
 const getStdin = require("get-stdin");
-const coreRules = require("./");
-const reactRules = require("./react");
+const coreRules = require("../");
+const reactRules = require("../react");
 
 if (process.argv.length > 2 || process.stdin.isTTY) {
   console.error(

@@ -6,12 +6,12 @@
   "description": "Turns all rules that are unnecessary or might conflict with prettier off.",
   "repository": "lydell/eslint-config-prettier",
   "files": [
-    "cli.js",
+    "bin/",
     "index.js",
     "react.js"
   ],
   "bin": {
-    "eslint-config-prettier-check": "cli.js"
+    "eslint-config-prettier-check": "bin/cli.js"
   },
   "keywords": [
     "eslint",
@@ -19,19 +19,23 @@
     "prettier"
   ],
   "scripts": {
-    "test-cli-sanity": "eslint --print-config .eslintrc.js | ./cli.js",
-    "test-lint": "eslint .",
-    "test": "npm run test-lint && npm run test-cli-sanity"
+    "lint": "eslint .",
+    "test:ava": "ava",
+    "test:cli-sanity": "eslint --print-config .eslintrc.js | ./bin/cli.js",
+    "test:lint": "eslint --config test-config/.eslintrc.js --format json index.js",
+    "test": "npm run lint && npm run test:ava && npm run test:cli-sanity"
   },
   "dependencies": {
     "get-stdin": "^5.0.1"
   },
   "devDependencies": {
+    "ava": "^0.18.1",
     "eslint": "^3.15.0",
     "eslint-config-google": "^0.7.1",
     "eslint-plugin-prettier": "^2.0.0",
     "eslint-plugin-react": "^6.9.0",
-    "prettier": "^0.16.0"
+    "prettier": "^0.16.0",
+    "rimraf": "^2.5.4"
   },
   "peerDependencies": {
     "eslint": ">=3.14.1"
