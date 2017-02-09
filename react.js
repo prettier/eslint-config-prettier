@@ -1,6 +1,6 @@
 // Latest versions tested:
-// ESLint 3.14.1
-// prettier 0.13.1
+// ESLint 3.15.0
+// prettier 0.16.0
 // eslint-plugin-react 6.9.0
 
 "use strict";
