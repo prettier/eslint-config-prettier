@@ -29,13 +29,18 @@ configs.
 }
 ```
 
-If you use [React] and [eslint-plugin-react], there are exclusions for those
-rules as well:
+A few ESLint plugins are supported as well:
+
+- [eslint-plugin-flowtype]
+- [eslint-plugin-react]
+
+Add extra exclusions for the plugins you use like so:
 
 ```json
 {
   "extends": [
     "prettier",
+    "prettier/flowtype",
     "prettier/react"
   ]
 }
@@ -181,12 +186,12 @@ Example configuration:
 
 [MIT](LICENSE).
 
+[eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/not-an-aardvark/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [max-len]: http://eslint.org/docs/rules/max-len
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
 [prettier]: https://github.com/jlongster/prettier
 [quotes]: http://eslint.org/docs/rules/quotes
-[React]: https://facebook.github.io/react/
 [travis-badge]: https://travis-ci.org/lydell/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/lydell/eslint-config-prettier

@@ -3,8 +3,7 @@
 "use strict";
 
 const getStdin = require("get-stdin");
-const coreRules = require("../");
-const reactRules = require("../react");
+const pkg = require("../package.json");
 
 if (module === require.main) {
   if (process.argv.length > 2 || process.stdin.isTTY) {
@@ -64,10 +63,13 @@ function processString(string) {
     };
   }
 
-  const allRules = Object.assign(
-    Object.create(null),
-    coreRules.rules,
-    reactRules.rules
+  const allRules = Object.assign.apply(
+    Object,
+    [Object.create(null)].concat(
+      pkg.files
+        .filter(name => name.indexOf("/") === -1)
+        .map(ruleFileName => require(`../${ruleFileName}`).rules)
+    )
   );
 
   const specialRules = Object.keys(allRules)

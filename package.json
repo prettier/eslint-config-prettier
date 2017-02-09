@@ -7,6 +7,7 @@
   "repository": "lydell/eslint-config-prettier",
   "files": [
     "bin/",
+    "flowtype.js",
     "index.js",
     "react.js"
   ],
@@ -31,9 +32,11 @@
   },
   "devDependencies": {
     "ava": "^0.18.1",
+    "babel-eslint": "^7.1.1",
     "dedent": "^0.7.0",
     "eslint": "^3.15.0",
     "eslint-config-google": "^0.7.1",
+    "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-prettier": "^2.0.0",
     "eslint-plugin-react": "^6.9.0",
     "prettier": "^0.16.0",
