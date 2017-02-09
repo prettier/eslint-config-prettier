@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
   extends: ["google", "plugin:react/all", "./index.js", "./react.js"],
   plugins: ["react", "prettier"],
@@ -6,6 +8,7 @@ module.exports = {
     node: true
   },
   rules: {
+    strict: "error",
     "require-jsdoc": "off",
     "prettier/prettier": "error"
   }
