@@ -19,7 +19,9 @@
     "prettier"
   ],
   "scripts": {
-    "test": "eslint ."
+    "test-cli-sanity": "eslint --print-config .eslintrc.js | ./cli.js",
+    "test-lint": "eslint .",
+    "test": "npm run test-lint && npm run test-cli-sanity"
   },
   "dependencies": {
     "get-stdin": "^5.0.1"
