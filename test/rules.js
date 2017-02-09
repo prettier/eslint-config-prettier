@@ -47,7 +47,7 @@ test("All rule files are listed in package.json", t => {
   const ruleFiles = getRuleFiles();
 
   ruleFiles.forEach(ruleFileName => {
-    t.true(pkg.files.includes(ruleFileName));
+    t.true(pkg.files.indexOf(ruleFileName) >= 0);
   });
 });
 
