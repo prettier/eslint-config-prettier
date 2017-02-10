@@ -11,7 +11,7 @@ module.exports = {
     // script can distinguish them.)
     "max-len": 0,
     "no-mixed-operators": 0,
-    quotes: "off",
+    quotes: 0,
     // The rest are rules that you never need to enable when using prettier.
     "array-bracket-spacing": "off",
     "arrow-parens": "off",

@@ -6,35 +6,62 @@ const getStdin = require("get-stdin");
 const coreRules = require("../");
 const reactRules = require("../react");
 
-if (process.argv.length > 2 || process.stdin.isTTY) {
-  console.error(
-    [
-      "This tool checks whether an ESLint configuration contains rules that are",
-      "unnecessary or conflict with prettier. It’s supposed to be run like this:",
-      "",
-      "  eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-      "",
-      "(Swap out .eslintrc.js with the path to your config if needed.)",
-      "",
-      "For more information, see:",
-      "https://github.com/lydell/eslint-config-prettier#cli-helper-tool"
-    ].join("\n")
-  );
-  process.exit(1);
-}
+if (module === require.main) {
+  if (process.argv.length > 2 || process.stdin.isTTY) {
+    console.error(
+      [
+        "This tool checks whether an ESLint configuration contains rules that are",
+        "unnecessary or conflict with prettier. It’s supposed to be run like this:",
+        "",
+        "  eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+        "",
+        "(Swap out .eslintrc.js with the path to your config if needed.)",
+        "",
+        "For more information, see:",
+        "https://github.com/lydell/eslint-config-prettier#cli-helper-tool"
+      ].join("\n")
+    );
+    process.exit(1);
+  }
 
-getStdin().then(processString).catch(error => {
-  console.error("Unexpected error", error);
-  process.exit(1);
-});
+  getStdin()
+    .then(string => {
+      const result = processString(string);
+      if (result.stderr) {
+        console.error(result.stderr);
+      }
+      if (result.stdout) {
+        console.error(result.stdout);
+      }
+      process.exit(result.code);
+    })
+    .catch(error => {
+      console.error("Unexpected error", error);
+      process.exit(1);
+    });
+}
 
 function processString(string) {
   let config;
   try {
     config = JSON.parse(string);
   } catch (error) {
-    console.error(`Failed to parse JSON:\n${error.message}`);
-    process.exit(1);
+    return {
+      stderr: `Failed to parse JSON:\n${error.message}`,
+      code: 1
+    };
+  }
+
+  if (
+    !(Object.prototype.toString.call(config) === "[object Object]" &&
+      Object.prototype.toString.call(config.rules) === "[object Object]")
+  ) {
+    return {
+      stderr: (
+        `Expected a \`{"rules: {...}"}\` JSON object, but got:\n${string}`
+      ),
+      code: 1
+    };
   }
 
   const allRules = Object.assign(
@@ -53,29 +80,29 @@ function processString(string) {
       Object.create(null)
     );
 
-  const configRules = config.rules || {};
-
-  const flaggedRuleNames = Object.keys(configRules).filter(ruleName => {
-    const value = configRules[ruleName];
+  const flaggedRuleNames = Object.keys(config.rules).filter(ruleName => {
+    const value = config.rules[ruleName];
     const level = Array.isArray(value) ? value[0] : value;
     const isOff = level === "off" || level === 0;
     return !isOff && ruleName in allRules;
   });
 
   if (flaggedRuleNames.length === 0) {
-    console.log(
-      "No rules that are unnecessary or conflict with prettier were found."
-    );
-    process.exit(0);
+    return {
+      stdout: "No rules that are unnecessary or conflict with prettier were found.",
+      code: 0
+    };
   }
 
   const regularRulesList = flaggedRuleNames
     .filter(ruleName => !(ruleName in specialRules))
+    .sort()
     .map(ruleName => `- ${ruleName}`)
     .join("\n");
 
   const specialRulesList = flaggedRuleNames
     .filter(ruleName => ruleName in specialRules)
+    .sort()
     .map(ruleName => `- ${ruleName}`)
     .join("\n");
 
@@ -99,6 +126,10 @@ function processString(string) {
     .filter(Boolean)
     .join("\n\n");
 
-  console.warn(message);
-  process.exit(2);
+  return {
+    stdout: message,
+    code: 2
+  };
 }
+
+exports.processString = processString;
