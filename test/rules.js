@@ -111,9 +111,8 @@ test("There are no unknown rules", t => {
     { encoding: "utf8" }
   );
   const output = JSON.parse(result.stdout);
-  const messages = output[0].messages.slice(0, 3);
 
-  messages.forEach(message => {
+  output[0].messages.forEach(message => {
     t.notRegex(message.message, /rule\s+'[^']+'.*not found/);
   });
 });
