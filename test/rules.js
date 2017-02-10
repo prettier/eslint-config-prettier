@@ -7,7 +7,6 @@ const path = require("path");
 const rimraf = require("rimraf");
 const pkg = require("../package.json");
 
-const CONFIG_FILE_NAME = ".eslintrc.js";
 const TEST_CONFIG_DIR = "test-config";
 
 function getRuleFiles() {
@@ -16,7 +15,11 @@ function getRuleFiles() {
     .filter(name => !name.startsWith(".") && name.endsWith(".js"));
 }
 
-function createTestConfigDir(ruleFiles) {
+function getConfigFiles() {
+  return fs.readdirSync(".").filter(name => name.startsWith(".eslintrc"));
+}
+
+function createTestConfigDir(ruleFiles, configFiles) {
   // Clear the test config dir.
   rimraf.sync(TEST_CONFIG_DIR);
   fs.mkdirSync(TEST_CONFIG_DIR);
@@ -36,11 +39,13 @@ function createTestConfigDir(ruleFiles) {
     );
   });
 
-  // Copy the ESLint config into the test config dir.
-  fs.writeFileSync(
-    path.join(TEST_CONFIG_DIR, CONFIG_FILE_NAME),
-    fs.readFileSync(CONFIG_FILE_NAME)
-  );
+  // Copy the ESLint configs into the test config dir.
+  configFiles.forEach(configFileName => {
+    fs.writeFileSync(
+      path.join(TEST_CONFIG_DIR, configFileName),
+      fs.readFileSync(configFileName)
+    );
+  });
 }
 
 test("All rule files are listed in package.json", t => {
@@ -53,12 +58,13 @@ test("All rule files are listed in package.json", t => {
 
 test("There are no unknown rules", t => {
   const ruleFiles = getRuleFiles();
+  const configFiles = getConfigFiles();
 
-  createTestConfigDir(ruleFiles);
+  createTestConfigDir(ruleFiles, configFiles);
 
   const result = childProcess.spawnSync(
     "npm",
-    ["run", "test:lint", "--silent"],
+    ["run", "test:lint-rules", "--silent"],
     { encoding: "utf8" }
   );
   const output = JSON.parse(result.stdout);

@@ -19,11 +19,12 @@
     "prettier"
   ],
   "scripts": {
-    "lint": "eslint .",
+    "test:lint": "eslint .",
+    "test:lint-verify-fail": "eslint test-lint/ --config .eslintrc.base.js && exit 1 || exit 0",
+    "test:lint-rules": "eslint --config test-config/.eslintrc.js --format json index.js",
     "test:ava": "ava",
     "test:cli-sanity": "eslint --print-config .eslintrc.js | ./bin/cli.js",
-    "test:lint": "eslint --config test-config/.eslintrc.js --format json index.js",
-    "test": "npm run lint && npm run test:ava && npm run test:cli-sanity"
+    "test": "npm run test:lint && npm run test:lint-verify-fail && npm run test:ava && npm run test:cli-sanity"
   },
   "dependencies": {
     "get-stdin": "^5.0.1"
