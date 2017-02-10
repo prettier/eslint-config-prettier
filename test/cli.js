@@ -106,13 +106,17 @@ test(
     "arrow-spacing",
     "quotes",
     "arrow-parens",
-    "no-mixed-operators"
+    "no-mixed-operators",
+    "react/jsx-indent",
+    "flowtype/semi"
   ],
   dedent`
     The following rules are unnecessary or might conflict with prettier:
 
     - arrow-parens
     - arrow-spacing
+    - flowtype/semi
+    - react/jsx-indent
 
     The following rules can be enabled in some cases. See:
     https://github.com/lydell/eslint-config-prettier#exceptions
