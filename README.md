@@ -75,11 +75,14 @@ Then run `npm run eslint-check`.
 {
   "extends": [
     "google",
-    "plugin:react/all",
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended",
     "prettier",
+    "prettier/flowtype",
     "prettier/react"
   ],
   "plugins": [
+    "flowtype",
     "react",
     "prettier"
   ],
