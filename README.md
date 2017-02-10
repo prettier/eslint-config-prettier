@@ -231,26 +231,26 @@ Finally, you need to mention the plugin in several places:
 - Add `"./foobar.js"` to the "extends" field in `.eslintrc.js`.
 - Add `"foobar"` to the "plugins" field in `.eslintrc.base.js`, and make sure
   that at least one rule from eslint-plugin-foobar gets used.
-- Add it to the list of supported plugins and to the example config in
-  `README.md`.
+- Add it to the list of supported plugins, to the example config and to
+  Contributing section in `README.md`.
 
 When you’re done, run `npm test` to verify that you got it all right. It runs
 several other npm scripts:
 
-- "test:lint" makes sure that the files in `test-lint/` pass ESLint when
+- `"test:lint"` makes sure that the files in `test-lint/` pass ESLint when
   the exclusions from eslint-config-prettier are used. It also lints the code of
   eslint-config-prettier itself.
-- "test:lint-verify-fail" makes sure that the files in `test-lint/` actually
+- `"test:lint-verify-fail"` makes sure that the files in `test-lint/` actually
   does cause errors when the exclusions from eslint-config-prettier are _not_
   used. It is expected to see ESLint errors in the console when running this
   script.
-- "test:lint-rules" is run by a test in `test/rules.js`.
-- "test:ava" runs unit tests that check a number of things:
+- `"test:lint-rules"` is run by a test in `test/rules.js`.
+- `"test:ava"` runs unit tests that check a number of things:
   - That eslint-plugin-foobar is mentioned in all the places shown above.
   - That no unknown rules are turned off. This helps catching typos, for
     example.
   - That the CLI works.
-- "test:cli-sanity" is a sanity check for the CLI.
+- `"test:cli-sanity"` is a sanity check for the CLI.
 
 ## License
 
