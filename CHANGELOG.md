@@ -1,3 +1,12 @@
+### Version 1.1.0 (2017-02-10)
+
+- Fixed: The [eslint-plugin-react] exclusion rules now actually work.
+- Fixed: The CLI helper tool now works in Node.js 4. Thanks to Nathan Friedly
+  (@nfriedly)!
+- Added: Support for [eslint-plugin-flowtype].
+- Improved: Minor things for the CLI helper tool.
+- Improved: There are now tests for everything.
+
 ### Version 1.0.3 (2017-02-03)
 
 - Fixed: `"extends": "prettier/react"` now actually works.
@@ -13,3 +22,6 @@
 ### Version 1.0.0 (2017-01-29)
 
 - Initial release.
+
+[eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
+[eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
