@@ -30,13 +30,19 @@ function createTestConfigDir() {
     const config = require(`../${ruleFileName}`);
 
     // Change all rules to "warn", so that ESLint warns about unknown rules.
-    Object.keys(config.rules).forEach(ruleName => {
-      config.rules[ruleName] = "warn";
-    });
+    const newRules = Object.keys(config.rules).reduce(
+      (obj, ruleName) => {
+        obj[ruleName] = "warn";
+        return obj;
+      },
+      {}
+    );
+
+    const newConfig = Object.assign({}, config, { rules: newRules });
 
     fs.writeFileSync(
       path.join(TEST_CONFIG_DIR, ruleFileName),
-      `module.exports = ${JSON.stringify(config, null, 2)};`
+      `module.exports = ${JSON.stringify(newConfig, null, 2)};`
     );
   });
 
@@ -81,6 +87,21 @@ test("All plugin rule files are mentioned in the README", t => {
       t.true(readme.indexOf(`"${name}"`) >= 0);
       t.true(readme.indexOf(`"prettier/${name}"`) >= 0);
     });
+});
+
+test("All special rules are mentioned in the README", t => {
+  const readme = fs.readFileSync("README.md", "utf8");
+  const specialRuleNames = Array.prototype.concat.apply(
+    [],
+    ruleFiles.map(ruleFileName => {
+      const rules = require(`../${ruleFileName}`).rules;
+      return Object.keys(rules).filter(name => rules[name] === 0);
+    })
+  );
+
+  specialRuleNames.forEach(name => {
+    t.true(readme.indexOf(name) >= 0);
+  });
 });
 
 test("There are no unknown rules", t => {
