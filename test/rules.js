@@ -104,6 +104,20 @@ test("All special rules are mentioned in the README", t => {
   });
 });
 
+test('All rules are set to "off" or 0', t => {
+  const allRules = Object.assign.apply(
+    Object,
+    [Object.create(null)].concat(
+      ruleFiles.map(ruleFileName => require(`../${ruleFileName}`).rules)
+    )
+  );
+
+  Object.keys(allRules).forEach(name => {
+    const value = allRules[name];
+    t.true(value === "off" || value === 0);
+  });
+});
+
 test("There are no unknown rules", t => {
   const result = childProcess.spawnSync(
     "npm",
