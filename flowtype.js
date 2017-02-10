@@ -1,8 +1,3 @@
-// Latest versions tested:
-// ESLint 3.15.0
-// prettier 0.16.0
-// eslint-plugin-flowtype 2.30.0
-
 "use strict";
 
 module.exports = {

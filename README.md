@@ -46,9 +46,6 @@ Add extra exclusions for the plugins you use like so:
 }
 ```
 
-Do you know of some other eslint plugin that contains rules that
-eslint-plugin-prettier could turn off? Send a pull request!
-
 ## CLI helper tool
 
 eslint-config-prettier also ships with a little CLI tool to help you check if
@@ -184,6 +181,76 @@ Example configuration:
   }
 }
 ```
+
+## Contributing
+
+eslint-config-prettier has been tested with:
+
+- ESLint 3.15.0
+- prettier 0.16.0
+- eslint-plugin-flowtype 2.30.0
+- eslint-plugin-react 6.9.0
+
+Have new rules been added since those versions? Have we missed any rules? Is
+there a plugin you would like to see exclusions for? Open an issue or a pull
+request!
+
+If you’d like to add support for eslint-plugin-foobar, this is how you’d go
+about it:
+
+First, create `foobar.js`:
+
+```js
+"use strict";
+
+module.exports = {
+  rules: {
+    "foobar/some-rule": "off"
+  }
+};
+```
+
+Then, create `test-lint/foobar.js`:
+
+```js
+/* eslint-disable quotes */
+"use strict";
+
+// prettier does not want spaces before the parentheses, but
+// eslint-config-foobar wants one.
+console.log ();
+```
+
+`test-lint/foobar.js` must fail when used with eslint-plugin-foobar and
+eslint-plugin-prettier at the same time – until `"prettier/foobar"` is added to
+the "extends" property of an ESLint config.
+
+Finally, you need to mention the plugin in several places:
+
+- Add `"foobar.js"` to the "files" field in `package.json`.
+- Add `"./foobar.js"` to the "extends" field in `.eslintrc.js`.
+- Add `"foobar"` to the "plugins" field in `.eslintrc.base.js`, and make sure
+  that at least one rule from eslint-plugin-foobar gets used.
+- Add it to the list of supported plugins and to the example config in
+  `README.md`.
+
+When you’re done, run `npm test` to verify that you got it all right. It runs
+several other npm scripts:
+
+- "test:lint" makes sure that the files in `test-lint/` pass ESLint when
+  the exclusions from eslint-config-prettier are used. It also lints the code of
+  eslint-config-prettier itself.
+- "test:lint-verify-fail" makes sure that the files in `test-lint/` actually
+  does cause errors when the exclusions from eslint-config-prettier are _not_
+  used. It is expected to see ESLint errors in the console when running this
+  script.
+- "test:lint-rules" is run by a test in `test/rules.js`.
+- "test:ava" runs unit tests that check a number of things:
+  - That eslint-plugin-foobar is mentioned in all the places shown above.
+  - That no unknown rules are turned off. This helps catching typos, for
+    example.
+  - That the CLI works.
+- "test:cli-sanity" is a sanity check for the CLI.
 
 ## License
 
