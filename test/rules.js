@@ -56,6 +56,14 @@ test("All rule files are listed in package.json", t => {
   });
 });
 
+test("All rule files have tests in test-lint/", t => {
+  const ruleFiles = getRuleFiles();
+
+  ruleFiles.forEach(ruleFileName => {
+    t.true(fs.existsSync(path.join("test-lint", ruleFileName)));
+  });
+});
+
 test("There are no unknown rules", t => {
   const ruleFiles = getRuleFiles();
   const configFiles = getConfigFiles();
