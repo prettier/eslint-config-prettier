@@ -6,20 +6,21 @@ const fs = require("fs");
 const path = require("path");
 const rimraf = require("rimraf");
 const pkg = require("../package.json");
+const eslintConfig = require("../.eslintrc");
+const eslintConfigBase = require("../.eslintrc.base");
 
 const TEST_CONFIG_DIR = "test-config";
 
-function getRuleFiles() {
-  return fs
-    .readdirSync(".")
-    .filter(name => !name.startsWith(".") && name.endsWith(".js"));
-}
+const ruleFiles = fs
+  .readdirSync(".")
+  .filter(name => !name.startsWith(".") && name.endsWith(".js"));
+const configFiles = fs
+  .readdirSync(".")
+  .filter(name => name.startsWith(".eslintrc"));
 
-function getConfigFiles() {
-  return fs.readdirSync(".").filter(name => name.startsWith(".eslintrc"));
-}
+createTestConfigDir();
 
-function createTestConfigDir(ruleFiles, configFiles) {
+function createTestConfigDir() {
   // Clear the test config dir.
   rimraf.sync(TEST_CONFIG_DIR);
   fs.mkdirSync(TEST_CONFIG_DIR);
@@ -49,27 +50,40 @@ function createTestConfigDir(ruleFiles, configFiles) {
 }
 
 test("All rule files are listed in package.json", t => {
-  const ruleFiles = getRuleFiles();
-
   ruleFiles.forEach(ruleFileName => {
     t.true(pkg.files.indexOf(ruleFileName) >= 0);
   });
 });
 
 test("All rule files have tests in test-lint/", t => {
-  const ruleFiles = getRuleFiles();
-
   ruleFiles.forEach(ruleFileName => {
     t.true(fs.existsSync(path.join("test-lint", ruleFileName)));
   });
 });
 
+test("All rule files are included in the ESLint config", t => {
+  ruleFiles.forEach(ruleFileName => {
+    const name = ruleFileName.replace(/\.js$/, "");
+    t.true(eslintConfig.extends.indexOf(`./${ruleFileName}`) >= 0);
+    if (ruleFileName !== "index.js") {
+      t.true(eslintConfigBase.plugins.indexOf(name) >= 0);
+    }
+  });
+});
+
+test("All plugin rule files are mentioned in the README", t => {
+  const readme = fs.readFileSync("README.md", "utf8");
+  ruleFiles
+    .filter(ruleFileName => ruleFileName !== "index.js")
+    .forEach(ruleFileName => {
+      const name = ruleFileName.replace(/\.js$/, "");
+      t.true(readme.indexOf(`eslint-plugin-${name}`) >= 0);
+      t.true(readme.indexOf(`"${name}"`) >= 0);
+      t.true(readme.indexOf(`"prettier/${name}"`) >= 0);
+    });
+});
+
 test("There are no unknown rules", t => {
-  const ruleFiles = getRuleFiles();
-  const configFiles = getConfigFiles();
-
-  createTestConfigDir(ruleFiles, configFiles);
-
   const result = childProcess.spawnSync(
     "npm",
     ["run", "test:lint-rules", "--silent"],
