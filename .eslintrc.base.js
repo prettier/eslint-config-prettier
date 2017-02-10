@@ -1,8 +1,14 @@
 "use strict";
 
+const pkg = require("./package.json");
+
 module.exports = {
   extends: ["google", "plugin:flowtype/recommended", "plugin:react/all"],
-  plugins: ["flowtype", "react", "prettier"],
+  plugins: ["prettier"].concat(
+    pkg.files
+      .filter(name => name.indexOf("/") === -1 && name !== "index.js")
+      .map(ruleFileName => ruleFileName.replace(/\.js$/, ""))
+  ),
   parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: 2016,

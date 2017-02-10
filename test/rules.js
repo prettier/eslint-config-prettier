@@ -48,9 +48,10 @@ function createTestConfigDir() {
 
   // Copy the ESLint configs into the test config dir.
   configFiles.forEach(configFileName => {
+    const config = require(`../${configFileName}`);
     fs.writeFileSync(
       path.join(TEST_CONFIG_DIR, configFileName),
-      fs.readFileSync(configFileName)
+      `module.exports = ${JSON.stringify(config, null, 2)};`
     );
   });
 }

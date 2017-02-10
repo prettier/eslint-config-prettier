@@ -228,9 +228,8 @@ the "extends" property of an ESLint config.
 Finally, you need to mention the plugin in several places:
 
 - Add `"foobar.js"` to the "files" field in `package.json`.
-- Add `"./foobar.js"` to the "extends" field in `.eslintrc.js`.
-- Add `"foobar"` to the "plugins" field in `.eslintrc.base.js`, and make sure
-  that at least one rule from eslint-plugin-foobar gets used.
+- Make sure that at least one rule from eslint-plugin-foobar gets used in
+  `.eslintrc.base.js`.
 - Add it to the list of supported plugins, to the example config and to
   Contributing section in `README.md`.
 
