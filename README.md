@@ -239,10 +239,7 @@ several other npm scripts:
 - `"test:lint"` makes sure that the files in `test-lint/` pass ESLint when
   the exclusions from eslint-config-prettier are used. It also lints the code of
   eslint-config-prettier itself.
-- `"test:lint-verify-fail"` makes sure that the files in `test-lint/` actually
-  does cause errors when the exclusions from eslint-config-prettier are _not_
-  used. It is expected to see ESLint errors in the console when running this
-  script.
+- `"test:lint-verify-fail"` is run by a test in `test/lint-verify-fail.js`.
 - `"test:lint-rules"` is run by a test in `test/rules.js`.
 - `"test:ava"` runs unit tests that check a number of things:
   - That eslint-plugin-foobar is mentioned in all the places shown above.
