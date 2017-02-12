@@ -1,3 +1,7 @@
+### Version 1.1.1 (2017-02-12)
+
+- Minor documentation tweak: Changed "Exceptions" into "Special rules".
+
 ### Version 1.1.0 (2017-02-10)
 
 - Fixed: The [eslint-plugin-react] exclusion rules now actually work.
