@@ -92,7 +92,7 @@ test(
   ["strict", "max-len"],
   dedent`
     The following rules can be enabled in some cases. See:
-    https://github.com/lydell/eslint-config-prettier#exceptions
+    https://github.com/lydell/eslint-config-prettier#special-rules
 
     - max-len
   `
@@ -119,7 +119,7 @@ test(
     - react/jsx-indent
 
     The following rules can be enabled in some cases. See:
-    https://github.com/lydell/eslint-config-prettier#exceptions
+    https://github.com/lydell/eslint-config-prettier#special-rules
 
     - max-len
     - no-mixed-operators

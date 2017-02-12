@@ -100,7 +100,7 @@ Then run `npm run eslint-check`.
 }
 ```
 
-## Exceptions
+## Special rules
 
 There a few rules that eslint-config-prettier disables that actually can be
 enabled in some cases.

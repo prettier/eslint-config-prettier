@@ -116,7 +116,7 @@ function processString(string) {
 
   const specialMessage = [
     "The following rules can be enabled in some cases. See:",
-    "https://github.com/lydell/eslint-config-prettier#exceptions",
+    "https://github.com/lydell/eslint-config-prettier#special-rules",
     "",
     specialRulesList
   ].join("\n");
