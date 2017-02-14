@@ -1,3 +1,8 @@
+### Version 1.2.0 (2017-02-14)
+
+- Added: The [one-var-declaration-per-line] rule. Thanks to Ruben Oostinga
+  (@0xR)!
+
 ### Version 1.1.1 (2017-02-12)
 
 - Minor documentation tweak: Changed "Exceptions" into "Special rules".
@@ -29,3 +34,4 @@
 
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
+[one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
