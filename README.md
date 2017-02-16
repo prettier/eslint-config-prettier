@@ -1,6 +1,6 @@
 # eslint-config-prettier [![Build Status][travis-badge]][travis]
 
-Turns all rules that are unnecessary or might conflict with [prettier] off.
+Turns off all rules that are unnecessary or might conflict with [prettier].
 
 This let’s you use you favorite shareable config without letting its stylistic
 choices get in the way when using prettier.
