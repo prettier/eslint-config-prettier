@@ -52,6 +52,7 @@ module.exports = {
     "space-in-parens": "off",
     "space-unary-ops": "off",
     "template-curly-spacing": "off",
+    "template-tag-spacing": "off",
     "unicode-bom": "off",
     "wrap-iife": "off",
     "wrap-regex": "off",
