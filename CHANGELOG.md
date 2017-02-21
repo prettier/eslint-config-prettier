@@ -1,3 +1,8 @@
+### Version 1.3.0 (2017-02-21)
+
+- Added: The [template-tag-spacing] rule. Thanks to Thibault Derousseaux
+  (@tibdex)!
+
 ### Version 1.2.0 (2017-02-14)
 
 - Added: The [one-var-declaration-per-line] rule. Thanks to Ruben Oostinga
@@ -35,3 +40,4 @@
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
+[template-tag-spacing]: http://eslint.org/docs/rules/template-tag-spacing
