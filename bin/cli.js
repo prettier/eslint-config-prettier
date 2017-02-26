@@ -56,9 +56,7 @@ function processString(string) {
       Object.prototype.toString.call(config.rules) === "[object Object]")
   ) {
     return {
-      stderr: (
-        `Expected a \`{"rules: {...}"}\` JSON object, but got:\n${string}`
-      ),
+      stderr: `Expected a \`{"rules: {...}"}\` JSON object, but got:\n${string}`,
       code: 1
     };
   }

@@ -25,7 +25,7 @@ module.exports = {
     strict: "error",
     "prefer-spread": "off",
     "require-jsdoc": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {}],
     // Force a conflict with prettier in test-lint/flowtype.js.
     "flowtype/object-type-delimiter": ["error", "semicolon"],
     "react/jsx-filename-extension": "off"
