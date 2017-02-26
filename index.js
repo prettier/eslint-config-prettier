@@ -6,6 +6,7 @@ module.exports = {
     // information. (These are marked with `0` instead of `"off"` so that a
     // script can distinguish them.)
     "max-len": 0,
+    "no-confusing-arrow": 0,
     "no-mixed-operators": 0,
     quotes: 0,
     // The rest are rules that you never need to enable when using prettier.

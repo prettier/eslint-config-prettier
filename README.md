@@ -125,6 +125,53 @@ Example configuration:
 }
 ```
 
+### [no-confusing-arrow]
+
+For example, the rule could warn about this line:
+
+```js
+var x = a => 1 ? 2 : 3;
+```
+
+By default, ESLint suggests switching to an explicit return:
+
+```js
+var x = a => { return 1 ? 2 : 3; };
+```
+
+That causes no problems with prettier.
+
+With `{allowParens: true}`, adding parentheses is also considered a valid way to
+avoid the arrow confusion:
+
+```js
+var x = a => (1 ? 2 : 3);
+```
+
+However, prettier prints the minimum amount of parentheses technically needed,
+turning it back to:
+
+```js
+var x = a => 1 ? 2 : 3;
+```
+
+[eslint-config-airbnb] config includes `no-confusing-arrow` with the
+`allowParens` option turned on by default. Since that config is very popular, it
+makes sense for eslint-config-prettier to turn this rule off.
+
+If you like this rule, it can be used just fine with prettier as long as the
+`allowParens` option is off.
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "no-confusing-arrow": "error"
+  }
+}
+```
+
 ### [no-mixed-operators]
 
 This rule forbids mixing certain operators, such as `&&` and `||`.
@@ -252,10 +299,12 @@ several other npm scripts:
 
 [MIT](LICENSE).
 
+[eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/not-an-aardvark/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [max-len]: http://eslint.org/docs/rules/max-len
+[no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
 [prettier]: https://github.com/jlongster/prettier
 [quotes]: http://eslint.org/docs/rules/quotes

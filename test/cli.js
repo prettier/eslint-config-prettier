@@ -107,6 +107,7 @@ test(
     "quotes",
     "arrow-parens",
     "no-mixed-operators",
+    "no-confusing-arrow",
     "react/jsx-indent",
     "flowtype/semi"
   ],
@@ -122,6 +123,7 @@ test(
     https://github.com/lydell/eslint-config-prettier#special-rules
 
     - max-len
+    - no-confusing-arrow
     - no-mixed-operators
     - quotes
   `
