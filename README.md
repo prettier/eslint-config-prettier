@@ -148,8 +148,7 @@ avoid the arrow confusion:
 var x = a => (1 ? 2 : 3);
 ```
 
-However, prettier prints the minimum amount of parentheses technically needed,
-turning it back to:
+However, prettier removes many “unnecessary” parentheses, turning it back to:
 
 ```js
 var x = a => 1 ? 2 : 3;
@@ -179,28 +178,33 @@ This rule forbids mixing certain operators, such as `&&` and `||`.
 For example, the rule could warn about this line:
 
 ```js
-var foo = a && b || c;
+var foo = a + b * c;
 ```
 
 The rule suggests adding parentheses, like this:
 
 ```js
-var foo = (a && b) || c;
+var foo = a + (b * c);
 ```
 
-However, prettier prints the minimum amount of parentheses technically needed,
-turning it back to:
+However, prettier removes many “unnecessary” parentheses, turning it back to:
 
 ```js
-var foo = a && b || c;
+var foo = a + b * c;
 ```
 
 If you want to use this rule with prettier, you need to split the expression
 into another variable:
 
 ```js
-var bar = a && b;
-var foo = bar || c;
+var bar = b * c;
+var foo = a + bar;
+```
+
+Keep in mind that prettier prints _some_ “unnecessary” parentheses, though:
+
+```js
+var foo = (a && b) || c;
 ```
 
 Example configuration:
