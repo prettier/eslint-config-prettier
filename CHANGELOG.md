@@ -1,3 +1,11 @@
+### Version 1.4.0 (2017-02-26)
+
+- Added: The [no-confusing-arrow] rule (as a
+  [special rule][no-confusing-arrow-special]). Thanks to Dominik Ferber
+  (@dferber90)!
+- Added: Deprecated or removed rules that might conflict with prettier. Thanks
+  to Dominik Ferber (@dferber90)!
+
 ### Version 1.3.0 (2017-02-21)
 
 - Added: The [template-tag-spacing] rule. Thanks to Thibault Derousseaux
@@ -39,5 +47,7 @@
 
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
+[no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
+[no-confusing-arrow-special]: https://github.com/lydell/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
 [one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
 [template-tag-spacing]: http://eslint.org/docs/rules/template-tag-spacing
