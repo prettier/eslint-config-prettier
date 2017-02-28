@@ -1,3 +1,8 @@
+### Version 1.4.1 (2017-02-28)
+
+- Improved: eslint-config-prettier is now part of the [prettier] organization!
+  This version updates all URLs to point to the new home of the project.
+
 ### Version 1.4.0 (2017-02-26)
 
 - Added: The [no-confusing-arrow] rule (as a
@@ -50,4 +55,5 @@
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
 [one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
+[prettier]: https://github.com/prettier
 [template-tag-spacing]: http://eslint.org/docs/rules/template-tag-spacing
