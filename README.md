@@ -310,7 +310,7 @@ several other npm scripts:
 [max-len]: http://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
-[prettier]: https://github.com/jlongster/prettier
+[prettier]: https://github.com/prettier/prettier
 [quotes]: http://eslint.org/docs/rules/quotes
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
