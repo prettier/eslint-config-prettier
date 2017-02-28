@@ -17,7 +17,7 @@ if (module === require.main) {
         "(Swap out .eslintrc.js with the path to your config if needed.)",
         "",
         "For more information, see:",
-        "https://github.com/lydell/eslint-config-prettier#cli-helper-tool"
+        "https://github.com/prettier/eslint-config-prettier#cli-helper-tool"
       ].join("\n")
     );
     process.exit(1);
@@ -114,7 +114,7 @@ function processString(string) {
 
   const specialMessage = [
     "The following rules can be enabled in some cases. See:",
-    "https://github.com/lydell/eslint-config-prettier#special-rules",
+    "https://github.com/prettier/eslint-config-prettier#special-rules",
     "",
     specialRulesList
   ].join("\n");

@@ -4,7 +4,7 @@
   "license": "MIT",
   "author": "Simon Lydell",
   "description": "Turns off all rules that are unnecessary or might conflict with prettier.",
-  "repository": "lydell/eslint-config-prettier",
+  "repository": "prettier/eslint-config-prettier",
   "files": [
     "bin/",
     "flowtype.js",

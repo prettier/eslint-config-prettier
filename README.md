@@ -312,5 +312,5 @@ several other npm scripts:
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
 [prettier]: https://github.com/jlongster/prettier
 [quotes]: http://eslint.org/docs/rules/quotes
-[travis-badge]: https://travis-ci.org/lydell/eslint-config-prettier.svg?branch=master
-[travis]: https://travis-ci.org/lydell/eslint-config-prettier
+[travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
+[travis]: https://travis-ci.org/prettier/eslint-config-prettier
