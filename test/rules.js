@@ -30,10 +30,13 @@ function createTestConfigDir() {
     const config = require(`../${ruleFileName}`);
 
     // Change all rules to "warn", so that ESLint warns about unknown rules.
-    const newRules = Object.keys(config.rules).reduce((obj, ruleName) => {
-      obj[ruleName] = "warn";
-      return obj;
-    }, {});
+    const newRules = Object.keys(config.rules).reduce(
+      (obj, ruleName) => {
+        obj[ruleName] = "warn";
+        return obj;
+      },
+      {}
+    );
 
     const newConfig = Object.assign({}, config, { rules: newRules });
 
