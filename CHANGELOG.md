@@ -1,3 +1,7 @@
+### Version 1.5.0 (2017-03-04)
+
+- Added: The [nonblock-statement-body-position] rule.
+
 ### Version 1.4.1 (2017-02-28)
 
 - Improved: eslint-config-prettier is now part of the [prettier] organization!
@@ -54,6 +58,7 @@
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
+[nonblock-statement-body-position]: http://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
 [prettier]: https://github.com/prettier
 [template-tag-spacing]: http://eslint.org/docs/rules/template-tag-spacing
