@@ -34,7 +34,7 @@
     "ava": "^0.18.2",
     "babel-eslint": "^7.1.1",
     "dedent": "^0.7.0",
-    "eslint": "^3.16.1",
+    "eslint": "^3.17.0",
     "eslint-config-google": "^0.7.1",
     "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-prettier": "^2.0.1",
