@@ -5,6 +5,7 @@ module.exports = {
     // The following rules can be used in some cases. See the README for more
     // information. (These are marked with `0` instead of `"off"` so that a
     // script can distinguish them.)
+    curly: 0,
     "max-len": 0,
     "no-confusing-arrow": 0,
     "no-mixed-operators": 0,

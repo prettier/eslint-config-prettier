@@ -105,6 +105,48 @@ Then run `npm run eslint-check`.
 There a few rules that eslint-config-prettier disables that actually can be
 enabled in some cases.
 
+### [curly]
+
+This rule enforces the best practice to never omit curly braces around blocks.
+With the option `multi-line` this rule allows for example brace-less single-line 
+`if`, `else if`, `else`, `for`, `while`, or `do`.  
+
+That causes no problems with prettier in general, but if you have for example
+a very long single-line `if` which exceeds the `max-len` limit, prettier would
+split it into multiple lines. 
+
+Example:
+
+```js
+if (foo !== undefined && bar !== undefined) doSomethingWhichExeedsMaxLenLimit();
+```
+
+might end up in:
+
+```js
+if (foo !== undefined && bar !== undefined) 
+  doSomethingWhichExeedsMaxLenLimit();
+```
+
+[eslint-config-airbnb] config includes `curly` with the
+`multi-line` option turned on by default. Since that config is very popular, it
+makes sense for eslint-config-prettier to turn this rule off.
+
+If you like this rule, it can be used just fine with prettier as long as you make 
+sure, that your brace-less single-line `if`, `else if`, `else`, `for`, `while`, or `do`
+never exceed the `max-len` limit.
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "curly": ["error", "multi-line"]
+  }
+}
+```
+
+
 ### [max-len]
 
 Usually, prettier takes care of following a maximum line length automatically.
@@ -307,6 +349,7 @@ several other npm scripts:
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/not-an-aardvark/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
+[curly]: http://eslint.org/docs/rules/curly
 [max-len]: http://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
