@@ -108,6 +108,7 @@ test(
     "arrow-parens",
     "no-mixed-operators",
     "no-confusing-arrow",
+    "curly",
     "react/jsx-indent",
     "flowtype/semi"
   ],
@@ -122,6 +123,7 @@ test(
     The following rules can be enabled in some cases. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
+    - curly
     - max-len
     - no-confusing-arrow
     - no-mixed-operators
