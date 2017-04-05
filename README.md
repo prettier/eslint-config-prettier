@@ -107,45 +107,43 @@ enabled in some cases.
 
 ### [curly]
 
-This rule enforces the best practice to never omit curly braces around blocks.
-With the option `multi-line` this rule allows for example brace-less single-line 
-`if`, `else if`, `else`, `for`, `while`, or `do`.  
+If a block (for example after `if`, `else`, `for` or `while`) contains only one
+statement, JavaScript allows omitting the curly braces around that statement.
+This rule enforces if or when those optional curly braces should be omitted.
 
-That causes no problems with prettier in general, but if you have for example
-a very long single-line `if` which exceeds the `max-len` limit, prettier would
-split it into multiple lines. 
+If you use the `"multi-line"` or `"multi-or-nest"` option, the rule can conflict
+with prettier.
 
-Example:
-
-```js
-if (foo !== undefined && bar !== undefined) doSomethingWhichExeedsMaxLenLimit();
-```
-
-might end up in:
+For example, the `"multi-line"` option allows this line:
 
 ```js
-if (foo !== undefined && bar !== undefined) 
-  doSomethingWhichExeedsMaxLenLimit();
+if (cart.items && cart.items[0] && cart.items[0].quantity === 0) updateCart(cart);
 ```
 
-[eslint-config-airbnb] config includes `curly` with the
-`multi-line` option turned on by default. Since that config is very popular, it
-makes sense for eslint-config-prettier to turn this rule off.
+However, prettier might consider the line too long and turn it into the
+following, which the `"multi-line"` option does _not_ allow:
 
-If you like this rule, it can be used just fine with prettier as long as you make 
-sure, that your brace-less single-line `if`, `else if`, `else`, `for`, `while`, or `do`
-never exceed the `max-len` limit.
+```js
+if (cart.items && cart.items[0] && cart.items[0].quantity === 0)
+  updateCart(cart);
+```
+
+[eslint-config-airbnb] config includes `curly` with the `"multi-line"` option
+turned on by default. Since that config is very popular, it makes sense for
+eslint-config-prettier to turn this rule off.
+
+If you like this rule, it can be used just fine with prettier as long as you
+don’t use the `"multi-line"` or `"multi-or-nest"` option.
 
 Example configuration:
 
 ```json
 {
   "rules": {
-    "curly": ["error", "multi-line"]
+    "curly": ["error", "all"]
   }
 }
 ```
-
 
 ### [max-len]
 
@@ -345,11 +343,11 @@ several other npm scripts:
 
 [MIT](LICENSE).
 
+[curly]: http://eslint.org/docs/rules/curly
 [eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/not-an-aardvark/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
-[curly]: http://eslint.org/docs/rules/curly
 [max-len]: http://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
