@@ -1,3 +1,7 @@
+### Version 1.6.0 (2017-04-05)
+
+- Added: The [curly] rule. Thanks to Martin Rädlinger (@formatlos)!
+
 ### Version 1.5.0 (2017-03-04)
 
 - Added: The [nonblock-statement-body-position] rule.
