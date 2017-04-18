@@ -1,9 +1,9 @@
 # eslint-config-prettier [![Build Status][travis-badge]][travis]
 
-Turns off all rules that are unnecessary or might conflict with [prettier].
+Turns off all rules that are unnecessary or might conflict with [Prettier].
 
 This let’s you use you favorite shareable config without letting its stylistic
-choices get in the way when using prettier.
+choices get in the way when using Prettier.
 
 Intended to be used together with [eslint-plugin-prettier].
 
@@ -50,7 +50,7 @@ Add extra exclusions for the plugins you use like so:
 
 eslint-config-prettier also ships with a little CLI tool to help you check if
 your configuration contains any rules that are unnecessary or conflict with
-prettier.
+Prettier.
 
 First, add a script for it to package.json:
 
@@ -112,7 +112,7 @@ statement, JavaScript allows omitting the curly braces around that statement.
 This rule enforces if or when those optional curly braces should be omitted.
 
 If you use the `"multi-line"` or `"multi-or-nest"` option, the rule can conflict
-with prettier.
+with Prettier.
 
 For example, the `"multi-line"` option allows this line:
 
@@ -120,7 +120,7 @@ For example, the `"multi-line"` option allows this line:
 if (cart.items && cart.items[0] && cart.items[0].quantity === 0) updateCart(cart);
 ```
 
-However, prettier might consider the line too long and turn it into the
+However, Prettier might consider the line too long and turn it into the
 following, which the `"multi-line"` option does _not_ allow:
 
 ```js
@@ -132,7 +132,7 @@ if (cart.items && cart.items[0] && cart.items[0].quantity === 0)
 turned on by default. Since that config is very popular, it makes sense for
 eslint-config-prettier to turn this rule off.
 
-If you like this rule, it can be used just fine with prettier as long as you
+If you like this rule, it can be used just fine with Prettier as long as you
 don’t use the `"multi-line"` or `"multi-or-nest"` option.
 
 Example configuration:
@@ -147,13 +147,13 @@ Example configuration:
 
 ### [max-len]
 
-Usually, prettier takes care of following a maximum line length automatically.
-However, there are cases where prettier can’t do anything, such as for long
+Usually, Prettier takes care of following a maximum line length automatically.
+However, there are cases where Prettier can’t do anything, such as for long
 strings, regular expressions and comments. Those need to be split up by a human.
 
 If you’d like to enforce an even stricter maximum line length policy than
-prettier can provide automatically, you can enable this rule. Just remember to
-keep `max-len`’s options and prettier’s `printWidth` option in sync.
+Prettier can provide automatically, you can enable this rule. Just remember to
+keep `max-len`’s options and Prettier’s `printWidth` option in sync.
 
 Example configuration:
 
@@ -179,7 +179,7 @@ By default, ESLint suggests switching to an explicit return:
 var x = a => { return 1 ? 2 : 3; };
 ```
 
-That causes no problems with prettier.
+That causes no problems with Prettier.
 
 With `{allowParens: true}`, adding parentheses is also considered a valid way to
 avoid the arrow confusion:
@@ -188,7 +188,7 @@ avoid the arrow confusion:
 var x = a => (1 ? 2 : 3);
 ```
 
-However, prettier removes many “unnecessary” parentheses, turning it back to:
+However, Prettier removes many “unnecessary” parentheses, turning it back to:
 
 ```js
 var x = a => 1 ? 2 : 3;
@@ -198,7 +198,7 @@ var x = a => 1 ? 2 : 3;
 `allowParens` option turned on by default. Since that config is very popular, it
 makes sense for eslint-config-prettier to turn this rule off.
 
-If you like this rule, it can be used just fine with prettier as long as the
+If you like this rule, it can be used just fine with Prettier as long as the
 `allowParens` option is off.
 
 Example configuration:
@@ -227,13 +227,13 @@ The rule suggests adding parentheses, like this:
 var foo = a + (b * c);
 ```
 
-However, prettier removes many “unnecessary” parentheses, turning it back to:
+However, Prettier removes many “unnecessary” parentheses, turning it back to:
 
 ```js
 var foo = a + b * c;
 ```
 
-If you want to use this rule with prettier, you need to split the expression
+If you want to use this rule with Prettier, you need to split the expression
 into another variable:
 
 ```js
@@ -241,7 +241,7 @@ var bar = b * c;
 var foo = a + bar;
 ```
 
-Keep in mind that prettier prints _some_ “unnecessary” parentheses, though:
+Keep in mind that Prettier prints _some_ “unnecessary” parentheses, though:
 
 ```js
 var foo = (a && b) || c;
@@ -351,7 +351,7 @@ several other npm scripts:
 [max-len]: http://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
-[prettier]: https://github.com/prettier/prettier
+[Prettier]: https://github.com/prettier/prettier
 [quotes]: http://eslint.org/docs/rules/quotes
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier

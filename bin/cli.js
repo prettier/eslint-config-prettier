@@ -10,7 +10,7 @@ if (module === require.main) {
     console.error(
       [
         "This tool checks whether an ESLint configuration contains rules that are",
-        "unnecessary or conflict with prettier. It’s supposed to be run like this:",
+        "unnecessary or conflict with Prettier. It’s supposed to be run like this:",
         "",
         "  eslint --print-config .eslintrc.js | eslint-config-prettier-check",
         "",
@@ -89,7 +89,7 @@ function processString(string) {
 
   if (flaggedRuleNames.length === 0) {
     return {
-      stdout: "No rules that are unnecessary or conflict with prettier were found.",
+      stdout: "No rules that are unnecessary or conflict with Prettier were found.",
       code: 0
     };
   }
@@ -107,7 +107,7 @@ function processString(string) {
     .join("\n");
 
   const regularMessage = [
-    "The following rules are unnecessary or might conflict with prettier:",
+    "The following rules are unnecessary or might conflict with Prettier:",
     "",
     regularRulesList
   ].join("\n");

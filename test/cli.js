@@ -57,7 +57,7 @@ function offRulesMacro(t, rules) {
     const result = cli.processString(createRules(rules, pattern));
     t.is(
       result.stdout,
-      "No rules that are unnecessary or conflict with prettier were found."
+      "No rules that are unnecessary or conflict with Prettier were found."
     );
     t.is(result.code, 0);
   });
@@ -81,7 +81,7 @@ test(
   onRulesMacro,
   ["strict", "arrow-parens"],
   dedent`
-    The following rules are unnecessary or might conflict with prettier:
+    The following rules are unnecessary or might conflict with Prettier:
 
     - arrow-parens
   `
@@ -113,7 +113,7 @@ test(
     "flowtype/semi"
   ],
   dedent`
-    The following rules are unnecessary or might conflict with prettier:
+    The following rules are unnecessary or might conflict with Prettier:
 
     - arrow-parens
     - arrow-spacing

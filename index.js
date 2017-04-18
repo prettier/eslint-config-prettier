@@ -10,7 +10,7 @@ module.exports = {
     "no-confusing-arrow": 0,
     "no-mixed-operators": 0,
     quotes: 0,
-    // The rest are rules that you never need to enable when using prettier.
+    // The rest are rules that you never need to enable when using Prettier.
     "array-bracket-spacing": "off",
     "arrow-parens": "off",
     "arrow-spacing": "off",

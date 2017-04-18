@@ -1,2 +1,2 @@
-// prettier want double quotes, but eslint-config-google wants single quotes.
+// Prettier want double quotes, but eslint-config-google wants single quotes.
 "use strict";
