@@ -135,9 +135,9 @@ if (cart.items && cart.items[0] && cart.items[0].quantity === 0)
   updateCart(cart);
 ```
 
-[eslint-config-airbnb] config includes `curly` with the `"multi-line"` option
-turned on by default. Since that config is very popular, it makes sense for
-eslint-config-prettier to turn this rule off.
+The [eslint-config-airbnb] config includes `curly` with the `"multi-line"`
+option turned on by default. Since that config is very popular, it makes sense
+for eslint-config-prettier to turn this rule off.
 
 If you like this rule, it can be used just fine with Prettier as long as you
 don’t use the `"multi-line"` or `"multi-or-nest"` option.
