@@ -79,13 +79,10 @@ function processString(string) {
 
   const specialRules = Object.keys(allRules)
     .filter(ruleName => allRules[ruleName] === 0)
-    .reduce(
-      (obj, ruleName) => {
-        obj[ruleName] = true;
-        return obj;
-      },
-      Object.create(null)
-    );
+    .reduce((obj, ruleName) => {
+      obj[ruleName] = true;
+      return obj;
+    }, Object.create(null));
 
   const flaggedRuleNames = Object.keys(config.rules).filter(ruleName => {
     const value = config.rules[ruleName];

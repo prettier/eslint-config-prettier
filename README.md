@@ -239,7 +239,7 @@ Example configuration:
 eslint-config-prettier has been tested with:
 
 - ESLint 3.19.0
-- prettier 0.22.0
+- prettier 1.1.0
 - eslint-plugin-flowtype 2.30.4
 - eslint-plugin-react 6.10.3
 
