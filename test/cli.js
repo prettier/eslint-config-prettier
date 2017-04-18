@@ -92,7 +92,8 @@ test(
   onRulesMacro,
   ["strict", "max-len"],
   dedent`
-    The following rules can be enabled in some cases. See:
+    The following rules are enabled but can only be enabled in some cases.
+    It is up to you to check if they are configured correctly. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - max-len
@@ -122,7 +123,8 @@ test(
     - flowtype/semi
     - react/jsx-indent
 
-    The following rules can be enabled in some cases. See:
+    The following rules are enabled but can only be enabled in some cases.
+    It is up to you to check if they are configured correctly. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - curly
