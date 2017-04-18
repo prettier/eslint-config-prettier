@@ -67,11 +67,11 @@ offRulesMacro.title = (providedTitle, rules) =>
 
 test(offRulesMacro, ["strict", "arrow-parens", "max-len"]);
 
-function onRulesMacro(t, rules, expected) {
+function onRulesMacro(t, rules, expected, expectedCode) {
   onPatterns.forEach(pattern => {
     const result = cli.processString(createRules(rules, pattern));
     t.is(result.stdout, expected);
-    t.is(result.code, 2);
+    t.is(result.code, expectedCode);
   });
 }
 onRulesMacro.title = (providedTitle, rules) =>
@@ -84,7 +84,8 @@ test(
     The following rules are unnecessary or might conflict with Prettier:
 
     - arrow-parens
-  `
+  `,
+  2
 );
 
 test(
@@ -95,7 +96,8 @@ test(
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - max-len
-  `
+  `,
+  3
 );
 
 test(
@@ -128,5 +130,6 @@ test(
     - no-confusing-arrow
     - no-mixed-operators
     - quotes
-  `
+  `,
+  2
 );

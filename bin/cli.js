@@ -16,6 +16,13 @@ if (module === require.main) {
         "",
         "(Swap out .eslintrc.js with the path to your config if needed.)",
         "",
+        "Exit codes:",
+        "",
+        "0: No problems found.",
+        "1: Unexpected error.",
+        "2: Conflicting rules found.",
+        "3: Special rules only found.",
+        "",
         "For more information, see:",
         "https://github.com/prettier/eslint-config-prettier#cli-helper-tool"
       ].join("\n")
@@ -128,7 +135,7 @@ function processString(string) {
 
   return {
     stdout: message,
-    code: 2
+    code: regularRulesList.length > 0 ? 2 : 3
   };
 }
 

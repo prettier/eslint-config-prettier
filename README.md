@@ -66,6 +66,13 @@ Then run `npm run eslint-check`.
 
 (Swap out .eslintrc.js with the path to your config if needed.)
 
+Exit codes:
+
+- 0: No problems found.
+- 1: Unexpected error.
+- 2: Conflicting rules found.
+- 3: Special rules only found.
+
 ## Example configuration
 
 ```json
