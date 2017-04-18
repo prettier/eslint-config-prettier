@@ -2,7 +2,7 @@
 
 Turns off all rules that are unnecessary or might conflict with [Prettier].
 
-This let’s you use you favorite shareable config without letting its stylistic
+This lets you use you favorite shareable config without letting its stylistic
 choices get in the way when using Prettier.
 
 Intended to be used together with [eslint-plugin-prettier].
