@@ -110,7 +110,6 @@ test(
     "quotes",
     "arrow-parens",
     "no-mixed-operators",
-    "no-confusing-arrow",
     "curly",
     "react/jsx-indent",
     "flowtype/semi"
@@ -129,7 +128,6 @@ test(
 
     - curly
     - max-len
-    - no-confusing-arrow
     - no-mixed-operators
     - quotes
   `,
