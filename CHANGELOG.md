@@ -1,3 +1,11 @@
+### Version 1.7.0 (2017-04-19)
+
+- Changed: The [no-confusing-arrow] is no longer a special rule, but simply
+  turned off, since recent Prettier versions make it redundant.
+- Improved: The CLI helper tool now has a more helpful message for special
+  rules, and exits with a different status code if only special rules were
+  found. The exit codes are now documented as well.
+
 ### Version 1.6.0 (2017-04-05)
 
 - Added: The [curly] rule. Thanks to Martin Rädlinger (@formatlos)!
