@@ -1,3 +1,4 @@
+// @flow
 /* eslint-disable quotes */
 "use strict";
 
