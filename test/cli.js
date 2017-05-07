@@ -33,49 +33,53 @@ test(invalidConfigMacro, "1");
 test(invalidConfigMacro, '"string"');
 test(invalidConfigMacro, "[1, true]");
 
-const offPatterns = ["0", '"off"', "[0]", '["off"]', '["off", "never"]'];
+const offPatterns = [0, "off", [0], ["off"], ["off", "never"]];
 
-const onPatterns = [
-  "1",
-  "2",
-  '"warn"',
-  '"error"',
-  "[1]",
-  "[2]",
-  '["warn"]',
-  '["error"]',
-  '["error", "never"]'
-];
+const onPatterns = [1, 2, "warn", "error", [1], [2], ["warn"], ["error"]];
 
-function createRules(rules, value) {
-  const rulesString = rules.map(rule => `"${rule}": ${value}`).join(", ");
+function createRules(rules, pattern) {
+  const arrayPattern = Array.isArray(pattern) ? pattern : [pattern];
+  const rulesString = rules
+    .map(rule => {
+      const value = Array.isArray(rule)
+        ? arrayPattern.concat(rule.slice(1))
+        : pattern;
+      const name = Array.isArray(rule) ? rule[0] : rule;
+      return `"${name}": ${JSON.stringify(value)}`;
+    })
+    .join(", ");
   return `{"rules": {${rulesString}}}`;
+}
+
+function rulesMacroTitle(title) {
+  return (providedTitle, rules) =>
+    `${providedTitle} ${title}: ${rules
+      .map(rule => JSON.stringify(rule))
+      .join(", ")}`.trim();
 }
 
 function offRulesMacro(t, rules) {
   offPatterns.forEach(pattern => {
     const result = cli.processString(createRules(rules, pattern));
+    t.is(result.code, 0);
     t.is(
       result.stdout,
       "No rules that are unnecessary or conflict with Prettier were found."
     );
-    t.is(result.code, 0);
   });
 }
-offRulesMacro.title = (providedTitle, rules) =>
-  `${providedTitle} Does not flag: ${rules.join(", ")}`.trim();
+offRulesMacro.title = rulesMacroTitle("Does not flag");
 
-test(offRulesMacro, ["strict", "arrow-parens", "max-len"]);
+test(offRulesMacro, ["strict", "arrow-parens", "curly", "max-len"]);
 
 function onRulesMacro(t, rules, expected, expectedCode) {
   onPatterns.forEach(pattern => {
     const result = cli.processString(createRules(rules, pattern));
-    t.is(result.stdout, expected);
     t.is(result.code, expectedCode);
+    t.is(result.stdout, expected);
   });
 }
-onRulesMacro.title = (providedTitle, rules) =>
-  `${providedTitle} Does flag: ${rules.join(", ")}`.trim();
+onRulesMacro.title = rulesMacroTitle("Does flag");
 
 test(
   onRulesMacro,
@@ -90,15 +94,37 @@ test(
 
 test(
   onRulesMacro,
+  ["strict", "curly"],
+  dedent`
+    No rules that are unnecessary or conflict with Prettier were found.
+  `,
+  0
+);
+
+test(
+  onRulesMacro,
+  ["strict", ["curly", "multi-line"]],
+  dedent`
+    The following rules are enabled with options that might conflict with Prettier. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
+
+    - curly
+  `,
+  2
+);
+
+test(
+  onRulesMacro,
   ["strict", "max-len"],
   dedent`
-    The following rules are enabled but can only be enabled in some cases.
-    It is up to you to check if they are configured correctly. See:
+    No rules that are unnecessary or conflict with Prettier were found.
+
+    However, the following rules are enabled but cannot be automatically checked. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - max-len
   `,
-  3
+  0
 );
 
 test(
@@ -110,7 +136,7 @@ test(
     "quotes",
     "arrow-parens",
     "no-mixed-operators",
-    "curly",
+    ["curly", "multi-or-nest", "consistent"],
     "react/jsx-indent",
     "flowtype/semi"
   ],
@@ -122,14 +148,17 @@ test(
     - flowtype/semi
     - react/jsx-indent
 
-    The following rules are enabled but can only be enabled in some cases.
-    It is up to you to check if they are configured correctly. See:
+    The following rules are enabled with options that might conflict with Prettier. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - curly
+    - quotes
+
+    The following rules are enabled but cannot be automatically checked. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
+
     - max-len
     - no-mixed-operators
-    - quotes
   `,
   2
 );

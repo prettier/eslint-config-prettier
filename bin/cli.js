@@ -4,6 +4,10 @@
 
 const getStdin = require("get-stdin");
 const pkg = require("../package.json");
+const validators = require("./validators");
+
+const SPECIAL_RULES_URL =
+  "https://github.com/prettier/eslint-config-prettier#special-rules";
 
 if (module === require.main) {
   if (process.argv.length > 2 || process.stdin.isTTY) {
@@ -18,10 +22,9 @@ if (module === require.main) {
         "",
         "Exit codes:",
         "",
-        "0: No problems found.",
+        "0: No automatically detectable problems found.",
         "1: Unexpected error.",
         "2: Conflicting rules found.",
-        "3: Special rules only found.",
         "",
         "For more information, see:",
         "https://github.com/prettier/eslint-config-prettier#cli-helper-tool"
@@ -77,64 +80,119 @@ function processString(string) {
     )
   );
 
-  const specialRules = Object.keys(allRules)
-    .filter(ruleName => allRules[ruleName] === 0)
-    .reduce((obj, ruleName) => {
-      obj[ruleName] = true;
-      return obj;
-    }, Object.create(null));
+  const regularRules = filterRules(
+    allRules,
+    (ruleName, value) => value === "off"
+  );
+  const optionsRules = filterRules(
+    allRules,
+    (ruleName, value) => value === 0 && ruleName in validators
+  );
+  const specialRules = filterRules(
+    allRules,
+    (ruleName, value) => value === 0 && !(ruleName in validators)
+  );
 
-  const flaggedRuleNames = Object.keys(config.rules).filter(ruleName => {
-    const value = config.rules[ruleName];
-    const level = Array.isArray(value) ? value[0] : value;
-    const isOff = level === "off" || level === 0;
-    return !isOff && ruleName in allRules;
-  });
+  const flaggedRules = Object.keys(config.rules)
+    .map(ruleName => {
+      const value = config.rules[ruleName];
+      const arrayValue = Array.isArray(value) ? value : [value];
+      const level = arrayValue[0];
+      const options = arrayValue.slice(1);
+      const isOff = level === "off" || level === 0;
+      return !isOff && ruleName in allRules ? { ruleName, options } : null;
+    })
+    .filter(Boolean);
 
-  if (flaggedRuleNames.length === 0) {
+  const regularFlaggedRuleNames = filterRuleNames(
+    flaggedRules,
+    ruleName => ruleName in regularRules
+  );
+  const optionsFlaggedRuleNames = filterRuleNames(
+    flaggedRules,
+    (ruleName, options) =>
+      ruleName in optionsRules && !validators[ruleName](options)
+  );
+  const specialFlaggedRuleNames = filterRuleNames(
+    flaggedRules,
+    ruleName => ruleName in specialRules
+  );
+
+  if (
+    regularFlaggedRuleNames.length === 0 &&
+    optionsFlaggedRuleNames.length === 0
+  ) {
+    const baseMessage =
+      "No rules that are unnecessary or conflict with Prettier were found.";
+
+    const message = specialFlaggedRuleNames.length === 0
+      ? baseMessage
+      : [
+          baseMessage,
+          "",
+          "However, the following rules are enabled but cannot be automatically checked. See:",
+          SPECIAL_RULES_URL,
+          "",
+          printRuleNames(specialFlaggedRuleNames)
+        ].join("\n");
+
     return {
-      stdout: "No rules that are unnecessary or conflict with Prettier were found.",
+      stdout: message,
       code: 0
     };
   }
 
-  const regularRulesList = flaggedRuleNames
-    .filter(ruleName => !(ruleName in specialRules))
-    .sort()
-    .map(ruleName => `- ${ruleName}`)
-    .join("\n");
-
-  const specialRulesList = flaggedRuleNames
-    .filter(ruleName => ruleName in specialRules)
-    .sort()
-    .map(ruleName => `- ${ruleName}`)
-    .join("\n");
-
   const regularMessage = [
     "The following rules are unnecessary or might conflict with Prettier:",
     "",
-    regularRulesList
+    printRuleNames(regularFlaggedRuleNames)
+  ].join("\n");
+
+  const optionsMessage = [
+    "The following rules are enabled with options that might conflict with Prettier. See:",
+    SPECIAL_RULES_URL,
+    "",
+    printRuleNames(optionsFlaggedRuleNames)
   ].join("\n");
 
   const specialMessage = [
-    "The following rules are enabled but can only be enabled in some cases.",
-    "It is up to you to check if they are configured correctly. See:",
-    "https://github.com/prettier/eslint-config-prettier#special-rules",
+    "The following rules are enabled but cannot be automatically checked. See:",
+    SPECIAL_RULES_URL,
     "",
-    specialRulesList
+    printRuleNames(specialFlaggedRuleNames)
   ].join("\n");
 
   const message = [
-    regularRulesList.length === 0 ? null : regularMessage,
-    specialRulesList.length === 0 ? null : specialMessage
+    regularFlaggedRuleNames.length === 0 ? null : regularMessage,
+    optionsFlaggedRuleNames.length === 0 ? null : optionsMessage,
+    specialFlaggedRuleNames.length === 0 ? null : specialMessage
   ]
     .filter(Boolean)
     .join("\n\n");
 
   return {
     stdout: message,
-    code: regularRulesList.length > 0 ? 2 : 3
+    code: 2
   };
+}
+
+function filterRules(rules, fn) {
+  return Object.keys(rules)
+    .filter(ruleName => fn(ruleName, rules[ruleName]))
+    .reduce((obj, ruleName) => {
+      obj[ruleName] = true;
+      return obj;
+    }, Object.create(null));
+}
+
+function filterRuleNames(rules, fn) {
+  return rules
+    .filter(rule => fn(rule.ruleName, rule.options))
+    .map(rule => rule.ruleName);
+}
+
+function printRuleNames(ruleNames) {
+  return ruleNames.slice().sort().map(ruleName => `- ${ruleName}`).join("\n");
 }
 
 exports.processString = processString;

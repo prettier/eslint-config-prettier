@@ -71,7 +71,6 @@ Exit codes:
 - 0: No problems found.
 - 1: Unexpected error.
 - 2: Conflicting rules found.
-- 3: Special rules only found.
 
 ## Example configuration
 
@@ -112,7 +111,17 @@ Exit codes:
 There a few rules that eslint-config-prettier disables that actually can be
 enabled in some cases.
 
+- Some require certain options. The CLI helper tool validates this.
+- Some require special attention when writing code. The CLI helper tool warns
+  you if any of those rules are enabled, but can’t tell if anything is
+  problematic.
+
+For maximum ease of use, the special rules are disabled by default. If you want
+them, you need to explicitly specify them in your ESLint config.
+
 ### [curly]
+
+**This rule requires certain options.**
 
 If a block (for example after `if`, `else`, `for` or `while`) contains only one
 statement, JavaScript allows omitting the curly braces around that statement.
@@ -154,6 +163,8 @@ Example configuration:
 
 ### [max-len]
 
+**This rule requires special attention when writing code.**
+
 Usually, Prettier takes care of following a maximum line length automatically.
 However, there are cases where Prettier can’t do anything, such as for long
 strings, regular expressions and comments. Those need to be split up by a human.
@@ -161,6 +172,9 @@ strings, regular expressions and comments. Those need to be split up by a human.
 If you’d like to enforce an even stricter maximum line length policy than
 Prettier can provide automatically, you can enable this rule. Just remember to
 keep `max-len`’s options and Prettier’s `printWidth` option in sync.
+
+Keep in mind that you might have to refactor code slightly if Prettier formats
+lines in a way that the `max-len` rule does not approve of.
 
 Example configuration:
 
@@ -173,6 +187,8 @@ Example configuration:
 ```
 
 ### [no-mixed-operators]
+
+**This rule requires special attention when writing code.**
 
 This rule forbids mixing certain operators, such as `&&` and `||`.
 
@@ -219,6 +235,8 @@ Example configuration:
 ```
 
 ### [quotes]
+
+**This rule requires certain options.**
 
 If you’d like to enforce the use of backticks rather than single or double
 quotes for strings, you can enable this rule. Otherwise, there’s no need to.
