@@ -1,3 +1,20 @@
+### Version 2.0.0 (2017-05-07)
+
+- Changed/Improved: The CLI helper tool is now more helpful.
+
+  - The options of special rules are now validated if possible. If a special
+    rule is enabled with non-conflicting options, the CLI no longer warns about
+    it.
+  - If only special rules that cannot be automatically checked are found, the
+    CLI no longer exists with a non-zero exit code. Instead, it only warns about
+    the rules.
+
+- Changed: The [no-confusing-arrow] is now a special rule again, since it might
+  conflict with recent Prettier versions.
+
+- Removed: The `react/wrap-multilines` rule (which has been deprecated for a
+  while), since it was removed in eslint-plugin-react@7.
+
 ### Version 1.7.0 (2017-04-19)
 
 - Changed: The [no-confusing-arrow] is no longer a special rule, but simply
