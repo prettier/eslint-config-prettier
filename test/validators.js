@@ -22,6 +22,22 @@ test("curly", t => {
   );
 });
 
+test("no-confusing-arrow", t => {
+  t.true(validators["no-confusing-arrow"]([]), "no options allowed");
+  t.true(
+    validators["no-confusing-arrow"]([{ allowParens: false }]),
+    "'allowParens: false' option allowed"
+  );
+  t.false(
+    validators["no-confusing-arrow"]([{ allowParens: true }]),
+    "'allowParens: true' option disallowed"
+  );
+  t.true(
+    validators["no-confusing-arrow"]([null]),
+    "does not crash on bad input"
+  );
+});
+
 test("quotes", t => {
   t.false(validators.quotes([]), "no options disallowed");
   t.false(validators.quotes(["double"]), "'double' option disallowed");

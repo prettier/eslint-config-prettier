@@ -137,6 +137,7 @@ test(
     "arrow-parens",
     "no-mixed-operators",
     ["curly", "multi-or-nest", "consistent"],
+    ["no-confusing-arrow", { allowParens: true }],
     "react/jsx-indent",
     "flowtype/semi"
   ],
@@ -152,6 +153,7 @@ test(
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - curly
+    - no-confusing-arrow
     - quotes
 
     The following rules are enabled but cannot be automatically checked. See:

@@ -7,6 +7,7 @@ module.exports = {
     // script can distinguish them.)
     curly: 0,
     "max-len": 0,
+    "no-confusing-arrow": 0,
     "no-mixed-operators": 0,
     quotes: 0,
     // The rest are rules that you never need to enable when using Prettier.
@@ -33,7 +34,6 @@ module.exports = {
     "new-parens": "off",
     "no-arrow-condition": "off",
     "no-comma-dangle": "off",
-    "no-confusing-arrow": "off",
     "no-extra-parens": "off",
     "no-extra-semi": "off",
     "no-mixed-spaces-and-tabs": "off",
