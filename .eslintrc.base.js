@@ -22,6 +22,7 @@ module.exports = {
     node: true
   },
   rules: {
+    "no-dupe-keys": "error",
     strict: "error",
     "prefer-spread": "off",
     "require-jsdoc": "off",
