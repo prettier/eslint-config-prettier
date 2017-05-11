@@ -42,6 +42,7 @@ module.exports = {
     "no-reserved-keys": "off",
     "no-space-before-semi": "off",
     "no-spaced-func": "off",
+    "no-tabs": "off",
     "no-trailing-spaces": "off",
     "no-whitespace-before-property": "off",
     "no-wrap-func": "off",
