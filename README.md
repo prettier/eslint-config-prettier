@@ -284,6 +284,21 @@ Example configuration:
 }
 ```
 
+### [no-tabs]
+
+This rule disallows the use of tab characters at all. It can be used just fine
+with Prettier as long as you don’t configure Prettier to indent using tabs.
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "no-tabs": "error"
+  }
+}
+```
+
 ### [quotes]
 
 **This rule requires certain options.**
@@ -380,6 +395,7 @@ several other npm scripts:
 [max-len]: http://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
+[no-tabs]: http://eslint.org/docs/rules/no-tabs
 [Prettier]: https://github.com/prettier/prettier
 [quotes]: http://eslint.org/docs/rules/quotes
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master

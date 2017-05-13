@@ -135,6 +135,7 @@ test(
     "arrow-spacing",
     "quotes",
     "arrow-parens",
+    "no-tabs",
     "no-mixed-operators",
     ["curly", "multi-or-nest", "consistent"],
     ["no-confusing-arrow", { allowParens: true }],
@@ -161,6 +162,7 @@ test(
 
     - max-len
     - no-mixed-operators
+    - no-tabs
   `,
   2
 );
