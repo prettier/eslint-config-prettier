@@ -351,7 +351,7 @@ Then, create `test-lint/foobar.js`:
 /* eslint-disable quotes */
 "use strict";
 
-// prettier does not want spaces before the parentheses, but
+// Prettier does not want spaces before the parentheses, but
 // eslint-config-foobar wants one.
 console.log ();
 ```
