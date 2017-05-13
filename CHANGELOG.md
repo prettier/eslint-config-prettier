@@ -1,3 +1,8 @@
+### Version 2.1.0 (2017-05-13)
+
+- Added: The [no-tabs] rule (as a [special rule][no-tabs-special]). Thanks to
+  Alex Meah (@AlexMeah)!
+
 ### Version 2.0.0 (2017-05-07)
 
 - Changed/Improved: The CLI helper tool is now more helpful.
@@ -87,6 +92,8 @@
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
+[no-tabs]: http://eslint.org/docs/rules/no-tabs
+[no-tabs-special]: https://github.com/prettier/eslint-config-prettier/blob/dfa6e2b51f11a8001e9e7d38b78f03c7d75175ec/README.md#no-tabs
 [nonblock-statement-body-position]: http://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
 [prettier]: https://github.com/prettier
