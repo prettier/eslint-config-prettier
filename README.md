@@ -363,6 +363,7 @@ the "extends" property of an ESLint config.
 Finally, you need to mention the plugin in several places:
 
 - Add `"foobar.js"` to the "files" field in `package.json`.
+- Add eslint-plugin-foobar to the "devDependencies" field in `package.json`.
 - Make sure that at least one rule from eslint-plugin-foobar gets used in
   `.eslintrc.base.js`.
 - Add it to the list of supported plugins, to the example config and to
