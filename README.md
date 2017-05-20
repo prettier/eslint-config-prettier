@@ -391,7 +391,7 @@ several other npm scripts:
 [curly]: http://eslint.org/docs/rules/curly
 [eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
-[eslint-plugin-prettier]: https://github.com/not-an-aardvark/eslint-plugin-prettier
+[eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [max-len]: http://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
