@@ -5,19 +5,18 @@ Turns off all rules that are unnecessary or might conflict with [Prettier].
 This lets you use you favorite shareable config without letting its stylistic
 choices get in the way when using Prettier.
 
-Intended to be used together with [eslint-plugin-prettier].
-
 ## Installation
 
-First, install [eslint-plugin-prettier]. Follow the instructions over there.
+Tip: First, you might be interested in installing [eslint-plugin-prettier].
+Follow the instructions over there. This is optional, though.
 
-Then, install eslint-config-prettier:
+Install eslint-config-prettier:
 
 ```
 $ npm install --save-dev eslint-config-prettier
 ```
 
-Finally, add eslint-config-prettier to the "extends" array in your `.eslintrc.*`
+Then, add eslint-config-prettier to the "extends" array in your `.eslintrc.*`
 file. Make sure to put it **last,** so it gets the chance to override other
 configs.
 
