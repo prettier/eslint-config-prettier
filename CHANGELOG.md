@@ -1,3 +1,7 @@
+### Version 2.1.1 (2017-05-20)
+
+- No code changes. Just updates to the readme.
+
 ### Version 2.1.0 (2017-05-13)
 
 - Added: The [no-tabs] rule (as a [special rule][no-tabs-special]). Thanks to
