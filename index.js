@@ -41,6 +41,7 @@ module.exports = {
     "no-multi-spaces": "off",
     "no-multiple-empty-lines": "off",
     "no-reserved-keys": "off",
+    "no-return-assign": "off",
     "no-space-before-semi": "off",
     "no-spaced-func": "off",
     "no-trailing-spaces": "off",
