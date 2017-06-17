@@ -320,10 +320,10 @@ Example configuration:
 
 eslint-config-prettier has been tested with:
 
-- ESLint 3.19.0
-- prettier 1.3.1
-- eslint-plugin-flowtype 2.33.0
-- eslint-plugin-react 7.0.1
+- ESLint 4.0.0 (eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x)
+- prettier 1.4.4
+- eslint-plugin-flowtype 2.34.0
+- eslint-plugin-react 7.1.0
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull

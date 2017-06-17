@@ -62,8 +62,10 @@ function processString(string) {
   }
 
   if (
-    !(Object.prototype.toString.call(config) === "[object Object]" &&
-      Object.prototype.toString.call(config.rules) === "[object Object]")
+    !(
+      Object.prototype.toString.call(config) === "[object Object]" &&
+      Object.prototype.toString.call(config.rules) === "[object Object]"
+    )
   ) {
     return {
       stderr: `Expected a \`{"rules: {...}"}\` JSON object, but got:\n${string}`,
