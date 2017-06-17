@@ -1,3 +1,12 @@
+### Version 2.2.0 (2017-06-17)
+
+- Added: New rules from [ESLint 4.0.0]:
+  - [array-element-newline]
+  - [array-bracket-newline]
+  - [semi-style]
+  - [switch-colon-spacing]
+- Added: [react/jsx-closing-tag-location]
+
 ### Version 2.1.1 (2017-05-20)
 
 - No code changes. Just updates to the readme.
@@ -92,13 +101,19 @@
 
 - Initial release.
 
+[ESLint 4.0.0]: http://eslint.org/blog/2017/06/eslint-v4.0.0-released
+[array-bracket-newline]: http://eslint.org/docs/rules/array-bracket-newline
+[array-element-newline]: http://eslint.org/docs/rules/array-element-newline
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
-[no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
-[no-tabs]: http://eslint.org/docs/rules/no-tabs
+[no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-tabs-special]: https://github.com/prettier/eslint-config-prettier/blob/dfa6e2b51f11a8001e9e7d38b78f03c7d75175ec/README.md#no-tabs
+[no-tabs]: http://eslint.org/docs/rules/no-tabs
 [nonblock-statement-body-position]: http://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
 [prettier]: https://github.com/prettier
+[react/jsx-closing-tag-location]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
+[semi-style]: http://eslint.org/docs/rules/semi-style
+[switch-colon-spacing]: http://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: http://eslint.org/docs/rules/template-tag-spacing
