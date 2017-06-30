@@ -1,3 +1,8 @@
+### Version 2.3.0 (2017-06-30)
+
+- Added: The (deprecated) [indent-legacy] rule. Thanks to M. Ian Graham
+  (@miangraham)!
+
 ### Version 2.2.0 (2017-06-17)
 
 - Added: New rules from [ESLint 4.0.0]:
@@ -106,6 +111,7 @@
 [array-element-newline]: http://eslint.org/docs/rules/array-element-newline
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
+[indent-legacy]: http://eslint.org/docs/rules/indent-legacy
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-tabs-special]: https://github.com/prettier/eslint-config-prettier/blob/dfa6e2b51f11a8001e9e7d38b78f03c7d75175ec/README.md#no-tabs
