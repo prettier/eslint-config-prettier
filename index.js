@@ -29,6 +29,7 @@ module.exports = {
     "generator-star": "off",
     "generator-star-spacing": "off",
     indent: "off",
+    "indent-legacy": "off",
     "jsx-quotes": "off",
     "key-spacing": "off",
     "keyword-spacing": "off",
