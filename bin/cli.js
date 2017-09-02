@@ -127,16 +127,17 @@ function processString(string) {
     const baseMessage =
       "No rules that are unnecessary or conflict with Prettier were found.";
 
-    const message = specialFlaggedRuleNames.length === 0
-      ? baseMessage
-      : [
-          baseMessage,
-          "",
-          "However, the following rules are enabled but cannot be automatically checked. See:",
-          SPECIAL_RULES_URL,
-          "",
-          printRuleNames(specialFlaggedRuleNames)
-        ].join("\n");
+    const message =
+      specialFlaggedRuleNames.length === 0
+        ? baseMessage
+        : [
+            baseMessage,
+            "",
+            "However, the following rules are enabled but cannot be automatically checked. See:",
+            SPECIAL_RULES_URL,
+            "",
+            printRuleNames(specialFlaggedRuleNames)
+          ].join("\n");
 
     return {
       stdout: message,
@@ -194,7 +195,11 @@ function filterRuleNames(rules, fn) {
 }
 
 function printRuleNames(ruleNames) {
-  return ruleNames.slice().sort().map(ruleName => `- ${ruleName}`).join("\n");
+  return ruleNames
+    .slice()
+    .sort()
+    .map(ruleName => `- ${ruleName}`)
+    .join("\n");
 }
 
 exports.processString = processString;
