@@ -109,6 +109,7 @@
 [ESLint 4.0.0]: http://eslint.org/blog/2017/06/eslint-v4.0.0-released
 [array-bracket-newline]: http://eslint.org/docs/rules/array-bracket-newline
 [array-element-newline]: http://eslint.org/docs/rules/array-element-newline
+[curly]: https://eslint.org/docs/rules/curly
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [indent-legacy]: http://eslint.org/docs/rules/indent-legacy
