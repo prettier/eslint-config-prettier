@@ -1,3 +1,8 @@
+### Version 2.4.0 (2017-09-02)
+
+- Added: The [function-paren-newline] rule (new in [ESLint 4.6.0]). Thanks to
+  Pierre Vanduynslager (@vanduynslagerp)!
+
 ### Version 2.3.0 (2017-06-30)
 
 - Added: The (deprecated) [indent-legacy] rule. Thanks to M. Ian Graham
@@ -107,11 +112,13 @@
 - Initial release.
 
 [ESLint 4.0.0]: http://eslint.org/blog/2017/06/eslint-v4.0.0-released
+[ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
 [array-bracket-newline]: http://eslint.org/docs/rules/array-bracket-newline
 [array-element-newline]: http://eslint.org/docs/rules/array-element-newline
 [curly]: https://eslint.org/docs/rules/curly
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
+[function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [indent-legacy]: http://eslint.org/docs/rules/indent-legacy
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
