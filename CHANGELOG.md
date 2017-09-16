@@ -1,3 +1,8 @@
+### Version 2.5.0 (2017-09-16)
+
+- Added: Support for [eslint-plugin-standard]. Thanks to Christian Pekeler
+  (@pekeler)!
+
 ### Version 2.4.0 (2017-09-02)
 
 - Added: The [function-paren-newline] rule (new in [ESLint 4.6.0]). Thanks to
@@ -118,6 +123,7 @@
 [curly]: https://eslint.org/docs/rules/curly
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
+[eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [indent-legacy]: http://eslint.org/docs/rules/indent-legacy
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
