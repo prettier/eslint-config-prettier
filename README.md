@@ -32,6 +32,7 @@ A few ESLint plugins are supported as well:
 
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
+- [eslint-plugin-standard]
 
 Add extra exclusions for the plugins you use like so:
 
@@ -40,7 +41,8 @@ Add extra exclusions for the plugins you use like so:
   "extends": [
     "prettier",
     "prettier/flowtype",
-    "prettier/react"
+    "prettier/react",
+    "prettier/standard"
   ]
 }
 ```
@@ -76,20 +78,21 @@ Exit codes:
 ```json
 {
   "extends": [
-    "google",
+    "standard",
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
     "prettier",
     "prettier/flowtype",
-    "prettier/react"
+    "prettier/react",
+    "prettier/standard"
   ],
   "plugins": [
     "flowtype",
     "react",
-    "prettier"
+    "prettier",
+    "standard"
   ],
   "parserOptions": {
-    "ecmaVersion": 2016,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -324,6 +327,7 @@ eslint-config-prettier has been tested with:
 - prettier 1.7.0
 - eslint-plugin-flowtype 2.35.1
 - eslint-plugin-react 7.3.0
+- eslint-plugin-standard 3.0.1
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull
@@ -392,6 +396,7 @@ several other npm scripts:
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
+[eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [max-len]: http://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators

@@ -9,7 +9,8 @@
     "bin/",
     "flowtype.js",
     "index.js",
-    "react.js"
+    "react.js",
+    "standard.js"
   ],
   "bin": {
     "eslint-config-prettier-check": "bin/cli.js"
@@ -39,6 +40,7 @@
     "eslint-plugin-flowtype": "^2.35.1",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-standard": "^3.0.1",
     "prettier": "^1.7.0",
     "rimraf": "^2.6.2"
   },
