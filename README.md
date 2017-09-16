@@ -320,8 +320,8 @@ Example configuration:
 
 eslint-config-prettier has been tested with:
 
-- ESLint 4.6.0 (eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x)
-- prettier 1.6.1
+- ESLint 4.7.0 (eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x)
+- prettier 1.7.0
 - eslint-plugin-flowtype 2.35.1
 - eslint-plugin-react 7.3.0
 
