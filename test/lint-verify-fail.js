@@ -27,7 +27,7 @@ test("test-lint/ causes errors without eslint-config-prettier", t => {
     const name = path.basename(data.filePath).replace(/\.js$/, "");
     const ruleIds = data.messages.map(message => message.ruleId);
 
-    t.true(ruleIds.length > 0);
+    t.true(name && ruleIds.length > 0);
 
     // Every test-lint/ file must only cause errors related to its purpose.
     if (name === "index") {
