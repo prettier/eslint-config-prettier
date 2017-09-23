@@ -391,17 +391,17 @@ several other npm scripts:
 
 [MIT](LICENSE).
 
-[curly]: http://eslint.org/docs/rules/curly
+[curly]: https://eslint.org/docs/rules/curly
 [eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
-[max-len]: http://eslint.org/docs/rules/max-len
-[no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
-[no-mixed-operators]: http://eslint.org/docs/rules/no-mixed-operators
-[no-tabs]: http://eslint.org/docs/rules/no-tabs
+[max-len]: https://eslint.org/docs/rules/max-len
+[no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
+[no-mixed-operators]: https://eslint.org/docs/rules/no-mixed-operators
+[no-tabs]: https://eslint.org/docs/rules/no-tabs
 [Prettier]: https://github.com/prettier/prettier
-[quotes]: http://eslint.org/docs/rules/quotes
+[quotes]: https://eslint.org/docs/rules/quotes
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier

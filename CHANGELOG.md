@@ -116,24 +116,24 @@
 
 - Initial release.
 
-[ESLint 4.0.0]: http://eslint.org/blog/2017/06/eslint-v4.0.0-released
+[ESLint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
 [ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
-[array-bracket-newline]: http://eslint.org/docs/rules/array-bracket-newline
-[array-element-newline]: http://eslint.org/docs/rules/array-element-newline
+[array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
+[array-element-newline]: https://eslint.org/docs/rules/array-element-newline
 [curly]: https://eslint.org/docs/rules/curly
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
-[indent-legacy]: http://eslint.org/docs/rules/indent-legacy
+[indent-legacy]: https://eslint.org/docs/rules/indent-legacy
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
-[no-confusing-arrow]: http://eslint.org/docs/rules/no-confusing-arrow
+[no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-tabs-special]: https://github.com/prettier/eslint-config-prettier/blob/dfa6e2b51f11a8001e9e7d38b78f03c7d75175ec/README.md#no-tabs
-[no-tabs]: http://eslint.org/docs/rules/no-tabs
-[nonblock-statement-body-position]: http://eslint.org/docs/rules/nonblock-statement-body-position
-[one-var-declaration-per-line]: http://eslint.org/docs/rules/one-var-declaration-per-line
+[no-tabs]: https://eslint.org/docs/rules/no-tabs
+[nonblock-statement-body-position]: https://eslint.org/docs/rules/nonblock-statement-body-position
+[one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
 [prettier]: https://github.com/prettier
 [react/jsx-closing-tag-location]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
-[semi-style]: http://eslint.org/docs/rules/semi-style
-[switch-colon-spacing]: http://eslint.org/docs/rules/switch-colon-spacing
-[template-tag-spacing]: http://eslint.org/docs/rules/template-tag-spacing
+[semi-style]: https://eslint.org/docs/rules/semi-style
+[switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
+[template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
