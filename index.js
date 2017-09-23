@@ -41,6 +41,7 @@ module.exports = {
     "no-comma-dangle": "off",
     "no-extra-parens": "off",
     "no-extra-semi": "off",
+    "no-floating-decimal": "off",
     "no-mixed-spaces-and-tabs": "off",
     "no-multi-spaces": "off",
     "no-multiple-empty-lines": "off",
