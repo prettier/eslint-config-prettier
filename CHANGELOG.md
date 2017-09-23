@@ -1,3 +1,7 @@
+### Version 2.6.0 (2017-09-23)
+
+- Added: The [no-floating-decimal] rule.
+
 ### Version 2.5.0 (2017-09-16)
 
 - Added: Support for [eslint-plugin-standard]. Thanks to Christian Pekeler
@@ -128,6 +132,7 @@
 [indent-legacy]: https://eslint.org/docs/rules/indent-legacy
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
+[no-floating-decimal]: https://eslint.org/docs/rules/no-floating-decimal
 [no-tabs-special]: https://github.com/prettier/eslint-config-prettier/blob/dfa6e2b51f11a8001e9e7d38b78f03c7d75175ec/README.md#no-tabs
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
 [nonblock-statement-body-position]: https://eslint.org/docs/rules/nonblock-statement-body-position
