@@ -34,6 +34,7 @@ module.exports = {
     "jsx-quotes": "off",
     "key-spacing": "off",
     "keyword-spacing": "off",
+    "lines-around-comment": "off",
     "multiline-ternary": "off",
     "newline-per-chained-call": "off",
     "new-parens": "off",
