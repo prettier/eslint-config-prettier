@@ -319,6 +319,30 @@ Example configuration:
 }
 ```
 
+### [lines-around-comment]
+
+**This rule can be used with certain options.**
+
+It is possible to use this rule with some options.
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "lines-around-comment": ["error", { 
+        "allowBlockStart": true,
+        "allowBlockEnd": true,
+        "allowObjectStart": true,
+        "allowObjectEnd": true,
+        "allowArrayStart": true,
+        "allowArrayEnd": true,
+    }]
+  }
+}
+```
+
+
 ## Contributing
 
 eslint-config-prettier has been tested with:
@@ -403,5 +427,6 @@ several other npm scripts:
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
 [Prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes
+[lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
