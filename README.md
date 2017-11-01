@@ -146,10 +146,6 @@ if (cart.items && cart.items[0] && cart.items[0].quantity === 0)
   updateCart(cart);
 ```
 
-The [eslint-config-airbnb] config includes `curly` with the `"multi-line"`
-option turned on by default. Since that config is very popular, it makes sense
-for eslint-config-prettier to turn this rule off.
-
 If you like this rule, it can be used just fine with Prettier as long as you
 don’t use the `"multi-line"` or `"multi-or-nest"` option.
 
@@ -279,10 +275,6 @@ enough to introduce a line break:
 EnterpriseCalculator.prototype.calculateImportantNumbers = inputNumber =>
   1 ? 2 : 3;
 ```
-
-[eslint-config-airbnb] config includes `no-confusing-arrow` with the
-`allowParens` option turned on by default. Since that config is very popular, it
-makes sense for eslint-config-prettier to turn this rule off.
 
 If you like this rule, it can be used just fine with Prettier as long as the
 `allowParens` option is off.
@@ -453,7 +445,6 @@ several other npm scripts:
 
 [Prettier]: https://github.com/prettier/prettier
 [curly]: https://eslint.org/docs/rules/curly
-[eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
