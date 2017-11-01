@@ -319,6 +319,54 @@ Example configuration:
 }
 ```
 
+### [no-unexpected-multiline]
+
+This rule disallows confusing multiline expressions where a newline looks like
+it is ending a statement, but is not.
+
+For example, the rule could warn about this:
+
+```js
+var hello = 'world' // semicolon missing
+[1, 2, 3].forEach(addNumber)
+```
+
+Note that, prettier would format this in a way which would be more indicative
+of the problem(the missing `;`):
+
+```js
+var hello = 'world'[(1, 2, 3)].forEach(addNumber);
+```
+
+However, there are cases where prettier and the `no-unexpected-multiline` rule
+would confict without any possible resolution. In the following example,
+prettier breaks up the expression over multiple lines but the eslint rule
+reports an error:
+
+```js
+const value = getInstance()
+    [modeName]()
+    .toJSON()
+```
+
+The eslint `recommended` config as well as the [eslint-config-airbnb] config
+have this rule turned on by default. So makes sense for eslint-config-prettier
+to turn this rule off.
+
+If you like this rule, it can be used with prettier but you would have to
+disable it using comment directives specifically for the unresolvable
+instances.
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "no-unexpected-multiline": "error"
+  }
+}
+```
+
 ## Contributing
 
 eslint-config-prettier has been tested with:
@@ -403,5 +451,6 @@ several other npm scripts:
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
 [Prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes
+[no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier

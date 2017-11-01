@@ -11,6 +11,7 @@ module.exports = {
     "no-mixed-operators": 0,
     "no-tabs": 0,
     quotes: 0,
+    "no-unexpected-multiline": 0,
     // The rest are rules that you never need to enable when using Prettier.
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
