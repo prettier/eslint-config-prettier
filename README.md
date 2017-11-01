@@ -352,24 +352,6 @@ Example configuration:
 }
 ```
 
-### [quotes]
-
-**This rule requires certain options.**
-
-If you’d like to enforce the use of backticks rather than single or double
-quotes for strings, you can enable this rule. Otherwise, there’s no need to.
-Just remember to enable the `"backtick"` option!
-
-Example configuration:
-
-```json
-{
-  "rules": {
-    "quotes": ["error", "backtick"]
-  }
-}
-```
-
 ### [no-unexpected-multiline]
 
 This rule disallows confusing multiline expressions where a newline looks like
@@ -414,6 +396,24 @@ Example configuration:
 {
   "rules": {
     "no-unexpected-multiline": "error"
+  }
+}
+```
+
+### [quotes]
+
+**This rule requires certain options.**
+
+If you’d like to enforce the use of backticks rather than single or double
+quotes for strings, you can enable this rule. Otherwise, there’s no need to.
+Just remember to enable the `"backtick"` option!
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "quotes": ["error", "backtick"]
   }
 }
 ```
@@ -502,7 +502,7 @@ several other npm scripts:
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: https://eslint.org/docs/rules/no-mixed-operators
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
-[quotes]: https://eslint.org/docs/rules/quotes
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
+[quotes]: https://eslint.org/docs/rules/quotes
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
