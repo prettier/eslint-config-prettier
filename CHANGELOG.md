@@ -1,3 +1,12 @@
+### Version 2.7.0 (2017-11-01)
+
+- Added: The [lines-around-comment] rule (as a [special
+  rule][lines-around-comment-special]). Thanks to Maurice de Beijer
+  (@mauricedb)!
+- Added: The [no-unexpected-multiline] rule (as a [special
+  rule][no-unexpected-multiline-special]). Thanks to Suhas Karanth
+  (@sudo-suhas)!
+
 ### Version 2.6.0 (2017-09-23)
 
 - Added: The [no-floating-decimal] rule.
@@ -130,11 +139,15 @@
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [indent-legacy]: https://eslint.org/docs/rules/indent-legacy
+[lines-around-comment-special]: https://github.com/prettier/eslint-config-prettier/blob/5399175c37466747aae9d407021dffec2c169c8b/README.md#lines-around-comment
+[lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-floating-decimal]: https://eslint.org/docs/rules/no-floating-decimal
 [no-tabs-special]: https://github.com/prettier/eslint-config-prettier/blob/dfa6e2b51f11a8001e9e7d38b78f03c7d75175ec/README.md#no-tabs
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
+[no-unexpected-multiline-special]: https://github.com/prettier/eslint-config-prettier/blob/5399175c37466747aae9d407021dffec2c169c8b/README.md#no-unexpected-multiline
+[no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [nonblock-statement-body-position]: https://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
 [prettier]: https://github.com/prettier
