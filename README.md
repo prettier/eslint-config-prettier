@@ -444,10 +444,10 @@ Example configuration:
 
 eslint-config-prettier has been tested with:
 
-- ESLint 4.7.0 (eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x)
-- prettier 1.7.0
-- eslint-plugin-flowtype 2.35.1
-- eslint-plugin-react 7.3.0
+- ESLint 4.10.0 (eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x)
+- prettier 1.7.4
+- eslint-plugin-flowtype 2.39.1
+- eslint-plugin-react 7.4.0
 - eslint-plugin-standard 3.0.1
 
 Have new rules been added since those versions? Have we missed any rules? Is
