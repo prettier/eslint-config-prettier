@@ -136,6 +136,7 @@ test(
     "quotes",
     "arrow-parens",
     "no-tabs",
+    "lines-around-comment",
     "no-mixed-operators",
     ["curly", "multi-or-nest", "consistent"],
     ["no-confusing-arrow", { allowParens: true }],
@@ -154,6 +155,7 @@ test(
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - curly
+    - lines-around-comment
     - no-confusing-arrow
     - quotes
 

@@ -146,10 +146,6 @@ if (cart.items && cart.items[0] && cart.items[0].quantity === 0)
   updateCart(cart);
 ```
 
-The [eslint-config-airbnb] config includes `curly` with the `"multi-line"`
-option turned on by default. Since that config is very popular, it makes sense
-for eslint-config-prettier to turn this rule off.
-
 If you like this rule, it can be used just fine with Prettier as long as you
 don’t use the `"multi-line"` or `"multi-or-nest"` option.
 
@@ -159,6 +155,65 @@ Example configuration:
 {
   "rules": {
     "curly": ["error", "all"]
+  }
+}
+```
+
+### [lines-around-comment]
+
+**This rule can be used with certain options.**
+
+This rule requires empty lines before and/or after comments. Prettier preserves
+blank lines, with two exceptions:
+
+- Several blank lines in a row are collapsed into a single blank line. This is
+  fine.
+- Blank lines at the beginning and end of blocks, objects and arrays are always
+  removed. This may lead to conflicts.
+
+By default, ESLint requires a blank line above the comment is this case:
+
+```js
+if (result) {
+
+  /* comment */
+  return result;
+}
+```
+
+However, Prettier removes the blank line:
+
+```js
+if (result) {
+  /* comment */
+  return result;
+}
+```
+
+If you like this rule, it can be used just fine with Prettier as long as add
+extra configuration to allow comments at the start and end of blocks, objects
+and arrays.
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "lines-around-comment": [
+      "error",
+      {
+        "beforeBlockComment": true,
+        "afterBlockComment": true,
+        "beforeLineComment": true,
+        "afterLineComment": true,
+        "allowBlockStart": true,
+        "allowBlockEnd": true,
+        "allowObjectStart": true,
+        "allowObjectEnd": true,
+        "allowArrayStart": true,
+        "allowArrayEnd": true
+      }
+    ]
   }
 }
 ```
@@ -220,10 +275,6 @@ enough to introduce a line break:
 EnterpriseCalculator.prototype.calculateImportantNumbers = inputNumber =>
   1 ? 2 : 3;
 ```
-
-[eslint-config-airbnb] config includes `no-confusing-arrow` with the
-`allowParens` option turned on by default. Since that config is very popular, it
-makes sense for eslint-config-prettier to turn this rule off.
 
 If you like this rule, it can be used just fine with Prettier as long as the
 `allowParens` option is off.
@@ -367,6 +418,7 @@ Example configuration:
 }
 ```
 
+
 ## Contributing
 
 eslint-config-prettier has been tested with:
@@ -439,17 +491,17 @@ several other npm scripts:
 
 [MIT](LICENSE).
 
+[Prettier]: https://github.com/prettier/prettier
 [curly]: https://eslint.org/docs/rules/curly
-[eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
+[lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: https://eslint.org/docs/rules/no-mixed-operators
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
-[Prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
