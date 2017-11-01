@@ -167,7 +167,36 @@ Example configuration:
 
 **This rule can be used with certain options.**
 
-It is possible to use this rule with some options.
+This rule requires empty lines before and/or after comments. Prettier preserves
+blank lines, with two exceptions:
+
+- Several blank lines in a row are collapsed into a single blank line. This is
+  fine.
+- Blank lines at the beginning and end of blocks, objects and arrays are always
+  removed. This may lead to conflicts.
+
+By default, ESLint requires a blank line above the comment is this case:
+
+```js
+if (result) {
+
+  /* comment */
+  return result;
+}
+```
+
+However, Prettier removes the blank line:
+
+```js
+if (result) {
+  /* comment */
+  return result;
+}
+```
+
+If you like this rule, it can be used just fine with Prettier as long as add
+extra configuration to allow comments at the start and end of blocks, objects
+and arrays.
 
 Example configuration:
 
