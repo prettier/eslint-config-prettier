@@ -137,6 +137,7 @@ test(
     "arrow-parens",
     "no-tabs",
     "lines-around-comment",
+    "no-unexpected-multiline",
     "no-mixed-operators",
     ["curly", "multi-or-nest", "consistent"],
     ["no-confusing-arrow", { allowParens: true }],
@@ -165,6 +166,7 @@ test(
     - max-len
     - no-mixed-operators
     - no-tabs
+    - no-unexpected-multiline
   `,
   2
 );
