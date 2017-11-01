@@ -174,14 +174,17 @@ Example configuration:
 ```json
 {
   "rules": {
-    "lines-around-comment": ["error", { 
+    "lines-around-comment": [
+      "error",
+      {
         "allowBlockStart": true,
         "allowBlockEnd": true,
         "allowObjectStart": true,
         "allowObjectEnd": true,
         "allowArrayStart": true,
         "allowArrayEnd": true,
-    }]
+      }
+    ]
   }
 }
 ```
