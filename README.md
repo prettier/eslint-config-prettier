@@ -339,6 +339,8 @@ Example configuration:
 
 ### [no-tabs]
 
+**This rule requires certain Prettier options.**
+
 This rule disallows the use of tab characters at all. It can be used just fine
 with Prettier as long as you don’t configure Prettier to indent using tabs.
 
