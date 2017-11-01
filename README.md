@@ -163,6 +163,65 @@ Example configuration:
 }
 ```
 
+### [lines-around-comment]
+
+**This rule can be used with certain options.**
+
+This rule requires empty lines before and/or after comments. Prettier preserves
+blank lines, with two exceptions:
+
+- Several blank lines in a row are collapsed into a single blank line. This is
+  fine.
+- Blank lines at the beginning and end of blocks, objects and arrays are always
+  removed. This may lead to conflicts.
+
+By default, ESLint requires a blank line above the comment is this case:
+
+```js
+if (result) {
+
+  /* comment */
+  return result;
+}
+```
+
+However, Prettier removes the blank line:
+
+```js
+if (result) {
+  /* comment */
+  return result;
+}
+```
+
+If you like this rule, it can be used just fine with Prettier as long as add
+extra configuration to allow comments at the start and end of blocks, objects
+and arrays.
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "lines-around-comment": [
+      "error",
+      {
+        "beforeBlockComment": true,
+        "afterBlockComment": true,
+        "beforeLineComment": true,
+        "afterLineComment": true,
+        "allowBlockStart": true,
+        "allowBlockEnd": true,
+        "allowObjectStart": true,
+        "allowObjectEnd": true,
+        "allowArrayStart": true,
+        "allowArrayEnd": true
+      }
+    ]
+  }
+}
+```
+
 ### [max-len]
 
 **This rule requires special attention when writing code.**
@@ -319,6 +378,7 @@ Example configuration:
 }
 ```
 
+
 ## Contributing
 
 eslint-config-prettier has been tested with:
@@ -391,17 +451,18 @@ several other npm scripts:
 
 [MIT](LICENSE).
 
+[Prettier]: https://github.com/prettier/prettier
 [curly]: https://eslint.org/docs/rules/curly
 [eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
+[lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: https://eslint.org/docs/rules/no-mixed-operators
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
-[Prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier

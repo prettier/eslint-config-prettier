@@ -22,6 +22,39 @@ test("curly", t => {
   );
 });
 
+test("lines-around-comment", t => {
+  t.false(validators["lines-around-comment"]([]), "no options disallowed");
+  t.true(
+    validators["lines-around-comment"]([
+      {
+        allowBlockStart: true,
+        allowBlockEnd: true,
+        allowObjectStart: true,
+        allowObjectEnd: true,
+        allowArrayStart: true,
+        allowArrayEnd: true
+      }
+    ]),
+    "allowing block/object/array start/end allowed"
+  );
+  t.false(
+    validators["lines-around-comment"]([
+      {
+        allowBlockEnd: true,
+        allowObjectStart: true,
+        allowObjectEnd: true,
+        allowArrayStart: true,
+        allowArrayEnd: true
+      }
+    ]),
+    "missing one of the options disallowed"
+  );
+  t.false(
+    validators["lines-around-comment"]([null]),
+    "does not crash on bad input"
+  );
+});
+
 test("no-confusing-arrow", t => {
   t.true(validators["no-confusing-arrow"]([]), "no options allowed");
   t.true(
