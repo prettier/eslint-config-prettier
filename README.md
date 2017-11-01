@@ -354,41 +354,62 @@ Example configuration:
 
 ### [no-unexpected-multiline]
 
+**This rule requires special attention when writing code.**
+
 This rule disallows confusing multiline expressions where a newline looks like
 it is ending a statement, but is not.
 
 For example, the rule could warn about this:
 
 ```js
-var hello = 'world' // semicolon missing
+var hello = "world"
 [1, 2, 3].forEach(addNumber)
 ```
 
-Note that, prettier would format this in a way which would be more indicative
-of the problem(the missing `;`):
+Prettier usually formats this in a way that makes it obvious that a semicolon
+was missing:
 
 ```js
-var hello = 'world'[(1, 2, 3)].forEach(addNumber);
+var hello = "world"[(1, 2, 3)].forEach(addNumber);
 ```
 
-However, there are cases where prettier and the `no-unexpected-multiline` rule
-would confict without any possible resolution. In the following example,
-prettier breaks up the expression over multiple lines but the eslint rule
-reports an error:
+However, there are cases where Prettier breaks things into several lines such
+that the `no-unexpected-multiline` conflicts.
 
 ```js
-const value = getInstance()
-    [modeName]()
-    .toJSON()
+const value = text.trim().split("\n")[position].toLowerCase();
 ```
 
-The eslint `recommended` config as well as the [eslint-config-airbnb] config
-have this rule turned on by default. So makes sense for eslint-config-prettier
-to turn this rule off.
+Prettier breaks it up into several lines, though, causing a conflict:
 
-If you like this rule, it can be used with prettier but you would have to
-disable it using comment directives specifically for the unresolvable
-instances.
+```js
+const value = text
+  .trim()
+  .split("\n")
+  [position].toLowerCase();
+```
+
+If you like this rule, it can usually be used with Prettier without problems,
+but occasionally you might need to either temporarily disable the rule or
+refactor your code.
+
+```js
+const value = text
+  .trim()
+  .split("\n")
+  // eslint-disable-next-line no-unexpected-multiline
+  [position].toLowerCase();
+
+// Or:
+
+const lines = text.trim().split("\n");
+const value = lines[position].toLowerCase();
+```
+
+**Note:** If you _do_ enable this rule, you have to run ESLint and Prettier as
+two separate steps (and ESLint first) in order to get any value out of it.
+Otherwise Prettier might reformat your code in such a way that ESLint never gets
+a chance to report anything (as seen in the first example).
 
 Example configuration:
 
