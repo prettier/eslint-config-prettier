@@ -182,7 +182,7 @@ Example configuration:
         "allowObjectStart": true,
         "allowObjectEnd": true,
         "allowArrayStart": true,
-        "allowArrayEnd": true,
+        "allowArrayEnd": true
       }
     ]
   }
