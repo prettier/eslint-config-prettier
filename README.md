@@ -163,6 +163,29 @@ Example configuration:
 }
 ```
 
+### [lines-around-comment]
+
+**This rule can be used with certain options.**
+
+It is possible to use this rule with some options.
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "lines-around-comment": ["error", { 
+        "allowBlockStart": true,
+        "allowBlockEnd": true,
+        "allowObjectStart": true,
+        "allowObjectEnd": true,
+        "allowArrayStart": true,
+        "allowArrayEnd": true,
+    }]
+  }
+}
+```
+
 ### [max-len]
 
 **This rule requires special attention when writing code.**
@@ -319,29 +342,6 @@ Example configuration:
 }
 ```
 
-### [lines-around-comment]
-
-**This rule can be used with certain options.**
-
-It is possible to use this rule with some options.
-
-Example configuration:
-
-```json
-{
-  "rules": {
-    "lines-around-comment": ["error", { 
-        "allowBlockStart": true,
-        "allowBlockEnd": true,
-        "allowObjectStart": true,
-        "allowObjectEnd": true,
-        "allowArrayStart": true,
-        "allowArrayEnd": true,
-    }]
-  }
-}
-```
-
 
 ## Contributing
 
@@ -415,18 +415,18 @@ several other npm scripts:
 
 [MIT](LICENSE).
 
+[Prettier]: https://github.com/prettier/prettier
 [curly]: https://eslint.org/docs/rules/curly
 [eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
+[lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: https://eslint.org/docs/rules/no-mixed-operators
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
-[Prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes
-[lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
