@@ -177,6 +177,10 @@ Example configuration:
     "lines-around-comment": [
       "error",
       {
+        "beforeBlockComment": true,
+        "afterBlockComment": true,
+        "beforeLineComment": true,
+        "afterLineComment": true,
         "allowBlockStart": true,
         "allowBlockEnd": true,
         "allowObjectStart": true,
