@@ -352,6 +352,75 @@ Example configuration:
 }
 ```
 
+### [no-unexpected-multiline]
+
+**This rule requires special attention when writing code.**
+
+This rule disallows confusing multiline expressions where a newline looks like
+it is ending a statement, but is not.
+
+For example, the rule could warn about this:
+
+```js
+var hello = "world"
+[1, 2, 3].forEach(addNumber)
+```
+
+Prettier usually formats this in a way that makes it obvious that a semicolon
+was missing:
+
+```js
+var hello = "world"[(1, 2, 3)].forEach(addNumber);
+```
+
+However, there are cases where Prettier breaks things into several lines such
+that the `no-unexpected-multiline` conflicts.
+
+```js
+const value = text.trim().split("\n")[position].toLowerCase();
+```
+
+Prettier breaks it up into several lines, though, causing a conflict:
+
+```js
+const value = text
+  .trim()
+  .split("\n")
+  [position].toLowerCase();
+```
+
+If you like this rule, it can usually be used with Prettier without problems,
+but occasionally you might need to either temporarily disable the rule or
+refactor your code.
+
+```js
+const value = text
+  .trim()
+  .split("\n")
+  // eslint-disable-next-line no-unexpected-multiline
+  [position].toLowerCase();
+
+// Or:
+
+const lines = text.trim().split("\n");
+const value = lines[position].toLowerCase();
+```
+
+**Note:** If you _do_ enable this rule, you have to run ESLint and Prettier as
+two separate steps (and ESLint first) in order to get any value out of it.
+Otherwise Prettier might reformat your code in such a way that ESLint never gets
+a chance to report anything (as seen in the first example).
+
+Example configuration:
+
+```json
+{
+  "rules": {
+    "no-unexpected-multiline": "error"
+  }
+}
+```
+
 ### [quotes]
 
 **This rule requires certain options.**
@@ -454,6 +523,7 @@ several other npm scripts:
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: https://eslint.org/docs/rules/no-mixed-operators
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
+[no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [quotes]: https://eslint.org/docs/rules/quotes
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
