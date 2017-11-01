@@ -6,6 +6,7 @@ module.exports = {
     // information. (These are marked with `0` instead of `"off"` so that a
     // script can distinguish them.)
     curly: 0,
+    "lines-around-comment": 0,
     "max-len": 0,
     "no-confusing-arrow": 0,
     "no-mixed-operators": 0,
@@ -34,7 +35,6 @@ module.exports = {
     "jsx-quotes": "off",
     "key-spacing": "off",
     "keyword-spacing": "off",
-    "lines-around-comment": "off",
     "multiline-ternary": "off",
     "newline-per-chained-call": "off",
     "new-parens": "off",
