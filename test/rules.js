@@ -1,13 +1,14 @@
 "use strict";
 
 const test = require("ava");
-const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const rimraf = require("rimraf");
+const spawn = require("cross-spawn");
 const pkg = require("../package.json");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
+const getEnv = require("./helpers/get-env");
 
 const TEST_CONFIG_DIR = "test-config";
 
@@ -117,11 +118,10 @@ test('All rules are set to "off" or 0', t => {
 });
 
 test("There are no unknown rules", t => {
-  const result = childProcess.spawnSync(
-    "npm",
-    ["run", "test:lint-rules", "--silent"],
-    { encoding: "utf8" }
-  );
+  const result = spawn.sync("npm", ["run", "test:lint-rules", "--silent"], {
+    encoding: "utf8",
+    env: getEnv()
+  });
   const output = JSON.parse(result.stdout);
 
   output[0].messages.forEach(message => {
