@@ -1,19 +1,20 @@
 "use strict";
 
 const test = require("ava");
-const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const spawn = require("cross-spawn");
+const getEnv = require("./helpers/get-env");
 
 const ruleFiles = fs
   .readdirSync(".")
   .filter(name => !name.startsWith(".") && name.endsWith(".js"));
 
 test("test-lint/ causes errors without eslint-config-prettier", t => {
-  const result = childProcess.spawnSync(
+  const result = spawn.sync(
     "npm",
     ["run", "test:lint-verify-fail", "--silent"],
-    { encoding: "utf8" }
+    { encoding: "utf8", env: getEnv() }
   );
   const output = JSON.parse(result.stdout);
 
