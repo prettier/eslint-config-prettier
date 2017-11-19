@@ -1,3 +1,7 @@
+### Version 2.8.0 (2017-11-19)
+
+- Added: The [react/jsx-one-expression-per-line] rule.
+
 ### Version 2.7.0 (2017-11-01)
 
 - Added: The [lines-around-comment] rule (as a [special
@@ -152,6 +156,7 @@
 [one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
 [prettier]: https://github.com/prettier
 [react/jsx-closing-tag-location]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
+[react/jsx-one-expression-per-line]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
