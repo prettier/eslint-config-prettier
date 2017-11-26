@@ -1,3 +1,7 @@
+### Version 2.9.0 (2017-11-26)
+
+- Added: The [implicit-arrow-linebreak] rule.
+
 ### Version 2.8.0 (2017-11-19)
 
 - Added: The [react/jsx-one-expression-per-line] rule.
@@ -142,6 +146,7 @@
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
+[implicit-arrow-linebreak]: https://eslint.org/docs/rules/implicit-arrow-linebreak
 [indent-legacy]: https://eslint.org/docs/rules/indent-legacy
 [lines-around-comment-special]: https://github.com/prettier/eslint-config-prettier/blob/5399175c37466747aae9d407021dffec2c169c8b/README.md#lines-around-comment
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
