@@ -31,6 +31,7 @@ module.exports = {
     "function-paren-newline": "off",
     "generator-star": "off",
     "generator-star-spacing": "off",
+    "implicit-arrow-linebreak": "off",
     indent: "off",
     "indent-legacy": "off",
     "jsx-quotes": "off",
