@@ -89,8 +89,7 @@ Exit codes:
   "plugins": [
     "flowtype",
     "react",
-    "prettier",
-    "standard"
+    "prettier"
   ],
   "parserOptions": {
     "sourceType": "module",
