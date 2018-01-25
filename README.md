@@ -190,7 +190,7 @@ if (result) {
 }
 ```
 
-If you like this rule, it can be used just fine with Prettier as long as add
+If you like this rule, it can be used just fine with Prettier as long as add some
 extra configuration to allow comments at the start and end of blocks, objects
 and arrays.
 
