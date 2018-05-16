@@ -1,4 +1,4 @@
-# eslint-config-prettier [![Build Status][travis-badge]][travis]
+# eslint-config-prettier [![Build Status](travis-badge)](travis)
 
 Turns off all rules that are unnecessary or might conflict with [Prettier].
 
