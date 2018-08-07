@@ -46,6 +46,6 @@
     "rimraf": "^2.6.2"
   },
   "peerDependencies": {
-    "eslint": ">=3.14.1"
+    "eslint": "^3.14 || ^4.0 || ^5.0"
   }
 }
