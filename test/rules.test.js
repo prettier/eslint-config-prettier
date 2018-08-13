@@ -1,6 +1,5 @@
 "use strict";
 
-const test = require("ava");
 const fs = require("fs");
 const path = require("path");
 const rimraf = require("rimraf");
@@ -19,7 +18,9 @@ const configFiles = fs
   .readdirSync(".")
   .filter(name => name.startsWith(".eslintrc"));
 
-createTestConfigDir();
+beforeAll(() => {
+  createTestConfigDir();
+});
 
 function createTestConfigDir() {
   // Clear the test config dir.
@@ -54,70 +55,80 @@ function createTestConfigDir() {
   });
 }
 
-test("All rule files are listed in package.json", t => {
+describe("all rule files are listed in package.json", () => {
   ruleFiles.forEach(ruleFileName => {
-    t.true(pkg.files.indexOf(ruleFileName) >= 0);
+    test(ruleFileName, () => {
+      expect(pkg.files).toContain(ruleFileName);
+    });
   });
 });
 
-test("All rule files have tests in test-lint/", t => {
+describe("all rule files have tests in test-lint/", () => {
   ruleFiles.forEach(ruleFileName => {
-    t.true(fs.existsSync(path.join("test-lint", ruleFileName)));
+    test(ruleFileName, () => {
+      expect(fs.existsSync(path.join("test-lint", ruleFileName))).toBe(true);
+    });
   });
 });
 
-test("All rule files are included in the ESLint config", t => {
+describe("all rule files are included in the ESLint config", () => {
   ruleFiles.forEach(ruleFileName => {
-    const name = ruleFileName.replace(/\.js$/, "");
-    t.true(eslintConfig.extends.indexOf(`./${ruleFileName}`) >= 0);
-    if (ruleFileName !== "index.js") {
-      t.true(eslintConfigBase.plugins.indexOf(name) >= 0);
-    }
+    test(ruleFileName, () => {
+      const name = ruleFileName.replace(/\.js$/, "");
+      expect(eslintConfig.extends).toContain(`./${ruleFileName}`);
+      if (ruleFileName !== "index.js") {
+        expect(eslintConfigBase.plugins).toContain(name);
+      }
+    });
   });
 });
 
-test("All plugin rule files are mentioned in the README", t => {
+describe("all plugin rule files are mentioned in the README", () => {
   const readme = fs.readFileSync("README.md", "utf8");
   ruleFiles
     .filter(ruleFileName => ruleFileName !== "index.js")
     .forEach(ruleFileName => {
-      const name = ruleFileName.replace(/\.js$/, "");
-      t.true(readme.indexOf(`eslint-plugin-${name}`) >= 0);
-      t.true(readme.indexOf(`"${name}"`) >= 0);
-      t.true(readme.indexOf(`"prettier/${name}"`) >= 0);
+      test(ruleFileName, () => {
+        const name = ruleFileName.replace(/\.js$/, "");
+        expect(readme).toMatch(`eslint-plugin-${name}`);
+        expect(readme).toMatch(`"${name}"`);
+        expect(readme).toMatch(`"prettier/${name}"`);
+      });
     });
 });
 
-test("All special rules are mentioned in the README", t => {
+describe("all special rules are mentioned in the README", () => {
   const readme = fs.readFileSync("README.md", "utf8");
-  const specialRuleNames = Array.prototype.concat.apply(
-    [],
-    ruleFiles.map(ruleFileName => {
+  const specialRuleNames = [].concat(
+    ...ruleFiles.map(ruleFileName => {
       const rules = require(`../${ruleFileName}`).rules;
       return Object.keys(rules).filter(name => rules[name] === 0);
     })
   );
 
   specialRuleNames.forEach(name => {
-    t.true(readme.indexOf(name) >= 0);
+    test(name, () => {
+      expect(readme).toMatch(name);
+    });
   });
 });
 
-test('All rules are set to "off" or 0', t => {
-  const allRules = Object.assign.apply(
-    Object,
-    [Object.create(null)].concat(
-      ruleFiles.map(ruleFileName => require(`../${ruleFileName}`).rules)
-    )
+describe('all rules are set to "off" or 0', () => {
+  const allRules = Object.assign(
+    Object.create(null),
+    ...ruleFiles.map(ruleFileName => require(`../${ruleFileName}`).rules)
   );
 
   Object.keys(allRules).forEach(name => {
     const value = allRules[name];
-    t.true(value === "off" || value === 0);
+
+    test(name, () => {
+      expect(value === "off" || value === 0).toBe(true);
+    });
   });
 });
 
-test("There are no unknown rules", t => {
+test("there are no unknown rules", () => {
   const result = spawn.sync("npm", ["run", "test:lint-rules", "--silent"], {
     encoding: "utf8",
     env: getEnv()
@@ -125,6 +136,6 @@ test("There are no unknown rules", t => {
   const output = JSON.parse(result.stdout);
 
   output[0].messages.forEach(message => {
-    t.notRegex(message.message, /rule\s+'[^']+'.*not found/);
+    expect(message.message).not.toMatch(/rule\s+'[^']+'.*not found/);
   });
 });

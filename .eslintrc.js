@@ -3,9 +3,22 @@
 const pkg = require("./package.json");
 
 module.exports = {
-  extends: ["./.eslintrc.base.js"].concat(
-    pkg.files
-      .filter(name => name.indexOf("/") === -1)
+  extends: [
+    "./.eslintrc.base.js",
+    ...pkg.files
+      .filter(name => !name.includes("/"))
       .map(ruleFileName => `./${ruleFileName}`)
-  )
+  ],
+  overrides: [
+    {
+      files: ["{bin,test}/**/*.js"],
+      rules: {
+        "no-undef": "error"
+      }
+    },
+    {
+      files: ["*.test.js"],
+      env: { jest: true }
+    }
+  ]
 };

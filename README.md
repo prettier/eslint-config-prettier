@@ -505,7 +505,7 @@ several other npm scripts:
   eslint-config-prettier itself.
 - `"test:lint-verify-fail"` is run by a test in `test/lint-verify-fail.js`.
 - `"test:lint-rules"` is run by a test in `test/rules.js`.
-- `"test:ava"` runs unit tests that check a number of things:
+- `"test:jest"` runs unit tests that check a number of things:
   - That eslint-plugin-foobar is mentioned in all the places shown above.
   - That no unknown rules are turned off. This helps catching typos, for
     example.

@@ -73,13 +73,11 @@ function processString(string) {
     };
   }
 
-  const allRules = Object.assign.apply(
-    Object,
-    [Object.create(null)].concat(
-      pkg.files
-        .filter(name => name.indexOf("/") === -1)
-        .map(ruleFileName => require(`../${ruleFileName}`).rules)
-    )
+  const allRules = Object.assign(
+    Object.create(null),
+    ...pkg.files
+      .filter(name => !name.includes("/"))
+      .map(ruleFileName => require(`../${ruleFileName}`).rules)
   );
 
   const regularRules = filterRules(
