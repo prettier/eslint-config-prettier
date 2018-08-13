@@ -1,3 +1,7 @@
+### Version 3.0.0 (2018-08-13)
+
+- Breaking change: Dropped Node.js 4 support.
+
 ### Version 2.10.0 (2018-08-13)
 
 - Added: [flowtype/boolean-style]. Thanks to Mayank Agarwal (@Mayank1791989)!
