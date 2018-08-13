@@ -1,3 +1,7 @@
+### Version 3.0.1 (2018-08-13)
+
+- Improved: `eslint --print-config` usage instructions.
+
 ### Version 3.0.0 (2018-08-13)
 
 - Breaking change: Dropped Node.js 4 support.
