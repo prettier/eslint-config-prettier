@@ -25,7 +25,7 @@
     "test:lint-verify-fail": "eslint test-lint/ --config .eslintrc.base.js --format json",
     "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
     "test:jest": "jest",
-    "test:cli-sanity": "eslint --print-config .eslintrc.js | node ./bin/cli.js",
+    "test:cli-sanity": "eslint --print-config . | node ./bin/cli.js",
     "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity"
   },
   "dependencies": {

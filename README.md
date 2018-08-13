@@ -58,14 +58,20 @@ First, add a script for it to package.json:
 ```json
 {
   "scripts": {
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
   }
 }
 ```
 
 Then run `npm run eslint-check`.
 
-(Swap out .eslintrc.js with the path to your config if needed.)
+If you use [multiple configuration files] or [overrides], you may need to run
+the above script several times with different `--print-config` arguments, such
+as:
+
+```
+eslint --print-config test/index.js | eslint-config-prettier-check
+```
 
 Exit codes:
 
@@ -524,10 +530,12 @@ several other npm scripts:
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
+[multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: https://eslint.org/docs/rules/no-mixed-operators
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
+[overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
 [quotes]: https://eslint.org/docs/rules/quotes
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
