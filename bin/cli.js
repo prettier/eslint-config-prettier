@@ -68,9 +68,7 @@ function processString(string) {
     )
   ) {
     return {
-      stderr: `Expected a \`{"rules: {...}"}\` JSON object, but got:\n${
-        string
-      }`,
+      stderr: `Expected a \`{"rules: {...}"}\` JSON object, but got:\n${string}`,
       code: 1
     };
   }
