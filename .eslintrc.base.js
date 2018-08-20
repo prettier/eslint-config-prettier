@@ -34,5 +34,10 @@ module.exports = {
     "react/jsx-no-bind": "off",
     // Force a conflict with Prettier in test-lint/standard.js.
     "standard/computed-property-even-spacing": ["error", "even"]
+  },
+  settings: {
+    react: {
+      version: "16"
+    }
   }
 };

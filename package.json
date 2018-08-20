@@ -34,11 +34,11 @@
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "cross-spawn": "^6.0.5",
-    "eslint": "^5.3.0",
+    "eslint": "^5.4.0",
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^3.1.0",
     "jest": "23.5.0",
     "prettier": "^1.14.2",
