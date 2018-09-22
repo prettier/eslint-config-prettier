@@ -4,14 +4,10 @@ Turns off all rules that are unnecessary or might conflict with [Prettier].
 
 This lets you use you favorite shareable config without letting its stylistic
 choices get in the way when using Prettier.
-
 ## Installation
-
 Tip: First, you might be interested in installing [eslint-plugin-prettier].
 Follow the instructions over there. This is optional, though.
-
 Install eslint-config-prettier:
-
 ```
 $ npm install --save-dev eslint-config-prettier
 ```
@@ -72,9 +68,7 @@ as:
 ```
 eslint --print-config test/index.js | eslint-config-prettier-check
 ```
-
 Exit codes:
-
 - 0: No problems found.
 - 1: Unexpected error.
 - 2: Conflicting rules found.
@@ -164,7 +158,6 @@ Example configuration:
   }
 }
 ```
-
 ### [lines-around-comment]
 
 **This rule can be used with certain options.**
@@ -289,12 +282,9 @@ Example configuration:
 
 ```json
 {
-  "rules": {
-    "no-confusing-arrow": "error"
-  }
+  "rules": {    "no-confusing-arrow": "error"}
 }
 ```
-
 ### [no-mixed-operators]
 
 **This rule requires special attention when writing code.**
