@@ -27,7 +27,8 @@
     "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
     "test:jest": "jest",
     "test:cli-sanity": "eslint --print-config . | node ./bin/cli.js",
-    "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity"
+    "test:cli-sanity-warning": "eslint --print-config ./bin/cli.js | node ./bin/cli.js",
+    "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning"
   },
   "dependencies": {
     "get-stdin": "^6.0.0"

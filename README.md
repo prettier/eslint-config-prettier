@@ -614,7 +614,8 @@ several other npm scripts:
   - That no unknown rules are turned off. This helps catching typos, for
     example.
   - That the CLI works.
-- `"test:cli-sanity"` is a sanity check for the CLI.
+- `"test:cli-sanity"` and `"test:cli-sanity-warning"` are sanity checks for the
+  CLI.
 
 ## License
 
