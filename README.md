@@ -583,13 +583,14 @@ Then, create `test-lint/foobar.js`:
 "use strict";
 
 // Prettier does not want spaces before the parentheses, but
-// eslint-config-foobar wants one.
-console.log ();
+// some-foobar-config wants one.
+console.log();
 ```
 
 `test-lint/foobar.js` must fail when used with eslint-plugin-foobar and
 eslint-plugin-prettier at the same time – until `"prettier/foobar"` is added to
-the "extends" property of an ESLint config.
+the "extends" property of an ESLint config. The file should be formatted
+according to Prettier, and that formatting should disagree with the plugin.
 
 Finally, you need to mention the plugin in several places:
 

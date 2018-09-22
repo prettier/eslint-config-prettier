@@ -2,7 +2,7 @@
 "use strict";
 
 // Prettier wants to break on new lines inside the square brackets, but
-// eslint-config-standard wants all on one line.
+// the "standard" rule added in .eslintrc.base.js wants all on one line.
 loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong[
   index
 ];
