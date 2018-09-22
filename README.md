@@ -33,6 +33,7 @@ A few ESLint plugins are supported as well:
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
+- [eslint-plugin-unicorn]
 
 Add extra exclusions for the plugins you use like so:
 
@@ -42,7 +43,8 @@ Add extra exclusions for the plugins you use like so:
     "prettier",
     "prettier/flowtype",
     "prettier/react",
-    "prettier/standard"
+    "prettier/standard",
+    "prettier/unicorn"
   ]
 }
 ```
@@ -87,16 +89,19 @@ Exit codes:
     "standard",
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
+    "plugin:unicorn/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react",
-    "prettier/standard"
+    "prettier/standard",
+    "prettier/unicorn"
   ],
   "plugins": [
     "flowtype",
     "react",
     "prettier",
-    "standard"
+    "standard",
+    "unicorn"
   ],
   "parserOptions": {
     "sourceType": "module",
@@ -550,6 +555,7 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-flowtype 2.50.1
 - eslint-plugin-react 7.11.1
 - eslint-plugin-standard 4.0.0
+- eslint-plugin-unicorn 6.0.1
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull
@@ -619,6 +625,7 @@ several other npm scripts:
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
+[eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy

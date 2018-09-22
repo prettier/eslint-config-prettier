@@ -2,7 +2,7 @@
 
 module.exports = {
   curly(options) {
-    if (options.length < 1) {
+    if (options.length === 0) {
       return true;
     }
 
@@ -11,7 +11,7 @@ module.exports = {
   },
 
   "lines-around-comment"(options) {
-    if (options.length < 1) {
+    if (options.length === 0) {
       return false;
     }
 
@@ -28,7 +28,7 @@ module.exports = {
   },
 
   "no-confusing-arrow"(options) {
-    if (options.length < 1) {
+    if (options.length === 0) {
       return true;
     }
 

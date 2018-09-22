@@ -3,7 +3,12 @@
 const pkg = require("./package.json");
 
 module.exports = {
-  extends: ["google", "plugin:flowtype/recommended", "plugin:react/all"],
+  extends: [
+    "google",
+    "plugin:flowtype/recommended",
+    "plugin:react/all",
+    "plugin:unicorn/recommended"
+  ],
   plugins: [
     "prettier",
     ...pkg.files
