@@ -23,6 +23,7 @@ module.exports = {
     node: true
   },
   rules: {
+    indent: "off",
     "no-dupe-keys": "error",
     strict: "error",
     "prefer-spread": "off",

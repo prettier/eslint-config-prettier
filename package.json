@@ -32,16 +32,16 @@
     "get-stdin": "^6.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "8.2.6",
+    "babel-eslint": "9.0.0",
     "cross-spawn": "6.0.5",
-    "eslint": "5.4.0",
-    "eslint-config-google": "0.9.1",
-    "eslint-plugin-flowtype": "2.50.0",
+    "eslint": "5.6.0",
+    "eslint-config-google": "0.10.0",
+    "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-react": "7.11.1",
-    "eslint-plugin-standard": "3.1.0",
-    "jest": "23.5.0",
-    "prettier": "1.14.2",
+    "eslint-plugin-standard": "4.0.0",
+    "jest": "23.6.0",
+    "prettier": "1.14.3",
     "rimraf": "2.6.2"
   },
   "peerDependencies": {
