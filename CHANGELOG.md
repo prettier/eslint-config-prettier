@@ -1,3 +1,11 @@
+### Version 3.1.0 (2018-09-22)
+
+- Added: Support for [eslint-plugin-unicorn]. Thanks to John Mars (@j0hnm4r5)!
+- Changed: The [quotes] rule is now allowed to be used to forbid unnecessary
+  backticks. This means that the CLI helper tool no longer can automatically
+  validate it, so you’ll need to refer the [quotes special rule
+  documentation][quotes-special]. Thanks to Nick Petruzzelli (@npetruzzelli)!
+
 ### Version 3.0.1 (2018-08-13)
 
 - Improved: `eslint --print-config` usage instructions.
@@ -159,6 +167,7 @@
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
+[eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [flowtype/boolean-style]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-boolean-style
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [implicit-arrow-linebreak]: https://eslint.org/docs/rules/implicit-arrow-linebreak
@@ -175,6 +184,8 @@
 [nonblock-statement-body-position]: https://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
 [prettier]: https://github.com/prettier
+[quotes]: https://eslint.org/docs/rules/quotes
+[quotes-special]: https://github.com/prettier/eslint-config-prettier/blob/8d264cd0a7f06c12e2e05415e0282a4f8f21ebc9/README.md#quotes
 [react/jsx-child-element-spacing]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-child-element-spacing.md
 [react/jsx-closing-tag-location]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
 [react/jsx-one-expression-per-line]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
