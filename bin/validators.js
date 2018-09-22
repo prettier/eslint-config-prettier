@@ -34,14 +34,5 @@ module.exports = {
 
     const firstOption = options[0];
     return !(firstOption && firstOption.allowParens);
-  },
-
-  quotes(options) {
-    if (options.length < 1) {
-      return false;
-    }
-
-    const firstOption = options[0];
-    return firstOption === "backtick";
   }
 };

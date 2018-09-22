@@ -142,7 +142,6 @@ https://github.com/prettier/eslint-config-prettier#special-rules
 - curly
 - lines-around-comment
 - no-confusing-arrow
-- quotes
 
 The following rules are enabled but cannot be automatically checked. See:
 https://github.com/prettier/eslint-config-prettier#special-rules
@@ -150,7 +149,8 @@ https://github.com/prettier/eslint-config-prettier#special-rules
 - max-len
 - no-mixed-operators
 - no-tabs
-- no-unexpected-multiline",
+- no-unexpected-multiline
+- quotes",
 }
 `);
 });

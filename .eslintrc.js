@@ -13,7 +13,12 @@ module.exports = {
     {
       files: ["{bin,test}/**/*.js"],
       rules: {
-        "no-undef": "error"
+        "no-undef": "error",
+        quotes: [
+          "error",
+          "double",
+          { avoidEscape: true, allowTemplateLiterals: false }
+        ]
       }
     },
     {

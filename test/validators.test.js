@@ -46,12 +46,3 @@ test("no-confusing-arrow", () => {
   expect(validators["no-confusing-arrow"]([{ allowParens: true }])).toBe(false);
   expect(validators["no-confusing-arrow"]([null])).toBe(true);
 });
-
-test("quotes", () => {
-  expect(validators.quotes([])).toBe(false);
-  expect(validators.quotes(["double"])).toBe(false);
-  expect(validators.quotes(["single"])).toBe(false);
-  expect(validators.quotes(["backtick"])).toBe(true);
-  expect(validators.quotes(["double", { avoidEscape: true }])).toBe(false);
-  expect(validators.quotes(["backtick", { avoidEscape: true }])).toBe(true);
-});

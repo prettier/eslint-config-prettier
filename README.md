@@ -155,7 +155,7 @@ if (cart.items && cart.items[0] && cart.items[0].quantity === 0)
 If you like this rule, it can be used just fine with Prettier as long as you
 don’t use the `"multi-line"` or `"multi-or-nest"` option.
 
-Example configuration:
+Example ESLint configuration:
 
 ```json
 {
@@ -200,7 +200,7 @@ If you like this rule, it can be used just fine with Prettier as long as you add
 some extra configuration to allow comments at the start and end of blocks,
 objects and arrays.
 
-Example configuration:
+Example ESLint configuration:
 
 ```json
 {
@@ -239,7 +239,7 @@ keep `max-len`’s options and Prettier’s `printWidth` option in sync.
 Keep in mind that you might have to refactor code slightly if Prettier formats
 lines in a way that the `max-len` rule does not approve of.
 
-Example configuration:
+Example ESLint configuration:
 
 ```json
 {
@@ -285,7 +285,7 @@ EnterpriseCalculator.prototype.calculateImportantNumbers = inputNumber =>
 If you like this rule, it can be used just fine with Prettier as long as the
 `allowParens` option is off.
 
-Example configuration:
+Example ESLint configuration:
 
 ```json
 {
@@ -333,7 +333,7 @@ Keep in mind that Prettier prints _some_ “unnecessary” parentheses, though:
 var foo = (a && b) || c;
 ```
 
-Example configuration:
+Example ESLint configuration:
 
 ```json
 {
@@ -350,13 +350,22 @@ Example configuration:
 This rule disallows the use of tab characters at all. It can be used just fine
 with Prettier as long as you don’t configure Prettier to indent using tabs.
 
-Example configuration:
+Example ESLint configuration:
 
 ```json
 {
   "rules": {
     "no-tabs": "error"
   }
+}
+```
+
+Example Prettier configuration (this is the default, so adding this is not
+required):
+
+```json
+{
+  "useTabs": false
 }
 ```
 
@@ -431,13 +440,21 @@ Example configuration:
 
 ### [quotes]
 
-**This rule requires certain options.**
+**This rule requires certain options and certain Prettier options.**
 
-If you’d like to enforce the use of backticks rather than single or double
-quotes for strings, you can enable this rule. Otherwise, there’s no need to.
-Just remember to enable the `"backtick"` option!
+Usually, you don’t need this rule at all. But there are two cases where it could
+be useful:
 
-Example configuration:
+- To enforce the use of backticks rather than single or double quotes for
+  strings.
+- To forbid backticks where regular strings could have been used.
+
+#### Enforce backticks
+
+If you’d like all strings to use backticks (never quotes), enable the
+`"backtick"` option.
+
+Example ESLint configuration:
 
 ```json
 {
@@ -447,6 +464,80 @@ Example configuration:
 }
 ```
 
+#### Forbid unnecessary backticks
+
+In the following example, the first array item could have been written with
+quotes instead of backticks.
+
+```js
+const strings = [
+  `could have been a regular string`,
+  `
+    multiple
+    lines
+  `,
+  `uses ${interpolation}`,
+  String.raw`\tagged/`,
+];
+```
+
+If you’d like ESLint to enforce `` `could have been a regular string` `` being
+written as either `"could have been a regular string"` or `'could have been a
+regular string'`, you need to use some specific configuration. The `quotes` rule has two options, a string option and an object option.
+
+- The first (string) option needs to be set to `"single"` or `"double"` and be
+  kept in sync with Prettier’s [singleQuote] option.
+- The second (object) option needs the following properties:
+  - `"avoidEscape": true` to follow Prettier’s [string formatting rules].
+  - `"allowTemplateLiterals": false` to disallow unnecessary backticks.
+
+##### Example _double_ quote configuration
+
+ESLint:
+
+```json
+{
+  "rules": {
+    "quotes": [
+      "error",
+      "double",
+      { "avoidEscape": true, "allowTemplateLiterals": false }
+    ]
+  }
+}
+```
+
+Prettier (this is the default, so adding this is not required):
+
+```json
+{
+  "singleQuote": false
+}
+```
+
+##### Example _single_ quote configuration
+
+ESLint:
+
+```json
+{
+  "rules": {
+    "quotes": [
+      "error",
+      "single",
+      { "avoidEscape": true, "allowTemplateLiterals": false }
+    ]
+  }
+}
+```
+
+Prettier:
+
+```json
+{
+  "singleQuote": true
+}
+```
 
 ## Contributing
 
@@ -537,5 +628,7 @@ several other npm scripts:
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
 [quotes]: https://eslint.org/docs/rules/quotes
+[singleQuote]: https://prettier.io/docs/en/options.html#quotes
+[string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
