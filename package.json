@@ -31,7 +31,8 @@
     "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning"
   },
   "dependencies": {
-    "get-stdin": "^6.0.0"
+    "get-stdin": "^6.0.0",
+    "yarn": "^1.9.4"
   },
   "devDependencies": {
     "babel-eslint": "9.0.0",
