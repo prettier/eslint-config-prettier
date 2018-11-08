@@ -34,7 +34,7 @@
     "get-stdin": "^6.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "9.0.0",
+    "babel-eslint": "10.0.1",
     "cross-spawn": "6.0.5",
     "eslint": "5.6.0",
     "eslint-config-google": "0.10.0",
