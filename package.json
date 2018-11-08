@@ -44,7 +44,7 @@
     "eslint-plugin-standard": "4.0.0",
     "eslint-plugin-unicorn": "6.0.1",
     "jest": "23.6.0",
-    "prettier": "1.14.3",
+    "prettier": "1.15.1",
     "rimraf": "2.6.2"
   },
   "peerDependencies": {
