@@ -37,7 +37,7 @@
     "babel-eslint": "10.0.1",
     "cross-spawn": "6.0.5",
     "eslint": "5.8.0",
-    "eslint-config-google": "0.10.0",
+    "eslint-config-google": "0.11.0",
     "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-react": "7.11.1",
