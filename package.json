@@ -11,7 +11,8 @@
     "index.js",
     "react.js",
     "standard.js",
-    "unicorn.js"
+    "unicorn.js",
+    "vue.js"
   ],
   "bin": {
     "eslint-config-prettier-check": "bin/cli.js"
@@ -24,7 +25,7 @@
   "scripts": {
     "doctoc": "doctoc README.md",
     "test:lint": "eslint .",
-    "test:lint-verify-fail": "eslint test-lint/ --config .eslintrc.base.js --format json",
+    "test:lint-verify-fail": "eslint \"test-lint/*.{js,vue}\" --config .eslintrc.base.js --format json",
     "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
     "test:jest": "jest",
     "test:cli-sanity": "eslint --print-config . | node ./bin/cli.js",
@@ -45,6 +46,7 @@
     "eslint-plugin-react": "7.11.1",
     "eslint-plugin-standard": "4.0.0",
     "eslint-plugin-unicorn": "6.0.1",
+    "eslint-plugin-vue": "5.0.0-beta.3",
     "jest": "23.6.0",
     "prettier": "1.15.2",
     "rimraf": "2.6.2"

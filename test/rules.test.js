@@ -66,7 +66,8 @@ describe("all rule files are listed in package.json", () => {
 describe("all rule files have tests in test-lint/", () => {
   ruleFiles.forEach(ruleFileName => {
     test(ruleFileName, () => {
-      expect(fs.existsSync(path.join("test-lint", ruleFileName))).toBe(true);
+      const testFileName = ruleFileName === "vue.js" ? "vue.vue" : ruleFileName;
+      expect(fs.existsSync(path.join("test-lint", testFileName))).toBe(true);
     });
   });
 });

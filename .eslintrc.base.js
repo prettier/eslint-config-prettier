@@ -7,7 +7,8 @@ module.exports = {
     "google",
     "plugin:flowtype/recommended",
     "plugin:react/all",
-    "plugin:unicorn/recommended"
+    "plugin:unicorn/recommended",
+    "plugin:vue/recommended"
   ],
   plugins: [
     "prettier",
@@ -15,9 +16,9 @@ module.exports = {
       .filter(name => !name.includes("/") && name !== "index.js")
       .map(ruleFileName => ruleFileName.replace(/\.js$/, ""))
   ],
-  parser: "babel-eslint",
   parserOptions: {
-    ecmaVersion: 2016,
+    parser: "babel-eslint",
+    ecmaVersion: 2018,
     sourceType: "script",
     ecmaFeatures: {
       jsx: true

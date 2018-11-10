@@ -63,6 +63,7 @@ A few ESLint plugins are supported as well:
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
+- [eslint-plugin-vue]
 
 Add extra exclusions for the plugins you use like so:
 
@@ -73,7 +74,8 @@ Add extra exclusions for the plugins you use like so:
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
-    "prettier/unicorn"
+    "prettier/unicorn",
+    "prettier/vue"
   ]
 }
 ```
@@ -119,6 +121,7 @@ Exit codes:
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
     "plugin:unicorn/recommended",
+    "plugin:vue/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react",
@@ -130,7 +133,8 @@ Exit codes:
     "react",
     "prettier",
     "standard",
-    "unicorn"
+    "unicorn",
+    "vue"
   ],
   "parserOptions": {
     "sourceType": "module",
@@ -645,6 +649,7 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-react 7.11.1
 - eslint-plugin-standard 4.0.0
 - eslint-plugin-unicorn 6.0.1
+- eslint-plugin-vue 5.0.0-beta.3
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull
@@ -696,8 +701,8 @@ several other npm scripts:
 - `"test:lint"` makes sure that the files in `test-lint/` pass ESLint when
   the exclusions from eslint-config-prettier are used. It also lints the code of
   eslint-config-prettier itself.
-- `"test:lint-verify-fail"` is run by a test in `test/lint-verify-fail.js`.
-- `"test:lint-rules"` is run by a test in `test/rules.js`.
+- `"test:lint-verify-fail"` is run by a test in `test/lint-verify-fail.test.js`.
+- `"test:lint-rules"` is run by a test in `test/rules.test.js`.
 - `"test:jest"` runs unit tests that check a number of things:
   - That eslint-plugin-foobar is mentioned in all the places shown above.
   - That no unknown rules are turned off. This helps catching typos, for
@@ -717,6 +722,7 @@ several other npm scripts:
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
+[eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
