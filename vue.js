@@ -6,6 +6,7 @@ module.exports = {
     "vue/html-closing-bracket-spacing": "off",
     "vue/html-end-tags": "off",
     "vue/html-indent": "off",
+    "vue/html-self-closing": "off",
     "vue/html-quotes": "off",
     "vue/max-attributes-per-line": "off",
     "vue/multiline-html-element-content-newline": "off",
