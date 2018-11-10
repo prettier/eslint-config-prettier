@@ -14,6 +14,14 @@ module.exports = {
       files: ["{bin,test}/**/*.js"],
       rules: {
         "no-undef": "error",
+        "no-restricted-syntax": [
+          "error",
+          {
+            selector: "SequenceExpression",
+            message:
+              "The comma operator is confusing and a common mistake. Don’t use it!"
+          }
+        ],
         quotes: [
           "error",
           "double",

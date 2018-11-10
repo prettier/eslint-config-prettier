@@ -544,6 +544,66 @@ Prettier:
 }
 ```
 
+## Other rules worth mentioning
+
+These rules don’t conflict with Prettier, but have some gotchas when used with
+Prettier.
+
+### [no-sequences]
+
+This rule forbids using JavaScript’s confusing comma operator (sequence
+expressions). This piece of code is not doing what it looks like:
+
+```js
+matrix[4, 7];
+```
+
+Prettier adds parentheses to the above to make it clear that a sequence
+expression is used:
+
+```js
+matrix[(4, 7)];
+```
+
+However, the `no-sequences` rule allows comma operators if the expression
+sequence is explicitly wrapped in parentheses. Since Prettier automatically
+wraps them in parentheses, you might never see any warnings from ESLint about
+comma operators.
+
+Ending up with an accidental sequence expression can easily happen while
+refactoring. If you want ESLint to catch such mistakes, it is recommended to
+forbid sequence expressions entirely using [no-restricted-syntax] \([as
+mentioned in][no-sequences-full]):
+
+```json
+{
+  "rules": {
+    "no-restricted-syntax": ["error", "SequenceExpression"]
+  }
+}
+```
+
+If you still need to use the comma operator for some edge case, you can place an
+`// eslint-disable-next-line no-restricted-syntax` comment on the line above the
+expression. `no-sequences` can safely be disabled if you use the
+`no-restricted-syntax` approach.
+
+You can also supply a custom message if you want:
+
+```json
+{
+  "rules": {
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "SequenceExpression",
+        "message": "The comma operator is confusing and a common mistake. Don’t use it!"
+      }
+    ]
+  }
+}
+```
+
 ## Contributing
 
 eslint-config-prettier has been tested with:
@@ -633,6 +693,9 @@ several other npm scripts:
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-mixed-operators]: https://eslint.org/docs/rules/no-mixed-operators
+[no-restricted-syntax]: https://eslint.org/docs/rules/no-restricted-syntax
+[no-sequences-full]: https://eslint.org/docs/rules/no-sequences#when-not-to-use-it
+[no-sequences]: https://eslint.org/docs/rules/no-sequences
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
