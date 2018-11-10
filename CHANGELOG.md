@@ -1,3 +1,10 @@
+### Version 3.2.0 (2018-11-10)
+
+- Added: Support for [eslint-plugin-vue].
+- Fixed: The CLI helper tool should now work in Node.js 6 with npm 3 again.
+  Thanks to Grant Snodgrass (@meeber)!
+- Improved: Updated documentation.
+
 ### Version 3.1.0 (2018-09-22)
 
 - Added: Support for [eslint-plugin-unicorn]. Thanks to John Mars (@j0hnm4r5)!
@@ -168,6 +175,7 @@
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
+[eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
 [flowtype/boolean-style]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-boolean-style
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [implicit-arrow-linebreak]: https://eslint.org/docs/rules/implicit-arrow-linebreak
