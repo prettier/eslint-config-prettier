@@ -606,7 +606,7 @@ comma operators.
 Ending up with an accidental sequence expression can easily happen while
 refactoring. If you want ESLint to catch such mistakes, it is recommended to
 forbid sequence expressions entirely using [no-restricted-syntax] \([as
-mentioned in][no-sequences-full]):
+mentioned in the `no-sequences` documentation][no-sequences-full]):
 
 ```json
 {
