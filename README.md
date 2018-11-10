@@ -5,6 +5,35 @@ Turns off all rules that are unnecessary or might conflict with [Prettier].
 This lets you use you favorite shareable config without letting its stylistic
 choices get in the way when using Prettier.
 
+## Contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Installation](#installation)
+- [CLI helper tool](#cli-helper-tool)
+- [Example configuration](#example-configuration)
+- [Special rules](#special-rules)
+  - [[curly]](#curly)
+  - [[lines-around-comment]](#lines-around-comment)
+  - [[max-len]](#max-len)
+  - [[no-confusing-arrow]](#no-confusing-arrow)
+  - [[no-mixed-operators]](#no-mixed-operators)
+  - [[no-tabs]](#no-tabs)
+  - [[no-unexpected-multiline]](#no-unexpected-multiline)
+  - [[quotes]](#quotes)
+    - [Enforce backticks](#enforce-backticks)
+    - [Forbid unnecessary backticks](#forbid-unnecessary-backticks)
+      - [Example _double_ quote configuration](#example-_double_-quote-configuration)
+      - [Example _single_ quote configuration](#example-_single_-quote-configuration)
+- [Other rules worth mentioning](#other-rules-worth-mentioning)
+  - [[no-sequences]](#no-sequences)
+- [Contributing](#contributing)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Installation
 
 Tip: First, you might be interested in installing [eslint-plugin-prettier].

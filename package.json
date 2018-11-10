@@ -22,6 +22,7 @@
     "prettier"
   ],
   "scripts": {
+    "doctoc": "doctoc README.md",
     "test:lint": "eslint .",
     "test:lint-verify-fail": "eslint test-lint/ --config .eslintrc.base.js --format json",
     "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "babel-eslint": "10.0.1",
     "cross-spawn": "6.0.5",
+    "doctoc": "1.3.1",
     "eslint": "5.9.0",
     "eslint-config-google": "0.11.0",
     "eslint-plugin-flowtype": "3.2.0",
