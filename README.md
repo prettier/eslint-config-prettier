@@ -548,11 +548,11 @@ Prettier:
 
 eslint-config-prettier has been tested with:
 
-- ESLint 5.6.0
+- ESLint 5.9.0
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
-- prettier 1.14.3
-- eslint-plugin-flowtype 2.50.1
+- prettier 1.15.2
+- eslint-plugin-flowtype 3.2.0
 - eslint-plugin-react 7.11.1
 - eslint-plugin-standard 4.0.0
 - eslint-plugin-unicorn 6.0.1
