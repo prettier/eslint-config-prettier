@@ -2,8 +2,9 @@
 
 "use strict";
 
+const fs = require("fs");
+const path = require("path");
 const getStdin = require("get-stdin");
-const pkg = require("../package.json");
 const validators = require("./validators");
 
 const SPECIAL_RULES_URL =
@@ -72,10 +73,14 @@ function processString(string) {
     };
   }
 
+  // This used to look at "files" in package.json, but that is not reliable due
+  // to an npm bug. See:
+  // https://github.com/prettier/eslint-config-prettier/issues/57
   const allRules = Object.assign(
     Object.create(null),
-    ...pkg.files
-      .filter(name => !name.includes("/"))
+    ...fs
+      .readdirSync(path.join(__dirname, ".."))
+      .filter(name => !name.startsWith(".") && name.endsWith(".js"))
       .map(ruleFileName => require(`../${ruleFileName}`).rules)
   );
 
