@@ -27,6 +27,7 @@ choices get in the way when using Prettier.
     - [Forbid unnecessary backticks](#forbid-unnecessary-backticks)
       - [Example _double_ quote configuration](#example-_double_-quote-configuration)
       - [Example _single_ quote configuration](#example-_single_-quote-configuration)
+  - [vue/html-self-closing](#vuehtml-self-closing)
 - [Other rules worth mentioning](#other-rules-worth-mentioning)
   - [no-sequences](#no-sequences)
 - [Contributing](#contributing)
