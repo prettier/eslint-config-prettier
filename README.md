@@ -594,6 +594,8 @@ Prettier:
 
 ### [vue/html-self-closing]
 
+**This rule requires certain options.**
+
 This rule enforces whether elements should be self-closing or not.
 
 Prettier generally preserves the way you wrote your elements:
