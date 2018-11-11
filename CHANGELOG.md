@@ -1,3 +1,8 @@
+### Version 3.3.0 (2018-11-11)
+
+- Added: The [vue/html-self-closing] rule (as a [special
+  rule][vue/html-self-closing-special]). Thanks to Yamagishi Kazutoshi (@ykzts)!
+
 ### Version 3.2.0 (2018-11-10)
 
 - Added: Support for [eslint-plugin-vue].
@@ -201,3 +206,5 @@
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
+[vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
+[vue/html-self-closing-special]: https://github.com/prettier/eslint-config-prettier/blob/d5e7af986221df5faedc12893d8dc3150a808693/README.md#vuehtml-self-closing
