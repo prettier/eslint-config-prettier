@@ -46,3 +46,28 @@ test("no-confusing-arrow", () => {
   expect(validators["no-confusing-arrow"]([{ allowParens: true }])).toBe(false);
   expect(validators["no-confusing-arrow"]([null])).toBe(true);
 });
+
+test("vue/html-self-closing", () => {
+  expect(validators["vue/html-self-closing"]([])).toBe(false);
+  expect(validators["vue/html-self-closing"]([{ html: { void: "any" } }])).toBe(
+    true
+  );
+  expect(
+    validators["vue/html-self-closing"]([
+      {
+        html: {
+          void: "any",
+          html: "never",
+          component: "never"
+        },
+        svg: "never",
+        math: "never"
+      }
+    ])
+  ).toBe(true);
+  expect(validators["vue/html-self-closing"]([null])).toBe(false);
+  expect(validators["vue/html-self-closing"]([{ html: null }])).toBe(false);
+  expect(
+    validators["vue/html-self-closing"]([{ html: { void: "always" } }])
+  ).toBe(false);
+});

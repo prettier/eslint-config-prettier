@@ -591,6 +591,44 @@ Prettier:
 }
 ```
 
+### [vue/html-self-closing]
+
+This rule enforces whether elements should be self-closing or not.
+
+Prettier generally preserves the way you wrote your elements:
+
+```vue
+<div />
+<div></div>
+<MyComponent />
+<MyComponent></MyComponent>
+<svg><path d="" /></svg>
+<svg><path d=""></path></svg>
+```
+
+But for known _void_ HTML elements, Prettier always uses the self-closing style.
+For example, `<img>` is turned into `<img />`.
+
+If you like this rule, it can be used just fine with Prettier as long as you
+set `html.void` to `"any"`.
+
+Example ESLint configuration:
+
+```json
+{
+  "rules": {
+    "vue/html-self-closing": [
+      "error",
+      {
+        "html": {
+          "void": "any"
+        }
+      }
+    ]
+  }
+}
+```
+
 ## Other rules worth mentioning
 
 These rules don’t conflict with Prettier, but have some gotchas when used with
@@ -754,3 +792,4 @@ several other npm scripts:
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
+[vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md

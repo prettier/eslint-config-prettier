@@ -2,6 +2,8 @@
 
 module.exports = {
   rules: {
+    "vue/html-self-closing": 0,
+
     "vue/html-closing-bracket-newline": "off",
     "vue/html-closing-bracket-spacing": "off",
     "vue/html-end-tags": "off",

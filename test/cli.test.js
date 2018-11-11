@@ -124,7 +124,8 @@ test("all the things", () => {
     ["curly", "multi-or-nest", "consistent"],
     ["no-confusing-arrow", { allowParens: true }],
     "react/jsx-indent",
-    "flowtype/semi"
+    "flowtype/semi",
+    "vue/html-self-closing"
   ];
   expect(cli.processString(createRules(rules, "error"))).toMatchInlineSnapshot(`
 Object {
@@ -142,6 +143,7 @@ https://github.com/prettier/eslint-config-prettier#special-rules
 - curly
 - lines-around-comment
 - no-confusing-arrow
+- vue/html-self-closing
 
 The following rules are enabled but cannot be automatically checked. See:
 https://github.com/prettier/eslint-config-prettier#special-rules
