@@ -126,7 +126,8 @@ Exit codes:
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
-    "prettier/unicorn"
+    "prettier/unicorn",
+    "prettier/vue"
   ],
   "plugins": [
     "flowtype",
