@@ -408,6 +408,19 @@ required):
 }
 ```
 
+**Note:** Since [ESlint 5.7.0] this rule can be configured to work regardless of
+your Prettier configuration:
+
+```json
+{
+  "rules": {
+    "no-tabs": ["error", {"allowIndentationTabs": true}]
+  }
+}
+```
+
+A future version of eslint-config-prettier might check for that automatically.
+
 ### [no-unexpected-multiline]
 
 **This rule requires special attention when writing code.**
@@ -716,6 +729,7 @@ several other npm scripts:
 
 [MIT](LICENSE).
 
+[ESlint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
 [Prettier]: https://github.com/prettier/prettier
 [curly]: https://eslint.org/docs/rules/curly
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
