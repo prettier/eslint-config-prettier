@@ -28,6 +28,8 @@ choices get in the way when using Prettier.
       - [Example _double_ quote configuration](#example-_double_-quote-configuration)
       - [Example _single_ quote configuration](#example-_single_-quote-configuration)
   - [vue/html-self-closing](#vuehtml-self-closing)
+  - [typescript/member-delimiter-style](#typescriptmember-delimiter-style)
+  - [typescript/type-annotation-spacing](#typescripttype-annotation-spacing)
 - [Other rules worth mentioning](#other-rules-worth-mentioning)
   - [no-sequences](#no-sequences)
 - [Contributing](#contributing)
@@ -65,6 +67,7 @@ A few ESLint plugins are supported as well:
 - [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
+- [eslint-plugin-typescript]
 
 Add extra exclusions for the plugins you use like so:
 
@@ -76,7 +79,8 @@ Add extra exclusions for the plugins you use like so:
     "prettier/react",
     "prettier/standard",
     "prettier/unicorn",
-    "prettier/vue"
+    "prettier/vue",
+    "prettier/typescript"
   ]
 }
 ```
@@ -128,7 +132,8 @@ Exit codes:
     "prettier/react",
     "prettier/standard",
     "prettier/unicorn",
-    "prettier/vue"
+    "prettier/vue",
+    "prettier/typescript"
   ],
   "plugins": [
     "flowtype",
@@ -136,7 +141,8 @@ Exit codes:
     "prettier",
     "standard",
     "unicorn",
-    "vue"
+    "vue",
+    "typescript"
   ],
   "parserOptions": {
     "sourceType": "module",
@@ -632,6 +638,46 @@ Example ESLint configuration:
 }
 ```
 
+### [typescript/member-delimiter-style]
+
+**This rule requires certain options.**
+
+This rule enforces a specific delimiter for interfaces and object types.
+
+Example ESLint configuration:
+
+```json5
+{
+  "rules": {
+    "typescript/member-delimiter-style": [
+      "error",
+      {
+        // If you have `semi: false` in your Prettier config
+        "multiline": {
+          "delimiter": "none"
+        }
+      }
+    ]
+  }
+}
+```
+
+### [typescript/type-annotation-spacing]
+
+**This rule requires that no options be passed.**
+
+This rule enforces a specific spacing style for the `:` in type annotations.
+
+Example ESLint configuration:
+
+```json5
+{
+  "rules": {
+    "typescript/type-annotation-spacing": "error"
+  }
+}
+```
+
 ## Other rules worth mentioning
 
 These rules don’t conflict with Prettier, but have some gotchas when used with
@@ -779,6 +825,7 @@ several other npm scripts:
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
+[eslint-plugin-vue]: https://github.com/bradzacher/eslint-plugin-typescript
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
@@ -796,3 +843,4 @@ several other npm scripts:
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
+[typescript/member-delimiter-style]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/member-delimiter-style.md

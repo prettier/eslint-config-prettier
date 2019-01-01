@@ -8,6 +8,7 @@ module.exports = {
     "plugin:flowtype/recommended",
     "plugin:react/all",
     "plugin:unicorn/recommended",
+    "plugin:typescript/recommended",
     "plugin:vue/recommended"
   ],
   plugins: [
@@ -20,6 +21,7 @@ module.exports = {
     parser: "babel-eslint",
     ecmaVersion: 2018,
     sourceType: "script",
+    loggerFn: () => {},
     ecmaFeatures: {
       jsx: true
     }
@@ -40,8 +42,26 @@ module.exports = {
     "react/jsx-filename-extension": "off",
     "react/jsx-no-bind": "off",
     // Force a conflict with Prettier in test-lint/standard.js.
-    "standard/computed-property-even-spacing": ["error", "even"]
+    "standard/computed-property-even-spacing": ["error", "even"],
+    // Force a conflict with Prettier in test-lint/typescript.ts.
+    "typescript/member-delimiter-style": [
+      "error",
+      { singleline: { delimiter: "semi" } }
+    ],
+    "typescript/indent": "off",
+    "typescript/no-var-requires": "off",
+    "typescript/no-use-before-define": "off",
+    "typescript/type-annotation-spacing": [
+      "error",
+      { before: true, after: false }
+    ]
   },
+  overrides: [
+    {
+      files: ["*.ts"],
+      parserOptions: { parser: "eslint-plugin-typescript/parser" }
+    }
+  ],
   settings: {
     react: {
       version: "16"

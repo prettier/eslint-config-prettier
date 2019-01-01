@@ -11,6 +11,7 @@
     "index.js",
     "react.js",
     "standard.js",
+    "typescript.js",
     "unicorn.js",
     "vue.js"
   ],
@@ -25,7 +26,7 @@
   "scripts": {
     "doctoc": "doctoc README.md && replace \"\\[(\\[[\\w/-]+\\])\\]\" \"\\$1\" README.md",
     "test:lint": "eslint .",
-    "test:lint-verify-fail": "eslint \"test-lint/*.{js,vue}\" --config .eslintrc.base.js --format json",
+    "test:lint-verify-fail": "eslint \"test-lint/*.{js,ts,vue}\" --config .eslintrc.base.js --format json",
     "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
     "test:jest": "jest",
     "test:cli-sanity": "eslint --print-config . | node ./bin/cli.js",
@@ -45,12 +46,14 @@
     "eslint-plugin-prettier": "3.0.0",
     "eslint-plugin-react": "7.11.1",
     "eslint-plugin-standard": "4.0.0",
+    "eslint-plugin-typescript": "github:bradzacher/eslint-plugin-typescript#4d85404",
     "eslint-plugin-unicorn": "6.0.1",
     "eslint-plugin-vue": "5.0.0-beta.3",
     "jest": "23.6.0",
     "prettier": "1.15.2",
     "replace": "1.0.0",
-    "rimraf": "2.6.2"
+    "rimraf": "2.6.2",
+    "typescript": "^3.2.2"
   },
   "peerDependencies": {
     "eslint": ">=3.14.1"
