@@ -81,25 +81,3 @@ rule("vue/html-self-closing", {
   ],
   invalid: [[], [null], [{ html: null }], [{ html: { void: "always" } }]]
 });
-
-rule("typescript/member-delimiter-style", {
-  valid: [
-    [],
-    [
-      {
-        multiline: {
-          delimiter: "semi",
-          requireLast: true
-        },
-        singleline: {
-          delimiter: "semi",
-          requireLast: false
-        }
-      }
-    ]
-  ]
-});
-
-rule("typescript/type-annotation-spacing", {
-  valid: [[]]
-});
