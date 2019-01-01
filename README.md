@@ -825,7 +825,7 @@ several other npm scripts:
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
-[eslint-plugin-vue]: https://github.com/bradzacher/eslint-plugin-typescript
+[eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
