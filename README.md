@@ -28,8 +28,6 @@ choices get in the way when using Prettier.
       - [Example _double_ quote configuration](#example-_double_-quote-configuration)
       - [Example _single_ quote configuration](#example-_single_-quote-configuration)
   - [vue/html-self-closing](#vuehtml-self-closing)
-  - [typescript/member-delimiter-style](#typescriptmember-delimiter-style)
-  - [typescript/type-annotation-spacing](#typescripttype-annotation-spacing)
 - [Other rules worth mentioning](#other-rules-worth-mentioning)
   - [no-sequences](#no-sequences)
 - [Contributing](#contributing)
@@ -638,46 +636,6 @@ Example ESLint configuration:
 }
 ```
 
-### [typescript/member-delimiter-style]
-
-**This rule requires certain options.**
-
-This rule enforces a specific delimiter for interfaces and object types.
-
-Example ESLint configuration:
-
-```json5
-{
-  "rules": {
-    "typescript/member-delimiter-style": [
-      "error",
-      {
-        // If you have `semi: false` in your Prettier config
-        "multiline": {
-          "delimiter": "none"
-        }
-      }
-    ]
-  }
-}
-```
-
-### [typescript/type-annotation-spacing]
-
-**This rule requires that no options be passed.**
-
-This rule enforces a specific spacing style for the `:` in type annotations.
-
-Example ESLint configuration:
-
-```json5
-{
-  "rules": {
-    "typescript/type-annotation-spacing": "error"
-  }
-}
-```
-
 ## Other rules worth mentioning
 
 These rules don’t conflict with Prettier, but have some gotchas when used with
@@ -843,5 +801,3 @@ several other npm scripts:
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
-[typescript/member-delimiter-style]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/member-delimiter-style.md
-[typescript/type-annotation-spacing]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/type-annotation-spacing.md
