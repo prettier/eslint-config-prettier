@@ -3,7 +3,7 @@
 module.exports = {
   rules: {
     "typescript/indent": "off",
-    "typescript/member-delimiter-style": 0,
-    "typescript/type-annotation-spacing": 0
+    "typescript/member-delimiter-style": "off",
+    "typescript/type-annotation-spacing": "off"
   }
 };
