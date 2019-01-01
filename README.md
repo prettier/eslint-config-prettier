@@ -844,3 +844,4 @@ several other npm scripts:
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
 [typescript/member-delimiter-style]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/member-delimiter-style.md
+[typescript/type-annotation-spacing]: https://github.com/bradzacher/eslint-plugin-typescript/blob/master/docs/rules/type-annotation-spacing.md
