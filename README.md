@@ -63,9 +63,9 @@ A few ESLint plugins are supported as well:
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
+- [eslint-plugin-typescript]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
-- [eslint-plugin-typescript]
 
 Add extra exclusions for the plugins you use like so:
 
@@ -76,9 +76,9 @@ Add extra exclusions for the plugins you use like so:
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
+    "prettier/typescript",
     "prettier/unicorn",
-    "prettier/vue",
-    "prettier/typescript"
+    "prettier/vue"
   ]
 }
 ```
@@ -123,24 +123,25 @@ Exit codes:
     "standard",
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
+    "plugin:typescript/recommended",
     "plugin:unicorn/recommended",
     "plugin:vue/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
+    "prettier/typescript",
     "prettier/unicorn",
-    "prettier/vue",
-    "prettier/typescript"
+    "prettier/vue"
   ],
   "plugins": [
     "flowtype",
     "react",
     "prettier",
     "standard",
+    "typescript",
     "unicorn",
-    "vue",
-    "typescript"
+    "vue"
   ],
   "parserOptions": {
     "sourceType": "module",
@@ -781,9 +782,9 @@ several other npm scripts:
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
+[eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
-[eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
