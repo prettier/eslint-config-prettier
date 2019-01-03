@@ -17,12 +17,8 @@ expect.extend({
 function rule(name, { valid, invalid }) {
   test(name, () => {
     const validator = validators[name];
-    if (valid) {
-      valid.forEach(opts => expect(validator).toPass(opts));
-    }
-    if (invalid) {
-      invalid.forEach(opts => expect(validator).not.toPass(opts));
-    }
+    valid.forEach(opts => expect(validator).toPass(opts));
+    invalid.forEach(opts => expect(validator).not.toPass(opts));
   });
 }
 
