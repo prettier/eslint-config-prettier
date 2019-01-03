@@ -7,7 +7,3 @@ interface Foo {
   a: Foo;
   b: Bar;
 }
-
-function add(a: number, b: number): number {
-  return a + b;
-}
