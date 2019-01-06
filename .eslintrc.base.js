@@ -21,6 +21,7 @@ module.exports = {
     parser: "babel-eslint",
     ecmaVersion: 2018,
     sourceType: "script",
+    // Needed for the lint-verify-fail.test.js test.
     loggerFn: () => {},
     ecmaFeatures: {
       jsx: true
