@@ -7,8 +7,8 @@ module.exports = {
     "google",
     "plugin:flowtype/recommended",
     "plugin:react/all",
-    "plugin:unicorn/recommended",
     "plugin:typescript/recommended",
+    "plugin:unicorn/recommended",
     "plugin:vue/recommended"
   ],
   plugins: [
