@@ -7,7 +7,6 @@ module.exports = {
     "google",
     "plugin:flowtype/recommended",
     "plugin:react/all",
-    "plugin:typescript/recommended",
     "plugin:unicorn/recommended",
     "plugin:vue/recommended"
   ],
@@ -43,24 +42,17 @@ module.exports = {
     "react/jsx-filename-extension": "off",
     "react/jsx-no-bind": "off",
     // Force a conflict with Prettier in test-lint/standard.js.
-    "standard/computed-property-even-spacing": ["error", "even"],
-    // Force a conflict with Prettier in test-lint/typescript.ts.
-    "typescript/member-delimiter-style": [
-      "error",
-      { singleline: { delimiter: "semi" } }
-    ],
-    "typescript/indent": "off",
-    "typescript/no-var-requires": "off",
-    "typescript/no-use-before-define": "off",
-    "typescript/type-annotation-spacing": [
-      "error",
-      { before: true, after: false }
-    ]
+    "standard/computed-property-even-spacing": ["error", "even"]
   },
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
-      parserOptions: { parser: "eslint-plugin-typescript/parser" }
+      parserOptions: { parser: "eslint-plugin-typescript/parser" },
+      rules: {
+        // Force a conflict with Prettier in test-lint/typescript.js.
+        // This is included in "plugin:typescript/recommended".
+        "typescript/indent": "error"
+      }
     }
   ],
   settings: {

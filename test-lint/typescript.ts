@@ -1,9 +1,8 @@
 /* eslint-disable quotes */
 "use strict";
 
-// Prettier wants semicolons as delimiters, but the "typescript" rule added in
-// .eslintrc.base.js wants commas.
+// Prettier wants 2-space indentation, but "plugin:typescript/recommended"
+// wants 4 spaces.
 interface Foo {
-  a: Foo;
-  b: Bar;
+  a: string;
 }
