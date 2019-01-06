@@ -46,7 +46,7 @@
     "eslint-plugin-prettier": "3.0.0",
     "eslint-plugin-react": "7.11.1",
     "eslint-plugin-standard": "4.0.0",
-    "eslint-plugin-typescript": "github:bradzacher/eslint-plugin-typescript#4d85404",
+    "eslint-plugin-typescript": "1.0.0-rc.1",
     "eslint-plugin-unicorn": "6.0.1",
     "eslint-plugin-vue": "5.0.0-beta.3",
     "jest": "23.6.0",
