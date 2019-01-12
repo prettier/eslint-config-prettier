@@ -63,6 +63,7 @@ A few ESLint plugins are supported as well:
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
+- [eslint-plugin-typescript]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
 
@@ -75,6 +76,7 @@ Add extra exclusions for the plugins you use like so:
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
+    "prettier/typescript",
     "prettier/unicorn",
     "prettier/vue"
   ]
@@ -121,12 +123,14 @@ Exit codes:
     "standard",
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
+    "plugin:typescript/recommended",
     "plugin:unicorn/recommended",
     "plugin:vue/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
+    "prettier/typescript",
     "prettier/unicorn",
     "prettier/vue"
   ],
@@ -135,6 +139,7 @@ Exit codes:
     "react",
     "prettier",
     "standard",
+    "typescript",
     "unicorn",
     "vue"
   ],
@@ -703,6 +708,7 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-flowtype 3.2.0
 - eslint-plugin-react 7.11.1
 - eslint-plugin-standard 4.0.0
+- eslint-plugin-typescript 1.0.0-rc.1
 - eslint-plugin-unicorn 6.0.1
 - eslint-plugin-vue 5.0.0-beta.3
 
@@ -777,6 +783,7 @@ several other npm scripts:
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
+[eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment

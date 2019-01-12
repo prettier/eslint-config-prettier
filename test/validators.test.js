@@ -1,21 +1,35 @@
 "use strict";
 
 const validators = require("../bin/validators");
+const { inspect } = require("util");
 
-test("curly", () => {
-  expect(validators.curly([])).toBe(true);
-  expect(validators.curly(["all"])).toBe(true);
-  expect(validators.curly(["multi"])).toBe(true);
-  expect(validators.curly(["multi-line"])).toBe(false);
-  expect(validators.curly(["multi-or-nest"])).toBe(false);
-  expect(validators.curly(["multi", "consistent"])).toBe(true);
-  expect(validators.curly(["multi-line", "consistent"])).toBe(false);
+expect.extend({
+  toPass(validator, opts) {
+    const pass = validator(opts);
+    return {
+      message: () =>
+        `expected ${inspect(opts)} to be ${pass ? "invalid" : "valid"}`,
+      pass
+    };
+  }
 });
 
-test("lines-around-comment", () => {
-  expect(validators["lines-around-comment"]([])).toBe(false);
-  expect(
-    validators["lines-around-comment"]([
+function rule(name, { valid, invalid }) {
+  test(name, () => {
+    const validator = validators[name];
+    valid.forEach(opts => expect(validator).toPass(opts));
+    invalid.forEach(opts => expect(validator).not.toPass(opts));
+  });
+}
+
+rule("curly", {
+  valid: [[], , ["all"], ["multi"], ["multi", "consistent"]],
+  invalid: [["multi-line"], ["multi-or-nest"], ["multi-line", "consistent"]]
+});
+
+rule("lines-around-comment", {
+  valid: [
+    [
       {
         allowBlockStart: true,
         allowBlockEnd: true,
@@ -24,10 +38,11 @@ test("lines-around-comment", () => {
         allowArrayStart: true,
         allowArrayEnd: true
       }
-    ])
-  ).toBe(true);
-  expect(
-    validators["lines-around-comment"]([
+    ]
+  ],
+  invalid: [
+    [],
+    [
       {
         allowBlockEnd: true,
         allowObjectStart: true,
@@ -35,25 +50,20 @@ test("lines-around-comment", () => {
         allowArrayStart: true,
         allowArrayEnd: true
       }
-    ])
-  ).toBe(false);
-  expect(validators["lines-around-comment"]([null])).toBe(false);
+    ],
+    [null]
+  ]
 });
 
-test("no-confusing-arrow", () => {
-  expect(validators["no-confusing-arrow"]([])).toBe(true);
-  expect(validators["no-confusing-arrow"]([{ allowParens: false }])).toBe(true);
-  expect(validators["no-confusing-arrow"]([{ allowParens: true }])).toBe(false);
-  expect(validators["no-confusing-arrow"]([null])).toBe(true);
+rule("no-confusing-arrow", {
+  valid: [[], [{ allowParens: false }], [null]],
+  invalid: [[{ allowParens: true }]]
 });
 
-test("vue/html-self-closing", () => {
-  expect(validators["vue/html-self-closing"]([])).toBe(false);
-  expect(validators["vue/html-self-closing"]([{ html: { void: "any" } }])).toBe(
-    true
-  );
-  expect(
-    validators["vue/html-self-closing"]([
+rule("vue/html-self-closing", {
+  valid: [
+    [{ html: { void: "any" } }],
+    [
       {
         html: {
           void: "any",
@@ -63,11 +73,7 @@ test("vue/html-self-closing", () => {
         svg: "never",
         math: "never"
       }
-    ])
-  ).toBe(true);
-  expect(validators["vue/html-self-closing"]([null])).toBe(false);
-  expect(validators["vue/html-self-closing"]([{ html: null }])).toBe(false);
-  expect(
-    validators["vue/html-self-closing"]([{ html: { void: "always" } }])
-  ).toBe(false);
+    ]
+  ],
+  invalid: [[], [null], [{ html: null }], [{ html: { void: "always" } }]]
 });

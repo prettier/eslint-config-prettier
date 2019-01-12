@@ -20,6 +20,8 @@ module.exports = {
     parser: "babel-eslint",
     ecmaVersion: 2018,
     sourceType: "script",
+    // Needed for the lint-verify-fail.test.js test.
+    loggerFn: () => {},
     ecmaFeatures: {
       jsx: true
     }
@@ -42,6 +44,17 @@ module.exports = {
     // Force a conflict with Prettier in test-lint/standard.js.
     "standard/computed-property-even-spacing": ["error", "even"]
   },
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+      parserOptions: { parser: "eslint-plugin-typescript/parser" },
+      rules: {
+        // Force a conflict with Prettier in test-lint/typescript.js.
+        // This is included in "plugin:typescript/recommended".
+        "typescript/indent": "error"
+      }
+    }
+  ],
   settings: {
     react: {
       version: "16"

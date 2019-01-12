@@ -22,7 +22,7 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
   });
 
   output.forEach(data => {
-    const name = path.basename(data.filePath).replace(/\.(?:js|vue)$/, "");
+    const name = path.basename(data.filePath).replace(/\.(?:js|ts|vue)$/, "");
     const ruleIds = data.messages.map(message => message.ruleId);
 
     describe(name, () => {
