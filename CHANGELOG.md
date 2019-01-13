@@ -1,3 +1,11 @@
+### Version 3.4.0 (2019-01-13)
+
+- Added: Support for [eslint-plugin-typescript]. Thanks to Jed Fox (@j-f1)!
+- Improved: The eslint-plugin-vue integration is now using the
+  `vue/no-layout-rules` config behind the scenes, so it should automatically
+  stay up-to-date when new eslint-plugin-vue versions are released. Thanks to
+  Michał Sajnóg (@michalsnik)!
+
 ### Version 3.3.0 (2018-11-11)
 
 - Added: The [vue/html-self-closing] rule (as a [special
@@ -179,6 +187,7 @@
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
+[eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
 [flowtype/boolean-style]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-boolean-style
