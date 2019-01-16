@@ -48,7 +48,7 @@
     "eslint-plugin-standard": "4.0.0",
     "eslint-plugin-typescript": "1.0.0-rc.1",
     "eslint-plugin-unicorn": "6.0.1",
-    "eslint-plugin-vue": "5.1.0",
+    "eslint-plugin-vue": "github:vuejs/eslint-plugin-vue#9c49dcc8ff792ec6798037bd6b7f4ac3d26fdf68",
     "jest": "23.6.0",
     "prettier": "1.15.3",
     "replace": "1.0.1",
