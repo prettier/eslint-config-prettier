@@ -709,7 +709,7 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-react 7.12.3
 - eslint-plugin-standard 4.0.0
 - eslint-plugin-typescript 1.0.0-rc.1
-- eslint-plugin-unicorn 6.0.1
+- eslint-plugin-unicorn 7.0.0
 - eslint-plugin-vue 5.1.0
 
 Have new rules been added since those versions? Have we missed any rules? Is
