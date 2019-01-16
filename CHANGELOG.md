@@ -1,3 +1,13 @@
+### Version 3.5.0 (2019-01-16)
+
+- Fixed: The eslint-plugin-vue change from 3.4.0 has been reverted. That change
+  requires eslint-plugin-vue@5, while many use eslint-plugin-vue@4. In other
+  words, it was an accidental breaking change. Also, after thinking about it
+  some more, it makes sense to have a Prettier-specific list of rules, rather
+  than using the `vue/no-layout-rules` list, since there can be layout rules
+  that don’t conflict with but rather complement Prettier.
+- Added: New eslint-plugin-vue rules coming in the next version after 5.1.0.
+
 ### Version 3.4.0 (2019-01-13)
 
 - Added: Support for [eslint-plugin-typescript]. Thanks to Jed Fox (@j-f1)!
