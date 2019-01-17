@@ -7,6 +7,7 @@
   "repository": "prettier/eslint-config-prettier",
   "files": [
     "bin/",
+    "babel.js",
     "flowtype.js",
     "index.js",
     "react.js",
@@ -42,6 +43,7 @@
     "doctoc": "1.4.0",
     "eslint": "5.12.0",
     "eslint-config-google": "0.11.0",
+    "eslint-plugin-babel": "5.3.0",
     "eslint-plugin-flowtype": "3.2.1",
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.12.3",
