@@ -60,6 +60,7 @@ configs.
 
 A few ESLint plugins are supported as well:
 
+- [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
@@ -73,6 +74,7 @@ Add extra exclusions for the plugins you use like so:
 {
   "extends": [
     "prettier",
+    "prettier/babel",
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
@@ -127,6 +129,7 @@ Exit codes:
     "plugin:unicorn/recommended",
     "plugin:vue/recommended",
     "prettier",
+    "prettier/babel",
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
@@ -135,6 +138,7 @@ Exit codes:
     "prettier/vue"
   ],
   "plugins": [
+    "babel",
     "flowtype",
     "react",
     "prettier",
@@ -498,6 +502,8 @@ Example configuration:
 
 ### [quotes]
 
+(The following applies to [babel/quotes] as well.)
+
 **This rule requires certain options and certain Prettier options.**
 
 Usually, you don’t need this rule at all. But there are two cases where it could
@@ -705,6 +711,7 @@ eslint-config-prettier has been tested with:
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 1.15.3
+- eslint-plugin-babel 5.3.0
 - eslint-plugin-flowtype 3.2.1
 - eslint-plugin-react 7.12.3
 - eslint-plugin-standard 4.0.0
@@ -778,7 +785,9 @@ several other npm scripts:
 
 [ESlint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
 [Prettier]: https://github.com/prettier/prettier
+[babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
 [curly]: https://eslint.org/docs/rules/curly
+[eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
