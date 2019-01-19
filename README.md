@@ -745,7 +745,7 @@ Then, create `test-lint/foobar.js`:
 "use strict";
 
 // Prettier does not want spaces before the parentheses, but
-// some-foobar-config wants one.
+// `plugin:foobar/recommended` wants one.
 console.log();
 ```
 

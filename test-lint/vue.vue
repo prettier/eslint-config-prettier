@@ -1,5 +1,5 @@
 <!--
-  Prettier can put several attributes on one line, but "plugin:vue/recommended"
+  Prettier can put several attributes on one line, but `plugin:vue/recommended`
   wants at most one per line.
 -->
 <template>

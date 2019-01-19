@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 "use strict";
 
-// Prettier wants spacing between curly braces, but "babel" rule added in
-// .eslintrc.base.js doesn't.
+// Prettier wants spacing between curly braces, but `babel/object-curly-spacing`
+// doesn’t.
 module.exports = { foo: "bar" };
