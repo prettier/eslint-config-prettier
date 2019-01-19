@@ -5,6 +5,9 @@ Turns off all rules that are unnecessary or might conflict with [Prettier].
 This lets you use you favorite shareable config without letting its stylistic
 choices get in the way when using Prettier.
 
+Note that this config _only_ turns rules _off,_ so it only makes sense using
+it together with some other config.
+
 ## Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -43,7 +46,7 @@ Follow the instructions over there. This is optional, though.
 Install eslint-config-prettier:
 
 ```
-$ npm install --save-dev eslint-config-prettier
+npm install --save-dev eslint-config-prettier
 ```
 
 Then, add eslint-config-prettier to the "extends" array in your `.eslintrc.*`
@@ -53,6 +56,7 @@ configs.
 ```json
 {
   "extends": [
+    "some-other-config-you-use",
     "prettier"
   ]
 }
@@ -73,6 +77,7 @@ Add extra exclusions for the plugins you use like so:
 ```json
 {
   "extends": [
+    "some-other-config-you-use",
     "prettier",
     "prettier/babel",
     "prettier/flowtype",
