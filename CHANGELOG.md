@@ -1,3 +1,8 @@
+### Version 3.6.0 (2019-01-19)
+
+- Added: Support for [eslint-plugin-babel]. Thanks to Matija Marohnić
+  (@silvenon)!
+
 ### Version 3.5.0 (2019-01-16)
 
 - Fixed: The eslint-plugin-vue change from 3.4.0 has been reverted. That change
