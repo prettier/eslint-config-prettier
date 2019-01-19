@@ -707,13 +707,13 @@ You can also supply a custom message if you want:
 
 eslint-config-prettier has been tested with:
 
-- ESLint 5.12.0
+- ESLint 5.12.1
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 1.15.3
 - eslint-plugin-babel 5.3.0
 - eslint-plugin-flowtype 3.2.1
-- eslint-plugin-react 7.12.3
+- eslint-plugin-react 7.12.4
 - eslint-plugin-standard 4.0.0
 - eslint-plugin-typescript 1.0.0-rc.1
 - eslint-plugin-unicorn 7.0.0
