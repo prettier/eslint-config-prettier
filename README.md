@@ -711,13 +711,13 @@ eslint-config-prettier has been tested with:
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 1.15.3
+- eslint-plugin-babel 5.3.0
 - eslint-plugin-flowtype 3.2.1
 - eslint-plugin-react 7.12.3
 - eslint-plugin-standard 4.0.0
 - eslint-plugin-typescript 1.0.0-rc.1
 - eslint-plugin-unicorn 7.0.0
 - eslint-plugin-vue 5.1.0
-- eslint-plugin-babel 5.3.0
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull
@@ -787,6 +787,7 @@ several other npm scripts:
 [Prettier]: https://github.com/prettier/prettier
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
 [curly]: https://eslint.org/docs/rules/curly
+[eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
@@ -794,7 +795,6 @@ several other npm scripts:
 [eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
-[eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
