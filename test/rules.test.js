@@ -98,8 +98,16 @@ describe("all plugin rule files are mentioned in the README", () => {
     .forEach(ruleFileName => {
       test(ruleFileName, () => {
         const name = ruleFileName.replace(/\.js$/, "");
-        expect(readme).toMatch(`eslint-plugin-${name}`);
-        expect(readme).toMatch(`"${name}"`);
+        expect(readme).toMatch(
+          name === "typescript"
+            ? "@typescript-eslint/eslint-plugin"
+            : `eslint-plugin-${name}`
+        );
+        expect(readme).toMatch(
+          `"${
+            name === "typescript" ? "@typescript-eslint/eslint-plugin" : name
+          }"`
+        );
         expect(readme).toMatch(`"prettier/${name}"`);
       });
     });
