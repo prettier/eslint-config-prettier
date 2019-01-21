@@ -57,7 +57,7 @@ module.exports = {
       parserOptions: { parser: "@typescript-eslint/parser" },
       rules: {
         // Force a conflict with Prettier in test-lint/typescript.js.
-        // This is included in "plugin:typescript/recommended".
+        // This is included in "plugin:@typescript-eslint/recommended".
         "@typescript-eslint/indent": "error"
       }
     }
