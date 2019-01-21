@@ -12,8 +12,12 @@ module.exports = {
   ],
   plugins: [
     "prettier",
+    "@typescript-eslint/eslint-plugin",
     ...pkg.files
-      .filter(name => !name.includes("/") && name !== "index.js")
+      .filter(
+        name =>
+          !name.includes("/") && name !== "index.js" && name !== "typescript.js"
+      )
       .map(ruleFileName => ruleFileName.replace(/\.js$/, ""))
   ],
   parserOptions: {
@@ -50,11 +54,11 @@ module.exports = {
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
-      parserOptions: { parser: "eslint-plugin-typescript/parser" },
+      parserOptions: { parser: "@typescript-eslint/parser" },
       rules: {
         // Force a conflict with Prettier in test-lint/typescript.js.
         // This is included in "plugin:typescript/recommended".
-        "typescript/indent": "error"
+        "@typescript-eslint/indent": "error"
       }
     }
   ],

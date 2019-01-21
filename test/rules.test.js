@@ -83,7 +83,9 @@ describe("all rule files are included in the ESLint config", () => {
       const name = ruleFileName.replace(/\.js$/, "");
       expect(eslintConfig.extends).toContain(`./${ruleFileName}`);
       if (ruleFileName !== "index.js") {
-        expect(eslintConfigBase.plugins).toContain(name);
+        expect(eslintConfigBase.plugins).toContain(
+          name === "typescript" ? "@typescript-eslint/eslint-plugin" : name
+        );
       }
     });
   });
