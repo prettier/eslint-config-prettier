@@ -64,11 +64,11 @@ configs.
 
 A few ESLint plugins are supported as well:
 
+- [@typescript-eslint/eslint-plugin]
 - [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
-- [eslint-plugin-typescript]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
 
@@ -79,11 +79,11 @@ Add extra exclusions for the plugins you use like so:
   "extends": [
     "some-other-config-you-use",
     "prettier",
+    "prettier/@typescript-eslint",
     "prettier/babel",
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
-    "prettier/typescript",
     "prettier/unicorn",
     "prettier/vue"
   ]
@@ -128,27 +128,27 @@ Exit codes:
 {
   "extends": [
     "standard",
+    "plugin:@typescript-eslint/recommended",
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
-    "plugin:typescript/recommended",
     "plugin:unicorn/recommended",
     "plugin:vue/recommended",
     "prettier",
+    "prettier/@typescript-eslint",
     "prettier/babel",
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
-    "prettier/typescript",
     "prettier/unicorn",
     "prettier/vue"
   ],
   "plugins": [
+    "@typescript-eslint",
     "babel",
     "flowtype",
-    "react",
     "prettier",
+    "react",
     "standard",
-    "typescript",
     "unicorn",
     "vue"
   ],
@@ -716,11 +716,11 @@ eslint-config-prettier has been tested with:
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 1.15.3
+- @typescript-eslint/eslint-plugin 1.0.0
 - eslint-plugin-babel 5.3.0
 - eslint-plugin-flowtype 3.2.1
 - eslint-plugin-react 7.12.4
 - eslint-plugin-standard 4.0.0
-- eslint-plugin-typescript 1.0.0-rc.1
 - eslint-plugin-unicorn 7.0.0
 - eslint-plugin-vue 5.1.0
 
@@ -788,6 +788,7 @@ several other npm scripts:
 
 [MIT](LICENSE).
 
+[@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [ESlint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
 [Prettier]: https://github.com/prettier/prettier
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
@@ -797,7 +798,6 @@ several other npm scripts:
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
-[eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
