@@ -7,14 +7,14 @@
   "repository": "prettier/eslint-config-prettier",
   "files": [
     "bin/",
+    "@typescript-eslint.js",
     "babel.js",
     "flowtype.js",
     "index.js",
     "react.js",
     "standard.js",
     "unicorn.js",
-    "vue.js",
-    "@typescript-eslint.js"
+    "vue.js"
   ],
   "bin": {
     "eslint-config-prettier-check": "bin/cli.js"

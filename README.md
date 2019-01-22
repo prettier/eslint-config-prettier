@@ -64,13 +64,13 @@ configs.
 
 A few ESLint plugins are supported as well:
 
+- [@typescript-eslint/eslint-plugin]
 - [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
-- [@typescript-eslint/eslint-plugin]
 
 Add extra exclusions for the plugins you use like so:
 
@@ -79,13 +79,13 @@ Add extra exclusions for the plugins you use like so:
   "extends": [
     "some-other-config-you-use",
     "prettier",
+    "prettier/@typescript-eslint",
     "prettier/babel",
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
     "prettier/unicorn",
-    "prettier/vue",
-    "prettier/@typescript-eslint"
+    "prettier/vue"
   ]
 }
 ```
@@ -128,29 +128,29 @@ Exit codes:
 {
   "extends": [
     "standard",
+    "plugin:@typescript-eslint/recommended",
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
     "plugin:unicorn/recommended",
     "plugin:vue/recommended",
-    "plugin:@typescript-eslint/recommended",
     "prettier",
+    "prettier/@typescript-eslint",
     "prettier/babel",
     "prettier/flowtype",
     "prettier/react",
     "prettier/standard",
     "prettier/unicorn",
-    "prettier/vue",
-    "prettier/@typescript-eslint"
+    "prettier/vue"
   ],
   "plugins": [
+    "@typescript-eslint",
     "babel",
     "flowtype",
-    "react",
     "prettier",
+    "react",
     "standard",
     "unicorn",
-    "vue",
-    "@typescript-eslint"
+    "vue"
   ],
   "parserOptions": {
     "sourceType": "module",
@@ -716,13 +716,13 @@ eslint-config-prettier has been tested with:
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 1.15.3
+- @typescript-eslint/eslint-plugin 1.0.0
 - eslint-plugin-babel 5.3.0
 - eslint-plugin-flowtype 3.2.1
 - eslint-plugin-react 7.12.4
 - eslint-plugin-standard 4.0.0
 - eslint-plugin-unicorn 7.0.0
 - eslint-plugin-vue 5.1.0
-- @typescript-eslint/eslint-plugin 1.0.0
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull
