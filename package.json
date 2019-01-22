@@ -12,9 +12,9 @@
     "index.js",
     "react.js",
     "standard.js",
-    "typescript.js",
     "unicorn.js",
-    "vue.js"
+    "vue.js",
+    "@typescript-eslint.js"
   ],
   "bin": {
     "eslint-config-prettier-check": "bin/cli.js"

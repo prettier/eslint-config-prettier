@@ -34,13 +34,9 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
         if (name === "index") {
           expect(ruleIds.every(ruleId => !ruleId.includes("/"))).toBe(true);
         } else {
-          expect(
-            ruleIds.every(ruleId =>
-              ruleId.startsWith(
-                `${name === "typescript" ? "@typescript-eslint" : name}/`
-              )
-            )
-          ).toBe(true);
+          expect(ruleIds.every(ruleId => ruleId.startsWith(`${name}/`))).toBe(
+            true
+          );
         }
       });
     });

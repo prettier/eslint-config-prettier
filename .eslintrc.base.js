@@ -12,12 +12,8 @@ module.exports = {
   ],
   plugins: [
     "prettier",
-    "@typescript-eslint/eslint-plugin",
     ...pkg.files
-      .filter(
-        name =>
-          !name.includes("/") && name !== "index.js" && name !== "typescript.js"
-      )
+      .filter(name => !name.includes("/") && name !== "index.js")
       .map(ruleFileName => ruleFileName.replace(/\.js$/, ""))
   ],
   parserOptions: {
@@ -47,6 +43,7 @@ module.exports = {
     "react/jsx-no-bind": "off",
     // Force a conflict with Prettier in test-lint/standard.js.
     "standard/computed-property-even-spacing": ["error", "even"],
+    "unicorn/filename-case": "off",
     // Force a conflict with Prettier in test-lint/babel.js.
     "object-curly-spacing": "off",
     "babel/object-curly-spacing": ["error", "never"]

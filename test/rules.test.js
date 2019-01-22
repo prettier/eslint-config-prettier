@@ -69,8 +69,8 @@ describe("all rule files have tests in test-lint/", () => {
       const testFileName =
         ruleFileName === "vue.js"
           ? "vue.vue"
-          : ruleFileName === "typescript.js"
-          ? "typescript.ts"
+          : ruleFileName === "@typescript-eslint.js"
+          ? "@typescript-eslint.ts"
           : ruleFileName;
       expect(fs.existsSync(path.join("test-lint", testFileName))).toBe(true);
     });
@@ -83,9 +83,7 @@ describe("all rule files are included in the ESLint config", () => {
       const name = ruleFileName.replace(/\.js$/, "");
       expect(eslintConfig.extends).toContain(`./${ruleFileName}`);
       if (ruleFileName !== "index.js") {
-        expect(eslintConfigBase.plugins).toContain(
-          name === "typescript" ? "@typescript-eslint/eslint-plugin" : name
-        );
+        expect(eslintConfigBase.plugins).toContain(name);
       }
     });
   });
@@ -99,15 +97,9 @@ describe("all plugin rule files are mentioned in the README", () => {
       test(ruleFileName, () => {
         const name = ruleFileName.replace(/\.js$/, "");
         expect(readme).toMatch(
-          name === "typescript"
-            ? "@typescript-eslint/eslint-plugin"
-            : `eslint-plugin-${name}`
+          name.startsWith("@") ? name : `eslint-plugin-${name}`
         );
-        expect(readme).toMatch(
-          `"${
-            name === "typescript" ? "@typescript-eslint/eslint-plugin" : name
-          }"`
-        );
+        expect(readme).toMatch(`"${name}"`);
         expect(readme).toMatch(`"prettier/${name}"`);
       });
     });
