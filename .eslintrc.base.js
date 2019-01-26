@@ -43,6 +43,7 @@ module.exports = {
     "react/jsx-no-bind": "off",
     // Force a conflict with Prettier in test-lint/standard.js.
     "standard/computed-property-even-spacing": ["error", "even"],
+    "unicorn/filename-case": "off",
     // Force a conflict with Prettier in test-lint/babel.js.
     "object-curly-spacing": "off",
     "babel/object-curly-spacing": ["error", "never"]
@@ -50,11 +51,11 @@ module.exports = {
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
-      parserOptions: { parser: "eslint-plugin-typescript/parser" },
+      parserOptions: { parser: "@typescript-eslint/parser" },
       rules: {
         // Force a conflict with Prettier in test-lint/typescript.js.
-        // This is included in "plugin:typescript/recommended".
-        "typescript/indent": "error"
+        // This is included in "plugin:@typescript-eslint/recommended".
+        "@typescript-eslint/indent": "error"
       }
     }
   ],

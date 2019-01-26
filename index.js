@@ -5,6 +5,7 @@ module.exports = {
     // The following rules can be used in some cases. See the README for more
     // information. (These are marked with `0` instead of `"off"` so that a
     // script can distinguish them.)
+    "arrow-body-style": 0,
     curly: 0,
     "lines-around-comment": 0,
     "max-len": 0,
@@ -12,6 +13,7 @@ module.exports = {
     "no-mixed-operators": 0,
     "no-tabs": 0,
     "no-unexpected-multiline": 0,
+    "prefer-arrow-callback": 0,
     quotes: 0,
     // The rest are rules that you never need to enable when using Prettier.
     "array-bracket-newline": "off",
