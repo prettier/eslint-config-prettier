@@ -750,13 +750,13 @@ eslint-config-prettier has been tested with:
 - ESLint 5.12.0
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
-- prettier 1.15.3
-- @typescript-eslint/eslint-plugin 1.0.0
+- prettier 1.16.1
+- @typescript-eslint/eslint-plugin 1.1.0
 - eslint-plugin-babel 5.3.0
 - eslint-plugin-flowtype 3.2.1
 - eslint-plugin-react 7.12.4
 - eslint-plugin-standard 4.0.0
-- eslint-plugin-unicorn 7.0.0
+- eslint-plugin-unicorn 7.1.0
 - eslint-plugin-vue 5.1.0
 
 Have new rules been added since those versions? Have we missed any rules? Is

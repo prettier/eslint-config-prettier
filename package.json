@@ -38,8 +38,8 @@
     "get-stdin": "^6.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "1.0.0",
-    "@typescript-eslint/parser": "1.0.0",
+    "@typescript-eslint/eslint-plugin": "1.1.0",
+    "@typescript-eslint/parser": "1.1.0",
     "babel-eslint": "10.0.1",
     "cross-spawn": "6.0.5",
     "doctoc": "1.4.0",
@@ -50,10 +50,10 @@
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-standard": "4.0.0",
-    "eslint-plugin-unicorn": "7.0.0",
+    "eslint-plugin-unicorn": "7.1.0",
     "eslint-plugin-vue": "github:vuejs/eslint-plugin-vue#9c49dcc8ff792ec6798037bd6b7f4ac3d26fdf68",
-    "jest": "23.6.0",
-    "prettier": "1.15.3",
+    "jest": "24.0.0",
+    "prettier": "1.16.1",
     "replace": "1.0.1",
     "rimraf": "2.6.3",
     "typescript": "3.2.4"
