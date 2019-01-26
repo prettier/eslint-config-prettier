@@ -18,6 +18,7 @@ it together with some other config.
 - [CLI helper tool](#cli-helper-tool)
 - [Example configuration](#example-configuration)
 - [Special rules](#special-rules)
+  - [arrow-body-style and prefer-arrow-callback](#arrow-body-style-and-prefer-arrow-callback)
   - [curly](#curly)
   - [lines-around-comment](#lines-around-comment)
   - [max-len](#max-len)
@@ -177,9 +178,43 @@ enabled in some cases.
 - Some require special attention when writing code. The CLI helper tool warns
   you if any of those rules are enabled, but can’t tell if anything is
   problematic.
+- Some can cause problems if using [eslint-plugin-prettier] and `--fix`.
 
 For maximum ease of use, the special rules are disabled by default. If you want
 them, you need to explicitly specify them in your ESLint config.
+
+### [arrow-body-style] and [prefer-arrow-callback]
+
+**These rule might cause problems if using [eslint-plugin-prettier] and `--fix`.**
+
+If you use any of these rules together with the `prettier/prettier` rule from
+[eslint-plugin-prettier], you can in some cases end up with invalid code due to
+a bug in ESLint’s autofix.
+
+These rules are safe to use if:
+
+- You don’t use [eslint-plugin-prettier]. In other words, you run `eslint --fix`
+  and `prettier --write` as separate steps.
+- You _do_ use [eslint-plugin-prettier], but don’t use `--fix`. (But then,
+  what’s the point?)
+
+You _can_ still use these rules together with [eslint-plugin-prettier] if you
+want, because the bug does not occur _all the time._ But if you do, you need to
+keep in mind that you might end up with invalid code, where you manually have to
+insert a missing closing parenthesis to get going again.
+
+If you’re fixing large of amounts of previously unformatted code, consider
+temporarily disabling the `prettier/prettier` rule and running `eslint --fix`
+and `prettier --write` separately.
+
+See these issues for more information:
+
+- [eslint-config-prettier#31]
+- [eslint-config-prettier#71]
+- [eslint-plugin-prettier#65]
+
+When the autofix bug in ESLint has been fixed, the special case for these rules
+can be removed.
 
 ### [curly]
 
@@ -791,10 +826,14 @@ several other npm scripts:
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [ESlint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
 [Prettier]: https://github.com/prettier/prettier
+[arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
 [curly]: https://eslint.org/docs/rules/curly
+[eslint-config-prettier#31]: https://github.com/prettier/eslint-config-prettier/issues/31
+[eslint-config-prettier#71]: https://github.com/prettier/eslint-config-prettier/issues/71
 [eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
+[eslint-plugin-prettier#65]: https://github.com/prettier/eslint-plugin-prettier/issues/65
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
@@ -811,6 +850,7 @@ several other npm scripts:
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
+[prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
 [quotes]: https://eslint.org/docs/rules/quotes
 [singleQuote]: https://prettier.io/docs/en/options.html#quotes
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings

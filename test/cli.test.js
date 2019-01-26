@@ -125,7 +125,9 @@ test("all the things", () => {
     ["no-confusing-arrow", { allowParens: true }],
     "react/jsx-indent",
     "flowtype/semi",
-    "vue/html-self-closing"
+    "vue/html-self-closing",
+    "prefer-arrow-callback",
+    "arrow-body-style"
   ];
   expect(cli.processString(createRules(rules, "error"))).toMatchInlineSnapshot(`
 Object {
@@ -148,10 +150,12 @@ https://github.com/prettier/eslint-config-prettier#special-rules
 The following rules are enabled but cannot be automatically checked. See:
 https://github.com/prettier/eslint-config-prettier#special-rules
 
+- arrow-body-style
 - max-len
 - no-mixed-operators
 - no-tabs
 - no-unexpected-multiline
+- prefer-arrow-callback
 - quotes",
 }
 `);

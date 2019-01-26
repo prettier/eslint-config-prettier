@@ -25,7 +25,7 @@
     "prettier"
   ],
   "scripts": {
-    "doctoc": "doctoc README.md && replace \"\\[(\\[[\\w/-]+\\])\\]\" \"\\$1\" README.md",
+    "doctoc": "doctoc README.md && replace \"\\[\\[([\\w/-]+)\\](?:([^\\[\\]]+)\\[([\\w/-]+)\\])?\\]\" \"[\\$1\\$2\\$3]\" README.md",
     "test:lint": "eslint .",
     "test:lint-verify-fail": "eslint \"test-lint/*.{js,ts,vue}\" --config .eslintrc.base.js --format json",
     "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
