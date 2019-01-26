@@ -185,7 +185,7 @@ them, you need to explicitly specify them in your ESLint config.
 
 ### [arrow-body-style] and [prefer-arrow-callback]
 
-**These rule might cause problems if using [eslint-plugin-prettier] and `--fix`.**
+**These rules might cause problems if using [eslint-plugin-prettier] and `--fix`.**
 
 If you use any of these rules together with the `prettier/prettier` rule from
 [eslint-plugin-prettier], you can in some cases end up with invalid code due to

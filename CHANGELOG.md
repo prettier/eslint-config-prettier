@@ -1,3 +1,16 @@
+### Version 4.0.0 (2019-01-26)
+
+- Breaking change: Support for [eslint-plugin-typescript] has been removed and
+  replaced with support for its successor [@typescript-eslint/eslint-plugin].
+  Thanks to TANIGUCHI Masaya (@ta2gch) and everyone else who helped with this!
+- Changed: [arrow-body-style] and [prefer-arrow-callback] are now marked as
+  [special rules][arrow-special], since they might cause problems if using
+  [eslint-plugin-prettier] and `--fix`. They are turned off by default, and the
+  CLI helper tool will _warn_ about them (but not error if you do enable them).
+  This won’t break your linting checks, but do note that these rules will be
+  disabled unless you explicitly enable them again, and that you might see new
+  warnings when running the CLI helper tool.
+
 ### Version 3.6.0 (2019-01-19)
 
 - Added: Support for [eslint-plugin-babel]. Thanks to Matija Marohnić
@@ -194,12 +207,16 @@
 
 - Initial release.
 
+[@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [ESLint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
 [ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
 [array-element-newline]: https://eslint.org/docs/rules/array-element-newline
+[arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
+[arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/2c842675e55b91aecaef6f997d234ebf2d220ffb/README.md#arrow-body-style-and-prefer-arrow-callback
 [curly]: https://eslint.org/docs/rules/curly
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
+[eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
@@ -220,9 +237,10 @@
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [nonblock-statement-body-position]: https://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
+[prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
 [prettier]: https://github.com/prettier
-[quotes]: https://eslint.org/docs/rules/quotes
 [quotes-special]: https://github.com/prettier/eslint-config-prettier/blob/8d264cd0a7f06c12e2e05415e0282a4f8f21ebc9/README.md#quotes
+[quotes]: https://eslint.org/docs/rules/quotes
 [react/jsx-child-element-spacing]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-child-element-spacing.md
 [react/jsx-closing-tag-location]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
 [react/jsx-one-expression-per-line]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
@@ -230,5 +248,5 @@
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
-[vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
 [vue/html-self-closing-special]: https://github.com/prettier/eslint-config-prettier/blob/d5e7af986221df5faedc12893d8dc3150a808693/README.md#vuehtml-self-closing
+[vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
