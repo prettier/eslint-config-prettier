@@ -91,6 +91,23 @@ Add extra exclusions for the plugins you use like so:
 }
 ```
 
+If you extend a config which uses a plugin, it is recommended to add
+`"prettier/that-plugin"` (if available). For example, [eslint-config-airbnb]
+enables [eslint-plugin-react] rules, so `"prettier/react"` is needed:
+
+```json
+{
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ]
+}
+```
+
+If you’re unsure which plugins are used, you can usually find them in your
+`package.json`.
+
 ## CLI helper tool
 
 eslint-config-prettier also ships with a little CLI tool to help you check if
@@ -829,6 +846,7 @@ several other npm scripts:
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
 [curly]: https://eslint.org/docs/rules/curly
+[eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-config-prettier#31]: https://github.com/prettier/eslint-config-prettier/issues/31
 [eslint-config-prettier#71]: https://github.com/prettier/eslint-config-prettier/issues/71
 [eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
