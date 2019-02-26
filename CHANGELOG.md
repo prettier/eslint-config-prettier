@@ -1,3 +1,8 @@
+### Version 4.1.0 (2019-02-26)
+
+- Added: [linebreak-style]. Use Prettier’s [end-of-line] option instead.
+- Added: [self-closing-comp]. Thanks to Gaurav Gupta (@gaurav5430)!
+
 ### Version 4.0.0 (2019-01-26)
 
 - Breaking change: Support for [eslint-plugin-typescript] has been removed and
@@ -215,6 +220,7 @@
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/2c842675e55b91aecaef6f997d234ebf2d220ffb/README.md#arrow-body-style-and-prefer-arrow-callback
 [curly]: https://eslint.org/docs/rules/curly
+[end-of-line]: https://prettier.io/docs/en/options.html#end-of-line
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
@@ -226,6 +232,7 @@
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [implicit-arrow-linebreak]: https://eslint.org/docs/rules/implicit-arrow-linebreak
 [indent-legacy]: https://eslint.org/docs/rules/indent-legacy
+[linebreak-style]: https://eslint.org/docs/rules/linebreak-style
 [lines-around-comment-special]: https://github.com/prettier/eslint-config-prettier/blob/5399175c37466747aae9d407021dffec2c169c8b/README.md#lines-around-comment
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
@@ -245,6 +252,7 @@
 [react/jsx-closing-tag-location]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
 [react/jsx-one-expression-per-line]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
 [react/jsx-props-no-multi-spaces]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-multi-spaces.md
+[self-closing-comp]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
