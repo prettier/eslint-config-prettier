@@ -43,20 +43,20 @@
     "babel-eslint": "10.0.1",
     "cross-spawn": "6.0.5",
     "doctoc": "1.4.0",
-    "eslint": "5.14.1",
+    "eslint": "5.16.0",
     "eslint-config-google": "0.12.0",
     "eslint-plugin-babel": "5.3.0",
-    "eslint-plugin-flowtype": "3.4.2",
+    "eslint-plugin-flowtype": "3.6.1",
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-standard": "4.0.0",
-    "eslint-plugin-unicorn": "7.1.0",
+    "eslint-plugin-unicorn": "8.0.2",
     "eslint-plugin-vue": "github:vuejs/eslint-plugin-vue#9c49dcc8ff792ec6798037bd6b7f4ac3d26fdf68",
-    "jest": "24.1.0",
-    "prettier": "1.16.4",
-    "replace": "1.0.1",
+    "jest": "24.7.1",
+    "prettier": "1.17.0",
+    "replace": "1.1.0",
     "rimraf": "2.6.3",
-    "typescript": "3.3.3333"
+    "typescript": "3.4.5"
   },
   "peerDependencies": {
     "eslint": ">=3.14.1"
