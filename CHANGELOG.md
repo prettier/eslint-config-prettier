@@ -1,3 +1,8 @@
+### Version 4.2.0 (2019-04-25)
+
+- Added: [@typescript-eslint/no-extra-parens]. Thanks to Keiichiro Amemiya
+  (@Hoishin) and Jen Gorfine (@jgorfine)!
+
 ### Version 4.1.0 (2019-02-26)
 
 - Added: [linebreak-style]. Use Prettier’s [end-of-line] option instead.
@@ -213,6 +218,7 @@
 - Initial release.
 
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
+[@typescript-eslint/no-extra-parens]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
 [ESLint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
 [ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
