@@ -1,3 +1,10 @@
+### Version 4.3.0 (2019-05-16)
+
+- Added: New [eslint-plugin-vue] rules: [vue/arrow-spacing],
+  [vue/block-spacing], [vue/brace-style] and [vue/comma-dangle].
+- Added: New [@typescript-eslint/eslint-plugin] rules:
+  [@typescript-eslint/func-call-spacing] and [@typescript-eslint/semi].
+
 ### Version 4.2.0 (2019-04-25)
 
 - Added: [@typescript-eslint/no-extra-parens]. Thanks to Keiichiro Amemiya
@@ -218,7 +225,9 @@
 - Initial release.
 
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
+[@typescript-eslint/func-call-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
 [@typescript-eslint/no-extra-parens]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
+[@typescript-eslint/semi]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
 [ESLint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
 [ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
@@ -262,5 +271,9 @@
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
+[vue/arrow-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/arrow-spacing.md
+[vue/block-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-spacing.md
+[vue/brace-style]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/brace-style.md
+[vue/comma-dangle]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/comma-dangle.md
 [vue/html-self-closing-special]: https://github.com/prettier/eslint-config-prettier/blob/d5e7af986221df5faedc12893d8dc3150a808693/README.md#vuehtml-self-closing
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
