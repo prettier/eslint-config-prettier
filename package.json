@@ -51,7 +51,7 @@
     "eslint-plugin-react": "7.13.0",
     "eslint-plugin-standard": "4.0.0",
     "eslint-plugin-unicorn": "8.0.2",
-    "eslint-plugin-vue": "github:vuejs/eslint-plugin-vue#9c49dcc8ff792ec6798037bd6b7f4ac3d26fdf68",
+    "eslint-plugin-vue": "5.2.2",
     "jest": "24.8.0",
     "prettier": "1.17.1",
     "replace": "1.1.0",
