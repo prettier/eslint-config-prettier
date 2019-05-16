@@ -5,6 +5,10 @@ module.exports = {
     "vue/html-self-closing": 0,
 
     "vue/array-bracket-spacing": "off",
+    "vue/arrow-spacing": "off",
+    "vue/block-spacing": "off",
+    "vue/brace-style": "off",
+    "vue/comma-dangle": "off",
     "vue/html-closing-bracket-newline": "off",
     "vue/html-closing-bracket-spacing": "off",
     "vue/html-end-tags": "off",
