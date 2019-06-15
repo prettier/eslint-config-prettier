@@ -15,7 +15,6 @@ module.exports = {
     "react/jsx-props-no-multi-spaces": "off",
     "react/jsx-space-before-closing": "off",
     "react/jsx-tag-spacing": "off",
-    "react/jsx-wrap-multilines": "off",
-    "react/self-closing-comp": "off"
+    "react/jsx-wrap-multilines": "off"
   }
 };
