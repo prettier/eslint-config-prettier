@@ -1,3 +1,26 @@
+### Version 5.0.0 (2019-06-15)
+
+- Removed: [react/self-closing-comp]. This rule was added in v4.1.0 not
+  because it _conflicted_ with Prettier but because it was _unnecessary_ when
+  using Prettier. However, in v1.18.0 [Prettier stopped converting empty
+  elements to self-closing elements][prettier-self-closing]. So the rule is
+  not unnecessary anymore.
+
+  If you use Prettier v1.17.1 or older you should be able to upgrade
+  eslint-config-prettier to v5.0.0 without having to do anything else.
+
+  If you use Prettier v1.18.0 or newer, you might get lint errors about for
+  example changing `<div></div>` into `<div />`. You have two options:
+
+  - Run `eslint --fix` if you prefer to enforce self-closing elements where
+    possible. This should fix all the errors.
+  - Add `"react/self-closing-comp": "off"` to your ESLint config if you use
+    autofix from your editor and you face the same [issue as Prettier
+    did][prettier-self-closing].
+
+- Changed: Node.js 6 is no longer officially supported, but v5.0.0 should
+  still work with it.
+
 ### Version 4.3.0 (2019-05-16)
 
 - Added: New [eslint-plugin-vue] rules: [vue/arrow-spacing],
@@ -13,7 +36,7 @@
 ### Version 4.1.0 (2019-02-26)
 
 - Added: [linebreak-style]. Use Prettier’s [end-of-line] option instead.
-- Added: [self-closing-comp]. Thanks to Gaurav Gupta (@gaurav5430)!
+- Added: [react/self-closing-comp]. Thanks to Gaurav Gupta (@gaurav5430)!
 
 ### Version 4.0.0 (2019-01-26)
 
@@ -228,14 +251,14 @@
 [@typescript-eslint/func-call-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
 [@typescript-eslint/no-extra-parens]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
 [@typescript-eslint/semi]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
-[ESLint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
-[ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
 [array-element-newline]: https://eslint.org/docs/rules/array-element-newline
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/2c842675e55b91aecaef6f997d234ebf2d220ffb/README.md#arrow-body-style-and-prefer-arrow-callback
 [curly]: https://eslint.org/docs/rules/curly
 [end-of-line]: https://prettier.io/docs/en/options.html#end-of-line
+[ESLint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
+[ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
@@ -260,6 +283,7 @@
 [nonblock-statement-body-position]: https://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
 [prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
+[prettier-self-closing]: https://prettier.io/blog/2019/06/06/1.18.0.html#stop-converting-empty-jsx-elements-to-self-closing-elements-6127-by-duailibe
 [prettier]: https://github.com/prettier
 [quotes-special]: https://github.com/prettier/eslint-config-prettier/blob/8d264cd0a7f06c12e2e05415e0282a4f8f21ebc9/README.md#quotes
 [quotes]: https://eslint.org/docs/rules/quotes
@@ -267,7 +291,7 @@
 [react/jsx-closing-tag-location]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
 [react/jsx-one-expression-per-line]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-one-expression-per-line.md
 [react/jsx-props-no-multi-spaces]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-multi-spaces.md
-[self-closing-comp]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
+[react/self-closing-comp]: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
