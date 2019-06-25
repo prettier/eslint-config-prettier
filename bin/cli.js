@@ -17,7 +17,7 @@ if (module === require.main) {
         "This tool checks whether an ESLint configuration contains rules that are",
         "unnecessary or conflict with Prettier. It’s supposed to be run like this:",
         "",
-        "  eslint --print-config . | eslint-config-prettier-check",
+        "  eslint --print-config path/to/main.js | eslint-config-prettier-check",
         "  eslint --print-config test/index.js | eslint-config-prettier-check",
         "",
         "Exit codes:",

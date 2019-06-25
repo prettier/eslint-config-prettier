@@ -780,7 +780,8 @@ You can also supply a custom message if you want:
 
 eslint-config-prettier has been tested with:
 
-- ESLint 5.16.0
+- ESLint 6.0.1
+  - eslint-config-prettier 5.1.0 and older were tested with ESLint 5.x
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 1.18.2
