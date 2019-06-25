@@ -119,19 +119,27 @@ First, add a script for it to package.json:
 ```json
 {
   "scripts": {
-    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
+    "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check"
   }
 }
 ```
 
-Then run `npm run eslint-check`.
+Then run `npm run eslint-check`. (Change `path/to/main.js` to a file that
+exists in your project.)
 
-If you use [multiple configuration files] or [overrides], you may need to run
-the above script several times with different `--print-config` arguments, such
-as:
+In theory you need to run `eslint --print-config file.js |
+eslint-config-prettier-check` for every single file in your project to be
+100% sure that there are no conflicting rules, because ESLint supports having
+different rules for different files. But usually you’ll have about the same
+rules for all files, so it is enough to run the command on one file (pick one
+that you won’t be moving). If you use [multiple configuration files] or
+[overrides], you can (but you probably don’t need to!) run the above script
+several times with different `--print-config` arguments, such as:
 
 ```
+eslint --print-config index.js | eslint-config-prettier-check
 eslint --print-config test/index.js | eslint-config-prettier-check
+eslint --print-config legacy/main.js | eslint-config-prettier-check
 ```
 
 Exit codes:
