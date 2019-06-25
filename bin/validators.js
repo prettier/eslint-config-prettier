@@ -32,7 +32,7 @@ module.exports = {
 
   "no-confusing-arrow"(options) {
     if (options.length === 0) {
-      return true;
+      return false;
     }
 
     const firstOption = options[0];

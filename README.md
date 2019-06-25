@@ -373,28 +373,29 @@ For example, the rule could warn about this line:
 var x = a => 1 ? 2 : 3;
 ```
 
-By default, ESLint suggests switching to an explicit return:
-
-```js
-var x = a => { return 1 ? 2 : 3; };
-```
-
-That causes no problems with Prettier.
-
-With `{allowParens: true}`, adding parentheses is also considered a valid way to
-avoid the arrow confusion:
+With `{allowParens: true}` (the default since ESLint 6.0.0), adding
+parentheses is considered a valid way to avoid the arrow confusion:
 
 ```js
 var x = a => (1 ? 2 : 3);
 ```
 
-While Prettier keeps thoses parentheses, it removes them if the line is long
+While Prettier keeps those parentheses, it removes them if the line is long
 enough to introduce a line break:
 
 ```js
 EnterpriseCalculator.prototype.calculateImportantNumbers = inputNumber =>
   1 ? 2 : 3;
 ```
+
+With `{allowParens: false}`, ESLint instead suggests switching to an explicit
+return:
+
+```js
+var x = a => { return 1 ? 2 : 3; };
+```
+
+That causes no problems with Prettier.
 
 If you like this rule, it can be used just fine with Prettier as long as the
 `allowParens` option is off.
@@ -404,10 +405,17 @@ Example ESLint configuration:
 ```json
 {
   "rules": {
-    "no-confusing-arrow": "error"
+    "no-confusing-arrow": ["error", { "allowParens": false }]
   }
 }
 ```
+
+(Note: The CLI helper tool considers `{allowParens: true}` to be the default,
+which is the case since ESLint 6.0.0. The tool will produce a warning if you
+use the default even if you use an older version of ESLint. It doesn’t hurt
+to explicitly set `{allowParens: false}` even though it is technically
+redundant. This way you are prepared for a future ESLint upgrade and the CLI
+tool can be kept simple.)
 
 ### [no-mixed-operators]
 
