@@ -36,7 +36,7 @@ module.exports = {
     }
 
     const firstOption = options[0];
-    return !(firstOption && firstOption.allowParens);
+    return firstOption ? firstOption.allowParens === false : false;
   },
 
   "vue/html-self-closing"(options) {

@@ -56,8 +56,8 @@ rule("lines-around-comment", {
 });
 
 rule("no-confusing-arrow", {
-  valid: [[{ allowParens: false }], [null]],
-  invalid: [[], [{ allowParens: true }]]
+  valid: [[{ allowParens: false }]],
+  invalid: [[], [null], [{ allowParens: true }], [{ other: true }]]
 });
 
 rule("vue/html-self-closing", {
