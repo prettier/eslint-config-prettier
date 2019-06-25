@@ -1,3 +1,37 @@
+### Version 6.0.0 (2019-06-25)
+
+- Changed: The CLI helper tool now considers [no-confusing-arrow] to conflict
+  if you use the default value of its `allowParens` option. The default was
+  changed to `true` in ESLint 6, which conflicts with Prettier.
+
+  If the CLI helper tool gives you errors about this after upgrading, the
+  solution is to change this:
+
+  ```json
+  {
+    "rules": {
+      "no-confusing-arrow": ["error"]
+    }
+  }
+  ```
+
+  Into this:
+
+  ```json
+  {
+    "rules": {
+      "no-confusing-arrow": ["error", { "allowParens": false }]
+    }
+  }
+  ```
+
+  The latter works in both ESLint 6 as well as in ESLint 5 and older.
+
+- Improved: `eslint --print-config` usage instructions. The CLI tool help
+  text as well as the documentation has been updated to suggest commands that
+  work in ESLint 6.0 as well as in ESLint 5 and older. (Instead of `eslint
+  --print-config .`, use `eslint --print-config path/to/main.js`.)
+
 ### Version 5.1.0 (2019-06-25)
 
 - Added: [react/jsx-curly-newline]. Thanks to Masafumi Koba (@ybiquitous)!
