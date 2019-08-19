@@ -44,6 +44,7 @@ module.exports = {
     // Force a conflict with Prettier in test-lint/standard.js.
     "standard/computed-property-even-spacing": ["error", "even"],
     "unicorn/filename-case": "off",
+    "unicorn/prefer-flat-map": "off",
     "unicorn/prevent-abbreviations": "off",
     // Force a conflict with Prettier in test-lint/babel.js.
     "object-curly-spacing": "off",
