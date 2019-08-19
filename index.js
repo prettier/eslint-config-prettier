@@ -30,6 +30,7 @@ module.exports = {
     "dot-location": "off",
     "eol-last": "off",
     "func-call-spacing": "off",
+    "function-call-argument-newline": "off",
     "function-paren-newline": "off",
     "generator-star": "off",
     "generator-star-spacing": "off",
