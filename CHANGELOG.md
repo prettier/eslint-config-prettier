@@ -1,3 +1,8 @@
+### Version 6.1.0 (2019-08-19)
+
+- Added: [function-call-argument-newline] \(new in ESLint 6.2.0). Thanks to
+  Masafumi Koba (@ybiquitous)!
+
 ### Version 6.0.0 (2019-06-25)
 
 - Changed: The CLI helper tool now considers [no-confusing-arrow] to conflict
@@ -306,6 +311,7 @@
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
 [flowtype/boolean-style]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-boolean-style
+[function-call-argument-newline]: https://eslint.org/docs/rules/function-call-argument-newline
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [implicit-arrow-linebreak]: https://eslint.org/docs/rules/implicit-arrow-linebreak
 [indent-legacy]: https://eslint.org/docs/rules/indent-legacy
