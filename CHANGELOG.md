@@ -297,6 +297,7 @@
 [end-of-line]: https://prettier.io/docs/en/options.html#end-of-line
 [ESLint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
 [ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
+[eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
