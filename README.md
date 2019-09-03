@@ -575,7 +575,7 @@ Example configuration:
 
 ### [quotes]
 
-(The following applies to [babel/quotes] as well.)
+(The following applies to [babel/quotes] and [@typescript-eslint/quotes] as well.)
 
 **This rule requires certain options and certain Prettier options.**
 
@@ -785,7 +785,7 @@ eslint-config-prettier has been tested with:
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 1.18.2
-- @typescript-eslint/eslint-plugin 2.0.0
+- @typescript-eslint/eslint-plugin 2.1.0
 - eslint-plugin-babel 5.3.0
 - eslint-plugin-flowtype 4.2.0
 - eslint-plugin-react 7.14.3
@@ -892,3 +892,4 @@ several other npm scripts:
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
+[@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
