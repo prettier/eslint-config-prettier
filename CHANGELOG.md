@@ -1,3 +1,9 @@
+### Version 6.2.0 (2019-09-03)
+
+- Added: [@typescript-eslint/quotes] (as a [special
+  rule][@typescript-eslint/quotes-special]). Thanks to Masafumi Koba
+  (@ybiquitous)!
+
 ### Version 6.1.0 (2019-08-19)
 
 - Added: [function-call-argument-newline] \(new in ESLint 6.2.0). Thanks to
@@ -293,6 +299,8 @@
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/func-call-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
 [@typescript-eslint/no-extra-parens]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
+[@typescript-eslint/quotes-special]: https://github.com/prettier/eslint-config-prettier/blob/857257179fe69715362dfa9300762d6e534c0603/README.md#quotes
+[@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
 [@typescript-eslint/semi]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
 [array-element-newline]: https://eslint.org/docs/rules/array-element-newline
