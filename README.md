@@ -858,6 +858,7 @@ several other npm scripts:
 [MIT](LICENSE).
 
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
+[@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
 [ESlint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
 [Prettier]: https://github.com/prettier/prettier
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
@@ -892,4 +893,3 @@ several other npm scripts:
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
-[@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
