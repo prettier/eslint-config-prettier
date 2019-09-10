@@ -1,3 +1,8 @@
+### Version 6.3.0 (2019-09-10)
+
+- Added: [@typescript-eslint/brace-style]. Thanks to Masafumi Koba
+  (@ybiquitous)!
+
 ### Version 6.2.0 (2019-09-03)
 
 - Added: [@typescript-eslint/quotes] (as a [special
@@ -296,6 +301,7 @@
 
 - Initial release.
 
+[@typescript-eslint/brace-style]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/func-call-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
 [@typescript-eslint/no-extra-parens]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
