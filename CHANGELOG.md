@@ -1,3 +1,8 @@
+### Version 6.4.0 (2019-10-05)
+
+- Added: [unicorn/no-nested-ternary]. Thanks to Yang Mingshan
+  (@yangmingshan)!
+
 ### Version 6.3.0 (2019-09-10)
 
 - Added: [@typescript-eslint/brace-style]. Thanks to Masafumi Koba
@@ -355,6 +360,7 @@
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
+[unicorn/no-nested-ternary]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-nested-ternary.md
 [vue/arrow-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/arrow-spacing.md
 [vue/block-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-spacing.md
 [vue/brace-style]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/brace-style.md
