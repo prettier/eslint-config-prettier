@@ -35,7 +35,7 @@
     "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning"
   },
   "dependencies": {
-    "get-stdin": "^7.0.0"
+    "get-stdin": "^6.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "2.4.0",
