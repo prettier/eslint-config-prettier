@@ -38,7 +38,7 @@
     "get-stdin": "^7.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "2.3.2",
+    "@typescript-eslint/eslint-plugin": "2.4.0",
     "@typescript-eslint/parser": "2.4.0",
     "babel-eslint": "10.0.3",
     "cross-spawn": "7.0.1",
