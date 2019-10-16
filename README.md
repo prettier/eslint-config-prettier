@@ -790,7 +790,7 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-flowtype 4.3.0
 - eslint-plugin-react 7.16.0
 - eslint-plugin-standard 4.0.1
-- eslint-plugin-unicorn 12.0.2
+- eslint-plugin-unicorn 12.1.0
 - eslint-plugin-vue 5.2.3
 
 Have new rules been added since those versions? Have we missed any rules? Is
