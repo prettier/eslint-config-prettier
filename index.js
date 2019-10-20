@@ -1,6 +1,6 @@
 "use strict";
 
-const noDeprecated = process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
+const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 
 module.exports = {
   rules: Object.assign(
@@ -91,11 +91,11 @@ module.exports = {
       "wrap-regex": "off",
       "yield-star-spacing": "off"
     },
-    !noDeprecated && {
-      // Was deprecated in eslint since version 4.0.0
+    includeDeprecated && {
+      // Deprecated since version 4.0.0.
       // https://github.com/eslint/eslint/pull/8286
       "indent-legacy": "off",
-      // Was deprecated in eslint since version 3.3.0
+      // Deprecated in eslint since version 3.3.0.
       // https://eslint.org/docs/rules/no-spaced-func
       "no-spaced-func": "off"
     }

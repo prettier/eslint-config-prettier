@@ -1,6 +1,6 @@
 "use strict";
 
-const noDeprecated = process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
+const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 
 module.exports = {
   rules: Object.assign(
@@ -20,8 +20,8 @@ module.exports = {
       "react/jsx-tag-spacing": "off",
       "react/jsx-wrap-multilines": "off"
     },
-    !noDeprecated && {
-      // Was deprecated in eslint-plugin-react since version 7.0.0
+    includeDeprecated && {
+      // Deprecated since version 7.0.0.
       // https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06
       "react/jsx-space-before-closing": "off"
     }
