@@ -18,6 +18,16 @@ const configFiles = fs
   .readdirSync(".")
   .filter(name => name.startsWith(".eslintrc"));
 
+// Mock the rules modules so we can force require from source later, bypassing
+// the require cache (Jest does not support Node's `require.cache` mechanism).
+// Must happen before anything requires one of those files.
+// e.g. `jest.requireActual(../react.js)`
+ruleFiles.forEach(ruleFileName => {
+  jest.mock(`../${ruleFileName}`);
+});
+
+// `beforeAll` runs before the first `test` block runs.
+// Note: Code inside all `describe` blocks will run before this one.
 beforeAll(() => {
   createTestConfigDir();
 });
@@ -146,4 +156,26 @@ test("there are no unknown rules", () => {
   output[0].messages.forEach(message => {
     expect(message.message).not.toMatch(/rule\s+'[^']+'.*not found/);
   });
+});
+
+describe("support omitting all deprecated rules", () => {
+  const deprecatedRulesMap = {
+    index: ["indent-legacy", "no-spaced-func"],
+    react: ["react/jsx-space-before-closing"]
+  };
+
+  process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED = 1;
+
+  Object.keys(deprecatedRulesMap).forEach(ruleFileName => {
+    // Force require from source, otherwise we'll get the cached module
+    const { rules } = jest.requireActual(`../${ruleFileName}`);
+
+    test(`${ruleFileName} config has no deprecated rules`, () => {
+      deprecatedRulesMap[ruleFileName].forEach(deprecatedRuleName => {
+        expect(rules[deprecatedRuleName]).not.toBeDefined();
+      });
+    });
+  });
+
+  delete process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 });

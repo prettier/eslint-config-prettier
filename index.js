@@ -95,7 +95,7 @@ module.exports = {
       // Deprecated since version 4.0.0.
       // https://github.com/eslint/eslint/pull/8286
       "indent-legacy": "off",
-      // Deprecated in eslint since version 3.3.0.
+      // Deprecated since version 3.3.0.
       // https://eslint.org/docs/rules/no-spaced-func
       "no-spaced-func": "off"
     }

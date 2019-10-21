@@ -108,6 +108,22 @@ enables [eslint-plugin-react] rules, so `"prettier/react"` is needed:
 If you’re unsure which plugins are used, you can usually find them in your
 `package.json`.
 
+### Excluding deprecated rules
+
+Some of the rules that eslint-config-prettier turns off may be deprecated, as
+we support a range of eslint versions and plugin versions.  
+**This is perfectly fine** in most cases, but if you really need to omit the
+deprecated rules (like in
+[#112](https://github.com/prettier/eslint-config-prettier/issues/112)),
+then we support an environment variable for that:
+
+```shell
+ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=1 npx eslint-find-rules -d .eslintrc
+```
+
+The value of the environment variable can be anything, it's existence will
+result in eslint-config-prettier omitting deprecated rules.
+
 ## CLI helper tool
 
 eslint-config-prettier also ships with a little CLI tool to help you check if
