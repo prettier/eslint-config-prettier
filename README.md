@@ -793,12 +793,12 @@ You can also supply a custom message if you want:
 
 eslint-config-prettier has been tested with:
 
-- ESLint 6.5.1
+- ESLint 6.6.0
   - eslint-config-prettier 5.1.0 and older were tested with ESLint 5.x
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 1.18.2
-- @typescript-eslint/eslint-plugin 2.4.0
+- @typescript-eslint/eslint-plugin 2.5.0
 - eslint-plugin-babel 5.3.0
 - eslint-plugin-flowtype 4.3.0
 - eslint-plugin-react 7.16.0
