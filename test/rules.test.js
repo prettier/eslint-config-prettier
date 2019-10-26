@@ -17,14 +17,6 @@ const configFiles = fs
   .readdirSync(".")
   .filter(name => name.startsWith(".eslintrc"));
 
-// Mock the rules modules so we can force require from source later, bypassing
-// the require cache (Jest does not support Node's `require.cache` mechanism).
-// Must happen before anything requires one of those files.
-// e.g. `jest.requireActual(../react.js)`
-ruleFiles.forEach(ruleFileName => {
-  jest.mock(`../${ruleFileName}`);
-});
-
 beforeAll(() => {
   createTestConfigDir();
 });
