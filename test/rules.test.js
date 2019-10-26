@@ -7,7 +7,6 @@ const spawn = require("cross-spawn");
 const pkg = require("../package.json");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
-const getEnv = require("./helpers/get-env");
 
 const TEST_CONFIG_DIR = "test-config";
 
@@ -26,8 +25,6 @@ ruleFiles.forEach(ruleFileName => {
   jest.mock(`../${ruleFileName}`);
 });
 
-// `beforeAll` runs before the first `test` block runs.
-// Note: Code inside all `describe` blocks will run before this one.
 beforeAll(() => {
   createTestConfigDir();
 });
@@ -148,8 +145,7 @@ describe('all rules are set to "off" or 0', () => {
 
 test("there are no unknown rules", () => {
   const result = spawn.sync("npm", ["run", "test:lint-rules", "--silent"], {
-    encoding: "utf8",
-    env: getEnv()
+    encoding: "utf8"
   });
   const output = JSON.parse(result.stdout);
 
@@ -158,24 +154,21 @@ test("there are no unknown rules", () => {
   });
 });
 
-describe("support omitting all deprecated rules", () => {
-  const deprecatedRulesMap = {
-    index: ["indent-legacy", "no-spaced-func"],
-    react: ["react/jsx-space-before-closing"]
-  };
-
-  process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED = 1;
-
-  Object.keys(deprecatedRulesMap).forEach(ruleFileName => {
-    // Force require from source, otherwise we'll get the cached module
-    const { rules } = jest.requireActual(`../${ruleFileName}`);
-
-    test(`${ruleFileName} config has no deprecated rules`, () => {
-      deprecatedRulesMap[ruleFileName].forEach(deprecatedRuleName => {
-        expect(rules[deprecatedRuleName]).not.toBeDefined();
-      });
+test("support omitting all deprecated rules", () => {
+  const run = (env = {}) =>
+    spawn.sync("npm", ["run", "test:deprecated"], {
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        ...env
+      }
     });
+
+  const result1 = run();
+  const result2 = run({
+    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true"
   });
 
-  delete process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
+  expect(result1.status).not.toBe(0);
+  expect(result2.status).toBe(0);
 });

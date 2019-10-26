@@ -3,7 +3,6 @@
 const fs = require("fs");
 const path = require("path");
 const spawn = require("cross-spawn");
-const getEnv = require("./helpers/get-env");
 
 const ruleFiles = fs
   .readdirSync(".")
@@ -13,7 +12,7 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
   const result = spawn.sync(
     "npm",
     ["run", "test:lint-verify-fail", "--silent"],
-    { encoding: "utf8", env: getEnv() }
+    { encoding: "utf8" }
   );
   const output = JSON.parse(result.stdout);
 
