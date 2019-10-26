@@ -15,6 +15,7 @@ it together with some other config.
 
 
 - [Installation](#installation)
+  - [Excluding deprecated rules](#excluding-deprecated-rules)
 - [CLI helper tool](#cli-helper-tool)
 - [Example configuration](#example-configuration)
 - [Special rules](#special-rules)
@@ -107,6 +108,18 @@ enables [eslint-plugin-react] rules, so `"prettier/react"` is needed:
 
 If you’re unsure which plugins are used, you can usually find them in your
 `package.json`.
+
+### Excluding deprecated rules
+
+Some of the rules that eslint-config-prettier turns off may be deprecated.
+**This is perfectly fine,** but if you really need to omit the
+deprecated rules, you can do so by setting the
+`ESLINT_CONFIG_PRETTIER_NO_DEPRECATED` environment variable to a non-empty
+value. For example:
+
+```
+env ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npx eslint-find-rules --deprecated index.js
+```
 
 ## CLI helper tool
 

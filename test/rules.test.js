@@ -7,7 +7,6 @@ const spawn = require("cross-spawn");
 const pkg = require("../package.json");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
-const getEnv = require("./helpers/get-env");
 
 const TEST_CONFIG_DIR = "test-config";
 
@@ -138,12 +137,30 @@ describe('all rules are set to "off" or 0', () => {
 
 test("there are no unknown rules", () => {
   const result = spawn.sync("npm", ["run", "test:lint-rules", "--silent"], {
-    encoding: "utf8",
-    env: getEnv()
+    encoding: "utf8"
   });
   const output = JSON.parse(result.stdout);
 
   output[0].messages.forEach(message => {
     expect(message.message).not.toMatch(/rule\s+'[^']+'.*not found/);
   });
+});
+
+test("support omitting all deprecated rules", () => {
+  const run = (env = {}) =>
+    spawn.sync("npm", ["run", "test:deprecated"], {
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        ...env
+      }
+    });
+
+  const result1 = run();
+  const result2 = run({
+    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true"
+  });
+
+  expect(result1.status).not.toBe(0);
+  expect(result2.status).toBe(0);
 });

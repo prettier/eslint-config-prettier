@@ -43,6 +43,7 @@ module.exports = {
     "react/jsx-no-bind": "off",
     // Force a conflict with Prettier in test-lint/standard.js.
     "standard/computed-property-even-spacing": ["error", "even"],
+    "unicorn/consistent-function-scoping": "off",
     "unicorn/filename-case": "off",
     "unicorn/no-nested-ternary": "off",
     "unicorn/prefer-flat-map": "off",
