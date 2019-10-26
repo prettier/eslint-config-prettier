@@ -1,3 +1,8 @@
+### Version 6.5.0 (2019-10-26)
+
+- Added: Support for [excluding deprecated rules]. Thanks to Alex Ilyaev
+  (@alexilyaev)!
+
 ### Version 6.4.0 (2019-10-05)
 
 - Added: [unicorn/no-nested-ternary]. Thanks to Yang Mingshan
@@ -329,6 +334,7 @@
 [eslint-plugin-typescript]: https://github.com/bradzacher/eslint-plugin-typescript
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
+[excluding deprecated rules]: https://github.com/prettier/eslint-config-prettier/tree/9f6b59486ad742dc12ad3be157ddff5f8454ef7a#excluding-deprecated-rules
 [flowtype/boolean-style]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-boolean-style
 [function-call-argument-newline]: https://eslint.org/docs/rules/function-call-argument-newline
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
