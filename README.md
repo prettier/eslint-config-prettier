@@ -797,14 +797,14 @@ eslint-config-prettier has been tested with:
   - eslint-config-prettier 5.1.0 and older were tested with ESLint 5.x
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
-- prettier 1.18.2
-- @typescript-eslint/eslint-plugin 2.5.0
+- prettier 1.19.1
+- @typescript-eslint/eslint-plugin 2.7.0
 - eslint-plugin-babel 5.3.0
-- eslint-plugin-flowtype 4.3.0
+- eslint-plugin-flowtype 4.4.1
 - eslint-plugin-react 7.16.0
 - eslint-plugin-standard 4.0.1
-- eslint-plugin-unicorn 12.1.0
-- eslint-plugin-vue 5.2.3
+- eslint-plugin-unicorn 13.0.0
+- eslint-plugin-vue 6.0.1
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull

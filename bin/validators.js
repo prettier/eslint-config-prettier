@@ -46,7 +46,7 @@ module.exports = {
 
     const firstOption = options[0];
     return Boolean(
-      firstOption && (firstOption.html && firstOption.html.void === "any")
+      firstOption && firstOption.html && firstOption.html.void === "any"
       // Enable when Prettier supports SVG: https://github.com/prettier/prettier/issues/5322
       // && firstOption.svg === "any"
     );
