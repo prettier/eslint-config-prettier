@@ -1,3 +1,8 @@
+### Version 6.6.0 (2019-11-17)
+
+- Added: New [eslint-plugin-vue] rules: [vue/dot-location] and
+  [vue/keyword-spacing]. Thanks to @xcatliu!
+
 ### Version 6.5.0 (2019-10-26)
 
 - Added: Support for [excluding deprecated rules]. Thanks to Alex Ilyaev
@@ -371,5 +376,7 @@
 [vue/block-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-spacing.md
 [vue/brace-style]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/brace-style.md
 [vue/comma-dangle]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/comma-dangle.md
+[vue/dot-location]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/dot-location.md
 [vue/html-self-closing-special]: https://github.com/prettier/eslint-config-prettier/blob/d5e7af986221df5faedc12893d8dc3150a808693/README.md#vuehtml-self-closing
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
+[vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/keyword-spacing.md
