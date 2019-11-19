@@ -1,3 +1,8 @@
+### Version 6.7.0 (2019-11-19)
+
+- Added: [@typescript-eslint/space-before-function-paren]. Thanks to Masafumi
+  Koba (@ybiquitous)!
+
 ### Version 6.6.0 (2019-11-17)
 
 - Added: New [eslint-plugin-vue] rules: [vue/dot-location] and
@@ -323,6 +328,7 @@
 [@typescript-eslint/quotes-special]: https://github.com/prettier/eslint-config-prettier/blob/857257179fe69715362dfa9300762d6e534c0603/README.md#quotes
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
 [@typescript-eslint/semi]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
+[@typescript-eslint/space-before-function-paren]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
 [array-element-newline]: https://eslint.org/docs/rules/array-element-newline
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
