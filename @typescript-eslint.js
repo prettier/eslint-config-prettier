@@ -10,6 +10,7 @@ module.exports = {
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/no-extra-parens": "off",
     "@typescript-eslint/semi": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/type-annotation-spacing": "off"
   }
 };
