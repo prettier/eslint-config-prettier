@@ -33,7 +33,6 @@ it together with some other config.
       - [Example _double_ quote configuration](#example-_double_-quote-configuration)
       - [Example _single_ quote configuration](#example-_single_-quote-configuration)
   - [vue/html-self-closing](#vuehtml-self-closing)
-  - [vue/max-len](#max-len)
 - [Other rules worth mentioning](#other-rules-worth-mentioning)
   - [no-sequences](#no-sequences)
 - [Contributing](#contributing)
@@ -353,6 +352,8 @@ Example ESLint configuration:
 ```
 
 ### [max-len]
+
+(The following applies to [vue/max-len] as well.)
 
 **This rule requires special attention when writing code.**
 
