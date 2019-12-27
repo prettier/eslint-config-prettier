@@ -33,6 +33,7 @@ it together with some other config.
       - [Example _double_ quote configuration](#example-_double_-quote-configuration)
       - [Example _single_ quote configuration](#example-_single_-quote-configuration)
   - [vue/html-self-closing](#vuehtml-self-closing)
+  - [vue/max-len](#max-len)
 - [Other rules worth mentioning](#other-rules-worth-mentioning)
   - [no-sequences](#no-sequences)
 - [Contributing](#contributing)
@@ -804,7 +805,7 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-react 7.17.0
 - eslint-plugin-standard 4.0.1
 - eslint-plugin-unicorn 15.0.1
-- eslint-plugin-vue 6.0.1
+- eslint-plugin-vue 6.1.1
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull
@@ -906,3 +907,4 @@ several other npm scripts:
 [travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
 [travis]: https://travis-ci.org/prettier/eslint-config-prettier
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
+[vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md
