@@ -3,6 +3,7 @@
 module.exports = {
   rules: {
     "vue/html-self-closing": 0,
+    "vue/max-len": 0,
 
     "vue/array-bracket-spacing": "off",
     "vue/arrow-spacing": "off",
