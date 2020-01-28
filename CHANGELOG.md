@@ -1,3 +1,8 @@
+### Version 6.10.0 (2020-01-28)
+
+- Added: [@typescript-eslint/comma-spacing]. Thanks to Thanks to Masafumi
+  Koba (@ybiquitous)!!
+
 ### Version 6.9.0 (2019-12-27)
 
 - Added: [vue/max-len]. Thanks to @xcatliu!
@@ -330,6 +335,7 @@
 - Initial release.
 
 [@typescript-eslint/brace-style]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
+[@typescript-eslint/comma-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/func-call-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
 [@typescript-eslint/no-extra-parens]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
