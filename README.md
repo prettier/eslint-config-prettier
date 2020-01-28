@@ -802,11 +802,11 @@ eslint-config-prettier has been tested with:
 - prettier 1.19.1
 - @typescript-eslint/eslint-plugin 2.18.0
 - eslint-plugin-babel 5.3.0
-- eslint-plugin-flowtype 4.5.2
-- eslint-plugin-react 7.17.0
+- eslint-plugin-flowtype 4.6.0
+- eslint-plugin-react 7.18.0
 - eslint-plugin-standard 4.0.1
 - eslint-plugin-unicorn 15.0.1
-- eslint-plugin-vue 6.1.1
+- eslint-plugin-vue 6.1.2
 
 Have new rules been added since those versions? Have we missed any rules? Is
 there a plugin you would like to see exclusions for? Open an issue or a pull

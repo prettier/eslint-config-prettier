@@ -48,17 +48,17 @@
     "eslint-config-google": "0.14.0",
     "eslint-find-rules": "3.4.0",
     "eslint-plugin-babel": "5.3.0",
-    "eslint-plugin-flowtype": "4.5.2",
+    "eslint-plugin-flowtype": "4.6.0",
     "eslint-plugin-prettier": "3.1.2",
-    "eslint-plugin-react": "7.17.0",
+    "eslint-plugin-react": "7.18.0",
     "eslint-plugin-standard": "4.0.1",
     "eslint-plugin-unicorn": "15.0.1",
-    "eslint-plugin-vue": "6.1.1",
-    "jest": "24.9.0",
+    "eslint-plugin-vue": "6.1.2",
+    "jest": "25.1.0",
     "prettier": "1.19.1",
-    "replace": "1.1.1",
-    "rimraf": "3.0.0",
-    "typescript": "3.7.4"
+    "replace": "1.1.5",
+    "rimraf": "3.0.1",
+    "typescript": "3.7.5"
   },
   "peerDependencies": {
     "eslint": ">=3.14.1"
