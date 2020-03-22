@@ -126,21 +126,15 @@ eslint-config-prettier also ships with a little CLI tool to help you check if
 your configuration contains any rules that are unnecessary or conflict with
 Prettier.
 
-First, add a script for it to package.json:
+You can run it using `npx`:
 
-<!-- prettier-ignore -->
-```json
-{
-  "scripts": {
-    "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check"
-  }
-}
+```
+npx eslint --print-config path/to/main.js | npx eslint-config-prettier-check
 ```
 
-Then run `npm run eslint-check`. (Change `path/to/main.js` to a file that
-exists in your project.)
+(Change `path/to/main.js` to a file that exists in your project.)
 
-In theory you need to run `eslint --print-config file.js | eslint-config-prettier-check` for every single file in your project to be
+In theory you need to run `npx eslint --print-config file.js | npx eslint-config-prettier-check` for every single file in your project to be
 100% sure that there are no conflicting rules, because ESLint supports having
 different rules for different files. But usually you’ll have about the same
 rules for all files, so it is enough to run the command on one file (pick one
@@ -149,9 +143,9 @@ that you won’t be moving). If you use [multiple configuration files] or
 several times with different `--print-config` arguments, such as:
 
 ```
-eslint --print-config index.js | eslint-config-prettier-check
-eslint --print-config test/index.js | eslint-config-prettier-check
-eslint --print-config legacy/main.js | eslint-config-prettier-check
+npx eslint --print-config index.js | npx eslint-config-prettier-check
+npx eslint --print-config test/index.js | npx eslint-config-prettier-check
+npx eslint --print-config legacy/main.js | npx eslint-config-prettier-check
 ```
 
 Exit codes:
