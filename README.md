@@ -13,7 +13,6 @@ it together with some other config.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Installation](#installation)
   - [Excluding deprecated rules](#excluding-deprecated-rules)
 - [CLI helper tool](#cli-helper-tool)
@@ -55,6 +54,7 @@ Then, add eslint-config-prettier to the "extends" array in your `.eslintrc.*`
 file. Make sure to put it **last,** so it gets the chance to override other
 configs.
 
+<!-- prettier-ignore -->
 ```json
 {
   "extends": [
@@ -76,6 +76,7 @@ A few ESLint plugins are supported as well:
 
 Add extra exclusions for the plugins you use like so:
 
+<!-- prettier-ignore -->
 ```json
 {
   "extends": [
@@ -96,6 +97,7 @@ If you extend a config which uses a plugin, it is recommended to add
 `"prettier/that-plugin"` (if available). For example, [eslint-config-airbnb]
 enables [eslint-plugin-react] rules, so `"prettier/react"` is needed:
 
+<!-- prettier-ignore -->
 ```json
 {
   "extends": [
@@ -129,6 +131,7 @@ Prettier.
 
 First, add a script for it to package.json:
 
+<!-- prettier-ignore -->
 ```json
 {
   "scripts": {
@@ -140,8 +143,7 @@ First, add a script for it to package.json:
 Then run `npm run eslint-check`. (Change `path/to/main.js` to a file that
 exists in your project.)
 
-In theory you need to run `eslint --print-config file.js |
-eslint-config-prettier-check` for every single file in your project to be
+In theory you need to run `eslint --print-config file.js | eslint-config-prettier-check` for every single file in your project to be
 100% sure that there are no conflicting rules, because ESLint supports having
 different rules for different files. But usually you’ll have about the same
 rules for all files, so it is enough to run the command on one file (pick one
@@ -163,6 +165,7 @@ Exit codes:
 
 ## Example configuration
 
+<!-- prettier-ignore -->
 ```json
 {
   "extends": [
@@ -267,6 +270,7 @@ with Prettier.
 
 For example, the `"multi-line"` option allows this line:
 
+<!-- prettier-ignore -->
 ```js
 if (cart.items && cart.items[0] && cart.items[0].quantity === 0) updateCart(cart);
 ```
@@ -274,6 +278,7 @@ if (cart.items && cart.items[0] && cart.items[0].quantity === 0) updateCart(cart
 However, Prettier might consider the line too long and turn it into the
 following, which the `"multi-line"` option does _not_ allow:
 
+<!-- prettier-ignore -->
 ```js
 if (cart.items && cart.items[0] && cart.items[0].quantity === 0)
   updateCart(cart);
@@ -284,6 +289,7 @@ don’t use the `"multi-line"` or `"multi-or-nest"` option.
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -306,6 +312,7 @@ blank lines, with two exceptions:
 
 By default, ESLint requires a blank line above the comment is this case:
 
+<!-- prettier-ignore -->
 ```js
 if (result) {
 
@@ -316,6 +323,7 @@ if (result) {
 
 However, Prettier removes the blank line:
 
+<!-- prettier-ignore -->
 ```js
 if (result) {
   /* comment */
@@ -329,6 +337,7 @@ objects and arrays.
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -370,6 +379,7 @@ lines in a way that the `max-len` rule does not approve of.
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -384,6 +394,7 @@ Example ESLint configuration:
 
 For example, the rule could warn about this line:
 
+<!-- prettier-ignore -->
 ```js
 var x = a => 1 ? 2 : 3;
 ```
@@ -391,6 +402,7 @@ var x = a => 1 ? 2 : 3;
 With `{allowParens: true}` (the default since ESLint 6.0.0), adding
 parentheses is considered a valid way to avoid the arrow confusion:
 
+<!-- prettier-ignore -->
 ```js
 var x = a => (1 ? 2 : 3);
 ```
@@ -398,6 +410,7 @@ var x = a => (1 ? 2 : 3);
 While Prettier keeps those parentheses, it removes them if the line is long
 enough to introduce a line break:
 
+<!-- prettier-ignore -->
 ```js
 EnterpriseCalculator.prototype.calculateImportantNumbers = inputNumber =>
   1 ? 2 : 3;
@@ -406,6 +419,7 @@ EnterpriseCalculator.prototype.calculateImportantNumbers = inputNumber =>
 With `{allowParens: false}`, ESLint instead suggests switching to an explicit
 return:
 
+<!-- prettier-ignore -->
 ```js
 var x = a => { return 1 ? 2 : 3; };
 ```
@@ -417,6 +431,7 @@ If you like this rule, it can be used just fine with Prettier as long as the
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -440,18 +455,21 @@ This rule forbids mixing certain operators, such as `&&` and `||`.
 
 For example, the rule could warn about this line:
 
+<!-- prettier-ignore -->
 ```js
 var foo = a + b * c;
 ```
 
 The rule suggests adding parentheses, like this:
 
+<!-- prettier-ignore -->
 ```js
 var foo = a + (b * c);
 ```
 
 However, Prettier removes many “unnecessary” parentheses, turning it back to:
 
+<!-- prettier-ignore -->
 ```js
 var foo = a + b * c;
 ```
@@ -459,6 +477,7 @@ var foo = a + b * c;
 If you want to use this rule with Prettier, you need to split the expression
 into another variable:
 
+<!-- prettier-ignore -->
 ```js
 var bar = b * c;
 var foo = a + bar;
@@ -466,12 +485,14 @@ var foo = a + bar;
 
 Keep in mind that Prettier prints _some_ “unnecessary” parentheses, though:
 
+<!-- prettier-ignore -->
 ```js
 var foo = (a && b) || c;
 ```
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -489,6 +510,7 @@ with Prettier as long as you don’t configure Prettier to indent using tabs.
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -500,6 +522,7 @@ Example ESLint configuration:
 Example Prettier configuration (this is the default, so adding this is not
 required):
 
+<!-- prettier-ignore -->
 ```json
 {
   "useTabs": false
@@ -509,6 +532,7 @@ required):
 **Note:** Since [ESlint 5.7.0] this rule can be configured to work regardless of
 your Prettier configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -528,6 +552,7 @@ it is ending a statement, but is not.
 
 For example, the rule could warn about this:
 
+<!-- prettier-ignore -->
 ```js
 var hello = "world"
 [1, 2, 3].forEach(addNumber)
@@ -536,6 +561,7 @@ var hello = "world"
 Prettier usually formats this in a way that makes it obvious that a semicolon
 was missing:
 
+<!-- prettier-ignore -->
 ```js
 var hello = "world"[(1, 2, 3)].forEach(addNumber);
 ```
@@ -543,12 +569,14 @@ var hello = "world"[(1, 2, 3)].forEach(addNumber);
 However, there are cases where Prettier breaks things into several lines such
 that the `no-unexpected-multiline` conflicts.
 
+<!-- prettier-ignore -->
 ```js
 const value = text.trim().split("\n")[position].toLowerCase();
 ```
 
 Prettier breaks it up into several lines, though, causing a conflict:
 
+<!-- prettier-ignore -->
 ```js
 const value = text
   .trim()
@@ -560,6 +588,7 @@ If you like this rule, it can usually be used with Prettier without problems,
 but occasionally you might need to either temporarily disable the rule or
 refactor your code.
 
+<!-- prettier-ignore -->
 ```js
 const value = text
   .trim()
@@ -580,6 +609,7 @@ a chance to report anything (as seen in the first example).
 
 Example configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -608,6 +638,7 @@ If you’d like all strings to use backticks (never quotes), enable the
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -621,6 +652,7 @@ Example ESLint configuration:
 In the following example, the first array item could have been written with
 quotes instead of backticks.
 
+<!-- prettier-ignore -->
 ```js
 const strings = [
   `could have been a regular string`,
@@ -634,8 +666,7 @@ const strings = [
 ```
 
 If you’d like ESLint to enforce `` `could have been a regular string` `` being
-written as either `"could have been a regular string"` or `'could have been a
-regular string'`, you need to use some specific configuration. The `quotes` rule has two options, a string option and an object option.
+written as either `"could have been a regular string"` or `'could have been a regular string'`, you need to use some specific configuration. The `quotes` rule has two options, a string option and an object option.
 
 - The first (string) option needs to be set to `"single"` or `"double"` and be
   kept in sync with Prettier’s [singleQuote] option.
@@ -647,6 +678,7 @@ regular string'`, you need to use some specific configuration. The `quotes` rule
 
 ESLint:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -661,6 +693,7 @@ ESLint:
 
 Prettier (this is the default, so adding this is not required):
 
+<!-- prettier-ignore -->
 ```json
 {
   "singleQuote": false
@@ -671,6 +704,7 @@ Prettier (this is the default, so adding this is not required):
 
 ESLint:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -685,6 +719,7 @@ ESLint:
 
 Prettier:
 
+<!-- prettier-ignore -->
 ```json
 {
   "singleQuote": true
@@ -699,6 +734,7 @@ This rule enforces whether elements should be self-closing or not.
 
 Prettier generally preserves the way you wrote your elements:
 
+<!-- prettier-ignore -->
 ```vue
 <div />
 <div></div>
@@ -716,6 +752,7 @@ set `html.void` to `"any"`.
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -741,6 +778,7 @@ Prettier.
 This rule forbids using JavaScript’s confusing comma operator (sequence
 expressions). This piece of code is not doing what it looks like:
 
+<!-- prettier-ignore -->
 ```js
 matrix[4, 7];
 ```
@@ -748,6 +786,7 @@ matrix[4, 7];
 Prettier adds parentheses to the above to make it clear that a sequence
 expression is used:
 
+<!-- prettier-ignore -->
 ```js
 matrix[(4, 7)];
 ```
@@ -762,6 +801,7 @@ refactoring. If you want ESLint to catch such mistakes, it is recommended to
 forbid sequence expressions entirely using [no-restricted-syntax] \([as
 mentioned in the `no-sequences` documentation][no-sequences-full]):
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -777,6 +817,7 @@ expression. `no-sequences` can safely be disabled if you use the
 
 You can also supply a custom message if you want:
 
+<!-- prettier-ignore -->
 ```json
 {
   "rules": {
@@ -817,6 +858,7 @@ about it:
 
 First, create `foobar.js`:
 
+<!-- prettier-ignore -->
 ```js
 "use strict";
 
@@ -829,6 +871,7 @@ module.exports = {
 
 Then, create `test-lint/foobar.js`:
 
+<!-- prettier-ignore -->
 ```js
 /* eslint-disable quotes */
 "use strict";
@@ -874,8 +917,8 @@ several other npm scripts:
 
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
-[ESlint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
-[Prettier]: https://github.com/prettier/prettier
+[eslint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
+[prettier]: https://github.com/prettier/prettier
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
 [curly]: https://eslint.org/docs/rules/curly
@@ -903,7 +946,7 @@ several other npm scripts:
 [overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
 [prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
 [quotes]: https://eslint.org/docs/rules/quotes
-[singleQuote]: https://prettier.io/docs/en/options.html#quotes
+[singlequote]: https://prettier.io/docs/en/options.html#quotes
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md

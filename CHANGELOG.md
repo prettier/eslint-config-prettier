@@ -78,8 +78,7 @@
 
 - Improved: `eslint --print-config` usage instructions. The CLI tool help
   text as well as the documentation has been updated to suggest commands that
-  work in ESLint 6.0 as well as in ESLint 5 and older. (Instead of `eslint
-  --print-config .`, use `eslint --print-config path/to/main.js`.)
+  work in ESLint 6.0 as well as in ESLint 5 and older. (Instead of `eslint --print-config .`, use `eslint --print-config path/to/main.js`.)
 
 ### Version 5.1.0 (2019-06-25)
 
@@ -350,8 +349,8 @@
 [arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/2c842675e55b91aecaef6f997d234ebf2d220ffb/README.md#arrow-body-style-and-prefer-arrow-callback
 [curly]: https://eslint.org/docs/rules/curly
 [end-of-line]: https://prettier.io/docs/en/options.html#end-of-line
-[ESLint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
-[ESLint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
+[eslint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
+[eslint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
 [eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
