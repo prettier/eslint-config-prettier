@@ -22,7 +22,6 @@ module.exports = {
       "array-bracket-newline": "off",
       "array-bracket-spacing": "off",
       "array-element-newline": "off",
-      "arrow-parens": "off",
       "arrow-spacing": "off",
       "block-spacing": "off",
       "brace-style": "off",
