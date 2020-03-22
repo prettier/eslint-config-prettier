@@ -9,6 +9,9 @@ module.exports = {
       .filter((name) => !name.includes("/"))
       .map((ruleFileName) => `./${ruleFileName}`),
   ],
+  rules: {
+    "prettier/prettier": "off",
+  },
   overrides: [
     {
       files: ["{bin,test}/**/*.js"],

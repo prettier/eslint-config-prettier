@@ -41,9 +41,6 @@ it together with some other config.
 
 ## Installation
 
-Tip: First, you might be interested in installing [eslint-plugin-prettier].
-Follow the instructions over there. This is optional, though.
-
 Install eslint-config-prettier:
 
 ```
@@ -188,7 +185,6 @@ Exit codes:
     "@typescript-eslint",
     "babel",
     "flowtype",
-    "prettier",
     "react",
     "standard",
     "unicorn",
@@ -203,9 +199,6 @@ Exit codes:
   "env": {
     "es6": true,
     "node": true
-  },
-  "rules": {
-    "prettier/prettier": "error"
   }
 }
 ```
