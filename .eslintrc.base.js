@@ -32,7 +32,6 @@ module.exports = {
   },
   rules: {
     indent: "off",
-    "linebreak-style": "off",
     "no-dupe-keys": "error",
     strict: "error",
     "prefer-spread": "off",
