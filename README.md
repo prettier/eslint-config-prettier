@@ -2,11 +2,9 @@
 
 Turns off all rules that are unnecessary or might conflict with [Prettier].
 
-This lets you use your favorite shareable config without letting its stylistic
-choices get in the way when using Prettier.
+This lets you use your favorite shareable config without letting its stylistic choices get in the way when using Prettier.
 
-Note that this config _only_ turns rules _off,_ so it only makes sense using
-it together with some other config.
+Note that this config _only_ turns rules _off,_ so it only makes sense using it together with some other config.
 
 ## Contents
 
@@ -47,9 +45,7 @@ Install eslint-config-prettier:
 npm install --save-dev eslint-config-prettier
 ```
 
-Then, add eslint-config-prettier to the "extends" array in your `.eslintrc.*`
-file. Make sure to put it **last,** so it gets the chance to override other
-configs.
+Then, add eslint-config-prettier to the "extends" array in your `.eslintrc.*` file. Make sure to put it **last,** so it gets the chance to override other configs.
 
 <!-- prettier-ignore -->
 ```json
@@ -90,9 +86,7 @@ Add extra exclusions for the plugins you use like so:
 }
 ```
 
-If you extend a config which uses a plugin, it is recommended to add
-`"prettier/that-plugin"` (if available). For example, [eslint-config-airbnb]
-enables [eslint-plugin-react] rules, so `"prettier/react"` is needed:
+If you extend a config which uses a plugin, it is recommended to add `"prettier/that-plugin"` (if available). For example, [eslint-config-airbnb] enables [eslint-plugin-react] rules, so `"prettier/react"` is needed:
 
 <!-- prettier-ignore -->
 ```json
@@ -105,16 +99,11 @@ enables [eslint-plugin-react] rules, so `"prettier/react"` is needed:
 }
 ```
 
-If you’re unsure which plugins are used, you can usually find them in your
-`package.json`.
+If you’re unsure which plugins are used, you can usually find them in your `package.json`.
 
 ### Excluding deprecated rules
 
-Some of the rules that eslint-config-prettier turns off may be deprecated.
-**This is perfectly fine,** but if you really need to omit the
-deprecated rules, you can do so by setting the
-`ESLINT_CONFIG_PRETTIER_NO_DEPRECATED` environment variable to a non-empty
-value. For example:
+Some of the rules that eslint-config-prettier turns off may be deprecated. **This is perfectly fine,** but if you really need to omit the deprecated rules, you can do so by setting the `ESLINT_CONFIG_PRETTIER_NO_DEPRECATED` environment variable to a non-empty value. For example:
 
 ```
 env ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npx eslint-find-rules --deprecated index.js
@@ -122,9 +111,7 @@ env ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npx eslint-find-rules --deprecated
 
 ## CLI helper tool
 
-eslint-config-prettier also ships with a little CLI tool to help you check if
-your configuration contains any rules that are unnecessary or conflict with
-Prettier.
+eslint-config-prettier also ships with a little CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier.
 
 You can run it using `npx`:
 
@@ -134,13 +121,7 @@ npx eslint --print-config path/to/main.js | npx eslint-config-prettier-check
 
 (Change `path/to/main.js` to a file that exists in your project.)
 
-In theory you need to run `npx eslint --print-config file.js | npx eslint-config-prettier-check` for every single file in your project to be
-100% sure that there are no conflicting rules, because ESLint supports having
-different rules for different files. But usually you’ll have about the same
-rules for all files, so it is enough to run the command on one file (pick one
-that you won’t be moving). If you use [multiple configuration files] or
-[overrides], you can (but you probably don’t need to!) run the above script
-several times with different `--print-config` arguments, such as:
+In theory you need to run `npx eslint --print-config file.js | npx eslint-config-prettier-check` for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. But usually you’ll have about the same rules for all files, so it is enough to run the command on one file (pick one that you won’t be moving). If you use [multiple configuration files] or [overrides], you can (but you probably don’t need to!) run the above script several times with different `--print-config` arguments, such as:
 
 ```
 npx eslint --print-config index.js | npx eslint-config-prettier-check
@@ -199,41 +180,28 @@ Exit codes:
 
 ## Special rules
 
-There a few rules that eslint-config-prettier disables that actually can be
-enabled in some cases.
+There a few rules that eslint-config-prettier disables that actually can be enabled in some cases.
 
 - Some require certain options. The CLI helper tool validates this.
-- Some require special attention when writing code. The CLI helper tool warns
-  you if any of those rules are enabled, but can’t tell if anything is
-  problematic.
+- Some require special attention when writing code. The CLI helper tool warns you if any of those rules are enabled, but can’t tell if anything is problematic.
 - Some can cause problems if using [eslint-plugin-prettier] and `--fix`.
 
-For maximum ease of use, the special rules are disabled by default. If you want
-them, you need to explicitly specify them in your ESLint config.
+For maximum ease of use, the special rules are disabled by default. If you want them, you need to explicitly specify them in your ESLint config.
 
 ### [arrow-body-style] and [prefer-arrow-callback]
 
 **These rules might cause problems if using [eslint-plugin-prettier] and `--fix`.**
 
-If you use any of these rules together with the `prettier/prettier` rule from
-[eslint-plugin-prettier], you can in some cases end up with invalid code due to
-a bug in ESLint’s autofix.
+If you use any of these rules together with the `prettier/prettier` rule from [eslint-plugin-prettier], you can in some cases end up with invalid code due to a bug in ESLint’s autofix.
 
 These rules are safe to use if:
 
-- You don’t use [eslint-plugin-prettier]. In other words, you run `eslint --fix`
-  and `prettier --write` as separate steps.
-- You _do_ use [eslint-plugin-prettier], but don’t use `--fix`. (But then,
-  what’s the point?)
+- You don’t use [eslint-plugin-prettier]. In other words, you run `eslint --fix` and `prettier --write` as separate steps.
+- You _do_ use [eslint-plugin-prettier], but don’t use `--fix`. (But then, what’s the point?)
 
-You _can_ still use these rules together with [eslint-plugin-prettier] if you
-want, because the bug does not occur _all the time._ But if you do, you need to
-keep in mind that you might end up with invalid code, where you manually have to
-insert a missing closing parenthesis to get going again.
+You _can_ still use these rules together with [eslint-plugin-prettier] if you want, because the bug does not occur _all the time._ But if you do, you need to keep in mind that you might end up with invalid code, where you manually have to insert a missing closing parenthesis to get going again.
 
-If you’re fixing large of amounts of previously unformatted code, consider
-temporarily disabling the `prettier/prettier` rule and running `eslint --fix`
-and `prettier --write` separately.
+If you’re fixing large of amounts of previously unformatted code, consider temporarily disabling the `prettier/prettier` rule and running `eslint --fix` and `prettier --write` separately.
 
 See these issues for more information:
 
@@ -241,19 +209,15 @@ See these issues for more information:
 - [eslint-config-prettier#71]
 - [eslint-plugin-prettier#65]
 
-When the autofix bug in ESLint has been fixed, the special case for these rules
-can be removed.
+When the autofix bug in ESLint has been fixed, the special case for these rules can be removed.
 
 ### [curly]
 
 **This rule requires certain options.**
 
-If a block (for example after `if`, `else`, `for` or `while`) contains only one
-statement, JavaScript allows omitting the curly braces around that statement.
-This rule enforces if or when those optional curly braces should be omitted.
+If a block (for example after `if`, `else`, `for` or `while`) contains only one statement, JavaScript allows omitting the curly braces around that statement. This rule enforces if or when those optional curly braces should be omitted.
 
-If you use the `"multi-line"` or `"multi-or-nest"` option, the rule can conflict
-with Prettier.
+If you use the `"multi-line"` or `"multi-or-nest"` option, the rule can conflict with Prettier.
 
 For example, the `"multi-line"` option allows this line:
 
@@ -262,8 +226,7 @@ For example, the `"multi-line"` option allows this line:
 if (cart.items && cart.items[0] && cart.items[0].quantity === 0) updateCart(cart);
 ```
 
-However, Prettier might consider the line too long and turn it into the
-following, which the `"multi-line"` option does _not_ allow:
+However, Prettier might consider the line too long and turn it into the following, which the `"multi-line"` option does _not_ allow:
 
 <!-- prettier-ignore -->
 ```js
@@ -271,8 +234,7 @@ if (cart.items && cart.items[0] && cart.items[0].quantity === 0)
   updateCart(cart);
 ```
 
-If you like this rule, it can be used just fine with Prettier as long as you
-don’t use the `"multi-line"` or `"multi-or-nest"` option.
+If you like this rule, it can be used just fine with Prettier as long as you don’t use the `"multi-line"` or `"multi-or-nest"` option.
 
 Example ESLint configuration:
 
@@ -289,13 +251,10 @@ Example ESLint configuration:
 
 **This rule can be used with certain options.**
 
-This rule requires empty lines before and/or after comments. Prettier preserves
-blank lines, with two exceptions:
+This rule requires empty lines before and/or after comments. Prettier preserves blank lines, with two exceptions:
 
-- Several blank lines in a row are collapsed into a single blank line. This is
-  fine.
-- Blank lines at the beginning and end of blocks, objects and arrays are always
-  removed. This may lead to conflicts.
+- Several blank lines in a row are collapsed into a single blank line. This is fine.
+- Blank lines at the beginning and end of blocks, objects and arrays are always removed. This may lead to conflicts.
 
 By default, ESLint requires a blank line above the comment is this case:
 
@@ -318,9 +277,7 @@ if (result) {
 }
 ```
 
-If you like this rule, it can be used just fine with Prettier as long as you add
-some extra configuration to allow comments at the start and end of blocks,
-objects and arrays.
+If you like this rule, it can be used just fine with Prettier as long as you add some extra configuration to allow comments at the start and end of blocks, objects and arrays.
 
 Example ESLint configuration:
 
@@ -353,16 +310,11 @@ Example ESLint configuration:
 
 **This rule requires special attention when writing code.**
 
-Usually, Prettier takes care of following a maximum line length automatically.
-However, there are cases where Prettier can’t do anything, such as for long
-strings, regular expressions and comments. Those need to be split up by a human.
+Usually, Prettier takes care of following a maximum line length automatically. However, there are cases where Prettier can’t do anything, such as for long strings, regular expressions and comments. Those need to be split up by a human.
 
-If you’d like to enforce an even stricter maximum line length policy than
-Prettier can provide automatically, you can enable this rule. Just remember to
-keep `max-len`’s options and Prettier’s `printWidth` option in sync.
+If you’d like to enforce an even stricter maximum line length policy than Prettier can provide automatically, you can enable this rule. Just remember to keep `max-len`’s options and Prettier’s `printWidth` option in sync.
 
-Keep in mind that you might have to refactor code slightly if Prettier formats
-lines in a way that the `max-len` rule does not approve of.
+Keep in mind that you might have to refactor code slightly if Prettier formats lines in a way that the `max-len` rule does not approve of.
 
 Example ESLint configuration:
 
@@ -386,16 +338,14 @@ For example, the rule could warn about this line:
 var x = a => 1 ? 2 : 3;
 ```
 
-With `{allowParens: true}` (the default since ESLint 6.0.0), adding
-parentheses is considered a valid way to avoid the arrow confusion:
+With `{allowParens: true}` (the default since ESLint 6.0.0), adding parentheses is considered a valid way to avoid the arrow confusion:
 
 <!-- prettier-ignore -->
 ```js
 var x = a => (1 ? 2 : 3);
 ```
 
-While Prettier keeps those parentheses, it removes them if the line is long
-enough to introduce a line break:
+While Prettier keeps those parentheses, it removes them if the line is long enough to introduce a line break:
 
 <!-- prettier-ignore -->
 ```js
@@ -403,8 +353,7 @@ EnterpriseCalculator.prototype.calculateImportantNumbers = inputNumber =>
   1 ? 2 : 3;
 ```
 
-With `{allowParens: false}`, ESLint instead suggests switching to an explicit
-return:
+With `{allowParens: false}`, ESLint instead suggests switching to an explicit return:
 
 <!-- prettier-ignore -->
 ```js
@@ -413,8 +362,7 @@ var x = a => { return 1 ? 2 : 3; };
 
 That causes no problems with Prettier.
 
-If you like this rule, it can be used just fine with Prettier as long as the
-`allowParens` option is off.
+If you like this rule, it can be used just fine with Prettier as long as the `allowParens` option is off.
 
 Example ESLint configuration:
 
@@ -427,12 +375,7 @@ Example ESLint configuration:
 }
 ```
 
-(Note: The CLI helper tool considers `{allowParens: true}` to be the default,
-which is the case since ESLint 6.0.0. The tool will produce a warning if you
-use the default even if you use an older version of ESLint. It doesn’t hurt
-to explicitly set `{allowParens: false}` even though it is technically
-redundant. This way you are prepared for a future ESLint upgrade and the CLI
-tool can be kept simple.)
+(Note: The CLI helper tool considers `{allowParens: true}` to be the default, which is the case since ESLint 6.0.0. The tool will produce a warning if you use the default even if you use an older version of ESLint. It doesn’t hurt to explicitly set `{allowParens: false}` even though it is technically redundant. This way you are prepared for a future ESLint upgrade and the CLI tool can be kept simple.)
 
 ### [no-mixed-operators]
 
@@ -461,8 +404,7 @@ However, Prettier removes many “unnecessary” parentheses, turning it back to
 var foo = a + b * c;
 ```
 
-If you want to use this rule with Prettier, you need to split the expression
-into another variable:
+If you want to use this rule with Prettier, you need to split the expression into another variable:
 
 <!-- prettier-ignore -->
 ```js
@@ -492,8 +434,7 @@ Example ESLint configuration:
 
 **This rule requires certain Prettier options.**
 
-This rule disallows the use of tab characters at all. It can be used just fine
-with Prettier as long as you don’t configure Prettier to indent using tabs.
+This rule disallows the use of tab characters at all. It can be used just fine with Prettier as long as you don’t configure Prettier to indent using tabs.
 
 Example ESLint configuration:
 
@@ -506,8 +447,7 @@ Example ESLint configuration:
 }
 ```
 
-Example Prettier configuration (this is the default, so adding this is not
-required):
+Example Prettier configuration (this is the default, so adding this is not required):
 
 <!-- prettier-ignore -->
 ```json
@@ -516,8 +456,7 @@ required):
 }
 ```
 
-**Note:** Since [ESlint 5.7.0] this rule can be configured to work regardless of
-your Prettier configuration:
+**Note:** Since [ESlint 5.7.0] this rule can be configured to work regardless of your Prettier configuration:
 
 <!-- prettier-ignore -->
 ```json
@@ -534,8 +473,7 @@ A future version of eslint-config-prettier might check for that automatically.
 
 **This rule requires special attention when writing code.**
 
-This rule disallows confusing multiline expressions where a newline looks like
-it is ending a statement, but is not.
+This rule disallows confusing multiline expressions where a newline looks like it is ending a statement, but is not.
 
 For example, the rule could warn about this:
 
@@ -545,16 +483,14 @@ var hello = "world"
 [1, 2, 3].forEach(addNumber)
 ```
 
-Prettier usually formats this in a way that makes it obvious that a semicolon
-was missing:
+Prettier usually formats this in a way that makes it obvious that a semicolon was missing:
 
 <!-- prettier-ignore -->
 ```js
 var hello = "world"[(1, 2, 3)].forEach(addNumber);
 ```
 
-However, there are cases where Prettier breaks things into several lines such
-that the `no-unexpected-multiline` conflicts.
+However, there are cases where Prettier breaks things into several lines such that the `no-unexpected-multiline` conflicts.
 
 <!-- prettier-ignore -->
 ```js
@@ -571,9 +507,7 @@ const value = text
   [position].toLowerCase();
 ```
 
-If you like this rule, it can usually be used with Prettier without problems,
-but occasionally you might need to either temporarily disable the rule or
-refactor your code.
+If you like this rule, it can usually be used with Prettier without problems, but occasionally you might need to either temporarily disable the rule or refactor your code.
 
 <!-- prettier-ignore -->
 ```js
@@ -589,10 +523,7 @@ const lines = text.trim().split("\n");
 const value = lines[position].toLowerCase();
 ```
 
-**Note:** If you _do_ enable this rule, you have to run ESLint and Prettier as
-two separate steps (and ESLint first) in order to get any value out of it.
-Otherwise Prettier might reformat your code in such a way that ESLint never gets
-a chance to report anything (as seen in the first example).
+**Note:** If you _do_ enable this rule, you have to run ESLint and Prettier as two separate steps (and ESLint first) in order to get any value out of it. Otherwise Prettier might reformat your code in such a way that ESLint never gets a chance to report anything (as seen in the first example).
 
 Example configuration:
 
@@ -611,17 +542,14 @@ Example configuration:
 
 **This rule requires certain options and certain Prettier options.**
 
-Usually, you don’t need this rule at all. But there are two cases where it could
-be useful:
+Usually, you don’t need this rule at all. But there are two cases where it could be useful:
 
-- To enforce the use of backticks rather than single or double quotes for
-  strings.
+- To enforce the use of backticks rather than single or double quotes for strings.
 - To forbid backticks where regular strings could have been used.
 
 #### Enforce backticks
 
-If you’d like all strings to use backticks (never quotes), enable the
-`"backtick"` option.
+If you’d like all strings to use backticks (never quotes), enable the `"backtick"` option.
 
 Example ESLint configuration:
 
@@ -636,8 +564,7 @@ Example ESLint configuration:
 
 #### Forbid unnecessary backticks
 
-In the following example, the first array item could have been written with
-quotes instead of backticks.
+In the following example, the first array item could have been written with quotes instead of backticks.
 
 <!-- prettier-ignore -->
 ```js
@@ -652,11 +579,9 @@ const strings = [
 ];
 ```
 
-If you’d like ESLint to enforce `` `could have been a regular string` `` being
-written as either `"could have been a regular string"` or `'could have been a regular string'`, you need to use some specific configuration. The `quotes` rule has two options, a string option and an object option.
+If you’d like ESLint to enforce `` `could have been a regular string` `` being written as either `"could have been a regular string"` or `'could have been a regular string'`, you need to use some specific configuration. The `quotes` rule has two options, a string option and an object option.
 
-- The first (string) option needs to be set to `"single"` or `"double"` and be
-  kept in sync with Prettier’s [singleQuote] option.
+- The first (string) option needs to be set to `"single"` or `"double"` and be kept in sync with Prettier’s [singleQuote] option.
 - The second (object) option needs the following properties:
   - `"avoidEscape": true` to follow Prettier’s [string formatting rules].
   - `"allowTemplateLiterals": false` to disallow unnecessary backticks.
@@ -731,11 +656,9 @@ Prettier generally preserves the way you wrote your elements:
 <svg><path d=""></path></svg>
 ```
 
-But for known _void_ HTML elements, Prettier always uses the self-closing style.
-For example, `<img>` is turned into `<img />`.
+But for known _void_ HTML elements, Prettier always uses the self-closing style. For example, `<img>` is turned into `<img />`.
 
-If you like this rule, it can be used just fine with Prettier as long as you
-set `html.void` to `"any"`.
+If you like this rule, it can be used just fine with Prettier as long as you set `html.void` to `"any"`.
 
 Example ESLint configuration:
 
@@ -757,36 +680,27 @@ Example ESLint configuration:
 
 ## Other rules worth mentioning
 
-These rules don’t conflict with Prettier, but have some gotchas when used with
-Prettier.
+These rules don’t conflict with Prettier, but have some gotchas when used with Prettier.
 
 ### [no-sequences]
 
-This rule forbids using JavaScript’s confusing comma operator (sequence
-expressions). This piece of code is not doing what it looks like:
+This rule forbids using JavaScript’s confusing comma operator (sequence expressions). This piece of code is not doing what it looks like:
 
 <!-- prettier-ignore -->
 ```js
 matrix[4, 7];
 ```
 
-Prettier adds parentheses to the above to make it clear that a sequence
-expression is used:
+Prettier adds parentheses to the above to make it clear that a sequence expression is used:
 
 <!-- prettier-ignore -->
 ```js
 matrix[(4, 7)];
 ```
 
-However, the `no-sequences` rule allows comma operators if the expression
-sequence is explicitly wrapped in parentheses. Since Prettier automatically
-wraps them in parentheses, you might never see any warnings from ESLint about
-comma operators.
+However, the `no-sequences` rule allows comma operators if the expression sequence is explicitly wrapped in parentheses. Since Prettier automatically wraps them in parentheses, you might never see any warnings from ESLint about comma operators.
 
-Ending up with an accidental sequence expression can easily happen while
-refactoring. If you want ESLint to catch such mistakes, it is recommended to
-forbid sequence expressions entirely using [no-restricted-syntax] \([as
-mentioned in the `no-sequences` documentation][no-sequences-full]):
+Ending up with an accidental sequence expression can easily happen while refactoring. If you want ESLint to catch such mistakes, it is recommended to forbid sequence expressions entirely using [no-restricted-syntax] \([as mentioned in the `no-sequences` documentation][no-sequences-full]):
 
 <!-- prettier-ignore -->
 ```json
@@ -797,10 +711,7 @@ mentioned in the `no-sequences` documentation][no-sequences-full]):
 }
 ```
 
-If you still need to use the comma operator for some edge case, you can place an
-`// eslint-disable-next-line no-restricted-syntax` comment on the line above the
-expression. `no-sequences` can safely be disabled if you use the
-`no-restricted-syntax` approach.
+If you still need to use the comma operator for some edge case, you can place an `// eslint-disable-next-line no-restricted-syntax` comment on the line above the expression. `no-sequences` can safely be disabled if you use the `no-restricted-syntax` approach.
 
 You can also supply a custom message if you want:
 
@@ -836,12 +747,9 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-unicorn 15.0.1
 - eslint-plugin-vue 6.1.2
 
-Have new rules been added since those versions? Have we missed any rules? Is
-there a plugin you would like to see exclusions for? Open an issue or a pull
-request!
+Have new rules been added since those versions? Have we missed any rules? Is there a plugin you would like to see exclusions for? Open an issue or a pull request!
 
-If you’d like to add support for eslint-plugin-foobar, this is how you’d go
-about it:
+If you’d like to add support for eslint-plugin-foobar, this is how you’d go about it:
 
 First, create `foobar.js`:
 
@@ -868,35 +776,25 @@ Then, create `test-lint/foobar.js`:
 console.log();
 ```
 
-`test-lint/foobar.js` must fail when used with eslint-plugin-foobar and
-eslint-plugin-prettier at the same time – until `"prettier/foobar"` is added to
-the "extends" property of an ESLint config. The file should be formatted
-according to Prettier, and that formatting should disagree with the plugin.
+`test-lint/foobar.js` must fail when used with eslint-plugin-foobar and eslint-plugin-prettier at the same time – until `"prettier/foobar"` is added to the "extends" property of an ESLint config. The file should be formatted according to Prettier, and that formatting should disagree with the plugin.
 
 Finally, you need to mention the plugin in several places:
 
 - Add `"foobar.js"` to the "files" field in `package.json`.
 - Add eslint-plugin-foobar to the "devDependencies" field in `package.json`.
-- Make sure that at least one rule from eslint-plugin-foobar gets used in
-  `.eslintrc.base.js`.
-- Add it to the list of supported plugins, to the example config and to
-  Contributing section in `README.md`.
+- Make sure that at least one rule from eslint-plugin-foobar gets used in `.eslintrc.base.js`.
+- Add it to the list of supported plugins, to the example config and to Contributing section in `README.md`.
 
-When you’re done, run `npm test` to verify that you got it all right. It runs
-several other npm scripts:
+When you’re done, run `npm test` to verify that you got it all right. It runs several other npm scripts:
 
-- `"test:lint"` makes sure that the files in `test-lint/` pass ESLint when
-  the exclusions from eslint-config-prettier are used. It also lints the code of
-  eslint-config-prettier itself.
+- `"test:lint"` makes sure that the files in `test-lint/` pass ESLint when the exclusions from eslint-config-prettier are used. It also lints the code of eslint-config-prettier itself.
 - `"test:lint-verify-fail"` is run by a test in `test/lint-verify-fail.test.js`.
 - `"test:lint-rules"` is run by a test in `test/rules.test.js`.
 - `"test:jest"` runs unit tests that check a number of things:
   - That eslint-plugin-foobar is mentioned in all the places shown above.
-  - That no unknown rules are turned off. This helps catching typos, for
-    example.
+  - That no unknown rules are turned off. This helps catching typos, for example.
   - That the CLI works.
-- `"test:cli-sanity"` and `"test:cli-sanity-warning"` are sanity checks for the
-  CLI.
+- `"test:cli-sanity"` and `"test:cli-sanity-warning"` are sanity checks for the CLI.
 
 ## License
 

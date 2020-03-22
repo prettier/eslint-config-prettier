@@ -1,7 +1,6 @@
 ### Version 6.10.0 (2020-01-28)
 
-- Added: [@typescript-eslint/comma-spacing]. Thanks to Thanks to Masafumi
-  Koba (@ybiquitous)!!
+- Added: [@typescript-eslint/comma-spacing]. Thanks to Thanks to Masafumi Koba (@ybiquitous)!!
 
 ### Version 6.9.0 (2019-12-27)
 
@@ -13,48 +12,37 @@
 
 ### Version 6.7.0 (2019-11-19)
 
-- Added: [@typescript-eslint/space-before-function-paren]. Thanks to Masafumi
-  Koba (@ybiquitous)!
+- Added: [@typescript-eslint/space-before-function-paren]. Thanks to Masafumi Koba (@ybiquitous)!
 
 ### Version 6.6.0 (2019-11-17)
 
-- Added: New [eslint-plugin-vue] rules: [vue/dot-location] and
-  [vue/keyword-spacing]. Thanks to @xcatliu!
+- Added: New [eslint-plugin-vue] rules: [vue/dot-location] and [vue/keyword-spacing]. Thanks to @xcatliu!
 
 ### Version 6.5.0 (2019-10-26)
 
-- Added: Support for [excluding deprecated rules]. Thanks to Alex Ilyaev
-  (@alexilyaev)!
+- Added: Support for [excluding deprecated rules]. Thanks to Alex Ilyaev (@alexilyaev)!
 
 ### Version 6.4.0 (2019-10-05)
 
-- Added: [unicorn/no-nested-ternary]. Thanks to Yang Mingshan
-  (@yangmingshan)!
+- Added: [unicorn/no-nested-ternary]. Thanks to Yang Mingshan (@yangmingshan)!
 
 ### Version 6.3.0 (2019-09-10)
 
-- Added: [@typescript-eslint/brace-style]. Thanks to Masafumi Koba
-  (@ybiquitous)!
+- Added: [@typescript-eslint/brace-style]. Thanks to Masafumi Koba (@ybiquitous)!
 
 ### Version 6.2.0 (2019-09-03)
 
-- Added: [@typescript-eslint/quotes] (as a [special
-  rule][@typescript-eslint/quotes-special]). Thanks to Masafumi Koba
-  (@ybiquitous)!
+- Added: [@typescript-eslint/quotes] (as a [special rule][@typescript-eslint/quotes-special]). Thanks to Masafumi Koba (@ybiquitous)!
 
 ### Version 6.1.0 (2019-08-19)
 
-- Added: [function-call-argument-newline] \(new in ESLint 6.2.0). Thanks to
-  Masafumi Koba (@ybiquitous)!
+- Added: [function-call-argument-newline] \(new in ESLint 6.2.0). Thanks to Masafumi Koba (@ybiquitous)!
 
 ### Version 6.0.0 (2019-06-25)
 
-- Changed: The CLI helper tool now considers [no-confusing-arrow] to conflict
-  if you use the default value of its `allowParens` option. The default was
-  changed to `true` in ESLint 6, which conflicts with Prettier.
+- Changed: The CLI helper tool now considers [no-confusing-arrow] to conflict if you use the default value of its `allowParens` option. The default was changed to `true` in ESLint 6, which conflicts with Prettier.
 
-  If the CLI helper tool gives you errors about this after upgrading, the
-  solution is to change this:
+  If the CLI helper tool gives you errors about this after upgrading, the solution is to change this:
 
   ```json
   {
@@ -76,9 +64,7 @@
 
   The latter works in both ESLint 6 as well as in ESLint 5 and older.
 
-- Improved: `eslint --print-config` usage instructions. The CLI tool help
-  text as well as the documentation has been updated to suggest commands that
-  work in ESLint 6.0 as well as in ESLint 5 and older. (Instead of `eslint --print-config .`, use `eslint --print-config path/to/main.js`.)
+- Improved: `eslint --print-config` usage instructions. The CLI tool help text as well as the documentation has been updated to suggest commands that work in ESLint 6.0 as well as in ESLint 5 and older. (Instead of `eslint --print-config .`, use `eslint --print-config path/to/main.js`.)
 
 ### Version 5.1.0 (2019-06-25)
 
@@ -86,38 +72,25 @@
 
 ### Version 5.0.0 (2019-06-15)
 
-- Removed: [react/self-closing-comp]. This rule was added in v4.1.0 not
-  because it _conflicted_ with Prettier but because it was _unnecessary_ when
-  using Prettier. However, in v1.18.0 [Prettier stopped converting empty
-  elements to self-closing elements][prettier-self-closing]. So the rule is
-  not unnecessary anymore.
+- Removed: [react/self-closing-comp]. This rule was added in v4.1.0 not because it _conflicted_ with Prettier but because it was _unnecessary_ when using Prettier. However, in v1.18.0 [Prettier stopped converting empty elements to self-closing elements][prettier-self-closing]. So the rule is not unnecessary anymore.
 
-  If you use Prettier v1.17.1 or older you should be able to upgrade
-  eslint-config-prettier to v5.0.0 without having to do anything else.
+  If you use Prettier v1.17.1 or older you should be able to upgrade eslint-config-prettier to v5.0.0 without having to do anything else.
 
-  If you use Prettier v1.18.0 or newer, you might get lint errors about for
-  example changing `<div></div>` into `<div />`. You have two options:
+  If you use Prettier v1.18.0 or newer, you might get lint errors about for example changing `<div></div>` into `<div />`. You have two options:
 
-  - Run `eslint --fix` if you prefer to enforce self-closing elements where
-    possible. This should fix all the errors.
-  - Add `"react/self-closing-comp": "off"` to your ESLint config if you use
-    autofix from your editor and you face the same [issue as Prettier
-    did][prettier-self-closing].
+  - Run `eslint --fix` if you prefer to enforce self-closing elements where possible. This should fix all the errors.
+  - Add `"react/self-closing-comp": "off"` to your ESLint config if you use autofix from your editor and you face the same [issue as Prettier did][prettier-self-closing].
 
-- Changed: Node.js 6 is no longer officially supported, but v5.0.0 should
-  still work with it.
+- Changed: Node.js 6 is no longer officially supported, but v5.0.0 should still work with it.
 
 ### Version 4.3.0 (2019-05-16)
 
-- Added: New [eslint-plugin-vue] rules: [vue/arrow-spacing],
-  [vue/block-spacing], [vue/brace-style] and [vue/comma-dangle].
-- Added: New [@typescript-eslint/eslint-plugin] rules:
-  [@typescript-eslint/func-call-spacing] and [@typescript-eslint/semi].
+- Added: New [eslint-plugin-vue] rules: [vue/arrow-spacing], [vue/block-spacing], [vue/brace-style] and [vue/comma-dangle].
+- Added: New [@typescript-eslint/eslint-plugin] rules: [@typescript-eslint/func-call-spacing] and [@typescript-eslint/semi].
 
 ### Version 4.2.0 (2019-04-25)
 
-- Added: [@typescript-eslint/no-extra-parens]. Thanks to Keiichiro Amemiya
-  (@Hoishin) and Jen Gorfine (@jgorfine)!
+- Added: [@typescript-eslint/no-extra-parens]. Thanks to Keiichiro Amemiya (@Hoishin) and Jen Gorfine (@jgorfine)!
 
 ### Version 4.1.0 (2019-02-26)
 
@@ -126,59 +99,37 @@
 
 ### Version 4.0.0 (2019-01-26)
 
-- Breaking change: Support for [eslint-plugin-typescript] has been removed and
-  replaced with support for its successor [@typescript-eslint/eslint-plugin].
-  Thanks to TANIGUCHI Masaya (@ta2gch) and everyone else who helped with this!
-- Changed: [arrow-body-style] and [prefer-arrow-callback] are now marked as
-  [special rules][arrow-special], since they might cause problems if using
-  [eslint-plugin-prettier] and `--fix`. They are turned off by default, and the
-  CLI helper tool will _warn_ about them (but not error if you do enable them).
-  This won’t break your linting checks, but do note that these rules will be
-  disabled unless you explicitly enable them again, and that you might see new
-  warnings when running the CLI helper tool.
+- Breaking change: Support for [eslint-plugin-typescript] has been removed and replaced with support for its successor [@typescript-eslint/eslint-plugin]. Thanks to TANIGUCHI Masaya (@ta2gch) and everyone else who helped with this!
+- Changed: [arrow-body-style] and [prefer-arrow-callback] are now marked as [special rules][arrow-special], since they might cause problems if using [eslint-plugin-prettier] and `--fix`. They are turned off by default, and the CLI helper tool will _warn_ about them (but not error if you do enable them). This won’t break your linting checks, but do note that these rules will be disabled unless you explicitly enable them again, and that you might see new warnings when running the CLI helper tool.
 
 ### Version 3.6.0 (2019-01-19)
 
-- Added: Support for [eslint-plugin-babel]. Thanks to Matija Marohnić
-  (@silvenon)!
+- Added: Support for [eslint-plugin-babel]. Thanks to Matija Marohnić (@silvenon)!
 
 ### Version 3.5.0 (2019-01-16)
 
-- Fixed: The eslint-plugin-vue change from 3.4.0 has been reverted. That change
-  requires eslint-plugin-vue@5, while many use eslint-plugin-vue@4. In other
-  words, it was an accidental breaking change. Also, after thinking about it
-  some more, it makes sense to have a Prettier-specific list of rules, rather
-  than using the `vue/no-layout-rules` list, since there can be layout rules
-  that don’t conflict with but rather complement Prettier.
+- Fixed: The eslint-plugin-vue change from 3.4.0 has been reverted. That change requires eslint-plugin-vue@5, while many use eslint-plugin-vue@4. In other words, it was an accidental breaking change. Also, after thinking about it some more, it makes sense to have a Prettier-specific list of rules, rather than using the `vue/no-layout-rules` list, since there can be layout rules that don’t conflict with but rather complement Prettier.
 - Added: New eslint-plugin-vue rules coming in the next version after 5.1.0.
 
 ### Version 3.4.0 (2019-01-13)
 
 - Added: Support for [eslint-plugin-typescript]. Thanks to Jed Fox (@j-f1)!
-- Improved: The eslint-plugin-vue integration is now using the
-  `vue/no-layout-rules` config behind the scenes, so it should automatically
-  stay up-to-date when new eslint-plugin-vue versions are released. Thanks to
-  Michał Sajnóg (@michalsnik)!
+- Improved: The eslint-plugin-vue integration is now using the `vue/no-layout-rules` config behind the scenes, so it should automatically stay up-to-date when new eslint-plugin-vue versions are released. Thanks to Michał Sajnóg (@michalsnik)!
 
 ### Version 3.3.0 (2018-11-11)
 
-- Added: The [vue/html-self-closing] rule (as a [special
-  rule][vue/html-self-closing-special]). Thanks to Yamagishi Kazutoshi (@ykzts)!
+- Added: The [vue/html-self-closing] rule (as a [special rule][vue/html-self-closing-special]). Thanks to Yamagishi Kazutoshi (@ykzts)!
 
 ### Version 3.2.0 (2018-11-10)
 
 - Added: Support for [eslint-plugin-vue].
-- Fixed: The CLI helper tool should now work in Node.js 6 with npm 3 again.
-  Thanks to Grant Snodgrass (@meeber)!
+- Fixed: The CLI helper tool should now work in Node.js 6 with npm 3 again. Thanks to Grant Snodgrass (@meeber)!
 - Improved: Updated documentation.
 
 ### Version 3.1.0 (2018-09-22)
 
 - Added: Support for [eslint-plugin-unicorn]. Thanks to John Mars (@j0hnm4r5)!
-- Changed: The [quotes] rule is now allowed to be used to forbid unnecessary
-  backticks. This means that the CLI helper tool no longer can automatically
-  validate it, so you’ll need to refer the [quotes special rule
-  documentation][quotes-special]. Thanks to Nick Petruzzelli (@npetruzzelli)!
+- Changed: The [quotes] rule is now allowed to be used to forbid unnecessary backticks. This means that the CLI helper tool no longer can automatically validate it, so you’ll need to refer the [quotes special rule documentation][quotes-special]. Thanks to Nick Petruzzelli (@npetruzzelli)!
 
 ### Version 3.0.1 (2018-08-13)
 
@@ -204,12 +155,8 @@
 
 ### Version 2.7.0 (2017-11-01)
 
-- Added: The [lines-around-comment] rule (as a [special
-  rule][lines-around-comment-special]). Thanks to Maurice de Beijer
-  (@mauricedb)!
-- Added: The [no-unexpected-multiline] rule (as a [special
-  rule][no-unexpected-multiline-special]). Thanks to Suhas Karanth
-  (@sudo-suhas)!
+- Added: The [lines-around-comment] rule (as a [special rule][lines-around-comment-special]). Thanks to Maurice de Beijer (@mauricedb)!
+- Added: The [no-unexpected-multiline] rule (as a [special rule][no-unexpected-multiline-special]). Thanks to Suhas Karanth (@sudo-suhas)!
 
 ### Version 2.6.0 (2017-09-23)
 
@@ -217,18 +164,15 @@
 
 ### Version 2.5.0 (2017-09-16)
 
-- Added: Support for [eslint-plugin-standard]. Thanks to Christian Pekeler
-  (@pekeler)!
+- Added: Support for [eslint-plugin-standard]. Thanks to Christian Pekeler (@pekeler)!
 
 ### Version 2.4.0 (2017-09-02)
 
-- Added: The [function-paren-newline] rule (new in [ESLint 4.6.0]). Thanks to
-  Pierre Vanduynslager (@vanduynslagerp)!
+- Added: The [function-paren-newline] rule (new in [ESLint 4.6.0]). Thanks to Pierre Vanduynslager (@vanduynslagerp)!
 
 ### Version 2.3.0 (2017-06-30)
 
-- Added: The (deprecated) [indent-legacy] rule. Thanks to M. Ian Graham
-  (@miangraham)!
+- Added: The (deprecated) [indent-legacy] rule. Thanks to M. Ian Graham (@miangraham)!
 
 ### Version 2.2.0 (2017-06-17)
 
@@ -245,33 +189,23 @@
 
 ### Version 2.1.0 (2017-05-13)
 
-- Added: The [no-tabs] rule (as a [special rule][no-tabs-special]). Thanks to
-  Alex Meah (@AlexMeah)!
+- Added: The [no-tabs] rule (as a [special rule][no-tabs-special]). Thanks to Alex Meah (@AlexMeah)!
 
 ### Version 2.0.0 (2017-05-07)
 
 - Changed/Improved: The CLI helper tool is now more helpful.
 
-  - The options of special rules are now validated if possible. If a special
-    rule is enabled with non-conflicting options, the CLI no longer warns about
-    it.
-  - If only special rules that cannot be automatically checked are found, the
-    CLI no longer exists with a non-zero exit code. Instead, it only warns about
-    the rules.
+  - The options of special rules are now validated if possible. If a special rule is enabled with non-conflicting options, the CLI no longer warns about it.
+  - If only special rules that cannot be automatically checked are found, the CLI no longer exists with a non-zero exit code. Instead, it only warns about the rules.
 
-- Changed: The [no-confusing-arrow] is now a special rule again, since it might
-  conflict with recent Prettier versions.
+- Changed: The [no-confusing-arrow] is now a special rule again, since it might conflict with recent Prettier versions.
 
-- Removed: The `react/wrap-multilines` rule (which has been deprecated for a
-  while), since it was removed in eslint-plugin-react@7.
+- Removed: The `react/wrap-multilines` rule (which has been deprecated for a while), since it was removed in eslint-plugin-react@7.
 
 ### Version 1.7.0 (2017-04-19)
 
-- Changed: The [no-confusing-arrow] is no longer a special rule, but simply
-  turned off, since recent Prettier versions make it redundant.
-- Improved: The CLI helper tool now has a more helpful message for special
-  rules, and exits with a different status code if only special rules were
-  found. The exit codes are now documented as well.
+- Changed: The [no-confusing-arrow] is no longer a special rule, but simply turned off, since recent Prettier versions make it redundant.
+- Improved: The CLI helper tool now has a more helpful message for special rules, and exits with a different status code if only special rules were found. The exit codes are now documented as well.
 
 ### Version 1.6.0 (2017-04-05)
 
@@ -283,26 +217,20 @@
 
 ### Version 1.4.1 (2017-02-28)
 
-- Improved: eslint-config-prettier is now part of the [prettier] organization!
-  This version updates all URLs to point to the new home of the project.
+- Improved: eslint-config-prettier is now part of the [prettier] organization! This version updates all URLs to point to the new home of the project.
 
 ### Version 1.4.0 (2017-02-26)
 
-- Added: The [no-confusing-arrow] rule (as a
-  [special rule][no-confusing-arrow-special]). Thanks to Dominik Ferber
-  (@dferber90)!
-- Added: Deprecated or removed rules that might conflict with prettier. Thanks
-  to Dominik Ferber (@dferber90)!
+- Added: The [no-confusing-arrow] rule (as a [special rule][no-confusing-arrow-special]). Thanks to Dominik Ferber (@dferber90)!
+- Added: Deprecated or removed rules that might conflict with prettier. Thanks to Dominik Ferber (@dferber90)!
 
 ### Version 1.3.0 (2017-02-21)
 
-- Added: The [template-tag-spacing] rule. Thanks to Thibault Derousseaux
-  (@tibdex)!
+- Added: The [template-tag-spacing] rule. Thanks to Thibault Derousseaux (@tibdex)!
 
 ### Version 1.2.0 (2017-02-14)
 
-- Added: The [one-var-declaration-per-line] rule. Thanks to Ruben Oostinga
-  (@0xR)!
+- Added: The [one-var-declaration-per-line] rule. Thanks to Ruben Oostinga (@0xR)!
 
 ### Version 1.1.1 (2017-02-12)
 
@@ -311,8 +239,7 @@
 ### Version 1.1.0 (2017-02-10)
 
 - Fixed: The [eslint-plugin-react] exclusion rules now actually work.
-- Fixed: The CLI helper tool now works in Node.js 4. Thanks to Nathan Friedly
-  (@nfriedly)!
+- Fixed: The CLI helper tool now works in Node.js 4. Thanks to Nathan Friedly (@nfriedly)!
 - Added: Support for [eslint-plugin-flowtype].
 - Improved: Minor things for the CLI helper tool.
 - Improved: There are now tests for everything.
