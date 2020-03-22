@@ -10,6 +10,6 @@ module.exports = {
     "flowtype/space-after-type-colon": "off",
     "flowtype/space-before-generic-bracket": "off",
     "flowtype/space-before-type-colon": "off",
-    "flowtype/union-intersection-spacing": "off"
-  }
+    "flowtype/union-intersection-spacing": "off",
+  },
 };

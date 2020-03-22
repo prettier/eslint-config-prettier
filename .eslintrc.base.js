@@ -8,13 +8,13 @@ module.exports = {
     "plugin:flowtype/recommended",
     "plugin:react/all",
     "plugin:unicorn/recommended",
-    "plugin:vue/recommended"
+    "plugin:vue/recommended",
   ],
   plugins: [
     "prettier",
     ...pkg.files
-      .filter(name => !name.includes("/") && name !== "index.js")
-      .map(ruleFileName => ruleFileName.replace(/\.js$/, ""))
+      .filter((name) => !name.includes("/") && name !== "index.js")
+      .map((ruleFileName) => ruleFileName.replace(/\.js$/, "")),
   ],
   parserOptions: {
     parser: "babel-eslint",
@@ -23,12 +23,12 @@ module.exports = {
     // Needed for the lint-verify-fail.test.js test.
     loggerFn: () => {},
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   env: {
     es6: true,
-    node: true
+    node: true,
   },
   rules: {
     indent: "off",
@@ -51,7 +51,7 @@ module.exports = {
     "unicorn/prevent-abbreviations": "off",
     // Force a conflict with Prettier in test-lint/babel.js.
     "object-curly-spacing": "off",
-    "babel/object-curly-spacing": ["error", "never"]
+    "babel/object-curly-spacing": ["error", "never"],
   },
   overrides: [
     {
@@ -60,13 +60,13 @@ module.exports = {
       rules: {
         // Force a conflict with Prettier in test-lint/typescript.js.
         // This is included in "plugin:@typescript-eslint/recommended".
-        "@typescript-eslint/indent": "error"
-      }
-    }
+        "@typescript-eslint/indent": "error",
+      },
+    },
   ],
   settings: {
     react: {
-      version: "16"
-    }
-  }
+      version: "16",
+    },
+  },
 };

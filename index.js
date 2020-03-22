@@ -89,7 +89,7 @@ module.exports = {
       "unicode-bom": "off",
       "wrap-iife": "off",
       "wrap-regex": "off",
-      "yield-star-spacing": "off"
+      "yield-star-spacing": "off",
     },
     includeDeprecated && {
       // Deprecated since version 4.0.0.
@@ -97,7 +97,7 @@ module.exports = {
       "indent-legacy": "off",
       // Deprecated since version 3.3.0.
       // https://eslint.org/docs/rules/no-spaced-func
-      "no-spaced-func": "off"
+      "no-spaced-func": "off",
     }
-  )
+  ),
 };

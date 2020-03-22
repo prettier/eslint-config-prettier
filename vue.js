@@ -27,6 +27,6 @@ module.exports = {
     "vue/script-indent": "off",
     "vue/singleline-html-element-content-newline": "off",
     "vue/space-infix-ops": "off",
-    "vue/space-unary-ops": "off"
-  }
+    "vue/space-unary-ops": "off",
+  },
 };

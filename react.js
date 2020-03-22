@@ -18,12 +18,12 @@ module.exports = {
       "react/jsx-one-expression-per-line": "off",
       "react/jsx-props-no-multi-spaces": "off",
       "react/jsx-tag-spacing": "off",
-      "react/jsx-wrap-multilines": "off"
+      "react/jsx-wrap-multilines": "off",
     },
     includeDeprecated && {
       // Deprecated since version 7.0.0.
       // https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06
-      "react/jsx-space-before-closing": "off"
+      "react/jsx-space-before-closing": "off",
     }
-  )
+  ),
 };

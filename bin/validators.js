@@ -50,5 +50,5 @@ module.exports = {
       // Enable when Prettier supports SVG: https://github.com/prettier/prettier/issues/5322
       // && firstOption.svg === "any"
     );
-  }
+  },
 };

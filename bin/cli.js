@@ -27,14 +27,14 @@ if (module === require.main) {
         "2: Conflicting rules found.",
         "",
         "For more information, see:",
-        "https://github.com/prettier/eslint-config-prettier#cli-helper-tool"
+        "https://github.com/prettier/eslint-config-prettier#cli-helper-tool",
       ].join("\n")
     );
     process.exit(1);
   }
 
   getStdin()
-    .then(string => {
+    .then((string) => {
       const result = processString(string);
       if (result.stderr) {
         console.error(result.stderr);
@@ -44,7 +44,7 @@ if (module === require.main) {
       }
       process.exit(result.code);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Unexpected error", error);
       process.exit(1);
     });
@@ -57,7 +57,7 @@ function processString(string) {
   } catch (error) {
     return {
       stderr: `Failed to parse JSON:\n${error.message}`,
-      code: 1
+      code: 1,
     };
   }
 
@@ -69,7 +69,7 @@ function processString(string) {
   ) {
     return {
       stderr: `Expected a \`{"rules: {...}"}\` JSON object, but got:\n${string}`,
-      code: 1
+      code: 1,
     };
   }
 
@@ -80,8 +80,8 @@ function processString(string) {
     Object.create(null),
     ...fs
       .readdirSync(path.join(__dirname, ".."))
-      .filter(name => !name.startsWith(".") && name.endsWith(".js"))
-      .map(ruleFileName => require(`../${ruleFileName}`).rules)
+      .filter((name) => !name.startsWith(".") && name.endsWith(".js"))
+      .map((ruleFileName) => require(`../${ruleFileName}`).rules)
   );
 
   const regularRules = filterRules(
@@ -98,7 +98,7 @@ function processString(string) {
   );
 
   const flaggedRules = Object.keys(config.rules)
-    .map(ruleName => {
+    .map((ruleName) => {
       const value = config.rules[ruleName];
       const arrayValue = Array.isArray(value) ? value : [value];
       const level = arrayValue[0];
@@ -110,7 +110,7 @@ function processString(string) {
 
   const regularFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    ruleName => ruleName in regularRules
+    (ruleName) => ruleName in regularRules
   );
   const optionsFlaggedRuleNames = filterRuleNames(
     flaggedRules,
@@ -119,7 +119,7 @@ function processString(string) {
   );
   const specialFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    ruleName => ruleName in specialRules
+    (ruleName) => ruleName in specialRules
   );
 
   if (
@@ -138,52 +138,52 @@ function processString(string) {
             "However, the following rules are enabled but cannot be automatically checked. See:",
             SPECIAL_RULES_URL,
             "",
-            printRuleNames(specialFlaggedRuleNames)
+            printRuleNames(specialFlaggedRuleNames),
           ].join("\n");
 
     return {
       stdout: message,
-      code: 0
+      code: 0,
     };
   }
 
   const regularMessage = [
     "The following rules are unnecessary or might conflict with Prettier:",
     "",
-    printRuleNames(regularFlaggedRuleNames)
+    printRuleNames(regularFlaggedRuleNames),
   ].join("\n");
 
   const optionsMessage = [
     "The following rules are enabled with options that might conflict with Prettier. See:",
     SPECIAL_RULES_URL,
     "",
-    printRuleNames(optionsFlaggedRuleNames)
+    printRuleNames(optionsFlaggedRuleNames),
   ].join("\n");
 
   const specialMessage = [
     "The following rules are enabled but cannot be automatically checked. See:",
     SPECIAL_RULES_URL,
     "",
-    printRuleNames(specialFlaggedRuleNames)
+    printRuleNames(specialFlaggedRuleNames),
   ].join("\n");
 
   const message = [
     regularFlaggedRuleNames.length === 0 ? null : regularMessage,
     optionsFlaggedRuleNames.length === 0 ? null : optionsMessage,
-    specialFlaggedRuleNames.length === 0 ? null : specialMessage
+    specialFlaggedRuleNames.length === 0 ? null : specialMessage,
   ]
     .filter(Boolean)
     .join("\n\n");
 
   return {
     stdout: message,
-    code: 2
+    code: 2,
   };
 }
 
 function filterRules(rules, fn) {
   return Object.keys(rules)
-    .filter(ruleName => fn(ruleName, rules[ruleName]))
+    .filter((ruleName) => fn(ruleName, rules[ruleName]))
     .reduce((obj, ruleName) => {
       obj[ruleName] = true;
       return obj;
@@ -192,15 +192,15 @@ function filterRules(rules, fn) {
 
 function filterRuleNames(rules, fn) {
   return rules
-    .filter(rule => fn(rule.ruleName, rule.options))
-    .map(rule => rule.ruleName);
+    .filter((rule) => fn(rule.ruleName, rule.options))
+    .map((rule) => rule.ruleName);
 }
 
 function printRuleNames(ruleNames) {
   return ruleNames
     .slice()
     .sort()
-    .map(ruleName => `- ${ruleName}`)
+    .map((ruleName) => `- ${ruleName}`)
     .join("\n");
 }
 

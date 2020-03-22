@@ -6,8 +6,8 @@ module.exports = {
   extends: [
     "./.eslintrc.base.js",
     ...pkg.files
-      .filter(name => !name.includes("/"))
-      .map(ruleFileName => `./${ruleFileName}`)
+      .filter((name) => !name.includes("/"))
+      .map((ruleFileName) => `./${ruleFileName}`),
   ],
   overrides: [
     {
@@ -19,19 +19,19 @@ module.exports = {
           {
             selector: "SequenceExpression",
             message:
-              "The comma operator is confusing and a common mistake. Don’t use it!"
-          }
+              "The comma operator is confusing and a common mistake. Don’t use it!",
+          },
         ],
         quotes: [
           "error",
           "double",
-          { avoidEscape: true, allowTemplateLiterals: false }
-        ]
-      }
+          { avoidEscape: true, allowTemplateLiterals: false },
+        ],
+      },
     },
     {
       files: ["*.test.js"],
-      env: { jest: true }
-    }
-  ]
+      env: { jest: true },
+    },
+  ],
 };

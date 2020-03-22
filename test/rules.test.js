@@ -12,10 +12,10 @@ const TEST_CONFIG_DIR = "test-config";
 
 const ruleFiles = fs
   .readdirSync(".")
-  .filter(name => !name.startsWith(".") && name.endsWith(".js"));
+  .filter((name) => !name.startsWith(".") && name.endsWith(".js"));
 const configFiles = fs
   .readdirSync(".")
-  .filter(name => name.startsWith(".eslintrc"));
+  .filter((name) => name.startsWith(".eslintrc"));
 
 beforeAll(() => {
   createTestConfigDir();
@@ -27,7 +27,7 @@ function createTestConfigDir() {
   fs.mkdirSync(TEST_CONFIG_DIR);
 
   // Copy all rule files into the test config dir.
-  ruleFiles.forEach(ruleFileName => {
+  ruleFiles.forEach((ruleFileName) => {
     const config = require(`../${ruleFileName}`);
 
     // Change all rules to "warn", so that ESLint warns about unknown rules.
@@ -45,7 +45,7 @@ function createTestConfigDir() {
   });
 
   // Copy the ESLint configs into the test config dir.
-  configFiles.forEach(configFileName => {
+  configFiles.forEach((configFileName) => {
     const config = require(`../${configFileName}`);
     fs.writeFileSync(
       path.join(TEST_CONFIG_DIR, configFileName),
@@ -55,7 +55,7 @@ function createTestConfigDir() {
 }
 
 describe("all rule files are listed in package.json", () => {
-  ruleFiles.forEach(ruleFileName => {
+  ruleFiles.forEach((ruleFileName) => {
     test(ruleFileName, () => {
       expect(pkg.files).toContain(ruleFileName);
     });
@@ -63,7 +63,7 @@ describe("all rule files are listed in package.json", () => {
 });
 
 describe("all rule files have tests in test-lint/", () => {
-  ruleFiles.forEach(ruleFileName => {
+  ruleFiles.forEach((ruleFileName) => {
     test(ruleFileName, () => {
       const testFileName =
         ruleFileName === "vue.js"
@@ -77,7 +77,7 @@ describe("all rule files have tests in test-lint/", () => {
 });
 
 describe("all rule files are included in the ESLint config", () => {
-  ruleFiles.forEach(ruleFileName => {
+  ruleFiles.forEach((ruleFileName) => {
     test(ruleFileName, () => {
       const name = ruleFileName.replace(/\.js$/, "");
       expect(eslintConfig.extends).toContain(`./${ruleFileName}`);
@@ -91,8 +91,8 @@ describe("all rule files are included in the ESLint config", () => {
 describe("all plugin rule files are mentioned in the README", () => {
   const readme = fs.readFileSync("README.md", "utf8");
   ruleFiles
-    .filter(ruleFileName => ruleFileName !== "index.js")
-    .forEach(ruleFileName => {
+    .filter((ruleFileName) => ruleFileName !== "index.js")
+    .forEach((ruleFileName) => {
       test(ruleFileName, () => {
         const name = ruleFileName.replace(/\.js$/, "");
         expect(readme).toMatch(
@@ -107,13 +107,13 @@ describe("all plugin rule files are mentioned in the README", () => {
 describe("all special rules are mentioned in the README", () => {
   const readme = fs.readFileSync("README.md", "utf8");
   const specialRuleNames = [].concat(
-    ...ruleFiles.map(ruleFileName => {
+    ...ruleFiles.map((ruleFileName) => {
       const rules = require(`../${ruleFileName}`).rules;
-      return Object.keys(rules).filter(name => rules[name] === 0);
+      return Object.keys(rules).filter((name) => rules[name] === 0);
     })
   );
 
-  specialRuleNames.forEach(name => {
+  specialRuleNames.forEach((name) => {
     test(name, () => {
       expect(readme).toMatch(name);
     });
@@ -123,10 +123,10 @@ describe("all special rules are mentioned in the README", () => {
 describe('all rules are set to "off" or 0', () => {
   const allRules = Object.assign(
     Object.create(null),
-    ...ruleFiles.map(ruleFileName => require(`../${ruleFileName}`).rules)
+    ...ruleFiles.map((ruleFileName) => require(`../${ruleFileName}`).rules)
   );
 
-  Object.keys(allRules).forEach(name => {
+  Object.keys(allRules).forEach((name) => {
     const value = allRules[name];
 
     test(name, () => {
@@ -137,11 +137,11 @@ describe('all rules are set to "off" or 0', () => {
 
 test("there are no unknown rules", () => {
   const result = spawn.sync("npm", ["run", "test:lint-rules", "--silent"], {
-    encoding: "utf8"
+    encoding: "utf8",
   });
   const output = JSON.parse(result.stdout);
 
-  output[0].messages.forEach(message => {
+  output[0].messages.forEach((message) => {
     expect(message.message).not.toMatch(/rule\s+'[^']+'.*not found/);
   });
 });
@@ -152,13 +152,13 @@ test("support omitting all deprecated rules", () => {
       encoding: "utf8",
       env: {
         ...process.env,
-        ...env
-      }
+        ...env,
+      },
     });
 
   const result1 = run();
   const result2 = run({
-    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true"
+    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true",
   });
 
   expect(result1.status).not.toBe(0);

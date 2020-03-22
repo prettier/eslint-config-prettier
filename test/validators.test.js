@@ -9,22 +9,22 @@ expect.extend({
     return {
       message: () =>
         `expected ${inspect(opts)} to be ${pass ? "invalid" : "valid"}`,
-      pass
+      pass,
     };
-  }
+  },
 });
 
 function rule(name, { valid, invalid }) {
   test(name, () => {
     const validator = validators[name];
-    valid.forEach(opts => expect(validator).toPass(opts));
-    invalid.forEach(opts => expect(validator).not.toPass(opts));
+    valid.forEach((opts) => expect(validator).toPass(opts));
+    invalid.forEach((opts) => expect(validator).not.toPass(opts));
   });
 }
 
 rule("curly", {
   valid: [[], , ["all"], ["multi"], ["multi", "consistent"]],
-  invalid: [["multi-line"], ["multi-or-nest"], ["multi-line", "consistent"]]
+  invalid: [["multi-line"], ["multi-or-nest"], ["multi-line", "consistent"]],
 });
 
 rule("lines-around-comment", {
@@ -36,9 +36,9 @@ rule("lines-around-comment", {
         allowObjectStart: true,
         allowObjectEnd: true,
         allowArrayStart: true,
-        allowArrayEnd: true
-      }
-    ]
+        allowArrayEnd: true,
+      },
+    ],
   ],
   invalid: [
     [],
@@ -48,16 +48,16 @@ rule("lines-around-comment", {
         allowObjectStart: true,
         allowObjectEnd: true,
         allowArrayStart: true,
-        allowArrayEnd: true
-      }
+        allowArrayEnd: true,
+      },
     ],
-    [null]
-  ]
+    [null],
+  ],
 });
 
 rule("no-confusing-arrow", {
   valid: [[{ allowParens: false }]],
-  invalid: [[], [null], [{ allowParens: true }], [{ other: true }]]
+  invalid: [[], [null], [{ allowParens: true }], [{ other: true }]],
 });
 
 rule("vue/html-self-closing", {
@@ -68,12 +68,12 @@ rule("vue/html-self-closing", {
         html: {
           void: "any",
           html: "never",
-          component: "never"
+          component: "never",
         },
         svg: "never",
-        math: "never"
-      }
-    ]
+        math: "never",
+      },
+    ],
   ],
-  invalid: [[], [null], [{ html: null }], [{ html: { void: "always" } }]]
+  invalid: [[], [null], [{ html: null }], [{ html: { void: "always" } }]],
 });

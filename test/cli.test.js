@@ -8,7 +8,7 @@ const onPatterns = [1, 2, "warn", "error", [1], [2], ["warn"], ["error"]];
 function createRules(rules, pattern) {
   const arrayPattern = Array.isArray(pattern) ? pattern : [pattern];
   const rulesString = rules
-    .map(rule => {
+    .map((rule) => {
       const value = Array.isArray(rule)
         ? arrayPattern.concat(rule.slice(1))
         : pattern;
@@ -22,9 +22,9 @@ function createRules(rules, pattern) {
 describe("does not flag", () => {
   const rules = ["strict", "arrow-parens", "curly", "max-len"];
 
-  const results = offPatterns.map(pattern => ({
+  const results = offPatterns.map((pattern) => ({
     pattern: JSON.stringify(pattern),
-    result: cli.processString(createRules(rules, pattern))
+    result: cli.processString(createRules(rules, pattern)),
   }));
 
   test("result", () => {
@@ -47,9 +47,9 @@ describe("does flag", () => {
   const rules = ["strict", "arrow-parens"];
 
   const results = onPatterns.map(
-    pattern => ({
+    (pattern) => ({
       pattern: JSON.stringify(pattern),
-      result: cli.processString(createRules(rules, pattern))
+      result: cli.processString(createRules(rules, pattern)),
     }),
     {}
   );
@@ -127,7 +127,7 @@ test("all the things", () => {
     "flowtype/semi",
     "vue/html-self-closing",
     "prefer-arrow-callback",
-    "arrow-body-style"
+    "arrow-body-style",
   ];
   expect(cli.processString(createRules(rules, "error"))).toMatchInlineSnapshot(`
 Object {

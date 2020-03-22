@@ -5,6 +5,6 @@ module.exports = {
     "babel/quotes": 0,
 
     "babel/object-curly-spacing": "off",
-    "babel/semi": "off"
-  }
+    "babel/semi": "off",
+  },
 };

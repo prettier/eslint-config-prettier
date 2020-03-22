@@ -6,7 +6,7 @@ const spawn = require("cross-spawn");
 
 const ruleFiles = fs
   .readdirSync(".")
-  .filter(name => !name.startsWith(".") && name.endsWith(".js"));
+  .filter((name) => !name.startsWith(".") && name.endsWith(".js"));
 
 describe("test-lint/ causes errors without eslint-config-prettier", () => {
   const result = spawn.sync(
@@ -20,9 +20,9 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
     expect(output.length).toBe(ruleFiles.length);
   });
 
-  output.forEach(data => {
+  output.forEach((data) => {
     const name = path.basename(data.filePath).replace(/\.(?:js|ts|vue)$/, "");
-    const ruleIds = data.messages.map(message => message.ruleId);
+    const ruleIds = data.messages.map((message) => message.ruleId);
 
     describe(name, () => {
       test("has errors", () => {
@@ -31,9 +31,9 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
 
       test("must only cause errors related to itself", () => {
         if (name === "index") {
-          expect(ruleIds.every(ruleId => !ruleId.includes("/"))).toBe(true);
+          expect(ruleIds.every((ruleId) => !ruleId.includes("/"))).toBe(true);
         } else {
-          expect(ruleIds.every(ruleId => ruleId.startsWith(`${name}/`))).toBe(
+          expect(ruleIds.every((ruleId) => ruleId.startsWith(`${name}/`))).toBe(
             true
           );
         }
