@@ -1,3 +1,8 @@
+### Version 6.10.1 (2020-03-22)
+
+- Improved: Recommend using `npx` when running the CLI helper tool.
+- Updated: Mention that eslint-config-prettier has been tested with Prettier 2.0 and the latest versions of plugins.
+
 ### Version 6.10.0 (2020-01-28)
 
 - Added: [@typescript-eslint/comma-spacing]. Thanks to Thanks to Masafumi Koba (@ybiquitous)!!

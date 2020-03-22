@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-prettier",
-  "version": "6.10.0",
+  "version": "6.10.1",
   "license": "MIT",
   "author": "Simon Lydell",
   "description": "Turns off all rules that are unnecessary or might conflict with Prettier.",
