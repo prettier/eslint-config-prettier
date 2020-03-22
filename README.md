@@ -1,4 +1,4 @@
-# eslint-config-prettier [![Build Status][travis-badge]][travis]
+# eslint-config-prettier
 
 Turns off all rules that are unnecessary or might conflict with [Prettier].
 
@@ -905,7 +905,5 @@ several other npm scripts:
 [quotes]: https://eslint.org/docs/rules/quotes
 [singleQuote]: https://prettier.io/docs/en/options.html#quotes
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
-[travis-badge]: https://travis-ci.org/prettier/eslint-config-prettier.svg?branch=master
-[travis]: https://travis-ci.org/prettier/eslint-config-prettier
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md
