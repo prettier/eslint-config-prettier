@@ -1,3 +1,7 @@
+### Version 6.11.0 (2020-04-21)
+
+- Added: [@typescript-eslint/keyword-spacing]. Thanks to Hans Bergren (@hbergren)!!
+
 ### Version 6.10.1 (2020-03-22)
 
 - Improved: Recommend using `npx` when running the CLI helper tool.
@@ -5,7 +9,7 @@
 
 ### Version 6.10.0 (2020-01-28)
 
-- Added: [@typescript-eslint/comma-spacing]. Thanks to Thanks to Masafumi Koba (@ybiquitous)!!
+- Added: [@typescript-eslint/comma-spacing]. Thanks to Masafumi Koba (@ybiquitous)!!
 
 ### Version 6.9.0 (2019-12-27)
 
@@ -269,6 +273,7 @@
 [@typescript-eslint/comma-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/func-call-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
+[@typescript-eslint/keyword-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/keyword-spacing.md
 [@typescript-eslint/no-extra-parens]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
 [@typescript-eslint/no-extra-semi]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-semi.md
 [@typescript-eslint/quotes-special]: https://github.com/prettier/eslint-config-prettier/blob/857257179fe69715362dfa9300762d6e534c0603/README.md#quotes
