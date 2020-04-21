@@ -1,6 +1,6 @@
 ### Version 6.11.0 (2020-04-21)
 
-- Added: [@typescript-eslint/keyword-spacing]. Thanks to Hans Bergren (@hbergren)!!
+- Added: [@typescript-eslint/keyword-spacing]. Thanks to Hans Bergren (@hbergren)!
 
 ### Version 6.10.1 (2020-03-22)
 
