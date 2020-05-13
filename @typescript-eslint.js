@@ -9,6 +9,7 @@ module.exports = {
     "@typescript-eslint/func-call-spacing": "off",
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/keyword-spacing": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/no-extra-parens": "off",
     "@typescript-eslint/no-extra-semi": "off",
