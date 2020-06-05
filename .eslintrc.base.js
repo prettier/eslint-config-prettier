@@ -46,6 +46,8 @@ module.exports = {
     "unicorn/consistent-function-scoping": "off",
     "unicorn/filename-case": "off",
     "unicorn/no-nested-ternary": "off",
+    "unicorn/no-null": "off",
+    "unicorn/no-reduce": "off",
     "unicorn/prefer-flat-map": "off",
     "unicorn/prevent-abbreviations": "off",
     // Force a conflict with Prettier in test-lint/babel.js.
