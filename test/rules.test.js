@@ -98,7 +98,6 @@ describe("all plugin rule files are mentioned in the README", () => {
         expect(readme).toMatch(
           name.startsWith("@") ? name : `eslint-plugin-${name}`
         );
-        expect(readme).toMatch(`"${name}"`);
         expect(readme).toMatch(`"prettier/${name}"`);
       });
     });
