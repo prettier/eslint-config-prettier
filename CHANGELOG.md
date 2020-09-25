@@ -1,3 +1,7 @@
+### Version 6.12.0 (2020-09-25)
+
+- Added: [@typescript-eslint/comma-dangle]. Thanks to Masafumi Koba (@ybiquitous)!!
+
 ### Version 6.11.0 (2020-04-21)
 
 - Added: [@typescript-eslint/keyword-spacing]. Thanks to Hans Bergren (@hbergren)!
@@ -270,6 +274,7 @@
 - Initial release.
 
 [@typescript-eslint/brace-style]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
+[@typescript-eslint/comma-dangle]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-dangle.md
 [@typescript-eslint/comma-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/func-call-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
