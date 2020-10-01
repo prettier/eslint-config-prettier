@@ -26,8 +26,8 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
   - [quotes](#quotes)
     - [Enforce backticks](#enforce-backticks)
     - [Forbid unnecessary backticks](#forbid-unnecessary-backticks)
-      - [Example _double_ quote configuration](#example-_double_-quote-configuration)
-      - [Example _single_ quote configuration](#example-_single_-quote-configuration)
+      - [Example double quote configuration](#example-double-quote-configuration)
+      - [Example single quote configuration](#example-single-quote-configuration)
   - [vue/html-self-closing](#vuehtml-self-closing)
 - [Other rules worth mentioning](#other-rules-worth-mentioning)
   - [no-sequences](#no-sequences)
@@ -542,7 +542,7 @@ If you’d like ESLint to enforce `` `could have been a regular string` `` being
   - `"avoidEscape": true` to follow Prettier’s [string formatting rules].
   - `"allowTemplateLiterals": false` to disallow unnecessary backticks.
 
-##### Example _double_ quote configuration
+##### Example double quote configuration
 
 ESLint:
 
@@ -568,7 +568,7 @@ Prettier (this is the default, so adding this is not required):
 }
 ```
 
-##### Example _single_ quote configuration
+##### Example single quote configuration
 
 ESLint:
 
