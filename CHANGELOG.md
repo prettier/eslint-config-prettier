@@ -1,3 +1,7 @@
+### Version 6.13.0 (2020-10-16)
+
+- Added: New rules in [eslint-plugin-vue] 7.0 (which supports Vue 3.0). Thanks to @xcatliu!
+
 ### Version 6.12.0 (2020-09-25)
 
 - Added: [@typescript-eslint/comma-dangle]. Thanks to Masafumi Koba (@ybiquitous)!!
