@@ -702,7 +702,7 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-react 7.21.2
 - eslint-plugin-standard 4.0.1
 - eslint-plugin-unicorn 22.0.0
-- eslint-plugin-vue 6.2.2
+- eslint-plugin-vue 7.0.1
 
 Have new rules been added since those versions? Have we missed any rules? Is there a plugin you would like to see exclusions for? Open an issue or a pull request!
 
