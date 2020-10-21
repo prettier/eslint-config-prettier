@@ -1,3 +1,7 @@
+### Version 6.14.0 (2020-10-21)
+
+- Added: New [eslint-plugin-vue] rules: [vue/array-bracket-newline] and [vue/block-tag-newline]. Thanks to @xcatliu!
+
 ### Version 6.13.0 (2020-10-16)
 
 - Added: New rules in [eslint-plugin-vue] 7.0 (which supports Vue 3.0). Thanks to @xcatliu!
@@ -346,4 +350,6 @@
 [vue/html-self-closing-special]: https://github.com/prettier/eslint-config-prettier/blob/d5e7af986221df5faedc12893d8dc3150a808693/README.md#vuehtml-self-closing
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
 [vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/keyword-spacing.md
+[vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/array-bracket-newline.md
+[vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-tag-newline.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md
