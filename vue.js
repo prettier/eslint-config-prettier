@@ -9,6 +9,7 @@ module.exports = {
     "vue/array-bracket-spacing": "off",
     "vue/arrow-spacing": "off",
     "vue/block-spacing": "off",
+    "vue/block-tag-newline": "off",
     "vue/brace-style": "off",
     "vue/comma-dangle": "off",
     "vue/comma-spacing": "off",
