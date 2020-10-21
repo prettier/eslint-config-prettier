@@ -5,6 +5,7 @@ module.exports = {
     "vue/html-self-closing": 0,
     "vue/max-len": 0,
 
+    "vue/array-bracket-newline": "off",
     "vue/array-bracket-spacing": "off",
     "vue/arrow-spacing": "off",
     "vue/block-spacing": "off",
