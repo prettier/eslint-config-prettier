@@ -1,3 +1,7 @@
+### Version 6.15.0 (2020-10-27)
+
+- Added: [@typescript-eslint/space-infix-ops]. Thanks to Masafumi Koba (@ybiquitous)!!
+
 ### Version 6.14.0 (2020-10-21)
 
 - Added: New [eslint-plugin-vue] rules: [vue/array-bracket-newline] and [vue/block-tag-newline]. Thanks to @xcatliu!
@@ -293,6 +297,7 @@
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
 [@typescript-eslint/semi]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
 [@typescript-eslint/space-before-function-paren]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
+[@typescript-eslint/space-infix-ops]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.md
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
 [array-element-newline]: https://eslint.org/docs/rules/array-element-newline
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
