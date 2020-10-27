@@ -40,8 +40,8 @@
     "get-stdin": "^6.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "4.5.0",
-    "@typescript-eslint/parser": "4.5.0",
+    "@typescript-eslint/eslint-plugin": "4.6.0",
+    "@typescript-eslint/parser": "4.6.0",
     "babel-eslint": "10.1.0",
     "cross-spawn": "7.0.3",
     "doctoc": "1.4.0",
