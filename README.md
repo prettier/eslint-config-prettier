@@ -40,8 +40,16 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 
 Install eslint-config-prettier:
 
+**NPM:**
 ```
 npm install --save-dev eslint-config-prettier
+```
+
+OR
+
+**Yarn:**
+```
+yarn add --dev --exact eslint-config-prettier
 ```
 
 Then, add eslint-config-prettier to the "extends" array in your `.eslintrc.*` file. Make sure to put it **last,** so it gets the chance to override other configs.
@@ -742,7 +750,7 @@ Finally, you need to mention the plugin in several places:
 - Make sure that at least one rule from eslint-plugin-foobar gets used in `.eslintrc.base.js`.
 - Add it to the list of supported plugins, to the example config and to Contributing section in `README.md`.
 
-When you’re done, run `npm test` to verify that you got it all right. It runs several other npm scripts:
+When you’re done, run `test` to verify that you got it all right. It runs several other npm scripts:
 
 - `"test:lint"` makes sure that the files in `test-lint/` pass ESLint when the exclusions from eslint-config-prettier are used. It also lints the code of eslint-config-prettier itself, and checks that Prettier has been run on all files.
 - `"test:lint-verify-fail"` is run by a test in `test/lint-verify-fail.test.js`.
