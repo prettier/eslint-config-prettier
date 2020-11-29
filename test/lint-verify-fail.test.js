@@ -4,8 +4,9 @@ const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
+const ROOT = path.join(__dirname, "..");
 const ruleFiles = fs
-  .readdirSync(".")
+  .readdirSync(ROOT)
   .filter((name) => !name.startsWith(".") && name.endsWith(".js"));
 
 describe("test-lint/ causes errors without eslint-config-prettier", () => {
