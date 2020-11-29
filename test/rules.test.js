@@ -37,7 +37,7 @@ function createTestConfigDir() {
       return obj;
     }, {});
 
-    const newConfig = Object.assign({}, config, { rules: newRules });
+    const newConfig = { ...config, rules: newRules };
 
     fs.writeFileSync(
       path.join(TEST_CONFIG_DIR, ruleFileName),
