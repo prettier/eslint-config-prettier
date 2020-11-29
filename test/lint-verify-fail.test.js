@@ -1,18 +1,19 @@
 "use strict";
 
+const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
-const spawn = require("cross-spawn");
 
+const ROOT = path.join(__dirname, "..");
 const ruleFiles = fs
-  .readdirSync(".")
+  .readdirSync(ROOT)
   .filter((name) => !name.startsWith(".") && name.endsWith(".js"));
 
 describe("test-lint/ causes errors without eslint-config-prettier", () => {
-  const result = spawn.sync(
+  const result = childProcess.spawnSync(
     "npm",
     ["run", "test:lint-verify-fail", "--silent"],
-    { encoding: "utf8" }
+    { encoding: "utf8", shell: true }
   );
   const output = JSON.parse(result.stdout);
 
@@ -31,11 +32,17 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
 
       test("must only cause errors related to itself", () => {
         if (name === "index") {
-          expect(ruleIds.every((ruleId) => !ruleId.includes("/"))).toBe(true);
+          expect(
+            ruleIds
+              .filter((ruleId) => ruleId.includes("/"))
+              .concat("no ruleId should not contain a slash")
+          ).toEqual(["no ruleId should not contain a slash"]);
         } else {
-          expect(ruleIds.every((ruleId) => ruleId.startsWith(`${name}/`))).toBe(
-            true
-          );
+          expect(
+            ruleIds
+              .filter((ruleId) => !ruleId.startsWith(`${name}/`))
+              .concat(`every ruleId should start with: ${name}/`)
+          ).toEqual([`every ruleId should start with: ${name}/`]);
         }
       });
     });

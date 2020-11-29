@@ -1,20 +1,21 @@
 "use strict";
 
+const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const rimraf = require("rimraf");
-const spawn = require("cross-spawn");
 const pkg = require("../package.json");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
 
-const TEST_CONFIG_DIR = "test-config";
+const ROOT = path.join(__dirname, "..");
+const TEST_CONFIG_DIR = path.join(ROOT, "test-config");
 
 const ruleFiles = fs
-  .readdirSync(".")
+  .readdirSync(ROOT)
   .filter((name) => !name.startsWith(".") && name.endsWith(".js"));
 const configFiles = fs
-  .readdirSync(".")
+  .readdirSync(ROOT)
   .filter((name) => name.startsWith(".eslintrc"));
 
 beforeAll(() => {
@@ -71,7 +72,9 @@ describe("all rule files have tests in test-lint/", () => {
           : ruleFileName === "@typescript-eslint.js"
           ? "@typescript-eslint.ts"
           : ruleFileName;
-      expect(fs.existsSync(path.join("test-lint", testFileName))).toBe(true);
+      expect(fs.existsSync(path.join(ROOT, "test-lint", testFileName))).toBe(
+        true
+      );
     });
   });
 });
@@ -89,7 +92,7 @@ describe("all rule files are included in the ESLint config", () => {
 });
 
 describe("all plugin rule files are mentioned in the README", () => {
-  const readme = fs.readFileSync("README.md", "utf8");
+  const readme = fs.readFileSync(path.join(ROOT, "README.md"), "utf8");
   ruleFiles
     .filter((ruleFileName) => ruleFileName !== "index.js")
     .forEach((ruleFileName) => {
@@ -104,7 +107,7 @@ describe("all plugin rule files are mentioned in the README", () => {
 });
 
 describe("all special rules are mentioned in the README", () => {
-  const readme = fs.readFileSync("README.md", "utf8");
+  const readme = fs.readFileSync(path.join(ROOT, "README.md"), "utf8");
   const specialRuleNames = [].concat(
     ...ruleFiles.map((ruleFileName) => {
       const rules = require(`../${ruleFileName}`).rules;
@@ -135,9 +138,11 @@ describe('all rules are set to "off" or 0', () => {
 });
 
 test("there are no unknown rules", () => {
-  const result = spawn.sync("npm", ["run", "test:lint-rules", "--silent"], {
-    encoding: "utf8",
-  });
+  const result = childProcess.spawnSync(
+    "npm",
+    ["run", "test:lint-rules", "--silent"],
+    { encoding: "utf8", shell: true }
+  );
   const output = JSON.parse(result.stdout);
 
   output[0].messages.forEach((message) => {
@@ -147,8 +152,9 @@ test("there are no unknown rules", () => {
 
 test("support omitting all deprecated rules", () => {
   const run = (env = {}) =>
-    spawn.sync("npm", ["run", "test:deprecated"], {
+    childProcess.spawnSync("npm", ["run", "test:deprecated"], {
       encoding: "utf8",
+      shell: true,
       env: {
         ...process.env,
         ...env,
