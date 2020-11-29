@@ -1,12 +1,13 @@
 "use strict";
 
-const pkg = require("./package.json");
+const fs = require("fs");
 
 module.exports = {
   extends: [
     "./.eslintrc.base.js",
-    ...pkg.files
-      .filter((name) => !name.includes("/"))
+    ...fs
+      .readdirSync(__dirname)
+      .filter((file) => !file.startsWith(".") && file.endsWith(".js"))
       .map((ruleFileName) => `./${ruleFileName}`),
   ],
   rules: {

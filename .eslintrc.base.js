@@ -1,6 +1,6 @@
 "use strict";
 
-const pkg = require("./package.json");
+const fs = require("fs");
 
 module.exports = {
   extends: [
@@ -12,8 +12,12 @@ module.exports = {
   ],
   plugins: [
     "prettier",
-    ...pkg.files
-      .filter((name) => !name.includes("/") && name !== "index.js")
+    ...fs
+      .readdirSync(__dirname)
+      .filter(
+        (file) =>
+          !file.startsWith(".") && file.endsWith(".js") && file !== "index.js"
+      )
       .map((ruleFileName) => ruleFileName.replace(/\.js$/, "")),
   ],
   parserOptions: {

@@ -6,7 +6,7 @@ This lets you use your favorite shareable config without letting its stylistic c
 
 Note that this config _only_ turns rules _off,_ so it only makes sense using it together with some other config.
 
-## Contents
+---
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -786,7 +786,6 @@ console.log();
 
 Finally, you need to mention the plugin in several places:
 
-- Add `"foobar.js"` to the "files" field in `package.json`.
 - Add eslint-plugin-foobar to the "devDependencies" field in `package.json`.
 - Make sure that at least one rule from eslint-plugin-foobar gets used in `.eslintrc.base.js`.
 - Add it to the list of supported plugins and to the Contributing section in `README.md`.

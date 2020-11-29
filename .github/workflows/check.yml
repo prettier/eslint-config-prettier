@@ -38,3 +38,6 @@ jobs:
 
       - name: Prettier
         run: npx --no-install prettier --check .
+
+      - name: Build
+        run: npm run build

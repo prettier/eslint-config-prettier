@@ -4,7 +4,6 @@ const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const rimraf = require("rimraf");
-const pkg = require("../package.json");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
 
@@ -54,14 +53,6 @@ function createTestConfigDir() {
     );
   });
 }
-
-describe("all rule files are listed in package.json", () => {
-  ruleFiles.forEach((ruleFileName) => {
-    test(ruleFileName, () => {
-      expect(pkg.files).toContain(ruleFileName);
-    });
-  });
-});
 
 describe("all rule files have tests in test-lint/", () => {
   ruleFiles.forEach((ruleFileName) => {

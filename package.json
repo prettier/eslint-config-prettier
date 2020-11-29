@@ -1,28 +1,5 @@
 {
-  "name": "eslint-config-prettier",
-  "version": "6.15.0",
-  "license": "MIT",
-  "author": "Simon Lydell",
-  "description": "Turns off all rules that are unnecessary or might conflict with Prettier.",
-  "repository": "prettier/eslint-config-prettier",
-  "files": [
-    "bin/",
-    "@typescript-eslint.js",
-    "babel.js",
-    "flowtype.js",
-    "index.js",
-    "prettier.js",
-    "react.js",
-    "standard.js",
-    "unicorn.js",
-    "vue.js"
-  ],
-  "bin": "bin/cli.js",
-  "keywords": [
-    "eslint",
-    "eslintconfig",
-    "prettier"
-  ],
+  "private": true,
   "scripts": {
     "doctoc": "doctoc README.md && replace \"\\[\\[([\\w/-]+)\\](?:([^\\[\\]]+)\\[([\\w/-]+)\\])?\\]\" \"[\\$1\\$2\\$3]\" README.md",
     "prettier": "prettier --write .",
@@ -33,9 +10,9 @@
     "test:jest": "jest",
     "test:cli-sanity": "node ./bin/cli.js index.js",
     "test:cli-sanity-warning": "node ./bin/cli.js react.js ./bin/cli.js",
-    "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning"
+    "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning && npm run build",
+    "build": "node scripts/build.js"
   },
-  "dependencies": {},
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.8.2",
     "@typescript-eslint/parser": "4.8.2",
@@ -56,8 +33,5 @@
     "replace": "1.2.0",
     "rimraf": "3.0.2",
     "typescript": "4.1.2"
-  },
-  "peerDependencies": {
-    "eslint": ">=7.0.0"
   }
 }
