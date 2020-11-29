@@ -128,9 +128,7 @@ describe('all rules are set to "off" or 0', () => {
     ...ruleFiles.map((ruleFileName) => require(`../${ruleFileName}`).rules)
   );
 
-  Object.keys(allRules).forEach((name) => {
-    const value = allRules[name];
-
+  Object.entries(allRules).forEach(([name, value]) => {
     test(name, () => {
       expect(value === "off" || value === 0).toBe(true);
     });

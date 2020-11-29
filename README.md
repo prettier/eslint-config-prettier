@@ -14,6 +14,7 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 - [Installation](#installation)
   - [Excluding deprecated rules](#excluding-deprecated-rules)
 - [CLI helper tool](#cli-helper-tool)
+  - [Legacy](#legacy)
 - [Special rules](#special-rules)
   - [arrow-body-style and prefer-arrow-callback](#arrow-body-style-and-prefer-arrow-callback)
   - [curly](#curly)
@@ -115,17 +116,15 @@ eslint-config-prettier also ships with a little CLI tool to help you check if yo
 You can run it using `npx`:
 
 ```
-npx eslint --print-config path/to/main.js | npx eslint-config-prettier-check
+npx eslint-config-prettier path/to/main.js
 ```
 
 (Change `path/to/main.js` to a file that exists in your project.)
 
-In theory you need to run `npx eslint --print-config file.js | npx eslint-config-prettier-check` for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. But usually you’ll have about the same rules for all files, so it is enough to run the command on one file (pick one that you won’t be moving). If you use [multiple configuration files] or [overrides], you can (but you probably don’t need to!) run the above script several times with different `--print-config` arguments, such as:
+In theory you need to run the tool for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. But usually you’ll have about the same rules for all files, so it is good enough to run the command on one file. But if you use [multiple configuration files] or [overrides], you can provide several files check:
 
 ```
-npx eslint --print-config index.js | npx eslint-config-prettier-check
-npx eslint --print-config test/index.js | npx eslint-config-prettier-check
-npx eslint --print-config legacy/main.js | npx eslint-config-prettier-check
+npx eslint-config-prettier index.js test/index.js legacy/main.js
 ```
 
 Exit codes:
@@ -133,6 +132,20 @@ Exit codes:
 - 0: No problems found.
 - 1: Unexpected error.
 - 2: Conflicting rules found.
+
+### Legacy
+
+eslint-config-prettier versions before 7.0.0 had a slightly different CLI tool that was run in a different way. For example:
+
+```
+npx eslint --print-config index.js | npx eslint-config-prettier-check
+```
+
+If you find something like that in a tutorial, this is what the command looks like in 7.0.0 or later:
+
+```
+npx eslint-config-prettier index.js
+```
 
 ## Special rules
 
