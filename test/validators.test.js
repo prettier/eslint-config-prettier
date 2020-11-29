@@ -60,6 +60,11 @@ rule("no-confusing-arrow", {
   invalid: [[], [null], [{ allowParens: true }], [{ other: true }]],
 });
 
+rule("no-tabs", {
+  valid: [[{ allowIndentationTabs: true }]],
+  invalid: [[], [null], [{ allowIndentationTabs: false }], [{ other: true }]],
+});
+
 rule("vue/html-self-closing", {
   valid: [
     [{ html: { void: "any" } }],

@@ -146,6 +146,7 @@ https://github.com/prettier/eslint-config-prettier#special-rules
 - curly
 - lines-around-comment
 - no-confusing-arrow
+- no-tabs
 - vue/html-self-closing
 
 The following rules are enabled but cannot be automatically checked. See:
@@ -154,7 +155,6 @@ https://github.com/prettier/eslint-config-prettier#special-rules
 - arrow-body-style
 - max-len
 - no-mixed-operators
-- no-tabs
 - no-unexpected-multiline
 - prefer-arrow-callback
 - quotes",

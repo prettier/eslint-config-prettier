@@ -401,31 +401,13 @@ Example ESLint configuration:
 
 ### [no-tabs]
 
-**This rule requires certain Prettier options.**
+**This rule requires certain options.**
 
-This rule disallows the use of tab characters at all. It can be used just fine with Prettier as long as you don’t configure Prettier to indent using tabs.
+This rule disallows the use of tab characters. By default the rule forbids _all_ tab characters. That can be used just fine with Prettier as long as you don’t configure Prettier to indent using tabs.
+
+Luckily, it’s possible to configure the rule so that it works regardless of whether Prettier uses spaces or tabs: Set `allowIndentationTabs` to `true`. This way Prettier takes care of your indentation, while the `no-tabs` takes care of potential tab characters anywhere else in your code.
 
 Example ESLint configuration:
-
-<!-- prettier-ignore -->
-```json
-{
-  "rules": {
-    "no-tabs": "error"
-  }
-}
-```
-
-Example Prettier configuration (this is the default, so adding this is not required):
-
-<!-- prettier-ignore -->
-```json
-{
-  "useTabs": false
-}
-```
-
-**Note:** Since [ESlint 5.7.0] this rule can be configured to work regardless of your Prettier configuration:
 
 <!-- prettier-ignore -->
 ```json
@@ -435,8 +417,6 @@ Example Prettier configuration (this is the default, so adding this is not requi
   }
 }
 ```
-
-A future version of eslint-config-prettier might check for that automatically.
 
 ### [no-unexpected-multiline]
 

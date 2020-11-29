@@ -39,6 +39,15 @@ module.exports = {
     return firstOption ? firstOption.allowParens === false : false;
   },
 
+  "no-tabs"(options) {
+    if (options.length === 0) {
+      return false;
+    }
+
+    const firstOption = options[0];
+    return Boolean(firstOption && firstOption.allowIndentationTabs);
+  },
+
   "vue/html-self-closing"(options) {
     if (options.length === 0) {
       return false;
