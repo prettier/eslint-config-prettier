@@ -37,7 +37,9 @@ module.exports = {
     strict: "error",
     "prefer-spread": "off",
     "require-jsdoc": "off",
-    "prettier/prettier": ["error", {}],
+    "prettier/prettier": "error",
+    // Force a conflict with eslint-plugin-prettier in test-lint/prettier.js.
+    "prefer-arrow-callback": "error",
     // Force a conflict with Prettier in test-lint/flowtype.js.
     "flowtype/object-type-delimiter": ["error", "semicolon"],
     "react/jsx-filename-extension": "off",

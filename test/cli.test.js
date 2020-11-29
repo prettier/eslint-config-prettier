@@ -12,7 +12,7 @@ function createRules(rules, pattern) {
       ? arrayPattern.concat(rule.slice(1))
       : pattern;
     const name = Array.isArray(rule) ? rule[0] : rule;
-    return [name, value];
+    return [name, value, "test-source.js"];
   });
 }
 
@@ -26,11 +26,11 @@ describe("does not flag", () => {
 
   test("result", () => {
     expect(results[0].result).toMatchInlineSnapshot(`
-Object {
-  "code": 0,
-  "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
-}
-`);
+      Object {
+        "code": 0,
+        "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
+      }
+    `);
   });
 
   results.forEach(({ pattern, result }) => {
@@ -53,13 +53,13 @@ describe("does flag", () => {
 
   test("result", () => {
     expect(results[0].result).toMatchInlineSnapshot(`
-Object {
-  "code": 2,
-  "stdout": "The following rules are unnecessary or might conflict with Prettier:
+      Object {
+        "code": 2,
+        "stdout": "The following rules are unnecessary or might conflict with Prettier:
 
-- arrow-parens",
-}
-`);
+      - arrow-parens",
+      }
+    `);
   });
 
   results.forEach(({ pattern, result }) => {
@@ -72,39 +72,39 @@ Object {
 test("no results", () => {
   const rules = ["strict", "curly"];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
-Object {
-  "code": 0,
-  "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
-}
-`);
+    Object {
+      "code": 0,
+      "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
+    }
+  `);
 });
 
 test("conflicting options", () => {
   const rules = ["strict", ["curly", "multi-line"]];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
-Object {
-  "code": 2,
-  "stdout": "The following rules are enabled with options that might conflict with Prettier. See:
-https://github.com/prettier/eslint-config-prettier#special-rules
+    Object {
+      "code": 2,
+      "stdout": "The following rules are enabled with options that might conflict with Prettier. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
 
-- curly",
-}
-`);
+    - curly",
+    }
+  `);
 });
 
 test("special rules", () => {
   const rules = ["strict", "max-len"];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
-Object {
-  "code": 0,
-  "stdout": "No rules that are unnecessary or conflict with Prettier were found.
+    Object {
+      "code": 0,
+      "stdout": "No rules that are unnecessary or conflict with Prettier were found.
 
-However, the following rules are enabled but cannot be automatically checked. See:
-https://github.com/prettier/eslint-config-prettier#special-rules
+    However, the following rules are enabled but cannot be automatically checked. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
 
-- max-len",
-}
-`);
+    - max-len",
+    }
+  `);
 });
 
 test("all the things", () => {
@@ -131,33 +131,65 @@ test("all the things", () => {
     "arrow-body-style",
   ];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
-Object {
-  "code": 2,
-  "stdout": "The following rules are unnecessary or might conflict with Prettier:
+    Object {
+      "code": 2,
+      "stdout": "The following rules are unnecessary or might conflict with Prettier:
 
-- arrow-parens
-- arrow-spacing
-- flowtype/semi
-- react/jsx-indent
+    - arrow-parens
+    - arrow-spacing
+    - flowtype/semi
+    - react/jsx-indent
 
-The following rules are enabled with options that might conflict with Prettier. See:
-https://github.com/prettier/eslint-config-prettier#special-rules
+    The following rules are enabled with options that might conflict with Prettier. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
 
-- curly
-- lines-around-comment
-- no-confusing-arrow
-- no-tabs
-- vue/html-self-closing
+    - curly
+    - lines-around-comment
+    - no-confusing-arrow
+    - no-tabs
+    - vue/html-self-closing
 
-The following rules are enabled but cannot be automatically checked. See:
-https://github.com/prettier/eslint-config-prettier#special-rules
+    The following rules are enabled but cannot be automatically checked. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
 
-- arrow-body-style
-- max-len
-- no-mixed-operators
-- no-unexpected-multiline
-- prefer-arrow-callback
-- quotes",
-}
-`);
+    - max-len
+    - no-mixed-operators
+    - no-unexpected-multiline
+    - quotes",
+    }
+  `);
+});
+
+test("eslint-plugin-prettier", () => {
+  expect(
+    cli.processRules([
+      ["prettier/prettier", "error", "test-source.js"],
+      ["arrow-body-style", "error", "test-source.js"],
+      ["prefer-arrow-callback", "error", "test-source.js"],
+    ])
+  ).toMatchInlineSnapshot(`
+    Object {
+      "code": 2,
+      "stdout": "The following rules are enabled with options that might conflict with Prettier. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
+
+    - arrow-body-style
+    - prefer-arrow-callback",
+    }
+  `);
+});
+
+test("eslint-plugin-prettier no warnings because different sources", () => {
+  expect(
+    cli.processRules([
+      ["prettier/prettier", "error", "test-source.js"],
+      ["arrow-body-style", "error", "other.js"],
+      ["prefer-arrow-callback", "error", "other.js"],
+    ])
+  ).toMatchInlineSnapshot(`
+    Object {
+      "code": 0,
+      "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
+    }
+  `);
 });

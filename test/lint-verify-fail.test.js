@@ -31,7 +31,10 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
       });
 
       test("must only cause errors related to itself", () => {
-        if (name === "index") {
+        // ESLint core rules have no prefix.
+        // eslint-plugin-prettier provides no conflicting rules, but makes two
+        // core rules unusable.
+        if (name === "index" || name === "prettier") {
           expect(
             ruleIds
               .filter((ruleId) => ruleId.includes("/"))

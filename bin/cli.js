@@ -23,7 +23,9 @@ if (module === require.main) {
   Promise.all(args.map((file) => eslint.calculateConfigForFile(file)))
     .then((configs) => {
       const rules = [].concat(
-        ...configs.map((config) => Object.entries(config.rules))
+        ...configs.map((config, index) =>
+          Object.entries(config.rules).map((entry) => [...entry, args[index]])
+        )
       );
       const result = processRules(rules);
       if (result.stderr) {
@@ -83,11 +85,13 @@ function processRules(configRules) {
   );
 
   const flaggedRules = configRules
-    .map(([ruleName, value]) => {
+    .map(([ruleName, value, source]) => {
       const arrayValue = Array.isArray(value) ? value : [value];
       const [level, ...options] = arrayValue;
       const isOff = level === "off" || level === 0;
-      return !isOff && ruleName in allRules ? { ruleName, options } : null;
+      return !isOff && ruleName in allRules
+        ? { ruleName, options, source }
+        : null;
     })
     .filter(Boolean);
 
@@ -97,8 +101,9 @@ function processRules(configRules) {
   );
   const optionsFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    (ruleName, options) =>
-      ruleName in optionsRules && !validators[ruleName](options)
+    (ruleName, options, source) =>
+      ruleName in optionsRules &&
+      !validators[ruleName](options, source, configRules)
   );
   const specialFlaggedRuleNames = filterRuleNames(
     flaggedRules,
@@ -177,7 +182,7 @@ function filterRuleNames(rules, fn) {
   return [
     ...new Set(
       rules
-        .filter((rule) => fn(rule.ruleName, rule.options))
+        .filter((rule) => fn(rule.ruleName, rule.options, rule.source))
         .map((rule) => rule.ruleName)
     ),
   ];

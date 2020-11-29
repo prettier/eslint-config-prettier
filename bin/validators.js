@@ -4,6 +4,8 @@
 // `false` if the options DO conflict with Prettier, and `true` if they don’t.
 
 module.exports = {
+  "arrow-body-style": checkEslintConfigPrettier,
+
   curly(options) {
     if (options.length === 0) {
       return true;
@@ -48,6 +50,8 @@ module.exports = {
     return Boolean(firstOption && firstOption.allowIndentationTabs);
   },
 
+  "prefer-arrow-callback": checkEslintConfigPrettier,
+
   "vue/html-self-closing"(options) {
     if (options.length === 0) {
       return false;
@@ -61,3 +65,10 @@ module.exports = {
     );
   },
 };
+
+function checkEslintConfigPrettier(_options, source, rules) {
+  return !rules.some(
+    ([name, _options2, source2]) =>
+      name === "prettier/prettier" && source === source2
+  );
+}

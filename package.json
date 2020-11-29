@@ -11,6 +11,7 @@
     "babel.js",
     "flowtype.js",
     "index.js",
+    "prettier.js",
     "react.js",
     "standard.js",
     "unicorn.js",

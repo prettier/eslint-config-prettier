@@ -12,6 +12,7 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Installation](#installation)
+  - [eslint-plugin-prettier](#eslint-plugin-prettier)
   - [Excluding deprecated rules](#excluding-deprecated-rules)
 - [CLI helper tool](#cli-helper-tool)
   - [Legacy](#legacy)
@@ -62,6 +63,7 @@ A few ESLint plugins are supported as well:
 - [@typescript-eslint/eslint-plugin]
 - [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
+- [eslint-plugin-prettier]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
@@ -78,6 +80,7 @@ Add extra exclusions for the plugins you use like so:
     "prettier/@typescript-eslint",
     "prettier/babel",
     "prettier/flowtype",
+    "prettier/prettier",
     "prettier/react",
     "prettier/standard",
     "prettier/unicorn",
@@ -100,6 +103,54 @@ If you extend a config which uses a plugin, it is recommended to add `"prettier/
 ```
 
 If you’re unsure which plugins are used, you can usually find them in your `package.json`.
+
+### eslint-plugin-prettier
+
+In the above section you might have noticed this plugin being mentioned:
+
+[eslint-<strong>plugin</strong>-prettier][eslint-plugin-prettier]
+
+Just to clear any confusion, the repo you’re currently looking at is:
+
+eslint-<strong>config</strong>-prettier
+
+So what’s the difference?
+
+- eslint-<strong>plugin</strong>-prettier adds a new _rule_ that lets you run Prettier from within ESLint as if it was a regular old ESLint rule.
+- eslint-<strong>config</strong>-prettier just turns off a bunch of rules (that are unnecessary or conflict with Prettier).
+
+To make things even more confusing, eslint-<strong>plugin</strong>-prettier _also_ provides a _config_ you can extend. It’s called `"plugin:prettier/recommended"`. All that config does is:
+
+```json
+{
+  "extends": ["prettier", "prettier/prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
+```
+
+Ugh, that’s a lot of `prettier` and `prettier/prettier`! What is all of that doing? Let’s start from the bottom:
+
+- `"rules": { "prettier/prettier": "error" }` turns on the _rule_ that eslint-<strong>plugin</strong>-prettier provides, that lets you run Prettier from within ESLint.
+
+- `"plugins": ["prettier"]` registers eslint-<strong>plugin</strong>-prettier as a plugin, so ESLint knows what `"prettier/prettier": "error"` is.
+
+- `"extends"` is the interesting part. This requires you to also install eslint-<strong>config</strong>-prettier (this repo), because the listed configs comes from _this_ repo, not from the plugin’s repo!
+
+  - `"prettier"` is the base config which disables ESLint core rules.
+  - `"prettier/prettier"` is specific config for eslint-<strong>plugin</strong>-prettier which disables [two ESLint core rules][eslint-plugin-prettier-special] that conflict only with eslint-<strong>plugin</strong>-prettier (not Prettier itself).
+
+Note that even if you use `"plugin:prettier/recommended"`, you might still need to add more stuff to the `"extends"` array, depending on which other plugins you use. For example:
+
+```json
+{
+  "extends": ["plugin:prettier/recommended", "prettier/@typescript-eslint"]
+}
+```
+
+**Note:** [eslint-<strong>plugin</strong>-prettier has some downsides][eslint-plugin-prettier-downsides] that you might want to read about.
 
 ### Excluding deprecated rules
 
@@ -155,7 +206,7 @@ There a few rules that eslint-config-prettier disables that actually can be enab
 - Some require special attention when writing code. The CLI helper tool warns you if any of those rules are enabled, but can’t tell if anything is problematic.
 - Some can cause problems if using [eslint-plugin-prettier] and `--fix`.
 
-For maximum ease of use, the special rules are disabled by default. If you want them, you need to explicitly specify them in your ESLint config.
+For maximum ease of use, the special rules are disabled by default (provided that you include all needed things in `"extends"`). If you want them, you need to explicitly specify them in your ESLint config.
 
 ### [arrow-body-style] and [prefer-arrow-callback]
 
@@ -179,6 +230,10 @@ See these issues for more information:
 - [eslint-plugin-prettier#65]
 
 When the autofix bug in ESLint has been fixed, the special case for these rules can be removed.
+
+Note: You need to put `"prettier/prettier"` in your `"extends"` array if you want these rules to be turned off. (Yes, there’s both a _rule_ called `"prettier/prettier"` and a _config_ called `"prettier/prettier"`.)
+
+Note: The CLI tool only reports these as problematic if the `"prettier/prettier"` _rule_ is enabled for the same file.
 
 ### [curly]
 
@@ -692,6 +747,7 @@ eslint-config-prettier has been tested with:
 - @typescript-eslint/eslint-plugin 4.8.2
 - eslint-plugin-babel 5.3.1
 - eslint-plugin-flowtype 5.2.0
+- eslint-plugin-prettier 3.1.4
 - eslint-plugin-react 7.21.5
 - eslint-plugin-standard 4.0.2
 - eslint-plugin-unicorn 23.0.0
@@ -733,7 +789,7 @@ Finally, you need to mention the plugin in several places:
 - Add `"foobar.js"` to the "files" field in `package.json`.
 - Add eslint-plugin-foobar to the "devDependencies" field in `package.json`.
 - Make sure that at least one rule from eslint-plugin-foobar gets used in `.eslintrc.base.js`.
-- Add it to the list of supported plugins, to the example config and to Contributing section in `README.md`.
+- Add it to the list of supported plugins and to the Contributing section in `README.md`.
 
 When you’re done, run `npm test` to verify that you got it all right. It runs several other npm scripts:
 
@@ -752,18 +808,19 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
-[eslint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
-[prettier]: https://github.com/prettier/prettier
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
 [curly]: https://eslint.org/docs/rules/curly
+[eslint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
 [eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-config-prettier#31]: https://github.com/prettier/eslint-config-prettier/issues/31
 [eslint-config-prettier#71]: https://github.com/prettier/eslint-config-prettier/issues/71
 [eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
-[eslint-plugin-prettier#65]: https://github.com/prettier/eslint-plugin-prettier/issues/65
+[eslint-plugin-prettier-downsides]: https://prettier.io/docs/en/integrating-with-linters.html#notes
+[eslint-plugin-prettier-special]: #arrow-body-style-and-prefer-arrow-callback
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
+[eslint-plugin-prettier#65]: https://github.com/prettier/eslint-plugin-prettier/issues/65
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -780,6 +837,7 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
 [prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
+[prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes
 [singlequote]: https://prettier.io/docs/en/options.html#quotes
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
