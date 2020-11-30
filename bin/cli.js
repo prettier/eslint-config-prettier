@@ -144,7 +144,7 @@ function processRules(configRules) {
   ].join("\n");
 
   const optionsMessage = [
-    "The following rules are enabled with options that might conflict with Prettier. See:",
+    "The following rules are enabled with config that might conflict with Prettier. See:",
     SPECIAL_RULES_URL,
     "",
     printRuleNames(optionsFlaggedRuleNames),

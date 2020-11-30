@@ -84,7 +84,7 @@ test("conflicting options", () => {
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
     Object {
       "code": 2,
-      "stdout": "The following rules are enabled with options that might conflict with Prettier. See:
+      "stdout": "The following rules are enabled with config that might conflict with Prettier. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - curly",
@@ -140,7 +140,7 @@ test("all the things", () => {
     - flowtype/semi
     - react/jsx-indent
 
-    The following rules are enabled with options that might conflict with Prettier. See:
+    The following rules are enabled with config that might conflict with Prettier. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - curly
@@ -170,7 +170,7 @@ test("eslint-plugin-prettier", () => {
   ).toMatchInlineSnapshot(`
     Object {
       "code": 2,
-      "stdout": "The following rules are enabled with options that might conflict with Prettier. See:
+      "stdout": "The following rules are enabled with config that might conflict with Prettier. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
     - arrow-body-style
