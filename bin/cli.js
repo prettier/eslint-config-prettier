@@ -84,16 +84,18 @@ function processRules(configRules) {
     (ruleName, value) => value === 0 && !(ruleName in validators)
   );
 
-  const flaggedRules = configRules
+  const enabledRules = configRules
     .map(([ruleName, value, source]) => {
       const arrayValue = Array.isArray(value) ? value : [value];
       const [level, ...options] = arrayValue;
       const isOff = level === "off" || level === 0;
-      return !isOff && ruleName in allRules
-        ? { ruleName, options, source }
-        : null;
+      return isOff ? null : { ruleName, options, source };
     })
     .filter(Boolean);
+
+  const flaggedRules = enabledRules.filter(
+    ({ ruleName }) => ruleName in allRules
+  );
 
   const regularFlaggedRuleNames = filterRuleNames(
     flaggedRules,
@@ -103,7 +105,7 @@ function processRules(configRules) {
     flaggedRules,
     (ruleName, options, source) =>
       ruleName in optionsRules &&
-      !validators[ruleName](options, source, configRules)
+      !validators[ruleName](options, source, enabledRules)
   );
   const specialFlaggedRuleNames = filterRuleNames(
     flaggedRules,

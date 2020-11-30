@@ -66,9 +66,9 @@ module.exports = {
   },
 };
 
-function checkEslintConfigPrettier(_options, source, rules) {
-  return !rules.some(
-    ([name, _options2, source2]) =>
-      name === "prettier/prettier" && source === source2
+function checkEslintConfigPrettier(_options, currentSource, enabledRules) {
+  return !enabledRules.some(
+    ({ ruleName, source }) =>
+      ruleName === "prettier/prettier" && currentSource === source
   );
 }

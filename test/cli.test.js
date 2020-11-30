@@ -193,3 +193,18 @@ test("eslint-plugin-prettier no warnings because different sources", () => {
     }
   `);
 });
+
+test("eslint-plugin-prettier no warnings because the rule is off", () => {
+  expect(
+    cli.processRules([
+      ["prettier/prettier", [0, {}], "test-source.js"],
+      ["arrow-body-style", "error", "test-source.js"],
+      ["prefer-arrow-callback", "error", "test-source.js"],
+    ])
+  ).toMatchInlineSnapshot(`
+    Object {
+      "code": 0,
+      "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
+    }
+  `);
+});
