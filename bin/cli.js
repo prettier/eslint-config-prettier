@@ -4,8 +4,13 @@
 
 const fs = require("fs");
 const path = require("path");
-const { ESLint } = require("eslint");
 const validators = require("./validators");
+
+// Require locally installed eslint, for `npx eslint-config-prettier` support
+// with no local eslint-config-prettier installation.
+const { ESLint } = require(require.resolve("eslint", {
+  paths: [process.cwd(), ...require.resolve.paths("eslint")],
+}));
 
 const SPECIAL_RULES_URL =
   "https://github.com/prettier/eslint-config-prettier#special-rules";
