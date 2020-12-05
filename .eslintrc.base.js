@@ -1,6 +1,9 @@
 "use strict";
 
-const pkg = require("./package.json");
+// This file is only used in `./.eslintrc.js` and in the tests – it’s not part
+// of the eslint-config-prettier npm package.
+
+const fs = require("fs");
 
 module.exports = {
   extends: [
@@ -12,8 +15,12 @@ module.exports = {
   ],
   plugins: [
     "prettier",
-    ...pkg.files
-      .filter((name) => !name.includes("/") && name !== "index.js")
+    ...fs
+      .readdirSync(__dirname)
+      .filter(
+        (file) =>
+          !file.startsWith(".") && file.endsWith(".js") && file !== "index.js"
+      )
       .map((ruleFileName) => ruleFileName.replace(/\.js$/, "")),
   ],
   parserOptions: {
@@ -37,7 +44,9 @@ module.exports = {
     strict: "error",
     "prefer-spread": "off",
     "require-jsdoc": "off",
-    "prettier/prettier": ["error", {}],
+    "prettier/prettier": "error",
+    // Force a conflict with eslint-plugin-prettier in test-lint/prettier.js.
+    "prefer-arrow-callback": "error",
     // Force a conflict with Prettier in test-lint/flowtype.js.
     "flowtype/object-type-delimiter": ["error", "semicolon"],
     "react/jsx-filename-extension": "off",

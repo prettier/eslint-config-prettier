@@ -4,38 +4,35 @@
 
 const fs = require("fs");
 const path = require("path");
-const getStdin = require("get-stdin");
 const validators = require("./validators");
+
+// Require locally installed eslint, for `npx eslint-config-prettier` support
+// with no local eslint-config-prettier installation.
+const { ESLint } = require(require.resolve("eslint", {
+  paths: [process.cwd(), ...require.resolve.paths("eslint")],
+}));
 
 const SPECIAL_RULES_URL =
   "https://github.com/prettier/eslint-config-prettier#special-rules";
 
 if (module === require.main) {
-  if (process.argv.length > 2 || process.stdin.isTTY) {
-    console.error(
-      [
-        "This tool checks whether an ESLint configuration contains rules that are",
-        "unnecessary or conflict with Prettier. It’s supposed to be run like this:",
-        "",
-        "  npx eslint --print-config path/to/main.js | npx eslint-config-prettier-check",
-        "  npx eslint --print-config test/index.js | npx eslint-config-prettier-check",
-        "",
-        "Exit codes:",
-        "",
-        "0: No automatically detectable problems found.",
-        "1: Unexpected error.",
-        "2: Conflicting rules found.",
-        "",
-        "For more information, see:",
-        "https://github.com/prettier/eslint-config-prettier#cli-helper-tool",
-      ].join("\n")
-    );
+  const args = process.argv.slice(2);
+
+  if (args.length === 0) {
+    console.error(help());
     process.exit(1);
   }
 
-  getStdin()
-    .then((string) => {
-      const result = processString(string);
+  const eslint = new ESLint();
+
+  Promise.all(args.map((file) => eslint.calculateConfigForFile(file)))
+    .then((configs) => {
+      const rules = [].concat(
+        ...configs.map((config, index) =>
+          Object.entries(config.rules).map((entry) => [...entry, args[index]])
+        )
+      );
+      const result = processRules(rules);
       if (result.stderr) {
         console.error(result.stderr);
       }
@@ -45,34 +42,32 @@ if (module === require.main) {
       process.exit(result.code);
     })
     .catch((error) => {
-      console.error("Unexpected error", error);
+      console.error(error.message);
       process.exit(1);
     });
 }
 
-function processString(string) {
-  let config;
-  try {
-    config = JSON.parse(string);
-  } catch (error) {
-    return {
-      stderr: `Failed to parse JSON:\n${error.message}`,
-      code: 1,
-    };
-  }
+function help() {
+  return `
+Usage: npx eslint-config-prettier FILE...
 
-  if (
-    !(
-      Object.prototype.toString.call(config) === "[object Object]" &&
-      Object.prototype.toString.call(config.rules) === "[object Object]"
-    )
-  ) {
-    return {
-      stderr: `Expected a \`{"rules: {...}"}\` JSON object, but got:\n${string}`,
-      code: 1,
-    };
-  }
+Resolves an ESLint configuration for every given FILE and checks if they
+contain rules that are unnecessary or conflict with Prettier. Example:
 
+  npx eslint-config-prettier index.js test/index.js other/file/to/check.js
+
+Exit codes:
+
+0: No automatically detectable problems found.
+1: General error.
+2: Conflicting rules found.
+
+For more information, see:
+https://github.com/prettier/eslint-config-prettier#cli-helper-tool
+  `.trim();
+}
+
+function processRules(configRules) {
   // This used to look at "files" in package.json, but that is not reliable due
   // to an npm bug. See:
   // https://github.com/prettier/eslint-config-prettier/issues/57
@@ -84,10 +79,7 @@ function processString(string) {
       .map((ruleFileName) => require(`../${ruleFileName}`).rules)
   );
 
-  const regularRules = filterRules(
-    allRules,
-    (ruleName, value) => value === "off"
-  );
+  const regularRules = filterRules(allRules, (_, value) => value === "off");
   const optionsRules = filterRules(
     allRules,
     (ruleName, value) => value === 0 && ruleName in validators
@@ -97,29 +89,31 @@ function processString(string) {
     (ruleName, value) => value === 0 && !(ruleName in validators)
   );
 
-  const flaggedRules = Object.keys(config.rules)
-    .map((ruleName) => {
-      const value = config.rules[ruleName];
+  const enabledRules = configRules
+    .map(([ruleName, value, source]) => {
       const arrayValue = Array.isArray(value) ? value : [value];
-      const level = arrayValue[0];
-      const options = arrayValue.slice(1);
+      const [level, ...options] = arrayValue;
       const isOff = level === "off" || level === 0;
-      return !isOff && ruleName in allRules ? { ruleName, options } : null;
+      return isOff ? null : { ruleName, options, source };
     })
     .filter(Boolean);
 
+  const flaggedRules = enabledRules.filter(
+    ({ ruleName }) => ruleName in allRules
+  );
+
   const regularFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    (ruleName) => ruleName in regularRules
+    ({ ruleName }) => ruleName in regularRules
   );
   const optionsFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    (ruleName, options) =>
-      ruleName in optionsRules && !validators[ruleName](options)
+    ({ ruleName, ...rule }) =>
+      ruleName in optionsRules && !validators[ruleName](rule, enabledRules)
   );
   const specialFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    (ruleName) => ruleName in specialRules
+    ({ ruleName }) => ruleName in specialRules
   );
 
   if (
@@ -154,7 +148,7 @@ function processString(string) {
   ].join("\n");
 
   const optionsMessage = [
-    "The following rules are enabled with options that might conflict with Prettier. See:",
+    "The following rules are enabled with config that might conflict with Prettier. See:",
     SPECIAL_RULES_URL,
     "",
     printRuleNames(optionsFlaggedRuleNames),
@@ -182,18 +176,18 @@ function processString(string) {
 }
 
 function filterRules(rules, fn) {
-  return Object.keys(rules)
-    .filter((ruleName) => fn(ruleName, rules[ruleName]))
-    .reduce((obj, ruleName) => {
+  return Object.entries(rules)
+    .filter(([ruleName, value]) => fn(ruleName, value))
+    .reduce((obj, [ruleName]) => {
       obj[ruleName] = true;
       return obj;
     }, Object.create(null));
 }
 
 function filterRuleNames(rules, fn) {
-  return rules
-    .filter((rule) => fn(rule.ruleName, rule.options))
-    .map((rule) => rule.ruleName);
+  return [
+    ...new Set(rules.filter((rule) => fn(rule)).map((rule) => rule.ruleName)),
+  ];
 }
 
 function printRuleNames(ruleNames) {
@@ -204,4 +198,4 @@ function printRuleNames(ruleNames) {
     .join("\n");
 }
 
-exports.processString = processString;
+exports.processRules = processRules;

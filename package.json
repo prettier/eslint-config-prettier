@@ -1,29 +1,5 @@
 {
-  "name": "eslint-config-prettier",
-  "version": "6.15.0",
-  "license": "MIT",
-  "author": "Simon Lydell",
-  "description": "Turns off all rules that are unnecessary or might conflict with Prettier.",
-  "repository": "prettier/eslint-config-prettier",
-  "files": [
-    "bin/",
-    "@typescript-eslint.js",
-    "babel.js",
-    "flowtype.js",
-    "index.js",
-    "react.js",
-    "standard.js",
-    "unicorn.js",
-    "vue.js"
-  ],
-  "bin": {
-    "eslint-config-prettier-check": "bin/cli.js"
-  },
-  "keywords": [
-    "eslint",
-    "eslintconfig",
-    "prettier"
-  ],
+  "private": true,
   "scripts": {
     "doctoc": "doctoc README.md && replace \"\\[\\[([\\w/-]+)\\](?:([^\\[\\]]+)\\[([\\w/-]+)\\])?\\]\" \"[\\$1\\$2\\$3]\" README.md",
     "prettier": "prettier --write .",
@@ -32,12 +8,10 @@
     "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
     "test:deprecated": "eslint-find-rules --deprecated index.js",
     "test:jest": "jest",
-    "test:cli-sanity": "eslint --print-config index.js | node ./bin/cli.js",
-    "test:cli-sanity-warning": "eslint --print-config ./bin/cli.js | node ./bin/cli.js",
-    "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning"
-  },
-  "dependencies": {
-    "get-stdin": "^6.0.0"
+    "test:cli-sanity": "node ./bin/cli.js index.js",
+    "test:cli-sanity-warning": "node ./bin/cli.js react.js ./bin/cli.js",
+    "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning && npm run build",
+    "build": "node scripts/build.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.8.2",
@@ -59,8 +33,5 @@
     "replace": "1.2.0",
     "rimraf": "3.0.2",
     "typescript": "4.1.2"
-  },
-  "peerDependencies": {
-    "eslint": ">=3.14.1"
   }
 }

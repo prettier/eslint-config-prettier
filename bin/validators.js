@@ -4,7 +4,9 @@
 // `false` if the options DO conflict with Prettier, and `true` if they don’t.
 
 module.exports = {
-  curly(options) {
+  "arrow-body-style": checkEslintPluginPrettier,
+
+  curly({ options }) {
     if (options.length === 0) {
       return true;
     }
@@ -13,7 +15,7 @@ module.exports = {
     return firstOption !== "multi-line" && firstOption !== "multi-or-nest";
   },
 
-  "lines-around-comment"(options) {
+  "lines-around-comment"({ options }) {
     if (options.length === 0) {
       return false;
     }
@@ -30,7 +32,7 @@ module.exports = {
     );
   },
 
-  "no-confusing-arrow"(options) {
+  "no-confusing-arrow"({ options }) {
     if (options.length === 0) {
       return false;
     }
@@ -39,7 +41,18 @@ module.exports = {
     return firstOption ? firstOption.allowParens === false : false;
   },
 
-  "vue/html-self-closing"(options) {
+  "no-tabs"({ options }) {
+    if (options.length === 0) {
+      return false;
+    }
+
+    const firstOption = options[0];
+    return Boolean(firstOption && firstOption.allowIndentationTabs);
+  },
+
+  "prefer-arrow-callback": checkEslintPluginPrettier,
+
+  "vue/html-self-closing"({ options }) {
     if (options.length === 0) {
       return false;
     }
@@ -52,3 +65,10 @@ module.exports = {
     );
   },
 };
+
+function checkEslintPluginPrettier({ source: currentSource }, enabledRules) {
+  return !enabledRules.some(
+    ({ ruleName, source }) =>
+      ruleName === "prettier/prettier" && currentSource === source
+  );
+}

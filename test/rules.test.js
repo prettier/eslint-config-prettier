@@ -4,7 +4,6 @@ const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const rimraf = require("rimraf");
-const pkg = require("../package.json");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
 
@@ -37,7 +36,7 @@ function createTestConfigDir() {
       return obj;
     }, {});
 
-    const newConfig = Object.assign({}, config, { rules: newRules });
+    const newConfig = { ...config, rules: newRules };
 
     fs.writeFileSync(
       path.join(TEST_CONFIG_DIR, ruleFileName),
@@ -54,14 +53,6 @@ function createTestConfigDir() {
     );
   });
 }
-
-describe("all rule files are listed in package.json", () => {
-  ruleFiles.forEach((ruleFileName) => {
-    test(ruleFileName, () => {
-      expect(pkg.files).toContain(ruleFileName);
-    });
-  });
-});
 
 describe("all rule files have tests in test-lint/", () => {
   ruleFiles.forEach((ruleFileName) => {
@@ -128,9 +119,7 @@ describe('all rules are set to "off" or 0', () => {
     ...ruleFiles.map((ruleFileName) => require(`../${ruleFileName}`).rules)
   );
 
-  Object.keys(allRules).forEach((name) => {
-    const value = allRules[name];
-
+  Object.entries(allRules).forEach(([name, value]) => {
     test(name, () => {
       expect(value === "off" || value === 0).toBe(true);
     });

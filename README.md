@@ -6,7 +6,7 @@ This lets you use your favorite shareable config without letting its stylistic c
 
 Note that this config _only_ turns rules _off,_ so it only makes sense using it together with some other config.
 
-## Contents
+---
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -14,6 +14,7 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 - [Installation](#installation)
   - [Excluding deprecated rules](#excluding-deprecated-rules)
 - [CLI helper tool](#cli-helper-tool)
+  - [Legacy](#legacy)
 - [Special rules](#special-rules)
   - [arrow-body-style and prefer-arrow-callback](#arrow-body-style-and-prefer-arrow-callback)
   - [curly](#curly)
@@ -61,6 +62,7 @@ A few ESLint plugins are supported as well:
 - [@typescript-eslint/eslint-plugin]
 - [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
+- [eslint-plugin-prettier]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
@@ -77,6 +79,7 @@ Add extra exclusions for the plugins you use like so:
     "prettier/@typescript-eslint",
     "prettier/babel",
     "prettier/flowtype",
+    "prettier/prettier",
     "prettier/react",
     "prettier/standard",
     "prettier/unicorn",
@@ -115,17 +118,15 @@ eslint-config-prettier also ships with a little CLI tool to help you check if yo
 You can run it using `npx`:
 
 ```
-npx eslint --print-config path/to/main.js | npx eslint-config-prettier-check
+npx eslint-config-prettier path/to/main.js
 ```
 
 (Change `path/to/main.js` to a file that exists in your project.)
 
-In theory you need to run `npx eslint --print-config file.js | npx eslint-config-prettier-check` for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. But usually you’ll have about the same rules for all files, so it is enough to run the command on one file (pick one that you won’t be moving). If you use [multiple configuration files] or [overrides], you can (but you probably don’t need to!) run the above script several times with different `--print-config` arguments, such as:
+In theory you need to run the tool for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. But usually you’ll have about the same rules for all files, so it is good enough to run the command on one file. But if you use [multiple configuration files] or [overrides], you can provide several files check:
 
 ```
-npx eslint --print-config index.js | npx eslint-config-prettier-check
-npx eslint --print-config test/index.js | npx eslint-config-prettier-check
-npx eslint --print-config legacy/main.js | npx eslint-config-prettier-check
+npx eslint-config-prettier index.js test/index.js legacy/main.js
 ```
 
 Exit codes:
@@ -133,6 +134,20 @@ Exit codes:
 - 0: No problems found.
 - 1: Unexpected error.
 - 2: Conflicting rules found.
+
+### Legacy
+
+eslint-config-prettier versions before 7.0.0 had a slightly different CLI tool that was run in a different way. For example:
+
+```
+npx eslint --print-config index.js | npx eslint-config-prettier-check
+```
+
+If you find something like that in a tutorial, this is what the command looks like in 7.0.0 or later:
+
+```
+npx eslint-config-prettier index.js
+```
 
 ## Special rules
 
@@ -142,30 +157,23 @@ There a few rules that eslint-config-prettier disables that actually can be enab
 - Some require special attention when writing code. The CLI helper tool warns you if any of those rules are enabled, but can’t tell if anything is problematic.
 - Some can cause problems if using [eslint-plugin-prettier] and `--fix`.
 
-For maximum ease of use, the special rules are disabled by default. If you want them, you need to explicitly specify them in your ESLint config.
+For maximum ease of use, the special rules are disabled by default (provided that you include all needed things in `"extends"`). If you want them, you need to explicitly specify them in your ESLint config.
 
 ### [arrow-body-style] and [prefer-arrow-callback]
 
 **These rules might cause problems if using [eslint-plugin-prettier] and `--fix`.**
 
-If you use any of these rules together with the `prettier/prettier` rule from [eslint-plugin-prettier], you can in some cases end up with invalid code due to a bug in ESLint’s autofix.
+See [`arrow-body-style` and `prefer-arrow-callback` issue][eslint-plugin-prettier-autofix-issue] for details.
 
-These rules are safe to use if:
+There are a couple of ways to turn these rules off:
 
-- You don’t use [eslint-plugin-prettier]. In other words, you run `eslint --fix` and `prettier --write` as separate steps.
-- You _do_ use [eslint-plugin-prettier], but don’t use `--fix`. (But then, what’s the point?)
+- Put `"prettier/prettier"` in your `"extends"`. (Yes, there’s both a _rule_ called `"prettier/prettier"` and a _config_ called `"prettier/prettier"`.)
+- Use [eslint-plugin-prettier’s recommended config][eslint-plugin-prettier-recommended], which also turns off these two rules.
+- Remove them from your config or turn them off manually.
 
-You _can_ still use these rules together with [eslint-plugin-prettier] if you want, because the bug does not occur _all the time._ But if you do, you need to keep in mind that you might end up with invalid code, where you manually have to insert a missing closing parenthesis to get going again.
+Note: The CLI tool only reports these as problematic if the `"prettier/prettier"` _rule_ is enabled for the same file.
 
-If you’re fixing large of amounts of previously unformatted code, consider temporarily disabling the `prettier/prettier` rule and running `eslint --fix` and `prettier --write` separately.
-
-See these issues for more information:
-
-- [eslint-config-prettier#31]
-- [eslint-config-prettier#71]
-- [eslint-plugin-prettier#65]
-
-When the autofix bug in ESLint has been fixed, the special case for these rules can be removed.
+These rules are safe to use if you don’t use [eslint-plugin-prettier]. In other words, if you run `eslint --fix` and `prettier --write` as separate steps.
 
 ### [curly]
 
@@ -388,31 +396,13 @@ Example ESLint configuration:
 
 ### [no-tabs]
 
-**This rule requires certain Prettier options.**
+**This rule requires certain options.**
 
-This rule disallows the use of tab characters at all. It can be used just fine with Prettier as long as you don’t configure Prettier to indent using tabs.
+This rule disallows the use of tab characters. By default the rule forbids _all_ tab characters. That can be used just fine with Prettier as long as you don’t configure Prettier to indent using tabs.
+
+Luckily, it’s possible to configure the rule so that it works regardless of whether Prettier uses spaces or tabs: Set `allowIndentationTabs` to `true`. This way Prettier takes care of your indentation, while the `no-tabs` takes care of potential tab characters anywhere else in your code.
 
 Example ESLint configuration:
-
-<!-- prettier-ignore -->
-```json
-{
-  "rules": {
-    "no-tabs": "error"
-  }
-}
-```
-
-Example Prettier configuration (this is the default, so adding this is not required):
-
-<!-- prettier-ignore -->
-```json
-{
-  "useTabs": false
-}
-```
-
-**Note:** Since [ESlint 5.7.0] this rule can be configured to work regardless of your Prettier configuration:
 
 <!-- prettier-ignore -->
 ```json
@@ -422,8 +412,6 @@ Example Prettier configuration (this is the default, so adding this is not requi
   }
 }
 ```
-
-A future version of eslint-config-prettier might check for that automatically.
 
 ### [no-unexpected-multiline]
 
@@ -691,6 +679,7 @@ You can also supply a custom message if you want:
 eslint-config-prettier has been tested with:
 
 - ESLint 7.14.0
+  - eslint-config-prettier 7.0.0 requires ESLint 7.0.0 or newer, while eslint-config-prettier 6.15.0 and older should also work with ESLint versions down to 3.x.
   - eslint-config-prettier 6.11.0 and older were tested with ESLint 6.x
   - eslint-config-prettier 5.1.0 and older were tested with ESLint 5.x
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
@@ -699,6 +688,7 @@ eslint-config-prettier has been tested with:
 - @typescript-eslint/eslint-plugin 4.8.2
 - eslint-plugin-babel 5.3.1
 - eslint-plugin-flowtype 5.2.0
+- eslint-plugin-prettier 3.1.4
 - eslint-plugin-react 7.21.5
 - eslint-plugin-standard 4.0.2
 - eslint-plugin-unicorn 23.0.0
@@ -737,10 +727,9 @@ console.log();
 
 Finally, you need to mention the plugin in several places:
 
-- Add `"foobar.js"` to the "files" field in `package.json`.
 - Add eslint-plugin-foobar to the "devDependencies" field in `package.json`.
 - Make sure that at least one rule from eslint-plugin-foobar gets used in `.eslintrc.base.js`.
-- Add it to the list of supported plugins, to the example config and to Contributing section in `README.md`.
+- Add it to the list of supported plugins and to the Contributing section in `README.md`.
 
 When you’re done, run `npm test` to verify that you got it all right. It runs several other npm scripts:
 
@@ -759,17 +748,14 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
-[eslint 5.7.0]: https://eslint.org/blog/2018/10/eslint-v5.7.0-released
-[prettier]: https://github.com/prettier/prettier
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
 [curly]: https://eslint.org/docs/rules/curly
 [eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
-[eslint-config-prettier#31]: https://github.com/prettier/eslint-config-prettier/issues/31
-[eslint-config-prettier#71]: https://github.com/prettier/eslint-config-prettier/issues/71
 [eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
-[eslint-plugin-prettier#65]: https://github.com/prettier/eslint-plugin-prettier/issues/65
+[eslint-plugin-prettier-autofix-issue]: https://github.com/prettier/eslint-plugin-prettier#arrow-body-style-and-prefer-arrow-callback-issue
+[eslint-plugin-prettier-recommended]: https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
@@ -787,6 +773,7 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
 [prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
+[prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes
 [singlequote]: https://prettier.io/docs/en/options.html#quotes
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
