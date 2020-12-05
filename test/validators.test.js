@@ -4,11 +4,11 @@ const validators = require("../bin/validators");
 const { inspect } = require("util");
 
 expect.extend({
-  toPass(validator, opts) {
-    const pass = validator(opts);
+  toPass(validator, options) {
+    const pass = validator({ options, source: "test-source.js" }, []);
     return {
       message: () =>
-        `expected ${inspect(opts)} to be ${pass ? "invalid" : "valid"}`,
+        `expected ${inspect(options)} to be ${pass ? "invalid" : "valid"}`,
       pass,
     };
   },
@@ -17,8 +17,8 @@ expect.extend({
 function rule(name, { valid, invalid }) {
   test(name, () => {
     const validator = validators[name];
-    valid.forEach((opts) => expect(validator).toPass(opts));
-    invalid.forEach((opts) => expect(validator).not.toPass(opts));
+    valid.forEach((options) => expect(validator).toPass(options));
+    invalid.forEach((options) => expect(validator).not.toPass(options));
   });
 }
 

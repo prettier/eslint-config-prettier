@@ -104,17 +104,16 @@ function processRules(configRules) {
 
   const regularFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    (ruleName) => ruleName in regularRules
+    ({ ruleName }) => ruleName in regularRules
   );
   const optionsFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    (ruleName, options, source) =>
-      ruleName in optionsRules &&
-      !validators[ruleName](options, source, enabledRules)
+    ({ ruleName, ...rule }) =>
+      ruleName in optionsRules && !validators[ruleName](rule, enabledRules)
   );
   const specialFlaggedRuleNames = filterRuleNames(
     flaggedRules,
-    (ruleName) => ruleName in specialRules
+    ({ ruleName }) => ruleName in specialRules
   );
 
   if (
@@ -187,11 +186,7 @@ function filterRules(rules, fn) {
 
 function filterRuleNames(rules, fn) {
   return [
-    ...new Set(
-      rules
-        .filter((rule) => fn(rule.ruleName, rule.options, rule.source))
-        .map((rule) => rule.ruleName)
-    ),
+    ...new Set(rules.filter((rule) => fn(rule)).map((rule) => rule.ruleName)),
   ];
 }
 

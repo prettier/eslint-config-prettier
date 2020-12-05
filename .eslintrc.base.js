@@ -1,5 +1,8 @@
 "use strict";
 
+// This file is only used in `./.eslintrc.js` and in the tests – it’s not part
+// of the eslint-config-prettier npm package.
+
 const fs = require("fs");
 
 module.exports = {

@@ -679,6 +679,7 @@ You can also supply a custom message if you want:
 eslint-config-prettier has been tested with:
 
 - ESLint 7.14.0
+  - eslint-config-prettier 7.0.0 requires ESLint 7.0.0 or newer, while eslint-config-prettier 6.15.0 and older should also work with ESLint versions down to 3.x.
   - eslint-config-prettier 6.11.0 and older were tested with ESLint 6.x
   - eslint-config-prettier 5.1.0 and older were tested with ESLint 5.x
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x

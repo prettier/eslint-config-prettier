@@ -1,5 +1,11 @@
 "use strict";
 
+// This is the internal ESLint config for this project itself – it’s not part of
+// the eslint-config-prettier npm package. The idea here is to extends some
+// sharable config from npm and then include the configs exposed by this package
+// as an “eat your own dogfood” test. That feels like a good test, but
+// complicates things a little sometimes.
+
 const fs = require("fs");
 
 module.exports = {
