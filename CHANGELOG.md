@@ -1,3 +1,51 @@
+### Version 7.0.0 (2020-12-05)
+
+- Changed: At least ESLint 7.0.0 is now required.
+
+- Changed: [arrow-body-style] and [prefer-arrow-callback] are no longer turned off by default. They only need to be turned off if you use [eslint-plugin-prettier]. If you do, add `"prettier/prettier"` to your `"extends"` array to turn them off again.
+
+  ```json
+  {
+    "extends": ["prettier", "prettier/prettier"],
+    "plugins": ["prettier"],
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  }
+  ```
+
+  Alternatively, update [eslint-plugin-prettier] to version 3.2.0 or later which automatically turns off these two rules in its `"plugin:prettier/recommended"` config.
+
+  The CLI helper tool only warns about these rules if you have the `"prettier/prettier"` _rule_ enabled for a file.
+
+- Changed: `no-tabs` is now a validatable rule. If you use it, you should enable `allowIndentationTabs` so that the rule works regardless of your Prettier config:
+
+  ```json
+  {
+    "rules": {
+      "no-tabs": ["error", { "allowIndentationTabs": true }]
+    }
+  }
+  ```
+
+- Changed: The CLI helper tool is now called just `eslint-config-prettier` instead of `eslint-config-prettier-check`. This is so that `npx eslint-config-prettier` always works regardless of whether you have already installed `eslint-config-prettier` or not: If you have, the local installation is used; if you haven’t, `npx` downloads a temporary copy.
+
+- Changed: The CLI helper tool no longer requires you to pipe the output of `eslint --print-config` to it. Instead, it does that automatically for you via ESLint API:s added in ESLint v7.
+
+  Before:
+
+  ```
+  npx eslint --print-config index.js | npx eslint-config-prettier-check
+  ```
+
+  After:
+
+  ```
+  npx eslint-config-prettier index.js
+  ```
+
+- Improved: The npm package is now 75% smaller.
+
 ### Version 6.15.0 (2020-10-27)
 
 - Added: [@typescript-eslint/space-infix-ops]. Thanks to Masafumi Koba (@ybiquitous)!!
