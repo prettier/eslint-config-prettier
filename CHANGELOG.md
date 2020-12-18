@@ -1,3 +1,7 @@
+### Version 7.1.0 (2020-12-19)
+
+- Added: [unicorn/empty-brace-spaces]. Thanks to fisker Cheung (@fisker)!
+
 ### Version 7.0.0 (2020-12-05)
 
 - Changed: At least ESLint 7.0.0 is now required.
@@ -48,7 +52,7 @@
 
 ### Version 6.15.0 (2020-10-27)
 
-- Added: [@typescript-eslint/space-infix-ops]. Thanks to Masafumi Koba (@ybiquitous)!!
+- Added: [@typescript-eslint/space-infix-ops]. Thanks to Masafumi Koba (@ybiquitous)!
 
 ### Version 6.14.0 (2020-10-21)
 
@@ -60,7 +64,7 @@
 
 ### Version 6.12.0 (2020-09-25)
 
-- Added: [@typescript-eslint/comma-dangle]. Thanks to Masafumi Koba (@ybiquitous)!!
+- Added: [@typescript-eslint/comma-dangle]. Thanks to Masafumi Koba (@ybiquitous)!
 
 ### Version 6.11.0 (2020-04-21)
 
@@ -73,7 +77,7 @@
 
 ### Version 6.10.0 (2020-01-28)
 
-- Added: [@typescript-eslint/comma-spacing]. Thanks to Masafumi Koba (@ybiquitous)!!
+- Added: [@typescript-eslint/comma-spacing]. Thanks to Masafumi Koba (@ybiquitous)!
 
 ### Version 6.9.0 (2019-12-27)
 
@@ -394,6 +398,7 @@
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
+[unicorn/empty-brace-spaces]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/empty-brace-spaces.md
 [unicorn/no-nested-ternary]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-nested-ternary.md
 [vue/arrow-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/arrow-spacing.md
 [vue/block-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-spacing.md
@@ -402,7 +407,7 @@
 [vue/dot-location]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/dot-location.md
 [vue/html-self-closing-special]: https://github.com/prettier/eslint-config-prettier/blob/d5e7af986221df5faedc12893d8dc3150a808693/README.md#vuehtml-self-closing
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
-[vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/keyword-spacing.md
 [vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/array-bracket-newline.md
 [vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-tag-newline.md
+[vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/keyword-spacing.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md
