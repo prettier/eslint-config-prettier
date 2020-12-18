@@ -678,21 +678,21 @@ You can also supply a custom message if you want:
 
 eslint-config-prettier has been tested with:
 
-- ESLint 7.15.0
+- ESLint 7.16.0
   - eslint-config-prettier 7.0.0 requires ESLint 7.0.0 or newer, while eslint-config-prettier 6.15.0 and older should also work with ESLint versions down to 3.x.
   - eslint-config-prettier 6.11.0 and older were tested with ESLint 6.x
   - eslint-config-prettier 5.1.0 and older were tested with ESLint 5.x
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 2.2.1
-- @typescript-eslint/eslint-plugin 4.9.0
+- @typescript-eslint/eslint-plugin 4.10.0
 - eslint-plugin-babel 5.3.1
 - eslint-plugin-flowtype 5.2.0
-- eslint-plugin-prettier 3.2.0
+- eslint-plugin-prettier 3.3.0
 - eslint-plugin-react 7.21.5
 - eslint-plugin-standard 4.0.2
-- eslint-plugin-unicorn 23.0.0
-- eslint-plugin-vue 7.2.0
+- eslint-plugin-unicorn 24.0.0
+- eslint-plugin-vue 7.3.0
 
 Have new rules been added since those versions? Have we missed any rules? Is there a plugin you would like to see exclusions for? Open an issue or a pull request!
 
