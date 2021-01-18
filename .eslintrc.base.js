@@ -55,6 +55,7 @@ module.exports = {
     "standard/computed-property-even-spacing": ["error", "even"],
     "unicorn/consistent-function-scoping": "off",
     "unicorn/filename-case": "off",
+    "unicorn/no-array-reduce": "off",
     "unicorn/no-nested-ternary": "off",
     "unicorn/no-null": "off",
     "unicorn/no-reduce": "off",
