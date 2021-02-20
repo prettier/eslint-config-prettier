@@ -16,14 +16,11 @@ const FILES_TO_COPY = [
     src: "README.md",
     transform: (content) => content.replace(/^---[^]*/m, READ_MORE),
   },
+  { src: "index.js" },
   ...fs
     .readdirSync(path.join(DIR, "bin"))
     .filter((file) => !file.startsWith(".") && file.endsWith(".js"))
     .map((file) => ({ src: path.join("bin", file) })),
-  ...fs
-    .readdirSync(DIR)
-    .filter((file) => !file.startsWith(".") && file.endsWith(".js"))
-    .map((file) => ({ src: file })),
 ];
 
 if (fs.existsSync(BUILD)) {

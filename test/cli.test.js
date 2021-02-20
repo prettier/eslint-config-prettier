@@ -97,12 +97,12 @@ test("special rules", () => {
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
     Object {
       "code": 0,
-      "stdout": "No rules that are unnecessary or conflict with Prettier were found.
-
-    However, the following rules are enabled but cannot be automatically checked. See:
+      "stdout": "The following rules are enabled but cannot be automatically checked. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
-    - max-len",
+    - max-len
+
+    Other than that, no rules that are unnecessary or conflict with Prettier were found.",
     }
   `);
 });
@@ -169,12 +169,15 @@ test("eslint-plugin-prettier", () => {
     ])
   ).toMatchInlineSnapshot(`
     Object {
-      "code": 2,
-      "stdout": "The following rules are enabled with config that might conflict with Prettier. See:
-    https://github.com/prettier/eslint-config-prettier#special-rules
+      "code": 0,
+      "stdout": "The following rules can cause issues when using eslint-plugin-prettier at the same time.
+    Only enable them if you know what you are doing! See:
+    https://github.com/prettier/eslint-config-prettier#arrow-body-style-and-prefer-arrow-callback
 
     - arrow-body-style
-    - prefer-arrow-callback",
+    - prefer-arrow-callback
+
+    Other than that, no rules that are unnecessary or conflict with Prettier were found.",
     }
   `);
 });

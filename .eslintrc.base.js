@@ -3,7 +3,7 @@
 // This file is only used in `./.eslintrc.js` and in the tests – it’s not part
 // of the eslint-config-prettier npm package.
 
-const fs = require("fs");
+const config = require(".");
 
 module.exports = {
   extends: [
@@ -15,13 +15,12 @@ module.exports = {
   ],
   plugins: [
     "prettier",
-    ...fs
-      .readdirSync(__dirname)
-      .filter(
-        (file) =>
-          !file.startsWith(".") && file.endsWith(".js") && file !== "index.js"
-      )
-      .map((ruleFileName) => ruleFileName.replace(/\.js$/, "")),
+    ...new Set(
+      Object.keys(config.rules)
+        .map((ruleName) => ruleName.split("/"))
+        .filter((parts) => parts.length > 1)
+        .map((parts) => parts[0])
+    ),
   ],
   parserOptions: {
     parser: "babel-eslint",
@@ -38,10 +37,10 @@ module.exports = {
     node: true,
   },
   rules: {
-    indent: "off",
+    "indent": "off",
     "linebreak-style": "off",
     "no-dupe-keys": "error",
-    strict: "error",
+    "strict": "error",
     "prefer-spread": "off",
     "require-jsdoc": "off",
     "prettier/prettier": "error",

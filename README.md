@@ -57,7 +57,7 @@ Then, add eslint-config-prettier to the "extends" array in your `.eslintrc.*` fi
 }
 ```
 
-A few ESLint plugins are supported as well:
+That’s it! Extending `"prettier"` turns off a bunch of core ESLint rules, as well as a few rules from these plugins:
 
 - [@typescript-eslint/eslint-plugin]
 - [eslint-plugin-babel]
@@ -68,40 +68,7 @@ A few ESLint plugins are supported as well:
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
 
-Add extra exclusions for the plugins you use like so:
-
-<!-- prettier-ignore -->
-```json
-{
-  "extends": [
-    "some-other-config-you-use",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/babel",
-    "prettier/flowtype",
-    "prettier/prettier",
-    "prettier/react",
-    "prettier/standard",
-    "prettier/unicorn",
-    "prettier/vue"
-  ]
-}
-```
-
-If you extend a config which uses a plugin, it is recommended to add `"prettier/that-plugin"` (if available). For example, [eslint-config-airbnb] enables [eslint-plugin-react] rules, so `"prettier/react"` is needed:
-
-<!-- prettier-ignore -->
-```json
-{
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react"
-  ]
-}
-```
-
-If you’re unsure which plugins are used, you can usually find them in your `package.json`.
+> Note: You might find guides on the Internet that say you should extend stuff like `"prettier/react"`. Since v8.0.0 of eslint-config-prettier, all you need is to extend `"prettier"`!
 
 ### Excluding deprecated rules
 
@@ -698,17 +665,11 @@ Have new rules been added since those versions? Have we missed any rules? Is the
 
 If you’d like to add support for eslint-plugin-foobar, this is how you’d go about it:
 
-First, create `foobar.js`:
+First, add rules to `index.js`:
 
 <!-- prettier-ignore -->
 ```js
-"use strict";
-
-module.exports = {
-  rules: {
-    "foobar/some-rule": "off"
-  }
-};
+"foobar/some-rule": "off"
 ```
 
 Then, create `test-lint/foobar.js`:
@@ -729,7 +690,7 @@ Finally, you need to mention the plugin in several places:
 
 - Add eslint-plugin-foobar to the "devDependencies" field in `package.json`.
 - Make sure that at least one rule from eslint-plugin-foobar gets used in `.eslintrc.base.js`.
-- Add it to the list of supported plugins and to the Contributing section in `README.md`.
+- Add it to the lists of supported plugins and in this `README.md`.
 
 When you’re done, run `npm test` to verify that you got it all right. It runs several other npm scripts:
 
@@ -751,7 +712,6 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules
 [curly]: https://eslint.org/docs/rules/curly
-[eslint-config-airbnb]: https://www.npmjs.com/package/eslint-config-airbnb
 [eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier-autofix-issue]: https://github.com/prettier/eslint-plugin-prettier#arrow-body-style-and-prefer-arrow-callback-issue
