@@ -55,11 +55,13 @@ module.exports = {
     "standard/computed-property-even-spacing": ["error", "even"],
     "unicorn/consistent-function-scoping": "off",
     "unicorn/filename-case": "off",
+    "unicorn/no-array-for-each": "off",
     "unicorn/no-array-reduce": "off",
     "unicorn/no-nested-ternary": "off",
     "unicorn/no-null": "off",
     "unicorn/no-reduce": "off",
     "unicorn/prefer-flat-map": "off",
+    "unicorn/prefer-spread": "off",
     "unicorn/prevent-abbreviations": "off",
     // Force a conflict with Prettier in test-lint/babel.js.
     "object-curly-spacing": "off",
