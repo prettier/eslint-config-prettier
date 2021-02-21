@@ -17,6 +17,7 @@ const FILES_TO_COPY = [
     transform: (content) => content.replace(/^---[^]*/m, READ_MORE),
   },
   { src: "index.js" },
+  { src: "prettier.js" },
   ...fs
     .readdirSync(path.join(DIR, "bin"))
     .filter((file) => !file.startsWith(".") && file.endsWith(".js"))
