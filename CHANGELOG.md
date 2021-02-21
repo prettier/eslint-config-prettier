@@ -1,3 +1,45 @@
+### Version 8.0.0 (2021-02-21)
+
+- Changed: All configs have been merged into one!
+
+  To upgrade, change:
+
+  ```json
+  {
+    "extends": [
+      "some-other-config-you-use",
+      "prettier",
+      "prettier/@typescript-eslint",
+      "prettier/babel",
+      "prettier/flowtype",
+      "prettier/react",
+      "prettier/standard",
+      "prettier/unicorn",
+      "prettier/vue"
+    ]
+  }
+  ```
+
+  Into:
+
+  <!-- prettier-ignore -->
+  ```json
+  {
+    "extends": [
+      "some-other-config-you-use",
+      "prettier"
+    ]
+  }
+  ```
+
+  The `"prettier"` config now includes not just ESLint core rules, but also rules from all plugins. Much simpler!
+
+  So … what’s the catch? Why haven’t we done this earlier? Turns out it’s just a sad mistake. I (@lydell) was confused when testing, and thought that turning off unknown rules in a config was an error. Thanks to Georgii Dolzhykov (@thorn0) for pointing this out!
+
+  (The ["prettier/prettier" config][prettier-prettier-config] still exists separately. It’s the odd one out. The main `"prettier"` config does _not_ include the rules from it.)
+
+- Changed: The CLI helper tool now only prints warnings for [arrow-body-style] and [prefer-arrow-callback], just like other “special rules.” This means that if you’ve decided to use those rules and [eslint-plugin-prettier] at the same time, you’ll get warnings but exit code zero (success).
+
 ### Version 7.2.0 (2021-01-18)
 
 - Added: [@typescript-eslint/object-curly-spacing].
@@ -391,6 +433,7 @@
 [nonblock-statement-body-position]: https://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
 [prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
+[prettier-prettier-config]: https://github.com/prettier/eslint-config-prettier/tree/03c79b9306892d4dbc828ce723813ef015baabc5#arrow-body-style-and-prefer-arrow-callback
 [prettier-self-closing]: https://prettier.io/blog/2019/06/06/1.18.0.html#stop-converting-empty-jsx-elements-to-self-closing-elements-6127-by-duailibe
 [prettier]: https://github.com/prettier
 [quotes-special]: https://github.com/prettier/eslint-config-prettier/blob/8d264cd0a7f06c12e2e05415e0282a4f8f21ebc9/README.md#quotes
