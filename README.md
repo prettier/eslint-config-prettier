@@ -130,13 +130,15 @@ For maximum ease of use, the special rules are disabled by default (provided tha
 
 **These rules might cause problems if using [eslint-plugin-prettier] and `--fix`.**
 
-See [`arrow-body-style` and `prefer-arrow-callback` issue][eslint-plugin-prettier-autofix-issue] for details.
+See the [`arrow-body-style` and `prefer-arrow-callback` issue][eslint-plugin-prettier-autofix-issue] for details.
 
 There are a couple of ways to turn these rules off:
 
 - Put `"prettier/prettier"` in your `"extends"`. (Yes, there’s both a _rule_ called `"prettier/prettier"` and a _config_ called `"prettier/prettier"`.)
 - Use [eslint-plugin-prettier’s recommended config][eslint-plugin-prettier-recommended], which also turns off these two rules.
 - Remove them from your config or turn them off manually.
+
+It doesn’t matter which approach you use – they’re all the same.
 
 Note: The CLI tool only reports these as problematic if the `"prettier/prettier"` _rule_ is enabled for the same file.
 
