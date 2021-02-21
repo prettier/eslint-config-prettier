@@ -36,6 +36,18 @@
 
   So … what’s the catch? Why haven’t we done this earlier? Turns out it’s just a sad mistake. I (@lydell) was confused when testing, and thought that turning off unknown rules in a config was an error. Thanks to Georgii Dolzhykov (@thorn0) for pointing this out!
 
+  If you use [eslint-plugin-prettier], all you need is [plugin:prettier/recommended]:
+
+  <!-- prettier-ignore -->
+  ```json
+  {
+    "extends": [
+      "some-other-config-you-use",
+      "plugin:prettier/recommended"
+    ]
+  }
+  ```
+
   (The ["prettier/prettier" config][prettier-prettier-config] still exists separately. It’s the odd one out. The main `"prettier"` config does _not_ include the rules from it.)
 
 - Changed: The CLI helper tool now only prints warnings for [arrow-body-style] and [prefer-arrow-callback], just like other “special rules.” This means that if you’ve decided to use those rules and [eslint-plugin-prettier] at the same time, you’ll get warnings but exit code zero (success).
@@ -432,6 +444,7 @@
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [nonblock-statement-body-position]: https://eslint.org/docs/rules/nonblock-statement-body-position
 [one-var-declaration-per-line]: https://eslint.org/docs/rules/one-var-declaration-per-line
+[plugin:prettier/recommended]: https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
 [prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
 [prettier-prettier-config]: https://github.com/prettier/eslint-config-prettier/tree/03c79b9306892d4dbc828ce723813ef015baabc5#arrow-body-style-and-prefer-arrow-callback
 [prettier-self-closing]: https://prettier.io/blog/2019/06/06/1.18.0.html#stop-converting-empty-jsx-elements-to-self-closing-elements-6127-by-duailibe

@@ -62,13 +62,14 @@ That’s it! Extending `"prettier"` turns off a bunch of core ESLint rules, as w
 - [@typescript-eslint/eslint-plugin]
 - [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
-- [eslint-plugin-prettier]
 - [eslint-plugin-react]
 - [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
 
-> Note: You might find guides on the Internet saying you should also extend stuff like `"prettier/react"`. Since version 8.0.0 of eslint-config-prettier, all you need to extend is `"prettier"`! That includes all plugins.
+> 👉 Using [eslint-plugin-prettier]? Check out [eslint-plugin-prettier’s recommended config][eslint-plugin-prettier-recommended].
+
+> ℹ️ Note: You might find guides on the Internet saying you should also extend stuff like `"prettier/react"`. Since version 8.0.0 of eslint-config-prettier, all you need to extend is `"prettier"`! That includes all plugins.
 
 ### Excluding deprecated rules
 
@@ -134,11 +135,11 @@ See the [`arrow-body-style` and `prefer-arrow-callback` issue][eslint-plugin-pre
 
 There are a couple of ways to turn these rules off:
 
+- Put `"plugin:prettier/recommended"` in your `"extends"`. That’s [eslint-<strong>plugin</strong>-prettier’s recommended config][eslint-plugin-prettier-recommended].
 - Put `"prettier/prettier"` in your `"extends"`. (Yes, there’s both a _rule_ called `"prettier/prettier"` and a _config_ called `"prettier/prettier"`.)
-- Use [eslint-plugin-prettier’s recommended config][eslint-plugin-prettier-recommended], which also turns off these two rules.
 - Remove them from your config or turn them off manually.
 
-It doesn’t matter which approach you use – they’re all the same.
+It doesn’t matter which approach you use. `"plugin:prettier/recommended"` is probably the easiest.
 
 Note: The CLI tool only reports these as problematic if the `"prettier/prettier"` _rule_ is enabled for the same file.
 
