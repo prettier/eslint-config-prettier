@@ -68,7 +68,7 @@ That’s it! Extending `"prettier"` turns off a bunch of core ESLint rules, as w
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
 
-> Note: You might find guides on the Internet that say you should extend stuff like `"prettier/react"`. Since v8.0.0 of eslint-config-prettier, all you need is to extend `"prettier"`!
+> Note: You might find guides on the Internet saying you should also extend stuff like `"prettier/react"`. Since version 8.0.0 of eslint-config-prettier, all you need to extend is `"prettier"`! That includes all plugins.
 
 ### Excluding deprecated rules
 
