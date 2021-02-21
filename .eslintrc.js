@@ -6,16 +6,8 @@
 // as an “eat your own dogfood” test. That feels like a good test, but
 // complicates things a little sometimes.
 
-const fs = require("fs");
-
 module.exports = {
-  extends: [
-    "./.eslintrc.base.js",
-    ...fs
-      .readdirSync(__dirname)
-      .filter((file) => !file.startsWith(".") && file.endsWith(".js"))
-      .map((ruleFileName) => `./${ruleFileName}`),
-  ],
+  extends: ["./.eslintrc.base.js", "./index.js", "./prettier.js"],
   rules: {
     "prettier/prettier": "off",
   },
@@ -32,7 +24,7 @@ module.exports = {
               "The comma operator is confusing and a common mistake. Don’t use it!",
           },
         ],
-        quotes: [
+        "quotes": [
           "error",
           "double",
           { avoidEscape: true, allowTemplateLiterals: false },

@@ -4,65 +4,86 @@ const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const rimraf = require("rimraf");
+const config = require("../");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
 
 const ROOT = path.join(__dirname, "..");
 const TEST_CONFIG_DIR = path.join(ROOT, "test-config");
 
-const ruleFiles = fs
-  .readdirSync(ROOT)
-  .filter((name) => !name.startsWith(".") && name.endsWith(".js"));
-const configFiles = fs
-  .readdirSync(ROOT)
-  .filter((name) => name.startsWith(".eslintrc"));
+const plugins = [
+  ...new Set(
+    Object.keys(config.rules).map((ruleName) => {
+      const parts = ruleName.split("/");
+      return parts.length > 1 ? parts[0] : "core";
+    })
+  ),
+];
+
+function parseJson(result) {
+  try {
+    return JSON.parse(result.stdout);
+  } catch (error) {
+    throw new SyntaxError(
+      `
+${error.message}
+
+### stdout
+${result.stdout}
+
+### stderr
+${result.stderr}
+`.trimStart()
+    );
+  }
+}
 
 beforeAll(() => {
   createTestConfigDir();
 });
 
 function createTestConfigDir() {
-  // Clear the test config dir.
   rimraf.sync(TEST_CONFIG_DIR);
   fs.mkdirSync(TEST_CONFIG_DIR);
 
-  // Copy all rule files into the test config dir.
-  ruleFiles.forEach((ruleFileName) => {
-    const config = require(`../${ruleFileName}`);
+  // Change all rules to "warn", so that ESLint warns about unknown rules.
+  const newRules = Object.keys(config.rules).reduce((obj, ruleName) => {
+    obj[ruleName] = "warn";
+    return obj;
+  }, {});
 
-    // Change all rules to "warn", so that ESLint warns about unknown rules.
-    const newRules = Object.keys(config.rules).reduce((obj, ruleName) => {
-      obj[ruleName] = "warn";
-      return obj;
-    }, {});
+  const newConfig = { ...config, rules: newRules };
 
-    const newConfig = { ...config, rules: newRules };
+  fs.writeFileSync(
+    path.join(TEST_CONFIG_DIR, "index.js"),
+    `module.exports = ${JSON.stringify(newConfig, null, 2)};`
+  );
 
-    fs.writeFileSync(
-      path.join(TEST_CONFIG_DIR, ruleFileName),
-      `module.exports = ${JSON.stringify(newConfig, null, 2)};`
-    );
-  });
+  fs.copyFileSync(
+    path.join(ROOT, "prettier.js"),
+    path.join(TEST_CONFIG_DIR, "prettier.js")
+  );
 
-  // Copy the ESLint configs into the test config dir.
-  configFiles.forEach((configFileName) => {
-    const config = require(`../${configFileName}`);
-    fs.writeFileSync(
-      path.join(TEST_CONFIG_DIR, configFileName),
-      `module.exports = ${JSON.stringify(config, null, 2)};`
-    );
-  });
+  fs.writeFileSync(
+    path.join(TEST_CONFIG_DIR, ".eslintrc.js"),
+    `module.exports = ${JSON.stringify(eslintConfig, null, 2)};`
+  );
+
+  fs.writeFileSync(
+    path.join(TEST_CONFIG_DIR, ".eslintrc.base.js"),
+    `module.exports = ${JSON.stringify(eslintConfigBase, null, 2)};`
+  );
 }
 
-describe("all rule files have tests in test-lint/", () => {
-  ruleFiles.forEach((ruleFileName) => {
-    test(ruleFileName, () => {
+describe("all plugins have tests in test-lint/", () => {
+  plugins.forEach((plugin) => {
+    test(plugin, () => {
       const testFileName =
-        ruleFileName === "vue.js"
+        plugin === "vue"
           ? "vue.vue"
-          : ruleFileName === "@typescript-eslint.js"
-          ? "@typescript-eslint.ts"
-          : ruleFileName;
+          : plugin === "@typescript-eslint"
+          ? `${plugin}.ts`
+          : `${plugin}.js`;
       expect(fs.existsSync(path.join(ROOT, "test-lint", testFileName))).toBe(
         true
       );
@@ -70,40 +91,23 @@ describe("all rule files have tests in test-lint/", () => {
   });
 });
 
-describe("all rule files are included in the ESLint config", () => {
-  ruleFiles.forEach((ruleFileName) => {
-    test(ruleFileName, () => {
-      const name = ruleFileName.replace(/\.js$/, "");
-      expect(eslintConfig.extends).toContain(`./${ruleFileName}`);
-      if (ruleFileName !== "index.js") {
-        expect(eslintConfigBase.plugins).toContain(name);
-      }
-    });
-  });
-});
-
-describe("all plugin rule files are mentioned in the README", () => {
+describe("all plugins are mentioned in the README", () => {
   const readme = fs.readFileSync(path.join(ROOT, "README.md"), "utf8");
-  ruleFiles
-    .filter((ruleFileName) => ruleFileName !== "index.js")
-    .forEach((ruleFileName) => {
-      test(ruleFileName, () => {
-        const name = ruleFileName.replace(/\.js$/, "");
+  plugins
+    .filter((plugin) => plugin !== "core")
+    .forEach((plugin) => {
+      test(plugin, () => {
         expect(readme).toMatch(
-          name.startsWith("@") ? name : `eslint-plugin-${name}`
+          plugin.startsWith("@") ? plugin : `eslint-plugin-${plugin}`
         );
-        expect(readme).toMatch(`"prettier/${name}"`);
       });
     });
 });
 
 describe("all special rules are mentioned in the README", () => {
   const readme = fs.readFileSync(path.join(ROOT, "README.md"), "utf8");
-  const specialRuleNames = [].concat(
-    ...ruleFiles.map((ruleFileName) => {
-      const rules = require(`../${ruleFileName}`).rules;
-      return Object.keys(rules).filter((name) => rules[name] === 0);
-    })
+  const specialRuleNames = Object.keys(config.rules).filter(
+    (name) => config.rules[name] === 0
   );
 
   specialRuleNames.forEach((name) => {
@@ -114,12 +118,7 @@ describe("all special rules are mentioned in the README", () => {
 });
 
 describe('all rules are set to "off" or 0', () => {
-  const allRules = Object.assign(
-    Object.create(null),
-    ...ruleFiles.map((ruleFileName) => require(`../${ruleFileName}`).rules)
-  );
-
-  Object.entries(allRules).forEach(([name, value]) => {
+  Object.entries(config.rules).forEach(([name, value]) => {
     test(name, () => {
       expect(value === "off" || value === 0).toBe(true);
     });
@@ -132,7 +131,7 @@ test("there are no unknown rules", () => {
     ["run", "test:lint-rules", "--silent"],
     { encoding: "utf8", shell: true }
   );
-  const output = JSON.parse(result.stdout);
+  const output = parseJson(result);
 
   output[0].messages.forEach((message) => {
     expect(message.message).not.toMatch(/rule\s+'[^']+'.*not found/);

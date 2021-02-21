@@ -4,10 +4,27 @@ const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-const ROOT = path.join(__dirname, "..");
-const ruleFiles = fs
-  .readdirSync(ROOT)
-  .filter((name) => !name.startsWith(".") && name.endsWith(".js"));
+const testLintFiles = fs
+  .readdirSync(path.join(__dirname, "..", "test-lint"))
+  .filter((name) => !name.startsWith("."));
+
+function parseJson(result) {
+  try {
+    return JSON.parse(result.stdout);
+  } catch (error) {
+    throw new SyntaxError(
+      `
+${error.message}
+
+### stdout
+${result.stdout}
+
+### stderr
+${result.stderr}
+`.trimStart()
+    );
+  }
+}
 
 describe("test-lint/ causes errors without eslint-config-prettier", () => {
   const result = childProcess.spawnSync(
@@ -15,10 +32,10 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
     ["run", "test:lint-verify-fail", "--silent"],
     { encoding: "utf8", shell: true }
   );
-  const output = JSON.parse(result.stdout);
+  const output = parseJson(result);
 
   test("every test-lint/ file must cause an error", () => {
-    expect(output.length).toBe(ruleFiles.length);
+    expect(output.length).toBe(testLintFiles.length);
   });
 
   output.forEach((data) => {
@@ -34,7 +51,7 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
         // ESLint core rules have no prefix.
         // eslint-plugin-prettier provides no conflicting rules, but makes two
         // core rules unusable.
-        if (name === "index" || name === "prettier") {
+        if (name === "core" || name === "prettier") {
           expect(
             ruleIds
               .filter((ruleId) => ruleId.includes("/"))
