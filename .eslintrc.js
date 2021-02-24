@@ -13,7 +13,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["{bin,test}/**/*.js"],
+      files: ["{bin,test,scripts}/**/*.js"],
       rules: {
         "no-undef": "error",
         "no-restricted-syntax": [

@@ -41,3 +41,25 @@ for (const { src, dest = src, transform } of FILES_TO_COPY) {
     fs.copyFileSync(path.join(DIR, src), path.join(BUILD, dest));
   }
 }
+
+const LEGACY_CONFIGS = [
+  "@typescript-eslint",
+  "babel",
+  "flowtype",
+  "react",
+  "standard",
+  "unicorn",
+  "vue",
+];
+
+function legacyConfigStub(name) {
+  return `
+throw new Error(
+  '"prettier/${name}" has been merged into "prettier" in eslint-config-prettier 8.0.0. See: https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-800-2021-02-21'
+);
+  `.trim();
+}
+
+for (const name of LEGACY_CONFIGS) {
+  fs.writeFileSync(path.join(BUILD, `${name}.js`), legacyConfigStub(name));
+}
