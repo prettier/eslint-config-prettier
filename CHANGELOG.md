@@ -1,3 +1,8 @@
+### Version 8.1.0 (2021-02-24)
+
+- Added: [flowtype/object-type-curly-spacing].
+- Added: Dummy files for the configs removed in 8.0.0. The dummy files throw an error that try to guide you how to upgrade.
+
 ### Version 8.0.0 (2021-02-21)
 
 - Changed: All configs have been merged into one!
@@ -428,6 +433,7 @@
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
 [excluding deprecated rules]: https://github.com/prettier/eslint-config-prettier/tree/9f6b59486ad742dc12ad3be157ddff5f8454ef7a#excluding-deprecated-rules
 [flowtype/boolean-style]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-boolean-style
+[flowtype/object-type-curly-spacing]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-object-type-curly-spacing
 [function-call-argument-newline]: https://eslint.org/docs/rules/function-call-argument-newline
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [implicit-arrow-linebreak]: https://eslint.org/docs/rules/implicit-arrow-linebreak
