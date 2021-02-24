@@ -14,15 +14,15 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "4.15.1",
-    "@typescript-eslint/parser": "4.15.1",
+    "@typescript-eslint/eslint-plugin": "4.15.2",
+    "@typescript-eslint/parser": "4.15.2",
     "babel-eslint": "10.1.0",
     "doctoc": "2.0.0",
     "eslint": "7.20.0",
     "eslint-config-google": "0.14.0",
     "eslint-find-rules": "3.6.1",
     "eslint-plugin-babel": "5.3.1",
-    "eslint-plugin-flowtype": "5.2.2",
+    "eslint-plugin-flowtype": "5.3.1",
     "eslint-plugin-prettier": "3.3.1",
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-standard": "4.0.2",
@@ -32,6 +32,6 @@
     "prettier": "2.2.1",
     "replace": "1.2.0",
     "rimraf": "3.0.2",
-    "typescript": "4.1.5"
+    "typescript": "4.2.2"
   }
 }

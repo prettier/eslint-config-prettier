@@ -111,6 +111,7 @@ module.exports = {
     "flowtype/boolean-style": "off",
     "flowtype/delimiter-dangle": "off",
     "flowtype/generic-spacing": "off",
+    "flowtype/object-type-curly-spacing": "off",
     "flowtype/object-type-delimiter": "off",
     "flowtype/semi": "off",
     "flowtype/space-after-type-colon": "off",
