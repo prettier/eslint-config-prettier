@@ -45,7 +45,7 @@ Install eslint-config-prettier:
 npm install --save-dev eslint-config-prettier
 ```
 
-Then, add eslint-config-prettier to the "extends" array in your `.eslintrc.*` file. Make sure to put it **last,** so it gets the chance to override other configs.
+Then, add `"prettier"` to the "extends" array in your `.eslintrc.*` file. Make sure to put it **last,** so it gets the chance to override other configs.
 
 <!-- prettier-ignore -->
 ```json
