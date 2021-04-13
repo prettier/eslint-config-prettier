@@ -657,7 +657,7 @@ eslint-config-prettier has been tested with:
 - prettier 2.2.1
 - @typescript-eslint/eslint-plugin 4.15.2
 - eslint-plugin-babel 5.3.1
-- eslint-plugin-flowtype 5.3.1
+- eslint-plugin-flowtype 5.7.0
 - eslint-plugin-prettier 3.3.1
 - eslint-plugin-react 7.22.0
 - eslint-plugin-standard 4.0.2
