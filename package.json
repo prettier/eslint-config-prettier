@@ -14,24 +14,24 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "4.15.2",
-    "@typescript-eslint/parser": "4.15.2",
+    "@typescript-eslint/eslint-plugin": "4.22.0",
+    "@typescript-eslint/parser": "4.22.0",
     "babel-eslint": "10.1.0",
     "doctoc": "2.0.0",
-    "eslint": "7.20.0",
+    "eslint": "7.24.0",
     "eslint-config-google": "0.14.0",
     "eslint-find-rules": "3.6.1",
     "eslint-plugin-babel": "5.3.1",
     "eslint-plugin-flowtype": "5.7.0",
     "eslint-plugin-prettier": "3.3.1",
-    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-react": "7.23.2",
     "eslint-plugin-standard": "4.0.2",
-    "eslint-plugin-unicorn": "28.0.2",
-    "eslint-plugin-vue": "7.6.0",
+    "eslint-plugin-unicorn": "29.0.0",
+    "eslint-plugin-vue": "7.9.0",
     "jest": "26.6.3",
     "prettier": "2.2.1",
-    "replace": "1.2.0",
+    "replace": "1.2.1",
     "rimraf": "3.0.2",
-    "typescript": "4.2.2"
+    "typescript": "4.2.4"
   }
 }
