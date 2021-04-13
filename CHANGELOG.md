@@ -1,3 +1,7 @@
+### Version 8.2.0 (2021-04-13)
+
+- Added: [flowtype/quotes]. Thanks to Martin Zlámal (@mrtnzlml)!
+
 ### Version 8.1.0 (2021-02-24)
 
 - Added: [flowtype/object-type-curly-spacing].
@@ -434,6 +438,7 @@
 [excluding deprecated rules]: https://github.com/prettier/eslint-config-prettier/tree/9f6b59486ad742dc12ad3be157ddff5f8454ef7a#excluding-deprecated-rules
 [flowtype/boolean-style]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-boolean-style
 [flowtype/object-type-curly-spacing]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-object-type-curly-spacing
+[flowtype/quotes]: https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-quotes
 [function-call-argument-newline]: https://eslint.org/docs/rules/function-call-argument-newline
 [function-paren-newline]: https://eslint.org/docs/rules/function-paren-newline
 [implicit-arrow-linebreak]: https://eslint.org/docs/rules/implicit-arrow-linebreak
