@@ -113,6 +113,7 @@ module.exports = {
     "flowtype/generic-spacing": "off",
     "flowtype/object-type-curly-spacing": "off",
     "flowtype/object-type-delimiter": "off",
+    "flowtype/quotes": "off",
     "flowtype/semi": "off",
     "flowtype/space-after-type-colon": "off",
     "flowtype/space-before-generic-bracket": "off",
