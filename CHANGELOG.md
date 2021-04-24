@@ -1,3 +1,7 @@
+### Version 8.3.0 (2021-04-24)
+
+- Added: Support for [@babel/eslint-plugin]. Thanks to Chip Zhang (@ChipZhang) for the heads-up! ([eslint-plugin-babel] is still supported, too.)
+
 ### Version 8.2.0 (2021-04-13)
 
 - Added: [flowtype/quotes]. Thanks to Martin Zlámal (@mrtnzlml)!
@@ -405,6 +409,7 @@
 
 - Initial release.
 
+[@babel/eslint-plugin]: https://github.com/babel/babel/tree/main/eslint/babel-eslint-plugin
 [@typescript-eslint/brace-style]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/brace-style.md
 [@typescript-eslint/comma-dangle]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-dangle.md
 [@typescript-eslint/comma-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/comma-spacing.md
