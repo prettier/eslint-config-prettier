@@ -60,6 +60,7 @@ Then, add `"prettier"` to the "extends" array in your `.eslintrc.*` file. Make s
 That’s it! Extending `"prettier"` turns off a bunch of core ESLint rules, as well as a few rules from these plugins:
 
 - [@typescript-eslint/eslint-plugin]
+- [@babel/eslint-plugin]
 - [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
@@ -655,6 +656,7 @@ eslint-config-prettier has been tested with:
   - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
   - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
 - prettier 2.2.1
+- @babel/eslint-plugin 7.13.16
 - @typescript-eslint/eslint-plugin 4.22.0
 - eslint-plugin-babel 5.3.1
 - eslint-plugin-flowtype 5.7.2
@@ -710,6 +712,7 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 
 [MIT](LICENSE).
 
+[@babel/eslint-plugin]: https://github.com/babel/babel/tree/main/eslint/babel-eslint-plugin
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
