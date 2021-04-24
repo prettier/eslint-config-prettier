@@ -60,6 +60,7 @@ module.exports = {
     "unicorn/no-null": "off",
     "unicorn/no-reduce": "off",
     "unicorn/prefer-flat-map": "off",
+    "unicorn/prefer-module": "off",
     "unicorn/prefer-spread": "off",
     "unicorn/prevent-abbreviations": "off",
     // Force a conflict with Prettier in test-lint/babel.js.
