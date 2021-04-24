@@ -1,4 +1,4 @@
-/* eslint-disable quotes */
+/* eslint-disable quotes, @babel/object-curly-spacing */
 "use strict";
 
 // Prettier wants spacing between curly braces, but `babel/object-curly-spacing`

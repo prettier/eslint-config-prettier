@@ -23,7 +23,7 @@ module.exports = {
     ),
   ],
   parserOptions: {
-    parser: "babel-eslint",
+    parser: "@babel/eslint-parser",
     ecmaVersion: 2018,
     sourceType: "script",
     // Needed for the lint-verify-fail.test.js test.
@@ -63,9 +63,10 @@ module.exports = {
     "unicorn/prefer-module": "off",
     "unicorn/prefer-spread": "off",
     "unicorn/prevent-abbreviations": "off",
-    // Force a conflict with Prettier in test-lint/babel.js.
+    // Force a conflict with Prettier in test-lint/@babel.js. and test-lint/babel.js.
     "object-curly-spacing": "off",
     "babel/object-curly-spacing": ["error", "never"],
+    "@babel/object-curly-spacing": ["error", "never"],
   },
   overrides: [
     {
