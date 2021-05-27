@@ -155,7 +155,6 @@ module.exports = {
     "vue/func-call-spacing": "off",
     "vue/html-closing-bracket-newline": "off",
     "vue/html-closing-bracket-spacing": "off",
-    "vue/html-end-tags": "off",
     "vue/html-indent": "off",
     "vue/html-quotes": "off",
     "vue/key-spacing": "off",
