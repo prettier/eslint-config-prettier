@@ -4,7 +4,10 @@
   "license": "MIT",
   "author": "Simon Lydell",
   "description": "Turns off all rules that are unnecessary or might conflict with Prettier.",
-  "repository": "prettier/eslint-config-prettier",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prettier/eslint-config-prettier.git"
+  },
   "bin": "bin/cli.js",
   "keywords": ["eslint", "eslintconfig", "prettier"],
   "peerDependencies": {
