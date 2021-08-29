@@ -13,25 +13,29 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node: [10, 12, 14, 16]
+        eslint: [7, 8]
 
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
 
       - name: Cache node_modules
         id: cache-node_modules
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: node_modules-${{ matrix.os }}-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
+          key: node_modules-${{ matrix.os }}-${{ matrix.node }}-${{ hashFiles('package-lock.json') }}
 
       - name: npm ci
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: npm ci
+
+      - name: install ESLint v@${{ matrix.eslint }}
+        run: npm install eslint@${{ matrix.eslint }}
 
       - name: Jest
         run: npx --no-install jest
