@@ -28,7 +28,6 @@
     "eslint-plugin-flowtype": "5.7.2",
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.23.2",
-    "eslint-plugin-standard": "4.0.2",
     "eslint-plugin-unicorn": "31.0.0",
     "eslint-plugin-vue": "7.9.0",
     "jest": "26.6.3",

@@ -64,7 +64,6 @@ That’s it! Extending `"prettier"` turns off a bunch of core ESLint rules, as w
 - [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
-- [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
 
@@ -662,7 +661,6 @@ eslint-config-prettier has been tested with:
 - eslint-plugin-flowtype 5.7.2
 - eslint-plugin-prettier 3.4.0
 - eslint-plugin-react 7.23.2
-- eslint-plugin-standard 4.0.2
 - eslint-plugin-unicorn 31.0.0
 - eslint-plugin-vue 7.9.0
 
@@ -724,7 +722,6 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [eslint-plugin-prettier-recommended]: https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
 [eslint-plugin-react]: https://github.com/yannickcr/eslint-plugin-react
-[eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment

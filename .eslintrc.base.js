@@ -50,8 +50,6 @@ module.exports = {
     "flowtype/object-type-delimiter": ["error", "semicolon"],
     "react/jsx-filename-extension": "off",
     "react/jsx-no-bind": "off",
-    // Force a conflict with Prettier in test-lint/standard.js.
-    "standard/computed-property-even-spacing": ["error", "even"],
     "unicorn/consistent-function-scoping": "off",
     "unicorn/filename-case": "off",
     "unicorn/no-array-for-each": "off",

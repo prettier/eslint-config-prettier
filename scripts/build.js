@@ -47,7 +47,6 @@ const LEGACY_CONFIGS = [
   "babel",
   "flowtype",
   "react",
-  "standard",
   "unicorn",
   "vue",
 ];
