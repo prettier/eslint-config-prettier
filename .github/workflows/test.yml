@@ -22,15 +22,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
 
-      - name: Cache node_modules
-        id: cache-node_modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: node_modules-${{ matrix.os }}-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
-
-      - name: npm ci
-        if: steps.cache-node_modules.outputs.cache-hit != 'true'
+      - name: Install Dependencies (CI)
         run: npm ci
 
       - name: Jest
