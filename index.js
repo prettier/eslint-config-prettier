@@ -2,6 +2,7 @@
 
 const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 
+
 module.exports = {
   rules: {
     // The following rules can be used in some cases. See the README for more
