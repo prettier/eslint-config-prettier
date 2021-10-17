@@ -31,7 +31,7 @@ jobs:
 
       - name: npm ci
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm ci --no-audit
 
       - name: Jest
         run: npx --no-install jest
