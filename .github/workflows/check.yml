@@ -23,7 +23,7 @@ jobs:
           cache: npm
 
       - name: Install Dependencies (CI)
-        run: npm ci
+        run: npm ci --no-audit
 
       - name: ESLint
         run: npx --no-install eslint .

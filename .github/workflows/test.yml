@@ -23,7 +23,7 @@ jobs:
           cache: npm
 
       - name: Install Dependencies (CI)
-        run: npm ci
+        run: npm ci --no-audit
 
       - name: Jest
         run: npx --no-install jest
