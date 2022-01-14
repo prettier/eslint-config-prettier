@@ -1,7 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "doctoc": "doctoc README.md && replace \"\\[\\[([\\w/-]+)\\](?:([^\\[\\]]+)\\[([\\w/-]+)\\])?\\]\" \"[\\$1\\$2\\$3]\" README.md",
     "prettier": "prettier --write .",
     "test:lint": "eslint . && prettier --check .",
     "test:lint-verify-fail": "eslint \"test-lint/*.{js,ts,vue}\" --config .eslintrc.base.js --format json",
@@ -14,27 +13,26 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.13.14",
-    "@babel/eslint-plugin": "7.13.16",
-    "@babel/plugin-syntax-flow": "7.12.13",
-    "@babel/plugin-syntax-jsx": "7.12.13",
-    "@typescript-eslint/eslint-plugin": "4.22.0",
-    "@typescript-eslint/parser": "4.22.0",
-    "doctoc": "2.0.0",
-    "eslint": "7.25.0",
+    "@babel/eslint-parser": "7.16.5",
+    "@babel/eslint-plugin": "7.16.5",
+    "@babel/plugin-syntax-flow": "7.16.7",
+    "@babel/plugin-syntax-jsx": "7.16.7",
+    "@babel/plugin-transform-react-jsx": "7.16.7",
+    "@typescript-eslint/eslint-plugin": "5.9.1",
+    "@typescript-eslint/parser": "5.9.1",
+    "eslint": "8.6.0",
     "eslint-config-google": "0.14.0",
-    "eslint-find-rules": "3.6.1",
+    "eslint-find-rules": "4.1.0",
     "eslint-plugin-babel": "5.3.1",
-    "eslint-plugin-flowtype": "5.7.2",
-    "eslint-plugin-prettier": "3.4.0",
-    "eslint-plugin-react": "7.23.2",
+    "eslint-plugin-flowtype": "8.0.3",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.28.0",
     "eslint-plugin-standard": "4.0.2",
-    "eslint-plugin-unicorn": "31.0.0",
-    "eslint-plugin-vue": "7.9.0",
-    "jest": "26.6.3",
-    "prettier": "2.2.1",
-    "replace": "1.2.1",
+    "eslint-plugin-unicorn": "40.0.0",
+    "eslint-plugin-vue": "8.3.0",
+    "jest": "27.4.7",
+    "prettier": "2.5.1",
     "rimraf": "3.0.2",
-    "typescript": "4.2.4"
+    "typescript": "4.5.4"
   }
 }

@@ -43,13 +43,10 @@ describe("does not flag", () => {
 describe("does flag", () => {
   const rules = ["strict", "arrow-parens"];
 
-  const results = onPatterns.map(
-    (pattern) => ({
-      pattern: JSON.stringify(pattern),
-      result: cli.processRules(createRules(rules, pattern)),
-    }),
-    {}
-  );
+  const results = onPatterns.map((pattern) => ({
+    pattern: JSON.stringify(pattern),
+    result: cli.processRules(createRules(rules, pattern)),
+  }));
 
   test("result", () => {
     expect(results[0].result).toMatchInlineSnapshot(`

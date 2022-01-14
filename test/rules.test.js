@@ -47,10 +47,9 @@ function createTestConfigDir() {
   fs.mkdirSync(TEST_CONFIG_DIR);
 
   // Change all rules to "warn", so that ESLint warns about unknown rules.
-  const newRules = Object.keys(config.rules).reduce((obj, ruleName) => {
-    obj[ruleName] = "warn";
-    return obj;
-  }, {});
+  const newRules = Object.fromEntries(
+    Object.entries(config.rules).map(([ruleName]) => [ruleName, "warn"])
+  );
 
   const newConfig = { ...config, rules: newRules };
 

@@ -14,7 +14,7 @@ const FILES_TO_COPY = [
   { src: "package-real.json", dest: "package.json" },
   {
     src: "README.md",
-    transform: (content) => content.replace(/^---[^]*/m, READ_MORE),
+    transform: (content) => content.replace(/^##[^]*/m, READ_MORE),
   },
   { src: "index.js" },
   { src: "prettier.js" },
@@ -24,7 +24,9 @@ const FILES_TO_COPY = [
     .map((file) => ({ src: path.join("bin", file) })),
 ];
 
-if (fs.existsSync(BUILD)) {
+if (fs.rmSync !== undefined) {
+  fs.rmSync(BUILD, { recursive: true, force: true });
+} else if (fs.existsSync(BUILD)) {
   fs.rmdirSync(BUILD, { recursive: true });
 }
 
