@@ -57,7 +57,9 @@ Then, add `"prettier"` to the "extends" array in your `.eslintrc.*` file. Make s
 }
 ```
 
-That’s it! Extending `"prettier"` turns off a bunch of core ESLint rules, as well as a few rules from these plugins:
+Finally, run the [CLI helper tool](#cli-helper-tool) to find problems in the `"rules"` section of your `.eslintrc.*` file. (Remember, `"rules"` always “wins” over `"extends"`!)
+
+Extending `"prettier"` turns off a bunch of core ESLint rules, as well as a few rules from these plugins:
 
 - [@typescript-eslint/eslint-plugin]
 - [@babel/eslint-plugin]
@@ -84,6 +86,23 @@ env ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npx eslint-find-rules --deprecated
 
 eslint-config-prettier also ships with a little CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier.
 
+🚨 This example has a **conflicting rule** `"indent"` enabled:
+
+<!-- prettier-ignore -->
+```json
+{
+  "extends": [
+    "some-other-config-you-use",
+    "prettier"
+  ],
+  "rules": {
+    "indent": "error"
+  }
+}
+```
+
+While the `"prettier"` config can disable problematic rules in `"some-other-config-you-use"`, it cannot touch `"rules"`! (That’s how ESLint works – it lets you override configs you extend.) The CLI helper tool reports that `"indent"` conflicts with Prettier, so you can remove it. (Which is nice – simplifying your config!)
+
 You can run it using `npx`:
 
 ```
@@ -92,7 +111,7 @@ npx eslint-config-prettier path/to/main.js
 
 (Change `path/to/main.js` to a file that exists in your project.)
 
-In theory you need to run the tool for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. But usually you’ll have about the same rules for all files, so it is good enough to run the command on one file. But if you use [multiple configuration files] or [overrides], you can provide several files check:
+In theory you need to run the tool for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. Usually you’ll have about the same rules for all files, so it is good enough to run the command on one file. But if you use [multiple configuration files] or [overrides], you can provide several files check:
 
 ```
 npx eslint-config-prettier index.js test/index.js legacy/main.js
