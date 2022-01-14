@@ -6,37 +6,6 @@ This lets you use your favorite shareable config without letting its stylistic c
 
 Note that this config _only_ turns rules _off,_ so it only makes sense using it together with some other config.
 
----
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Installation](#installation)
-  - [Excluding deprecated rules](#excluding-deprecated-rules)
-- [CLI helper tool](#cli-helper-tool)
-  - [Legacy](#legacy)
-- [Special rules](#special-rules)
-  - [arrow-body-style and prefer-arrow-callback](#arrow-body-style-and-prefer-arrow-callback)
-  - [curly](#curly)
-  - [lines-around-comment](#lines-around-comment)
-  - [max-len](#max-len)
-  - [no-confusing-arrow](#no-confusing-arrow)
-  - [no-mixed-operators](#no-mixed-operators)
-  - [no-tabs](#no-tabs)
-  - [no-unexpected-multiline](#no-unexpected-multiline)
-  - [quotes](#quotes)
-    - [Enforce backticks](#enforce-backticks)
-    - [Forbid unnecessary backticks](#forbid-unnecessary-backticks)
-      - [Example double quote configuration](#example-double-quote-configuration)
-      - [Example single quote configuration](#example-single-quote-configuration)
-  - [vue/html-self-closing](#vuehtml-self-closing)
-- [Other rules worth mentioning](#other-rules-worth-mentioning)
-  - [no-sequences](#no-sequences)
-- [Contributing](#contributing)
-- [License](#license)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Installation
 
 Install eslint-config-prettier:
@@ -666,24 +635,7 @@ You can also supply a custom message if you want:
 
 ## Contributing
 
-eslint-config-prettier has been tested with:
-
-- ESLint 7.25.0
-  - eslint-config-prettier 7.0.0 requires ESLint 7.0.0 or newer, while eslint-config-prettier 6.15.0 and older should also work with ESLint versions down to 3.x.
-  - eslint-config-prettier 6.11.0 and older were tested with ESLint 6.x
-  - eslint-config-prettier 5.1.0 and older were tested with ESLint 5.x
-  - eslint-config-prettier 2.10.0 and older were tested with ESLint 4.x
-  - eslint-config-prettier 2.1.1 and older were tested with ESLint 3.x
-- prettier 2.2.1
-- @babel/eslint-plugin 7.13.16
-- @typescript-eslint/eslint-plugin 4.22.0
-- eslint-plugin-babel 5.3.1
-- eslint-plugin-flowtype 5.7.2
-- eslint-plugin-prettier 3.4.0
-- eslint-plugin-react 7.23.2
-- eslint-plugin-standard 4.0.2
-- eslint-plugin-unicorn 31.0.0
-- eslint-plugin-vue 7.9.0
+See [package.json] for the exact versions of ESLint, Prettier and ESLint plugins that eslint-config-prettier has been tested with.
 
 Have new rules been added since those versions? Have we missed any rules? Is there a plugin you would like to see exclusions for? Open an issue or a pull request!
 
@@ -757,6 +709,7 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [no-tabs]: https://eslint.org/docs/rules/no-tabs
 [no-unexpected-multiline]: https://eslint.org/docs/rules/no-unexpected-multiline
 [overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
+[package.json]: https://github.com/prettier/eslint-config-prettier/blob/main/package.json
 [prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
 [prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes

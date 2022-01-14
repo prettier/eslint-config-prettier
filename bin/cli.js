@@ -30,10 +30,8 @@ if (module === require.main) {
 
   Promise.all(args.map((file) => eslint.calculateConfigForFile(file)))
     .then((configs) => {
-      const rules = [].concat(
-        ...configs.map(({ rules }, index) =>
-          Object.entries(rules).map((entry) => [...entry, args[index]])
-        )
+      const rules = configs.flatMap(({ rules }, index) =>
+        Object.entries(rules).map((entry) => [...entry, args[index]])
       );
       const result = processRules(rules);
       if (result.stderr) {
@@ -183,12 +181,11 @@ function processRules(configRules) {
 }
 
 function filterRules(rules, fn) {
-  return Object.entries(rules)
-    .filter(([ruleName, value]) => fn(ruleName, value))
-    .reduce((obj, [ruleName]) => {
-      obj[ruleName] = true;
-      return obj;
-    }, Object.create(null));
+  return Object.fromEntries(
+    Object.entries(rules)
+      .filter(([ruleName, value]) => fn(ruleName, value))
+      .map(([ruleName]) => [ruleName, true])
+  );
 }
 
 function filterRuleNames(rules, fn) {
