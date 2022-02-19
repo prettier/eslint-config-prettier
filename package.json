@@ -29,7 +29,7 @@
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-standard": "4.0.2",
     "eslint-plugin-unicorn": "40.0.0",
-    "eslint-plugin-vue": "8.3.0",
+    "eslint-plugin-vue": "8.4.1",
     "jest": "27.4.7",
     "prettier": "2.5.1",
     "rimraf": "3.0.2",

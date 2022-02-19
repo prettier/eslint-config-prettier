@@ -170,6 +170,7 @@ module.exports = {
     "vue/object-curly-spacing": "off",
     "vue/object-property-newline": "off",
     "vue/operator-linebreak": "off",
+    "vue/quote-props": "off",
     "vue/script-indent": "off",
     "vue/singleline-html-element-content-newline": "off",
     "vue/space-in-parens": "off",
