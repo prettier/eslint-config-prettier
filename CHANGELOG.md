@@ -1,3 +1,7 @@
+### Version 8.4.0 (2022-02-19)
+
+- Added: [vue/quote-props]. Thanks to @xcatliu!
+
 ### Version 8.3.0 (2021-04-24)
 
 - Added: Support for [@babel/eslint-plugin]. Thanks to Chip Zhang (@ChipZhang) for the heads-up! ([eslint-plugin-babel] is still supported, too.)
@@ -490,3 +494,4 @@
 [vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-tag-newline.md
 [vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/keyword-spacing.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md
+[vue/quote-props]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/quote-props.md
