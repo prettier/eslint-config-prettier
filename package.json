@@ -13,14 +13,14 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.16.5",
+    "@babel/eslint-parser": "7.17.0",
     "@babel/eslint-plugin": "7.16.5",
     "@babel/plugin-syntax-flow": "7.16.7",
     "@babel/plugin-syntax-jsx": "7.16.7",
-    "@babel/plugin-transform-react-jsx": "7.16.7",
-    "@typescript-eslint/eslint-plugin": "5.9.1",
-    "@typescript-eslint/parser": "5.9.1",
-    "eslint": "8.6.0",
+    "@babel/plugin-transform-react-jsx": "7.17.3",
+    "@typescript-eslint/eslint-plugin": "5.12.0",
+    "@typescript-eslint/parser": "5.12.0",
+    "eslint": "8.9.0",
     "eslint-config-google": "0.14.0",
     "eslint-find-rules": "4.1.0",
     "eslint-plugin-babel": "5.3.1",
@@ -28,11 +28,11 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-standard": "4.0.2",
-    "eslint-plugin-unicorn": "40.0.0",
+    "eslint-plugin-unicorn": "41.0.0",
     "eslint-plugin-vue": "8.4.1",
-    "jest": "27.4.7",
+    "jest": "27.5.1",
     "prettier": "2.5.1",
     "rimraf": "3.0.2",
-    "typescript": "4.5.4"
+    "typescript": "4.5.5"
   }
 }
