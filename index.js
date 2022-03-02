@@ -105,6 +105,7 @@ module.exports = {
     "@typescript-eslint/no-extra-semi": "off",
     "@typescript-eslint/object-curly-spacing": "off",
     "@typescript-eslint/semi": "off",
+    "@typescript-eslint/space-before-blocks": "off",
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/space-infix-ops": "off",
     "@typescript-eslint/type-annotation-spacing": "off",
