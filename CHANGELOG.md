@@ -1,3 +1,7 @@
+### Version 8.5.0 (2022-03-02)
+
+- Added: [@typescript-eslint/space-before-blocks]. Thanks to Masafumi Koba (@ybiquitous)!
+
 ### Version 8.4.0 (2022-02-19)
 
 - Added: [vue/quote-props]. Thanks to @xcatliu!
@@ -426,6 +430,7 @@
 [@typescript-eslint/quotes-special]: https://github.com/prettier/eslint-config-prettier/blob/857257179fe69715362dfa9300762d6e534c0603/README.md#quotes
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
 [@typescript-eslint/semi]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/semi.md
+[@typescript-eslint/space-before-blocks]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-blocks.md
 [@typescript-eslint/space-before-function-paren]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-before-function-paren.md
 [@typescript-eslint/space-infix-ops]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/space-infix-ops.md
 [array-bracket-newline]: https://eslint.org/docs/rules/array-bracket-newline
