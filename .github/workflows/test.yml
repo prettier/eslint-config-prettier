@@ -6,6 +6,9 @@ on:
       - "main"
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   main:
     runs-on: ${{ matrix.os }}
@@ -17,6 +20,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@v3
         with:
