@@ -163,6 +163,7 @@ module.exports = {
     "vue/keyword-spacing": "off",
     "vue/max-attributes-per-line": "off",
     "vue/multiline-html-element-content-newline": "off",
+    "vue/multiline-ternary": "off",
     "vue/mustache-interpolation-spacing": "off",
     "vue/no-extra-parens": "off",
     "vue/no-multi-spaces": "off",
