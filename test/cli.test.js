@@ -26,7 +26,7 @@ describe("does not flag", () => {
 
   test("result", () => {
     expect(results[0].result).toMatchInlineSnapshot(`
-      Object {
+      {
         "code": 0,
         "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
       }
@@ -50,7 +50,7 @@ describe("does flag", () => {
 
   test("result", () => {
     expect(results[0].result).toMatchInlineSnapshot(`
-      Object {
+      {
         "code": 2,
         "stdout": "The following rules are unnecessary or might conflict with Prettier:
 
@@ -69,7 +69,7 @@ describe("does flag", () => {
 test("no results", () => {
   const rules = ["strict", "curly"];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
-    Object {
+    {
       "code": 0,
       "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
     }
@@ -79,7 +79,7 @@ test("no results", () => {
 test("conflicting options", () => {
   const rules = ["strict", ["curly", "multi-line"]];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
-    Object {
+    {
       "code": 2,
       "stdout": "The following rules are enabled with config that might conflict with Prettier. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
@@ -92,7 +92,7 @@ test("conflicting options", () => {
 test("special rules", () => {
   const rules = ["strict", "max-len"];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
-    Object {
+    {
       "code": 0,
       "stdout": "The following rules are enabled but cannot be automatically checked. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
@@ -128,7 +128,7 @@ test("all the things", () => {
     "arrow-body-style",
   ];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
-    Object {
+    {
       "code": 2,
       "stdout": "The following rules are unnecessary or might conflict with Prettier:
 
@@ -165,7 +165,7 @@ test("eslint-plugin-prettier", () => {
       ["prefer-arrow-callback", "error", "test-source.js"],
     ])
   ).toMatchInlineSnapshot(`
-    Object {
+    {
       "code": 0,
       "stdout": "The following rules can cause issues when using eslint-plugin-prettier at the same time.
     Only enable them if you know what you are doing! See:
@@ -187,7 +187,7 @@ test("eslint-plugin-prettier no warnings because different sources", () => {
       ["prefer-arrow-callback", "error", "other.js"],
     ])
   ).toMatchInlineSnapshot(`
-    Object {
+    {
       "code": 0,
       "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
     }
@@ -202,7 +202,7 @@ test("eslint-plugin-prettier no warnings because the rule is off", () => {
       ["prefer-arrow-callback", "error", "test-source.js"],
     ])
   ).toMatchInlineSnapshot(`
-    Object {
+    {
       "code": 0,
       "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
     }

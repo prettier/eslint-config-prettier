@@ -63,7 +63,9 @@ module.exports = {
     "unicorn/numeric-separators-style": "off",
     "unicorn/prefer-flat-map": "off",
     "unicorn/prefer-module": "off",
+    "unicorn/prefer-node-protocol": "off",
     "unicorn/prefer-spread": "off",
+    "unicorn/prefer-top-level-await": "off",
     "unicorn/prevent-abbreviations": "off",
     // Force a conflict with Prettier in test-lint/@babel.js. and test-lint/babel.js.
     "object-curly-spacing": "off",
