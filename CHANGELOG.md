@@ -1,3 +1,7 @@
+### Version 8.6.0 (2023-01-02)
+
+- Added: [vue/multiline-ternary]. Thanks to @xcatliu!
+
 ### Version 8.5.0 (2022-03-02)
 
 - Added: [@typescript-eslint/space-before-blocks]. Thanks to Masafumi Koba (@ybiquitous)!
@@ -499,4 +503,5 @@
 [vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-tag-newline.md
 [vue/keyword-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/keyword-spacing.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md
+[vue/multiline-ternary]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/multiline-ternary.md
 [vue/quote-props]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/quote-props.md
