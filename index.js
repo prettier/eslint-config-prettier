@@ -94,6 +94,7 @@ module.exports = {
     "yield-star-spacing": "off",
     "@babel/object-curly-spacing": "off",
     "@babel/semi": "off",
+    "@typescript-eslint/block-spacing": "off",
     "@typescript-eslint/brace-style": "off",
     "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/comma-spacing": "off",
