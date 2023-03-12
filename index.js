@@ -194,9 +194,6 @@ module.exports = {
       // Deprecated since version 3.3.0.
       // https://eslint.org/docs/rules/no-spaced-func
       "no-spaced-func": "off",
-      // Deprecated since version 7.0.0.
-      // https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06
-      "react/jsx-space-before-closing": "off",
       // Removed in version 1.0.0.
       // https://eslint.org/docs/latest/rules/space-after-function-name
       "space-after-function-name": "off",
@@ -218,6 +215,9 @@ module.exports = {
       // Removed in version 0.10.0.
       // https://eslint.org/docs/latest/rules/space-unary-word-ops
       "space-unary-word-ops": "off",
+      // Deprecated since version 7.0.0.
+      // https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06
+      "react/jsx-space-before-closing": "off",
     }),
   },
 };
