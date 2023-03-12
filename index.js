@@ -173,6 +173,9 @@ module.exports = {
       // Removed in version 1.0.0.
       // https://eslint.org/docs/latest/rules/generator-star
       "generator-star": "off",
+      // Deprecated since version 4.0.0.
+      // https://github.com/eslint/eslint/pull/8286
+      "indent-legacy": "off",
       // Removed in version 2.0.0.
       // https://eslint.org/docs/latest/rules/no-arrow-condition
       "no-arrow-condition": "off",
@@ -185,15 +188,12 @@ module.exports = {
       // Removed in version 1.0.0.
       // https://eslint.org/docs/latest/rules/no-space-before-semi
       "no-space-before-semi": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-wrap-func
-      "no-wrap-func": "off",
-      // Deprecated since version 4.0.0.
-      // https://github.com/eslint/eslint/pull/8286
-      "indent-legacy": "off",
       // Deprecated since version 3.3.0.
       // https://eslint.org/docs/rules/no-spaced-func
       "no-spaced-func": "off",
+      // Removed in version 1.0.0.
+      // https://eslint.org/docs/latest/rules/no-wrap-func
+      "no-wrap-func": "off",
       // Removed in version 1.0.0.
       // https://eslint.org/docs/latest/rules/space-after-function-name
       "space-after-function-name": "off",
