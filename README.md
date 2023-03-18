@@ -172,6 +172,8 @@ Example ESLint configuration:
 
 ### [lines-around-comment]
 
+(The following applies to [@typescript-eslint/lines-around-comment] as well.)
+
 **This rule can be used with certain options.**
 
 This rule requires empty lines before and/or after comments. Prettier preserves blank lines, with two exceptions:
@@ -685,6 +687,7 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 
 [@babel/eslint-plugin]: https://github.com/babel/babel/tree/main/eslint/babel-eslint-plugin
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
+[@typescript-eslint/lines-around-comment]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-around-comment.md
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [babel/quotes]: https://github.com/babel/eslint-plugin-babel#rules

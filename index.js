@@ -15,6 +15,7 @@ module.exports = {
     "no-tabs": 0,
     "no-unexpected-multiline": 0,
     "quotes": 0,
+    "@typescript-eslint/lines-around-comment": 0,
     "@typescript-eslint/quotes": 0,
     "babel/quotes": 0,
     "vue/html-self-closing": 0,
