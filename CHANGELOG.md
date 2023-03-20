@@ -1,3 +1,7 @@
+### Version 8.8.0 (2023-03-20)
+
+- Added: [@typescript-eslint/lines-around-comment]. Thanks to @ttionya!
+
 ### Version 8.7.0 (2023-03-06)
 
 - Added: [@typescript-eslint/block-spacing]. Thanks to @ttionya!
@@ -435,6 +439,7 @@
 [@typescript-eslint/func-call-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/func-call-spacing.md
 [@typescript-eslint/key-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/key-spacing.md
 [@typescript-eslint/keyword-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/keyword-spacing.md
+[@typescript-eslint/lines-around-comment]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-around-comment.md
 [@typescript-eslint/no-extra-parens]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-parens.md
 [@typescript-eslint/no-extra-semi]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-extra-semi.md
 [@typescript-eslint/object-curly-spacing]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/object-curly-spacing.md
