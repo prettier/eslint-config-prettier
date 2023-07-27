@@ -8,9 +8,19 @@ const prettier = require("../prettier");
 
 // Require locally installed eslint, for `npx eslint-config-prettier` support
 // with no local eslint-config-prettier installation.
-const { ESLint } = require(require.resolve("eslint", {
-  paths: [process.cwd(), ...require.resolve.paths("eslint")],
-}));
+const localRequire = (request) =>
+  require(require.resolve(request, {
+    paths: [process.cwd(), ...require.resolve.paths("eslint")],
+  }));
+
+let experimentalApi = {};
+try {
+  experimentalApi = localRequire("eslint/use-at-your-own-risk");
+  // eslint-disable-next-line unicorn/prefer-optional-catch-binding
+} catch (_error) {}
+
+const { ESLint, FlatESLint = experimentalApi.FlatESLint } =
+  localRequire("eslint");
 
 const SPECIAL_RULES_URL =
   "https://github.com/prettier/eslint-config-prettier#special-rules";
@@ -27,8 +37,27 @@ if (module === require.main) {
   }
 
   const eslint = new ESLint();
+  const flatESLint = FlatESLint === undefined ? undefined : new FlatESLint();
 
-  Promise.all(args.map((file) => eslint.calculateConfigForFile(file)))
+  Promise.all(
+    args.map((file) => {
+      switch (process.env.ESLINT_USE_FLAT_CONFIG) {
+        case "true": {
+          return flatESLint.calculateConfigForFile(file);
+        }
+        case "false": {
+          return eslint.calculateConfigForFile(file);
+        }
+        default: {
+          // This turns synchronous errors (such as `.calculateConfigForFile` not existing)
+          // and turns them into promise rejections.
+          return Promise.resolve()
+            .then(() => flatESLint.calculateConfigForFile(file))
+            .catch(() => eslint.calculateConfigForFile(file));
+        }
+      }
+    })
+  )
     .then((configs) => {
       const rules = configs.flatMap(({ rules }, index) =>
         Object.entries(rules).map((entry) => [...entry, args[index]])
