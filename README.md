@@ -10,27 +10,49 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 
 ## Installation
 
-Install eslint-config-prettier:
+1. Install eslint-config-prettier:
 
-```
-npm install --save-dev eslint-config-prettier
-```
+   ```
+   npm install --save-dev eslint-config-prettier
+   ```
 
-Then, add `"prettier"` to the "extends" array in your `.eslintrc.*` file. Make sure to put it **last,** so it gets the chance to override other configs.
+2. Add eslint-config-prettier to your ESLint configuration.
 
-<!-- prettier-ignore -->
-```json
-{
-  "extends": [
-    "some-other-config-you-use",
-    "prettier"
-  ]
-}
-```
+   - eslintrc: Add `"prettier"` to the "extends" array in your `.eslintrc.*` file. Make sure to put it **last,** so it gets the chance to override other configs.
 
-Finally, run the [CLI helper tool](#cli-helper-tool) to find problems in the `"rules"` section of your `.eslintrc.*` file. (Remember, `"rules"` always “wins” over `"extends"`!)
+     <!-- prettier-ignore -->
+     ```json
+     {
+       "extends": [
+         "some-other-config-you-use",
+         "prettier"
+       ]
+     }
+     ```
 
-Extending `"prettier"` turns off a bunch of core ESLint rules, as well as a few rules from these plugins:
+   - eslint.config.js (flat config): Import eslint-config-prettier, and put it in the configuration array – **after** other configs that you want to override.
+
+     <!-- prettier-ignore -->
+     ```js
+     import someConfig from "some-other-config-you-use";
+     import configPrettier from "eslint-config-prettier";
+
+     export default [
+       someConfig,
+       configPrettier,
+     ];
+     ```
+
+3. Finally, run the [CLI helper tool](#cli-helper-tool) to find problems in the `"rules"` sections of your config.
+
+   - eslintrc: Remember, `"rules"` always “wins” over `"extends"`! So you might have problematic stuff in `"rules"` that `"extends": ["prettier"]` cannot help with.
+   - eslint.config.js (flat config): In ESLint’s new config format, later things in the config array simply wins. So if you put eslint-config-prettier as the very last thing, it should “win” over anything, even an inline `{ rules: { ... } }` object. But if you add your own rules last, the CLI tool can help you find rules that you can remove from your config instead.
+
+> 👉 Using [eslint-plugin-prettier]? Check out [eslint-plugin-prettier’s recommended config][eslint-plugin-prettier-recommended].
+
+> ℹ️ Note: You might find guides on the Internet saying you should also extend stuff like `"prettier/react"`. Since version 8.0.0 of eslint-config-prettier, all you need to extend is `"prettier"`! That includes all plugins.
+
+Again, all eslint-config-prettier does is turning off a bunch of core ESLint rules, as well as a few rules from plugins. Which plugins? These ones:
 
 - [@typescript-eslint/eslint-plugin]
 - [@babel/eslint-plugin]
@@ -40,10 +62,6 @@ Extending `"prettier"` turns off a bunch of core ESLint rules, as well as a few 
 - [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
-
-> 👉 Using [eslint-plugin-prettier]? Check out [eslint-plugin-prettier’s recommended config][eslint-plugin-prettier-recommended].
-
-> ℹ️ Note: You might find guides on the Internet saying you should also extend stuff like `"prettier/react"`. Since version 8.0.0 of eslint-config-prettier, all you need to extend is `"prettier"`! That includes all plugins.
 
 ### Excluding deprecated rules
 
@@ -57,7 +75,7 @@ env ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npx eslint-find-rules --deprecated
 
 eslint-config-prettier also ships with a little CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier.
 
-🚨 This example has a **conflicting rule** `"indent"` enabled:
+🚨 This eslintrc example has a **conflicting rule** `"indent"` enabled:
 
 <!-- prettier-ignore -->
 ```json
@@ -72,9 +90,45 @@ eslint-config-prettier also ships with a little CLI tool to help you check if yo
 }
 ```
 
-While the `"prettier"` config can disable problematic rules in `"some-other-config-you-use"`, it cannot touch `"rules"`! (That’s how ESLint works – it lets you override configs you extend.) The CLI helper tool reports that `"indent"` conflicts with Prettier, so you can remove it. (Which is nice – simplifying your config!)
+For eslintrc, while the `"prettier"` config can disable problematic rules in `"some-other-config-you-use"`, it cannot touch `"rules"`! (That’s how ESLint works – it lets you override configs you extend.) The CLI helper tool reports that `"indent"` conflicts with Prettier, so you can remove it. (Which is nice – simplifying your config!)
 
-You can run it using `npx`:
+🚨 This eslint.config.js (flat config) example also has a **conflicting rule** `"indent"` enabled:
+
+```js
+import someConfig from "some-other-config-you-use";
+import configPrettier from "eslint-config-prettier";
+
+export default [
+  someConfig,
+  configPrettier,
+  {
+    rules: {
+      indent: "error",
+    },
+  },
+];
+```
+
+With the new ESLint “flat config” format, you can control what things override what yourself. One way of solving the above conflict is to reorder the config objects so that eslint-config-prettier is last:
+
+```js
+import someConfig from "some-other-config-you-use";
+import configPrettier from "eslint-config-prettier";
+
+export default [
+  someConfig,
+  {
+    rules: {
+      indent: "error",
+    },
+  },
+  configPrettier, // eslint-config-prettier last
+];
+```
+
+However, looking at the above config might feel confusing. It looks like we enable the `indent` rule, but in reality it’s disabled thanks to the `configPrettier` line below it. Instead you might want to actually have your own rules _after_ eslint-config-prettier and run the CLI helper tool to find out about problems, so you can remove conflicting rules from the config file altogether.
+
+For both eslintrc and eslint.config.js (flat config), can **run the CLI helper tool using `npx`:**
 
 ```
 npx eslint-config-prettier path/to/main.js
@@ -93,6 +147,15 @@ Exit codes:
 - 0: No problems found.
 - 1: Unexpected error.
 - 2: Conflicting rules found.
+
+Just like ESLint itself, you can control the eslint-config-prettier CLI helper tool using the `ESLINT_USE_FLAT_CONFIG` environment variable:
+
+- `ESLINT_USE_FLAT_CONFIG=true`: Only use eslint.config.js (flat config).
+- `ESLINT_USE_FLAT_CONFIG=false`: Only use eslintrc files.
+- Unset or any other value: First try eslint.config.js, then eslintrc.
+
+> **Warning**  
+> The CLI helper tool imports `eslint/use-at-your-own-risk` for eslint.config.js (flat config), which may break at any time.
 
 ### Legacy
 
@@ -664,7 +727,7 @@ Then, create `test-lint/foobar.js`:
 console.log();
 ```
 
-`test-lint/foobar.js` must fail when used with eslint-plugin-foobar and eslint-plugin-prettier at the same time – until `"prettier/foobar"` is added to the "extends" property of an ESLint config. The file should be formatted according to Prettier, and that formatting should disagree with the plugin.
+`test-lint/foobar.js` must fail when used with eslint-plugin-foobar and eslint-plugin-prettier at the same time – until eslint-config-prettier is added to the ESLint config. The file should be formatted according to Prettier, and that formatting should disagree with the plugin.
 
 Finally, you need to mention the plugin in several places:
 
