@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        node-version: [14, 16, 18, 19]
+        node-version: [16, 18, 20]
 
     steps:
       - uses: actions/checkout@v3
@@ -39,7 +39,7 @@ jobs:
         run: npm ci --no-audit
 
       - name: Jest
-        run: npx --no-install jest
+        run: npx jest
 
       - name: CLI sanity
         run: npm run test:cli-sanity

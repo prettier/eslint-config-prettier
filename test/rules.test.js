@@ -3,7 +3,6 @@
 const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
-const rimraf = require("rimraf");
 const config = require("../");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
@@ -43,7 +42,7 @@ beforeAll(() => {
 });
 
 function createTestConfigDir() {
-  rimraf.sync(TEST_CONFIG_DIR);
+  fs.rmSync(TEST_CONFIG_DIR, { recursive: true, force: true });
   fs.mkdirSync(TEST_CONFIG_DIR);
 
   // Change all rules to "warn", so that ESLint warns about unknown rules.
