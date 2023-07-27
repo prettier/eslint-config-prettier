@@ -135,6 +135,7 @@ module.exports = {
     "unicorn/number-literal-case": "off",
     "vue/array-bracket-newline": "off",
     "vue/array-bracket-spacing": "off",
+    "vue/array-element-newline": "off",
     "vue/arrow-spacing": "off",
     "vue/block-spacing": "off",
     "vue/block-tag-newline": "off",
