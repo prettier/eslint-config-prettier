@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [18]
+        node-version: [20]
 
     steps:
       - uses: actions/checkout@v3
@@ -39,10 +39,10 @@ jobs:
         run: npm ci --no-audit
 
       - name: ESLint
-        run: npx --no-install eslint .
+        run: npx eslint .
 
       - name: Prettier
-        run: npx --no-install prettier --check .
+        run: npx prettier --check .
 
       - name: Build
         run: npm run build

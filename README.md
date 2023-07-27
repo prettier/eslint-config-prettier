@@ -6,6 +6,8 @@ This lets you use your favorite shareable config without letting its stylistic c
 
 Note that this config _only_ turns rules _off,_ so it only makes sense using it together with some other config.
 
+[prettier]: https://github.com/prettier/prettier
+
 ## Installation
 
 Install eslint-config-prettier:
@@ -714,7 +716,6 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [overrides]: https://eslint.org/docs/user-guide/configuring#configuration-based-on-glob-patterns
 [package.json]: https://github.com/prettier/eslint-config-prettier/blob/main/package.json
 [prefer-arrow-callback]: https://eslint.org/docs/rules/prefer-arrow-callback
-[prettier]: https://github.com/prettier/prettier
 [quotes]: https://eslint.org/docs/rules/quotes
 [singlequote]: https://prettier.io/docs/en/options.html#quotes
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
