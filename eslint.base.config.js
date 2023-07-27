@@ -1,0 +1,93 @@
+"use strict";
+
+// This file is only used in `./eslint.config.js` and in the tests – it’s not part
+// of the eslint-config-prettier npm package.
+//
+// NOTE: Keep this file in sync with `./.eslintrc.base.js`!
+
+const fs = require("fs");
+const path = require("path");
+const babelOld = require("eslint-plugin-babel");
+const babelNew = require("@babel/eslint-plugin");
+const babelParser = require("@babel/eslint-parser");
+const flowtype = require("eslint-plugin-flowtype");
+const globals = require("globals");
+const google = require("eslint-config-google");
+const react = require("eslint-plugin-react");
+const unicorn = require("eslint-plugin-unicorn");
+const vue = require("eslint-plugin-vue");
+const eslintrcBase = require("./.eslintrc.base");
+
+module.exports = [
+  {
+    ignores: fs
+      .readFileSync(path.join(__dirname, ".eslintignore"), "utf8")
+      .trim()
+      .split("\n"),
+  },
+  {
+    // TODO
+    ignores: ["test-lint/flowtype.js"],
+  },
+  google,
+  {
+    plugins: {
+      "babel": babelOld,
+      "@babel": babelNew,
+    },
+  },
+  {
+    plugins: {
+      flowtype,
+    },
+    rules: flowtype.configs.recommended.rules,
+    settings: flowtype.configs.recommended.settings,
+  },
+  {
+    plugins: {
+      react,
+    },
+    rules: react.configs.all.rules,
+  },
+  {
+    plugins: {
+      unicorn,
+    },
+    rules: unicorn.configs.recommended.rules,
+  },
+  {
+    plugins: {
+      vue,
+    },
+    rules: {
+      ...vue.configs.base.rules,
+      ...vue.configs.base.essential,
+      ...vue.configs.base["strongly-recommended"],
+      ...vue.configs.base.recommended,
+    },
+  },
+  {
+    languageOptions: {
+      ecmaVersion: eslintrcBase.parserOptions.ecmaVersion,
+      sourceType: eslintrcBase.parserOptions.sourceType,
+      globals: {
+        ...globals.es6,
+        ...globals.node,
+      },
+      parser: babelParser,
+      parserOptions: {
+        babelOptions: {
+          plugins: [
+            "@babel/plugin-transform-react-jsx",
+            "@babel/plugin-syntax-flow",
+          ],
+        },
+        loggerFn: eslintrcBase.parserOptions.loggerFn,
+        ecmaFeatures: eslintrcBase.parserOptions.ecmaFeatures,
+      },
+    },
+    rules: eslintrcBase.rules,
+    settings: eslintrcBase.settings,
+  },
+  ...eslintrcBase.overrides,
+];

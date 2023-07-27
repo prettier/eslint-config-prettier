@@ -674,7 +674,8 @@ Finally, you need to mention the plugin in several places:
 
 When you’re done, run `npm test` to verify that you got it all right. It runs several other npm scripts:
 
-- `"test:lint"` makes sure that the files in `test-lint/` pass ESLint when the exclusions from eslint-config-prettier are used. It also lints the code of eslint-config-prettier itself, and checks that Prettier has been run on all files.
+- `"test:prettier"` checks that Prettier has been run on all files.
+- `"test:eslint"` makes sure that the files in `test-lint/` pass ESLint when the exclusions from eslint-config-prettier are used. It also lints the code of eslint-config-prettier itself.
 - `"test:lint-verify-fail"` is run by a test in `test/lint-verify-fail.test.js`.
 - `"test:lint-rules"` is run by a test in `test/rules.test.js`.
 - `"test:jest"` runs unit tests that check a number of things:

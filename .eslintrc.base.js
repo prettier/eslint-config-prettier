@@ -2,6 +2,8 @@
 
 // This file is only used in `./.eslintrc.js` and in the tests – it’s not part
 // of the eslint-config-prettier npm package.
+//
+// NOTE: Keep this file in sync with `./eslint.base.config.js`!
 
 const config = require(".");
 
@@ -40,7 +42,7 @@ module.exports = {
     "indent": "off",
     "linebreak-style": "off",
     "no-dupe-keys": "error",
-    "strict": "error",
+    "strict": ["error", "global"],
     "prefer-spread": "off",
     "require-jsdoc": "off",
     "prettier/prettier": "error",

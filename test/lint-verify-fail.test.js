@@ -29,7 +29,13 @@ ${result.stderr}
 describe("test-lint/ causes errors without eslint-config-prettier", () => {
   const result = childProcess.spawnSync(
     "npm",
-    ["run", "test:lint-verify-fail", "--silent"],
+    [
+      "run",
+      process.env.ESLINT_USE_FLAT_CONFIG === "false"
+        ? "test:lint-verify-fail"
+        : "test:lint-verify-fail:flat",
+      "--silent",
+    ],
     { encoding: "utf8", shell: true }
   );
   const output = parseJson(result);

@@ -38,8 +38,13 @@ jobs:
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: npm ci --no-audit
 
-      - name: ESLint
+      - name: ESLint – flat
         run: npx eslint .
+
+      - name: ESLint – eslintrc
+        run: npx eslint .
+        env:
+          ESLINT_USE_FLAT_CONFIG: "false"
 
       - name: Prettier
         run: npx prettier --check .

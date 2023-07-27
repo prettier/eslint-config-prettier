@@ -6,6 +6,8 @@ const path = require("path");
 const config = require("../");
 const eslintConfig = require("../.eslintrc");
 const eslintConfigBase = require("../.eslintrc.base");
+const flatEslintConfig = require("../eslint.config");
+const flatEslintConfigBase = require("../eslint.base.config");
 
 const ROOT = path.join(__dirname, "..");
 const TEST_CONFIG_DIR = path.join(ROOT, "test-config");
@@ -71,6 +73,16 @@ function createTestConfigDir() {
     path.join(TEST_CONFIG_DIR, ".eslintrc.base.js"),
     `module.exports = ${JSON.stringify(eslintConfigBase, null, 2)};`
   );
+
+  fs.writeFileSync(
+    path.join(TEST_CONFIG_DIR, "eslint.config.js"),
+    `module.exports = ${JSON.stringify(flatEslintConfig, null, 2)};`
+  );
+
+  fs.writeFileSync(
+    path.join(TEST_CONFIG_DIR, "eslint.base.config.js"),
+    `module.exports = ${JSON.stringify(flatEslintConfigBase, null, 2)};`
+  );
 }
 
 describe("all plugins have tests in test-lint/", () => {
@@ -126,7 +138,13 @@ describe('all rules are set to "off" or 0', () => {
 test("there are no unknown rules", () => {
   const result = childProcess.spawnSync(
     "npm",
-    ["run", "test:lint-rules", "--silent"],
+    [
+      "run",
+      process.env.ESLINT_USE_FLAT_CONFIG === "false"
+        ? "test:lint-rules"
+        : "test:lint-rules:flat",
+      "--silent",
+    ],
     { encoding: "utf8", shell: true }
   );
   const output = parseJson(result);

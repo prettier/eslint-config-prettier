@@ -2,14 +2,18 @@
   "private": true,
   "scripts": {
     "prettier": "prettier --write .",
-    "test:lint": "eslint . && prettier --check .",
+    "test:prettier": "prettier --check .",
+    "test:eslint": "eslint .",
     "test:lint-verify-fail": "eslint \"test-lint/*.{js,ts,vue}\" --config .eslintrc.base.js --format json",
+    "test:lint-verify-fail:flat": "eslint \"test-lint/*.{js,ts,vue}\" --config eslint.base.config.js --format json",
     "test:lint-rules": "eslint index.js --config test-config/.eslintrc.js --format json",
+    "test:lint-rules:flat": "eslint index.js --config test-config/eslint.config.js --format json",
     "test:deprecated": "eslint-find-rules --deprecated index.js",
     "test:jest": "jest",
     "test:cli-sanity": "node ./bin/cli.js index.js",
     "test:cli-sanity-warning": "node ./bin/cli.js react.js ./bin/cli.js",
-    "test": "npm run test:lint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning && npm run build",
+    "test:most": "npm run test:eslint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning",
+    "test": "npm run test:prettier && npm run test:most && ESLINT_USE_FLAT_CONFIG=false npm run test:most && npm run build",
     "build": "node scripts/build.js"
   },
   "devDependencies": {
@@ -30,6 +34,7 @@
     "eslint-plugin-standard": "4.1.0",
     "eslint-plugin-unicorn": "48.0.1",
     "eslint-plugin-vue": "9.15.1",
+    "globals": "13.20.0",
     "jest": "29.6.2",
     "prettier": "3.0.0",
     "typescript": "5.1.6"
