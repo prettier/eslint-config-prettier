@@ -1,3 +1,7 @@
+### Version 8.9.0 (2023-07-27)
+
+- Added: [vue/array-element-newline]. Thanks to @xcatliu!
+
 ### Version 8.8.0 (2023-03-20)
 
 - Added: [@typescript-eslint/lines-around-comment]. Thanks to @ttionya!
@@ -504,6 +508,7 @@
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
 [unicorn/empty-brace-spaces]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/empty-brace-spaces.md
 [unicorn/no-nested-ternary]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-nested-ternary.md
+[vue/array-element-newline]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/array-element-newline.md
 [vue/arrow-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/arrow-spacing.md
 [vue/block-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-spacing.md
 [vue/brace-style]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/brace-style.md
