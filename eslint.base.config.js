@@ -30,7 +30,7 @@ module.exports = [
   },
   {
     // TODO
-    ignores: ["test-lint/flowtype.js"],
+    // ignores: ["test-lint/flowtype.js"],
   },
   google,
   {
@@ -62,14 +62,16 @@ module.exports = [
     rules: unicorn.configs.recommended.rules,
   },
   {
+    files: ["**/*.vue"],
+    processor: vue.processors[".vue"],
     plugins: {
       vue,
     },
     rules: {
       ...vue.configs.base.rules,
-      ...vue.configs.base.essential,
-      ...vue.configs.base["strongly-recommended"],
-      ...vue.configs.base.recommended,
+      ...vue.configs.essential.rules,
+      ...vue.configs["strongly-recommended"].rules,
+      ...vue.configs.recommended.rules,
     },
   },
   {
@@ -95,5 +97,8 @@ module.exports = [
     rules: eslintrcBase.rules,
     settings: eslintrcBase.settings,
   },
-  ...eslintrcBase.overrides,
+  ...eslintrcBase.overrides.map(({ parserOptions, ...override }) => ({
+    ...override,
+    languageOptions: { parser: require(parserOptions.parser) },
+  })),
 ];

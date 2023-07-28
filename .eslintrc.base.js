@@ -76,7 +76,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.ts", "*.tsx"],
+      files: ["**/*.{ts,tsx}"],
       parserOptions: { parser: "@typescript-eslint/parser" },
       rules: {
         // Force a conflict with Prettier in test-lint/typescript.js.
