@@ -4,10 +4,6 @@ const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const config = require("../");
-const eslintConfig = require("../.eslintrc");
-const eslintConfigBase = require("../.eslintrc.base");
-const flatEslintConfig = require("../eslint.config");
-const flatEslintConfigBase = require("../eslint.base.config");
 
 const ROOT = path.join(__dirname, "..");
 const TEST_CONFIG_DIR = path.join(ROOT, "test-config");
@@ -64,24 +60,29 @@ function createTestConfigDir() {
     path.join(TEST_CONFIG_DIR, "prettier.js")
   );
 
-  fs.writeFileSync(
-    path.join(TEST_CONFIG_DIR, ".eslintrc.js"),
-    `module.exports = ${JSON.stringify(eslintConfig, null, 2)};`
+  fs.copyFileSync(
+    path.join(ROOT, ".eslintrc.js"),
+    path.join(TEST_CONFIG_DIR, ".eslintrc.js")
   );
 
-  fs.writeFileSync(
-    path.join(TEST_CONFIG_DIR, ".eslintrc.base.js"),
-    `module.exports = ${JSON.stringify(eslintConfigBase, null, 2)};`
+  fs.copyFileSync(
+    path.join(ROOT, ".eslintrc.base.js"),
+    path.join(TEST_CONFIG_DIR, ".eslintrc.base.js")
   );
 
-  fs.writeFileSync(
-    path.join(TEST_CONFIG_DIR, "eslint.config.js"),
-    `module.exports = ${JSON.stringify(flatEslintConfig, null, 2)};`
+  fs.copyFileSync(
+    path.join(ROOT, "eslint.config.js"),
+    path.join(TEST_CONFIG_DIR, "eslint.config.js")
   );
 
-  fs.writeFileSync(
-    path.join(TEST_CONFIG_DIR, "eslint.base.config.js"),
-    `module.exports = ${JSON.stringify(flatEslintConfigBase, null, 2)};`
+  fs.copyFileSync(
+    path.join(ROOT, "eslint.base.config.js"),
+    path.join(TEST_CONFIG_DIR, "eslint.base.config.js")
+  );
+
+  fs.copyFileSync(
+    path.join(ROOT, ".eslintignore"),
+    path.join(TEST_CONFIG_DIR, ".eslintignore")
   );
 }
 

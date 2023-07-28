@@ -13,7 +13,10 @@ const babelParser = require("@babel/eslint-parser");
 const flowtype = require("eslint-plugin-flowtype");
 const globals = require("globals");
 const google = require("eslint-config-google");
+const prettier = require("eslint-plugin-prettier");
 const react = require("eslint-plugin-react");
+const standard = require("eslint-plugin-standard");
+const typescriptEslint = require("@typescript-eslint/eslint-plugin");
 const unicorn = require("eslint-plugin-unicorn");
 const vue = require("eslint-plugin-vue");
 const eslintrcBase = require("./.eslintrc.base");
@@ -32,8 +35,11 @@ module.exports = [
   google,
   {
     plugins: {
+      "@typescript-eslint": typescriptEslint,
       "babel": babelOld,
       "@babel": babelNew,
+      prettier,
+      standard,
     },
   },
   {
