@@ -45,6 +45,7 @@ module.exports = {
     "key-spacing": "off",
     "keyword-spacing": "off",
     "linebreak-style": "off",
+    "max-statements-per-line": "off",
     "multiline-ternary": "off",
     "newline-per-chained-call": "off",
     "new-parens": "off",
