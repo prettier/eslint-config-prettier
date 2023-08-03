@@ -30,7 +30,7 @@ module.exports = [
       .split("\n"),
   },
   {
-    // Have not managed to get flowtype running in flat config yet.
+    // TODO: Figure out how to get flowtype running in flat config.
     ignores: ["test-lint/flowtype.js"],
   },
   google,

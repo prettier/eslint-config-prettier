@@ -9,7 +9,7 @@ const testLintFiles = fs
   .filter(
     (name) =>
       !name.startsWith(".") &&
-      // Have not managed to get flowtype running in flat config yet.
+      // TODO: Figure out how to get flowtype running in flat config.
       (process.env.ESLINT_USE_FLAT_CONFIG === "false" || name !== "flowtype.js")
   );
 
