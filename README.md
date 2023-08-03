@@ -47,9 +47,9 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 
 > 👉 Using [eslint-plugin-prettier]? Check out [eslint-plugin-prettier’s recommended config][eslint-plugin-prettier-recommended].
 
-> ℹ️ Note: You might find guides on the Internet saying you should also extend stuff like `"prettier/react"`. Since version 8.0.0 of eslint-config-prettier, all you need to extend is `"prettier"`! That includes all plugins.
+### Plugins
 
-Again, all eslint-config-prettier does is turning off a bunch of core ESLint rules, as well as a few rules from plugins. Which plugins? These ones:
+eslint-config-prettier not only turns off _core_ rules, but also some from these plugins automatically:
 
 - [@typescript-eslint/eslint-plugin]
 - [@babel/eslint-plugin]
@@ -59,6 +59,43 @@ Again, all eslint-config-prettier does is turning off a bunch of core ESLint rul
 - [eslint-plugin-standard]
 - [eslint-plugin-unicorn]
 - [eslint-plugin-vue]
+
+> ℹ️ Note: You might find guides on the Internet saying you should also extend stuff like `"prettier/react"`. Since version 8.0.0 of eslint-config-prettier, all you need to extend is `"prettier"`! That includes all plugins.
+
+#### eslint.config.js (flat config) plugin caveat
+
+With flat config, _you_ get to decide the plugin name! For example:
+
+```js
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import eslintConfigPrettier from "eslint-config-prettier";
+
+export default [
+  {
+    plugins: {
+      // You’d typically use one of the following two:
+      // typescriptEslint: typescriptEslint,
+      // typescriptEslint,
+      // But in this example we give it another name.
+      // It might be tempting to use something shorter like “ts”:
+      ts: typescriptEslint, // 🚨 Don’t do this!
+    },
+    rules: {
+      // With eslintrc, this is _always_ called:
+      // @typescript-eslint/indent
+      // But in eslint.config.js (flat config), the name chosen above in `plugins` is used.
+      "ts/indent": "error", // 🚨 Don’t do this!
+    },
+  },
+  eslintConfigPrettier,
+];
+```
+
+You might expect eslint-config-prettier to turn off `ts/indent`, but it won’t! Because eslint-config-prettier only turns off `@typescript-eslint/indent`. It cannot know what you chose to call the plugin. Same thing for the CLI helper tool.
+
+Simply stick to the official plugin names and you’ll be all good.
+
+If you encounter a shared _config_ that uses a non-standard plugin name, please ask them to use the standard name instead.
 
 ### Excluding deprecated rules
 
