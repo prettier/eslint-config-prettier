@@ -70,7 +70,17 @@ env ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npx eslint-find-rules --deprecated
 
 ## CLI helper tool
 
-eslint-config-prettier also ships with a little CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier.
+eslint-config-prettier also ships with a little CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier. Here’s how to run it:
+
+```
+npx eslint-config-prettier path/to/main.js
+```
+
+(Change `path/to/main.js` to a file that exists in your project.)
+
+### What and why
+
+Now, let’s have a look at what it does and why you might want to use it.
 
 🚨 This eslintrc example has a **conflicting rule** `"indent"` enabled:
 
@@ -125,25 +135,21 @@ export default [
 
 However, looking at the above config might feel confusing. It looks like we enable the `indent` rule, but in reality it’s disabled thanks to the `eslintConfigPrettier` line below it. Instead you might want to actually have your own rules _after_ eslint-config-prettier and run the CLI helper tool to find out about problems, so you can remove conflicting rules from the config file altogether (simplifying your config).
 
-For both eslintrc and eslint.config.js (flat config), can **run the CLI helper tool using `npx`:**
+### Checking multiple files
 
-```
-npx eslint-config-prettier path/to/main.js
-```
-
-(Change `path/to/main.js` to a file that exists in your project.)
-
-In theory you need to run the tool for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. Usually you’ll have about the same rules for all files, so it is good enough to run the command on one file. But if you use [multiple configuration files] or [overrides], you can provide several files check:
+In theory you need to run the tool for every single file in your project to be 100% sure that there are no conflicting rules, because ESLint supports having different rules for different files. Usually you’ll have about the same rules for all files, so it is good enough to run the command on one file. But if you use [multiple configuration files] or [overrides], you can provide several files to check:
 
 ```
 npx eslint-config-prettier index.js test/index.js legacy/main.js
 ```
 
-Exit codes:
+### Exit codes
 
 - 0: No problems found.
 - 1: Unexpected error.
 - 2: Conflicting rules found.
+
+### ESLINT_USE_FLAT_CONFIG environment variable
 
 Just like ESLint itself, you can control the eslint-config-prettier CLI helper tool using the `ESLINT_USE_FLAT_CONFIG` environment variable:
 
@@ -152,7 +158,7 @@ Just like ESLint itself, you can control the eslint-config-prettier CLI helper t
 - Unset or any other value: First try eslint.config.js, then eslintrc.
 
 > **Warning**  
-> The CLI helper tool imports `eslint/use-at-your-own-risk` for eslint.config.js (flat config), which may break at any time.
+> For eslint.config.js (flat config), the CLI helper tool imports `eslint/use-at-your-own-risk` which may break at any time.
 
 ### Legacy
 
@@ -729,8 +735,8 @@ console.log();
 Finally, you need to mention the plugin in several places:
 
 - Add eslint-plugin-foobar to the "devDependencies" field in `package.json`.
-- Make sure that at least one rule from eslint-plugin-foobar gets used in `.eslintrc.base.js`.
-- Add it to the lists of supported plugins and in this `README.md`.
+- Make sure that at least one rule from eslint-plugin-foobar gets used in `.eslintrc.base.js` and `eslint.base.config.js`.
+- Add it to the lists of supported plugins in this `README.md`.
 
 When you’re done, run `npm test` to verify that you got it all right. It runs several other npm scripts:
 
