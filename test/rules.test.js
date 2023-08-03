@@ -44,6 +44,8 @@ function createTestConfigDir() {
   fs.mkdirSync(TEST_CONFIG_DIR);
 
   // Change all rules to "warn", so that ESLint warns about unknown rules.
+  // Note: With flat config, ESLint throws errors for _removed_ rules if
+  // set to anything other than "off".
   const newRules = Object.fromEntries(
     Object.entries(config.rules).map(([ruleName]) => [ruleName, "warn"])
   );
@@ -55,35 +57,21 @@ function createTestConfigDir() {
     `module.exports = ${JSON.stringify(newConfig, null, 2)};`
   );
 
-  fs.copyFileSync(
-    path.join(ROOT, "prettier.js"),
-    path.join(TEST_CONFIG_DIR, "prettier.js")
-  );
+  const filesToCopy = [
+    "prettier.js",
+    ".eslintrc.js",
+    ".eslintrc.base.js",
+    "eslint.config.js",
+    "eslint.base.config.js",
+    ".eslintignore",
+  ];
 
-  fs.copyFileSync(
-    path.join(ROOT, ".eslintrc.js"),
-    path.join(TEST_CONFIG_DIR, ".eslintrc.js")
-  );
-
-  fs.copyFileSync(
-    path.join(ROOT, ".eslintrc.base.js"),
-    path.join(TEST_CONFIG_DIR, ".eslintrc.base.js")
-  );
-
-  fs.copyFileSync(
-    path.join(ROOT, "eslint.config.js"),
-    path.join(TEST_CONFIG_DIR, "eslint.config.js")
-  );
-
-  fs.copyFileSync(
-    path.join(ROOT, "eslint.base.config.js"),
-    path.join(TEST_CONFIG_DIR, "eslint.base.config.js")
-  );
-
-  fs.copyFileSync(
-    path.join(ROOT, ".eslintignore"),
-    path.join(TEST_CONFIG_DIR, ".eslintignore")
-  );
+  for (const fileToCopy of filesToCopy) {
+    fs.copyFileSync(
+      path.join(ROOT, fileToCopy),
+      path.join(TEST_CONFIG_DIR, fileToCopy)
+    );
+  }
 }
 
 describe("all plugins have tests in test-lint/", () => {
@@ -166,7 +154,9 @@ test("support omitting all deprecated rules", () => {
       },
     });
 
-  const result1 = run();
+  const result1 = run({
+    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: undefined,
+  });
   const result2 = run({
     ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true",
   });
