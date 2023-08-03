@@ -6,7 +6,12 @@ const path = require("path");
 
 const testLintFiles = fs
   .readdirSync(path.join(__dirname, "..", "test-lint"))
-  .filter((name) => !name.startsWith("."));
+  .filter(
+    (name) =>
+      !name.startsWith(".") &&
+      // Have not managed to get flowtype running in flat config yet.
+      (process.env.ESLINT_USE_FLAT_CONFIG === "false" || name !== "flowtype.js")
+  );
 
 function parseJson(result) {
   try {
@@ -45,7 +50,9 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
   });
 
   output.forEach((data) => {
-    const name = path.basename(data.filePath).replace(/\.(?:js|ts|vue)$/, "");
+    const name = path
+      .basename(data.filePath)
+      .replace(/\.(?:js|ts)$|-file\.vue$/, "");
     const ruleIds = data.messages.map((message) => message.ruleId);
 
     describe(name, () => {

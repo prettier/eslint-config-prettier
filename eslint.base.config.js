@@ -30,8 +30,8 @@ module.exports = [
       .split("\n"),
   },
   {
-    // TODO
-    // ignores: ["test-lint/flowtype.js"],
+    // Have not managed to get flowtype running in flat config yet.
+    ignores: ["test-lint/flowtype.js"],
   },
   google,
   {
@@ -39,27 +39,22 @@ module.exports = [
       "@typescript-eslint": typescriptEslint,
       "babel": babelOld,
       "@babel": babelNew,
+      flowtype,
       prettier,
+      react,
       standard,
+      unicorn,
+      vue,
     },
   },
   {
-    plugins: {
-      flowtype,
-    },
     rules: flowtype.configs.recommended.rules,
     settings: flowtype.configs.recommended.settings,
   },
   {
-    plugins: {
-      react,
-    },
     rules: react.configs.all.rules,
   },
   {
-    plugins: {
-      unicorn,
-    },
     rules: unicorn.configs.recommended.rules,
   },
   {
@@ -71,16 +66,6 @@ module.exports = [
         ...globals.node,
       },
       parser: babelParser,
-      parserOptions: {
-        babelOptions: {
-          plugins: [
-            "@babel/plugin-transform-react-jsx",
-            "@babel/plugin-syntax-flow",
-          ],
-        },
-        loggerFn: eslintrcBase.parserOptions.loggerFn,
-        ecmaFeatures: eslintrcBase.parserOptions.ecmaFeatures,
-      },
     },
     rules: eslintrcBase.rules,
     settings: eslintrcBase.settings,
@@ -90,9 +75,6 @@ module.exports = [
     processor: vue.processors[".vue"],
     languageOptions: {
       parser: vueParser,
-    },
-    plugins: {
-      vue,
     },
     rules: {
       ...vue.configs.base.rules,
