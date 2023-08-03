@@ -16,7 +16,7 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
    npm install --save-dev eslint-config-prettier
    ```
 
-2. Add eslint-config-prettier to your ESLint configuration.
+2. Add eslint-config-prettier to your ESLint configuration – either to [eslintrc] or to [eslint.config.js (flat config)].
 
    - eslintrc: Add `"prettier"` to the "extends" array in your `.eslintrc.*` file. Make sure to put it **last,** so it gets the chance to override other configs.
 
@@ -35,18 +35,15 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
      <!-- prettier-ignore -->
      ```js
      import someConfig from "some-other-config-you-use";
-     import configPrettier from "eslint-config-prettier";
+     import eslintConfigPrettier from "eslint-config-prettier";
 
      export default [
        someConfig,
-       configPrettier,
+       eslintConfigPrettier,
      ];
      ```
 
 3. Finally, run the [CLI helper tool](#cli-helper-tool) to find problems in the `"rules"` sections of your config.
-
-   - eslintrc: Remember, `"rules"` always “wins” over `"extends"`! So you might have problematic stuff in `"rules"` that `"extends": ["prettier"]` cannot help with.
-   - eslint.config.js (flat config): In ESLint’s new config format, later things in the config array simply wins. So if you put eslint-config-prettier as the very last thing, it should “win” over anything, even an inline `{ rules: { ... } }` object. But if you add your own rules last, the CLI tool can help you find rules that you can remove from your config instead.
 
 > 👉 Using [eslint-plugin-prettier]? Check out [eslint-plugin-prettier’s recommended config][eslint-plugin-prettier-recommended].
 
@@ -96,11 +93,11 @@ For eslintrc, while the `"prettier"` config can disable problematic rules in `"s
 
 ```js
 import someConfig from "some-other-config-you-use";
-import configPrettier from "eslint-config-prettier";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
   someConfig,
-  configPrettier,
+  eslintConfigPrettier,
   {
     rules: {
       indent: "error",
@@ -113,7 +110,7 @@ With the new ESLint “flat config” format, you can control what things overri
 
 ```js
 import someConfig from "some-other-config-you-use";
-import configPrettier from "eslint-config-prettier";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
   someConfig,
@@ -122,11 +119,11 @@ export default [
       indent: "error",
     },
   },
-  configPrettier, // eslint-config-prettier last
+  eslintConfigPrettier, // eslint-config-prettier last
 ];
 ```
 
-However, looking at the above config might feel confusing. It looks like we enable the `indent` rule, but in reality it’s disabled thanks to the `configPrettier` line below it. Instead you might want to actually have your own rules _after_ eslint-config-prettier and run the CLI helper tool to find out about problems, so you can remove conflicting rules from the config file altogether.
+However, looking at the above config might feel confusing. It looks like we enable the `indent` rule, but in reality it’s disabled thanks to the `eslintConfigPrettier` line below it. Instead you might want to actually have your own rules _after_ eslint-config-prettier and run the CLI helper tool to find out about problems, so you can remove conflicting rules from the config file altogether (simplifying your config).
 
 For both eslintrc and eslint.config.js (flat config), can **run the CLI helper tool using `npx`:**
 
@@ -767,6 +764,8 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
+[eslint.config.js (flat config)]: https://eslint.org/docs/latest/use/configure/configuration-files-new
+[eslintrc]: https://eslint.org/docs/latest/use/configure/configuration-files
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
