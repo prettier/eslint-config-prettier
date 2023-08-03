@@ -19,6 +19,7 @@ const standard = require("eslint-plugin-standard");
 const typescriptEslint = require("@typescript-eslint/eslint-plugin");
 const unicorn = require("eslint-plugin-unicorn");
 const vue = require("eslint-plugin-vue");
+const vueParser = require("vue-eslint-parser");
 const eslintrcBase = require("./.eslintrc.base");
 
 module.exports = [
@@ -62,19 +63,6 @@ module.exports = [
     rules: unicorn.configs.recommended.rules,
   },
   {
-    files: ["**/*.vue"],
-    processor: vue.processors[".vue"],
-    plugins: {
-      vue,
-    },
-    rules: {
-      ...vue.configs.base.rules,
-      ...vue.configs.essential.rules,
-      ...vue.configs["strongly-recommended"].rules,
-      ...vue.configs.recommended.rules,
-    },
-  },
-  {
     languageOptions: {
       ecmaVersion: eslintrcBase.parserOptions.ecmaVersion,
       sourceType: eslintrcBase.parserOptions.sourceType,
@@ -96,6 +84,22 @@ module.exports = [
     },
     rules: eslintrcBase.rules,
     settings: eslintrcBase.settings,
+  },
+  {
+    files: ["**/*.vue"],
+    processor: vue.processors[".vue"],
+    languageOptions: {
+      parser: vueParser,
+    },
+    plugins: {
+      vue,
+    },
+    rules: {
+      ...vue.configs.base.rules,
+      ...vue.configs.essential.rules,
+      ...vue.configs["strongly-recommended"].rules,
+      ...vue.configs.recommended.rules,
+    },
   },
   ...eslintrcBase.overrides.map(({ parserOptions, ...override }) => ({
     ...override,

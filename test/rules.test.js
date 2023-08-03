@@ -91,7 +91,7 @@ describe("all plugins have tests in test-lint/", () => {
     test(plugin, () => {
       const testFileName =
         plugin === "vue"
-          ? "vue.vue"
+          ? "vue-file.vue"
           : plugin === "@typescript-eslint"
           ? `${plugin}.ts`
           : `${plugin}.js`;
