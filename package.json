@@ -12,8 +12,8 @@
     "test:jest": "jest",
     "test:cli-sanity": "node ./bin/cli.js index.js",
     "test:cli-sanity-warning": "node ./bin/cli.js react.js ./bin/cli.js",
-    "test:most": "npm run test:eslint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning",
-    "test": "npm run test:prettier && ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npm run test:most && ESLINT_USE_FLAT_CONFIG=false npm run test:most && npm run build",
+    "test:with-env": "npm run test:eslint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning",
+    "test": "npm run test:prettier && ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npm run test:with-env && ESLINT_USE_FLAT_CONFIG=false npm run test:with-env && npm run build",
     "build": "node scripts/build.js"
   },
   "devDependencies": {
