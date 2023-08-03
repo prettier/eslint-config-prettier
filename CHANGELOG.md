@@ -1,3 +1,7 @@
+### Version 8.10.0 (2023-08-03)
+
+- Added: [max-statements-per-line]. Thanks to @Zamiell!
+
 ### Version 8.9.0 (2023-07-27)
 
 - Added: [vue/array-element-newline]. Thanks to @xcatliu!
@@ -480,6 +484,7 @@
 [linebreak-style]: https://eslint.org/docs/rules/linebreak-style
 [lines-around-comment-special]: https://github.com/prettier/eslint-config-prettier/blob/5399175c37466747aae9d407021dffec2c169c8b/README.md#lines-around-comment
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
+[max-statements-per-line]: https://eslint.org/docs/latest/rules/max-statements-per-line
 [no-confusing-arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/08ac5bcc25c9cdc71864b4a1e4191e7d28dd2bc2/README.md#no-confusing-arrow
 [no-confusing-arrow]: https://eslint.org/docs/rules/no-confusing-arrow
 [no-floating-decimal]: https://eslint.org/docs/rules/no-floating-decimal
