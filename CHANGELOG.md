@@ -1,3 +1,8 @@
+### Version 9.0.0 (2023-08-05)
+
+- Added: The CLI helper tool now works with eslint.config.js (flat config). Just like ESLint itself, the CLI tool automatically first tries eslint.config.js and then eslintrc, and you can force which one to use by setting the [ESLINT_USE_FLAT_CONFIG] environment variable. Note that the _config_ of eslint-config-prettier has always been compatible with eslint.config.js (flat config) – it was just the CLI tool that needed updating. On top of that, the docs have been updated to mention how to use both eslint.config.js (flat config) and eslintrc, and the tests now test both config systems.
+- Changed: [unicode-bom] is no longer turned off. Prettier preserves the BOM if you have one, and does not add one if missing. It was wrong of eslint-config-prettier to disable that rule. If you get ESLint errors after upgrading, either add `"unicode-bom": "off"` to your config to disable it again, or run ESLint with `--fix` to fix all files according to the rule (add or remove BOM). Thanks to Nicolas Stepien (@nstepien)!
+
 ### Version 8.10.0 (2023-08-03)
 
 - Added: [max-statements-per-line]. Thanks to @Zamiell!
@@ -465,6 +470,7 @@
 [end-of-line]: https://prettier.io/docs/en/options.html#end-of-line
 [eslint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
 [eslint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
+[ESLINT_USE_FLAT_CONFIG]: https://github.com/prettier/eslint-config-prettier#eslint_use_flat_config-environment-variable
 [eslint-plugin-babel]: https://github.com/babel/eslint-plugin-babel
 [eslint-plugin-flowtype]: https://github.com/gajus/eslint-plugin-flowtype
 [eslint-plugin-prettier]: https://github.com/prettier/eslint-plugin-prettier
@@ -511,6 +517,7 @@
 [semi-style]: https://eslint.org/docs/rules/semi-style
 [switch-colon-spacing]: https://eslint.org/docs/rules/switch-colon-spacing
 [template-tag-spacing]: https://eslint.org/docs/rules/template-tag-spacing
+[unicode-bom]: https://eslint.org/docs/rules/unicode-bom
 [unicorn/empty-brace-spaces]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/empty-brace-spaces.md
 [unicorn/no-nested-ternary]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-nested-ternary.md
 [vue/array-element-newline]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/array-element-newline.md
