@@ -6,7 +6,12 @@ const path = require("path");
 
 const testLintFiles = fs
   .readdirSync(path.join(__dirname, "..", "test-lint"))
-  .filter((name) => !name.startsWith("."));
+  .filter(
+    (name) =>
+      !name.startsWith(".") &&
+      // TODO: Figure out how to get flowtype running in flat config.
+      (process.env.ESLINT_USE_FLAT_CONFIG === "false" || name !== "flowtype.js")
+  );
 
 function parseJson(result) {
   try {
@@ -29,7 +34,13 @@ ${result.stderr}
 describe("test-lint/ causes errors without eslint-config-prettier", () => {
   const result = childProcess.spawnSync(
     "npm",
-    ["run", "test:lint-verify-fail", "--silent"],
+    [
+      "run",
+      process.env.ESLINT_USE_FLAT_CONFIG === "false"
+        ? "test:lint-verify-fail"
+        : "test:lint-verify-fail:flat",
+      "--silent",
+    ],
     { encoding: "utf8", shell: true }
   );
   const output = parseJson(result);
@@ -39,7 +50,9 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
   });
 
   output.forEach((data) => {
-    const name = path.basename(data.filePath).replace(/\.(?:js|ts|vue)$/, "");
+    const name = path
+      .basename(data.filePath)
+      .replace(/\.(?:js|ts)$|-file\.vue$/, "");
     const ruleIds = data.messages.map((message) => message.ruleId);
 
     describe(name, () => {

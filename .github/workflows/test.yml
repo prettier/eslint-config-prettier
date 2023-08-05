@@ -38,11 +38,28 @@ jobs:
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: npm ci --no-audit
 
-      - name: Jest
+      - name: Jest - flat
         run: npx jest
+        env:
+          ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true"
 
-      - name: CLI sanity
+      - name: Jest - eslintrc
+        run: npx jest
+        env:
+          ESLINT_USE_FLAT_CONFIG: "false"
+
+      - name: CLI sanity - flat
         run: npm run test:cli-sanity
 
-      - name: CLI sanity warning
+      - name: CLI sanity - eslintrc
+        run: npm run test:cli-sanity
+        env:
+          ESLINT_USE_FLAT_CONFIG: "false"
+
+      - name: CLI sanity warning - flat
         run: npm run test:cli-sanity-warning
+
+      - name: CLI sanity warning - eslintrc
+        run: npm run test:cli-sanity-warning
+        env:
+          ESLINT_USE_FLAT_CONFIG: "false"

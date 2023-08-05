@@ -5,6 +5,8 @@
 // sharable config from npm and then include the configs exposed by this package
 // as an “eat your own dogfood” test. That feels like a good test, but
 // complicates things a little sometimes.
+//
+// NOTE: Keep this file in sync with `./eslint.config.js`!
 
 module.exports = {
   extends: ["./.eslintrc.base.js", "./index.js", "./prettier.js"],
@@ -32,7 +34,7 @@ module.exports = {
       },
     },
     {
-      files: ["*.test.js"],
+      files: ["**/*.test.js"],
       env: { jest: true },
     },
   ],

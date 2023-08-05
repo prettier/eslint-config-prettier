@@ -4,8 +4,6 @@ const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const config = require("../");
-const eslintConfig = require("../.eslintrc");
-const eslintConfigBase = require("../.eslintrc.base");
 
 const ROOT = path.join(__dirname, "..");
 const TEST_CONFIG_DIR = path.join(ROOT, "test-config");
@@ -46,6 +44,8 @@ function createTestConfigDir() {
   fs.mkdirSync(TEST_CONFIG_DIR);
 
   // Change all rules to "warn", so that ESLint warns about unknown rules.
+  // Note: With flat config, ESLint throws errors for _removed_ rules if
+  // set to anything other than "off".
   const newRules = Object.fromEntries(
     Object.entries(config.rules).map(([ruleName]) => [ruleName, "warn"])
   );
@@ -57,20 +57,21 @@ function createTestConfigDir() {
     `module.exports = ${JSON.stringify(newConfig, null, 2)};`
   );
 
-  fs.copyFileSync(
-    path.join(ROOT, "prettier.js"),
-    path.join(TEST_CONFIG_DIR, "prettier.js")
-  );
+  const filesToCopy = [
+    "prettier.js",
+    ".eslintrc.js",
+    ".eslintrc.base.js",
+    "eslint.config.js",
+    "eslint.base.config.js",
+    ".eslintignore",
+  ];
 
-  fs.writeFileSync(
-    path.join(TEST_CONFIG_DIR, ".eslintrc.js"),
-    `module.exports = ${JSON.stringify(eslintConfig, null, 2)};`
-  );
-
-  fs.writeFileSync(
-    path.join(TEST_CONFIG_DIR, ".eslintrc.base.js"),
-    `module.exports = ${JSON.stringify(eslintConfigBase, null, 2)};`
-  );
+  for (const fileToCopy of filesToCopy) {
+    fs.copyFileSync(
+      path.join(ROOT, fileToCopy),
+      path.join(TEST_CONFIG_DIR, fileToCopy)
+    );
+  }
 }
 
 describe("all plugins have tests in test-lint/", () => {
@@ -78,7 +79,7 @@ describe("all plugins have tests in test-lint/", () => {
     test(plugin, () => {
       const testFileName =
         plugin === "vue"
-          ? "vue.vue"
+          ? "vue-file.vue"
           : plugin === "@typescript-eslint"
           ? `${plugin}.ts`
           : `${plugin}.js`;
@@ -126,7 +127,13 @@ describe('all rules are set to "off" or 0', () => {
 test("there are no unknown rules", () => {
   const result = childProcess.spawnSync(
     "npm",
-    ["run", "test:lint-rules", "--silent"],
+    [
+      "run",
+      process.env.ESLINT_USE_FLAT_CONFIG === "false"
+        ? "test:lint-rules"
+        : "test:lint-rules:flat",
+      "--silent",
+    ],
     { encoding: "utf8", shell: true }
   );
   const output = parseJson(result);
@@ -147,7 +154,9 @@ test("support omitting all deprecated rules", () => {
       },
     });
 
-  const result1 = run();
+  const result1 = run({
+    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: undefined,
+  });
   const result2 = run({
     ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true",
   });
