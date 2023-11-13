@@ -703,7 +703,7 @@ Prettier deals with:
 
 Using various tags, functions and comments. See: https://github.com/prettier/prettier/tree/main/src/language-js/embed
 
-`template-indent` by default formats some of the same tagged templates, in which case there will be conflicts. See: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md#options
+`template-indent` by default formats some of the same tagged templates, which causes conflicts. See: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md#options
 
 If you like this rule, it can be used just fine with Prettier as long as you add some extra configuration.
 
