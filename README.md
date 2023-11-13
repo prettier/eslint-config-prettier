@@ -670,25 +670,28 @@ If you like this rule, it can be used just fine with Prettier as long as you con
 Example ESLint configuration:
 
 <!-- prettier-ignore -->
-```js
+```json
 {
-  rules: {
+  "rules": {
     "unicorn/template-indent": [
       "error",
       {
-        tags: [
+        "tags": [
           "outdent",
           "dedent",
-          "gql",
-          "sql",
-          "styled",
+          "sql"
         ],
-        functions: ["dedent", "stripIndent"],
-        selectors: [],
-        comments: ["HTML", "indent"],
-      },
-    ],
-  },
+        "functions": [
+          "dedent",
+          "stripIndent"
+        ],
+        "selectors": [],
+        "comments": [
+          "indent"
+        ]
+      }
+    ]
+  }
 }
 ```
 
