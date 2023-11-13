@@ -872,6 +872,6 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [quotes]: https://eslint.org/docs/rules/quotes
 [singlequote]: https://prettier.io/docs/en/options.html#quotes
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
+[unicorn/template-indent]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md
-[unicorn/template-indent]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md
