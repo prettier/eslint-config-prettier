@@ -65,6 +65,41 @@ rule("no-tabs", {
   invalid: [[], [null], [{ allowIndentationTabs: false }], [{ other: true }]],
 });
 
+rule("unicorn/template-indent", {
+  valid: [
+    [
+      {
+        tags: ["outdent", "dedent", "sql"],
+        functions: ["dedent", "stripIndent"],
+        selectors: [],
+        comments: ["indent"],
+      },
+    ],
+    [
+      {
+        comments: ["indent"],
+      },
+    ],
+  ],
+  invalid: [
+    [
+      {
+        tags: ["outdent", "dedent", "gql", "sql", "html", "styled"],
+      },
+    ],
+    [
+      {
+        tags: ["html", "styled"],
+      },
+    ],
+    [
+      {
+        tags: ["gql"],
+      },
+    ],
+  ],
+});
+
 rule("vue/html-self-closing", {
   valid: [
     [{ html: { void: "any" } }],

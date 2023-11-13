@@ -48,6 +48,25 @@ module.exports = {
     return Boolean(firstOption && firstOption.allowIndentationTabs);
   },
 
+  "unicorn/template-indent"({ options }) {
+    if (options.length === 0) {
+      return false;
+    }
+
+    const firstOption = options[0];
+
+    if (!firstOption.tags) {
+      return true;
+    }
+
+    return (
+      (firstOption.tags.includes("html") ||
+        firstOption.tags.includes("css") ||
+        firstOption.tags.includes("styled") ||
+        firstOption.tags.includes("gql")) === false
+    );
+  },
+
   "vue/html-self-closing"({ options }) {
     if (options.length === 0) {
       return false;
