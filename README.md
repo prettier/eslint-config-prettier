@@ -648,46 +648,6 @@ Prettier:
 }
 ```
 
-### [vue/html-self-closing]
-
-**This rule requires certain options.**
-
-This rule enforces whether elements should be self-closing or not.
-
-Prettier generally preserves the way you wrote your elements:
-
-<!-- prettier-ignore -->
-```vue
-<div />
-<div></div>
-<MyComponent />
-<MyComponent></MyComponent>
-<svg><path d="" /></svg>
-<svg><path d=""></path></svg>
-```
-
-But for known _void_ HTML elements, Prettier always uses the self-closing style. For example, `<img>` is turned into `<img />`.
-
-If you like this rule, it can be used just fine with Prettier as long as you set `html.void` to `"any"`.
-
-Example ESLint configuration:
-
-<!-- prettier-ignore -->
-```json
-{
-  "rules": {
-    "vue/html-self-closing": [
-      "error",
-      {
-        "html": {
-          "void": "any"
-        }
-      }
-    ]
-  }
-}
-```
-
 ### [unicorn/template-indent]
 
 **This rule can be used with certain options.**
@@ -729,6 +689,46 @@ Example ESLint configuration:
       },
     ],
   },
+}
+```
+
+### [vue/html-self-closing]
+
+**This rule requires certain options.**
+
+This rule enforces whether elements should be self-closing or not.
+
+Prettier generally preserves the way you wrote your elements:
+
+<!-- prettier-ignore -->
+```vue
+<div />
+<div></div>
+<MyComponent />
+<MyComponent></MyComponent>
+<svg><path d="" /></svg>
+<svg><path d=""></path></svg>
+```
+
+But for known _void_ HTML elements, Prettier always uses the self-closing style. For example, `<img>` is turned into `<img />`.
+
+If you like this rule, it can be used just fine with Prettier as long as you set `html.void` to `"any"`.
+
+Example ESLint configuration:
+
+<!-- prettier-ignore -->
+```json
+{
+  "rules": {
+    "vue/html-self-closing": [
+      "error",
+      {
+        "html": {
+          "void": "any"
+        }
+      }
+    ]
+  }
 }
 ```
 
