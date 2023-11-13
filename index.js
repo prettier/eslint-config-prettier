@@ -133,7 +133,27 @@ module.exports = {
     "unicorn/empty-brace-spaces": "off",
     "unicorn/no-nested-ternary": "off",
     "unicorn/number-literal-case": "off",
-    "unicorn/template-indent": "off",
+    "unicorn/template-indent": [
+      'error',
+      {
+        tags: [
+          'outdent',
+          'dedent',
+          'gql',
+          'sql',
+          'styled'
+        ],
+        functions: [
+          'dedent',
+          'stripIndent'
+        ],
+        selectors: [],
+        comments: [
+          'HTML',
+          'indent'
+        ]
+      }
+    ],
     "vue/array-bracket-newline": "off",
     "vue/array-bracket-spacing": "off",
     "vue/array-element-newline": "off",
