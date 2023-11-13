@@ -721,7 +721,6 @@ Example ESLint configuration:
           "dedent",
           "gql",
           "sql",
-          // 'html',
           "styled",
         ],
         functions: ["dedent", "stripIndent"],
