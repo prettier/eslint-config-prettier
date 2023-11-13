@@ -55,15 +55,24 @@ module.exports = {
 
     const firstOption = options[0];
 
-    if (!firstOption.tags) {
+    if (!(firstOption.tags || firstOption.comments)) {
       return true;
     }
 
+    const tagsAndComments = new Set([
+      ...(firstOption.tags || []),
+      ...(firstOption.comments || []),
+    ]);
+
     return (
-      (firstOption.tags.includes("html") ||
-        firstOption.tags.includes("css") ||
-        firstOption.tags.includes("styled") ||
-        firstOption.tags.includes("gql")) === false
+      (tagsAndComments.has("html") ||
+        tagsAndComments.has("HTML") ||
+        tagsAndComments.has("css") ||
+        tagsAndComments.has("CSS") ||
+        tagsAndComments.has("styled") ||
+        tagsAndComments.has("STYLED") ||
+        tagsAndComments.has("gql") ||
+        tagsAndComments.has("GQL")) === false
     );
   },
 
