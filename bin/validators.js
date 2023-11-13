@@ -59,24 +59,14 @@ module.exports = {
       return false;
     }
 
-    if (!(firstOption.tags || firstOption.comments)) {
-      return true;
-    }
-
-    const tagsAndComments = new Set([
-      ...(firstOption.tags || []),
-      ...(firstOption.comments || []),
-    ]);
+    const tags = firstOption.tags || [];
+    const comments = firstOption.comments || [];
 
     return (
-      (tagsAndComments.has("html") ||
-        tagsAndComments.has("HTML") ||
-        tagsAndComments.has("css") ||
-        tagsAndComments.has("CSS") ||
-        tagsAndComments.has("styled") ||
-        tagsAndComments.has("STYLED") ||
-        tagsAndComments.has("gql") ||
-        tagsAndComments.has("GQL")) === false
+      (tags.includes("html") ||
+        tags.includes("css") ||
+        tags.includes("gql") ||
+        comments.includes("HTML")) === false
     );
   },
 
