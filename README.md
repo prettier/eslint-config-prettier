@@ -694,12 +694,22 @@ Example ESLint configuration:
 
 This rule will automatically fix the indentation of multiline string templates, to keep them in alignment with the code they are found in. A configurable whitelist is used to ensure no whitespace-sensitive strings are edited.
 
-The conflict is in templates tagged with an `html` function, in which case both Prettier and Unicorn try to indent the template.
+Prettier deals with:
+
+- html
+- css
+- graphql
+- markdown
+
+Using various tags, functions and comments. See: https://github.com/prettier/prettier/tree/main/src/language-js/embed
+
+`template-indent` by default formats some of the same tagged templates, in which case there will be conflicts. See: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md#options
 
 If you like this rule, it can be used just fine with Prettier as long as you add some extra configuration.
 
 Example ESLint configuration:
 
+<!-- prettier-ignore -->
 ```js
 {
   rules: {
