@@ -55,6 +55,10 @@ module.exports = {
 
     const firstOption = options[0];
 
+    if (!firstOption) {
+      return false;
+    }
+
     if (!(firstOption.tags || firstOption.comments)) {
       return true;
     }
