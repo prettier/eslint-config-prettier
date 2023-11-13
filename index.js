@@ -20,6 +20,7 @@ module.exports = {
     "babel/quotes": 0,
     "vue/html-self-closing": 0,
     "vue/max-len": 0,
+    "unicorn/template-indent": 0,
 
     // The rest are rules that you never need to enable when using Prettier.
     "array-bracket-newline": "off",
@@ -133,27 +134,6 @@ module.exports = {
     "unicorn/empty-brace-spaces": "off",
     "unicorn/no-nested-ternary": "off",
     "unicorn/number-literal-case": "off",
-    "unicorn/template-indent": [
-      'error',
-      {
-        tags: [
-          'outdent',
-          'dedent',
-          'gql',
-          'sql',
-          'styled'
-        ],
-        functions: [
-          'dedent',
-          'stripIndent'
-        ],
-        selectors: [],
-        comments: [
-          'HTML',
-          'indent'
-        ]
-      }
-    ],
     "vue/array-bracket-newline": "off",
     "vue/array-bracket-spacing": "off",
     "vue/array-element-newline": "off",

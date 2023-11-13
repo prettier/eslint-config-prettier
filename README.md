@@ -688,6 +688,41 @@ Example ESLint configuration:
 }
 ```
 
+### [unicorn/template-indent]
+
+**This rule can be used with certain options.**
+
+This rule will automatically fix the indentation of multiline string templates, to keep them in alignment with the code they are found in. A configurable whitelist is used to ensure no whitespace-sensitive strings are edited.
+
+The conflict is in templates tagged with an `html` function, in which case both Prettier and Unicorn try to indent the template.
+
+If you like this rule, it can be used just fine with Prettier as long as you add some extra configuration.
+
+Example ESLint configuration:
+
+```js
+{
+  rules: {
+    "unicorn/template-indent": [
+      "error",
+      {
+        tags: [
+          "outdent",
+          "dedent",
+          "gql",
+          "sql",
+          // 'html',
+          "styled",
+        ],
+        functions: ["dedent", "stripIndent"],
+        selectors: [],
+        comments: ["HTML", "indent"],
+      },
+    ],
+  },
+}
+```
+
 ## Other rules worth mentioning
 
 These rules don’t conflict with Prettier, but have some gotchas when used with Prettier.
@@ -827,3 +862,4 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md
+[unicorn/template-indent]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md
