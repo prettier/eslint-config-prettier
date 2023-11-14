@@ -63,9 +63,8 @@ module.exports = {
         tags.includes("graphql") ||
         tags.includes("gql") ||
         tags.includes("html") ||
-        tags.includes("markdown")||
-        tags.includes("md")
-        ) === false
+        tags.includes("markdown") ||
+        tags.includes("md")) === false
     );
   },
 
