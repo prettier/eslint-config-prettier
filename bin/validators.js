@@ -63,10 +63,12 @@ module.exports = {
     const comments = firstOption.comments || [];
 
     return (
-      (tags.includes("html") ||
+      (comments.includes("HTML") ||
         tags.includes("css") ||
+        tags.includes("graphql") ||
         tags.includes("gql") ||
-        comments.includes("HTML")) === false
+        tags.includes("html") ||
+        tags.includes("markdown")) === false
     );
   },
 
