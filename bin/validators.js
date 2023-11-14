@@ -58,7 +58,7 @@ module.exports = {
     const tags = firstOption.tags || [];
 
     return (
-      (firstOption?.comments.includes("HTML") ||
+      (firstOption?.comments?.includes("HTML") ||
         tags.includes("css") ||
         tags.includes("graphql") ||
         tags.includes("gql") ||
