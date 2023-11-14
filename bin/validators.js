@@ -55,20 +55,17 @@ module.exports = {
 
     const firstOption = options[0];
 
-    if (!firstOption) {
-      return false;
-    }
-
     const tags = firstOption.tags || [];
-    const comments = firstOption.comments || [];
 
     return (
-      (comments.includes("HTML") ||
+      (firstOption?.comments.includes("HTML") ||
         tags.includes("css") ||
         tags.includes("graphql") ||
         tags.includes("gql") ||
         tags.includes("html") ||
-        tags.includes("markdown")) === false
+        tags.includes("markdown")||
+        tags.includes("md")
+        ) === false
     );
   },
 
