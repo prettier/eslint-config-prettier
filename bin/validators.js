@@ -55,14 +55,14 @@ module.exports = {
 
     const firstOption = options[0];
 
-    return !Boolean(
+    return !(
       firstOption.comments?.includes("HTML") ||
-        firstOption.tags?.includes("css") ||
-        firstOption.tags?.includes("graphql") ||
-        firstOption.tags?.includes("gql") ||
-        firstOption.tags?.includes("html") ||
-        firstOption.tags?.includes("markdown") ||
-        firstOption.tags?.includes("md")
+      firstOption.tags?.includes("css") ||
+      firstOption.tags?.includes("graphql") ||
+      firstOption.tags?.includes("gql") ||
+      firstOption.tags?.includes("html") ||
+      firstOption.tags?.includes("markdown") ||
+      firstOption.tags?.includes("md")
     );
   },
 
