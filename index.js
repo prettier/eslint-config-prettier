@@ -2,25 +2,27 @@
 
 const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 
+const specialRule = 0;
+
 module.exports = {
   rules: {
     // The following rules can be used in some cases. See the README for more
     // information. (These are marked with `0` instead of `"off"` so that a
     // script can distinguish them.)
-    "curly": 0,
-    "lines-around-comment": 0,
-    "max-len": 0,
-    "no-confusing-arrow": 0,
-    "no-mixed-operators": 0,
-    "no-tabs": 0,
-    "no-unexpected-multiline": 0,
-    "quotes": 0,
-    "@typescript-eslint/lines-around-comment": 0,
-    "@typescript-eslint/quotes": 0,
-    "babel/quotes": 0,
-    "unicorn/template-indent": 0,
-    "vue/html-self-closing": 0,
-    "vue/max-len": 0,
+    "curly": specialRule,
+    "lines-around-comment": specialRule,
+    "max-len": specialRule,
+    "no-confusing-arrow": specialRule,
+    "no-mixed-operators": specialRule,
+    "no-tabs": specialRule,
+    "no-unexpected-multiline": specialRule,
+    "quotes": specialRule,
+    "@typescript-eslint/lines-around-comment": specialRule,
+    "@typescript-eslint/quotes": specialRule,
+    "babel/quotes": specialRule,
+    "unicorn/template-indent": specialRule,
+    "vue/html-self-closing": specialRule,
+    "vue/max-len": specialRule,
 
     // The rest are rules that you never need to enable when using Prettier.
     "array-bracket-newline": "off",
