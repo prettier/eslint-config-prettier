@@ -25,14 +25,8 @@ module.exports = {
     ),
   ],
   parserOptions: {
-    parser: "@babel/eslint-parser",
     ecmaVersion: 2018,
     sourceType: "script",
-    // Needed for the lint-verify-fail.test.js test.
-    loggerFn: () => {},
-    ecmaFeatures: {
-      jsx: true,
-    },
   },
   env: {
     es6: true,
@@ -66,6 +60,7 @@ module.exports = {
     "unicorn/prefer-flat-map": "off",
     "unicorn/prefer-module": "off",
     "unicorn/prefer-node-protocol": "off",
+    "unicorn/prefer-optional-catch-binding": "off",
     "unicorn/prefer-spread": "off",
     "unicorn/prefer-top-level-await": "off",
     "unicorn/prevent-abbreviations": "off",
@@ -83,6 +78,10 @@ module.exports = {
         // This is included in "plugin:@typescript-eslint/recommended".
         "@typescript-eslint/indent": "error",
       },
+    },
+    {
+      files: ["test-lint/{react,flowtype}.js"],
+      parserOptions: { parser: "@babel/eslint-parser" },
     },
   ],
   settings: {
