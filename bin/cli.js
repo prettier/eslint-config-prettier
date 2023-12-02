@@ -9,9 +9,11 @@ const prettier = require("../prettier");
 // Require locally installed eslint, for `npx eslint-config-prettier` support
 // with no local eslint-config-prettier installation.
 const localRequire = (request) =>
-  require(require.resolve(request, {
-    paths: [process.cwd(), ...require.resolve.paths("eslint")],
-  }));
+  require(
+    require.resolve(request, {
+      paths: [process.cwd(), ...require.resolve.paths("eslint")],
+    })
+  );
 
 let experimentalApi = {};
 try {

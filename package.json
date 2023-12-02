@@ -36,7 +36,7 @@
     "eslint-plugin-vue": "9.19.2",
     "globals": "13.23.0",
     "jest": "29.7.0",
-    "prettier": "3.0.0",
+    "prettier": "3.1.0",
     "typescript": "5.3.2",
     "vue-eslint-parser": "9.3.2"
   }

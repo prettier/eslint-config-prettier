@@ -81,8 +81,8 @@ describe("all plugins have tests in test-lint/", () => {
         plugin === "vue"
           ? "vue-file.vue"
           : plugin === "@typescript-eslint"
-          ? `${plugin}.ts`
-          : `${plugin}.js`;
+            ? `${plugin}.ts`
+            : `${plugin}.js`;
       expect(fs.existsSync(path.join(ROOT, "test-lint", testFileName))).toBe(
         true
       );
