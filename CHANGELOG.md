@@ -1,3 +1,8 @@
+### Version 9.1.0 (2023-12-02)
+
+- Added: [unicorn/template-indent], (as a [special rule][unicorn/template-indent-special]). Thanks to Gürgün Dayıoğlu (@gurgunday)!
+- Changed: All the [formatting rules that were deprecated in ESLint 8.53.0][deprecated-8.53.0] are now excluded if you set the `ESLINT_CONFIG_PRETTIER_NO_DEPRECATED` environment variable.
+
 ### Version 9.0.0 (2023-08-05)
 
 - Added: The CLI helper tool now works with eslint.config.js (flat config). Just like ESLint itself, the CLI tool automatically first tries eslint.config.js and then eslintrc, and you can force which one to use by setting the [ESLINT_USE_FLAT_CONFIG] environment variable. Note that the _config_ of eslint-config-prettier has always been compatible with eslint.config.js (flat config) – it was just the CLI tool that needed updating. On top of that, the docs have been updated to mention how to use both eslint.config.js (flat config) and eslintrc, and the tests now test both config systems.
@@ -467,6 +472,7 @@
 [arrow-body-style]: https://eslint.org/docs/rules/arrow-body-style
 [arrow-special]: https://github.com/prettier/eslint-config-prettier/blob/2c842675e55b91aecaef6f997d234ebf2d220ffb/README.md#arrow-body-style-and-prefer-arrow-callback
 [curly]: https://eslint.org/docs/rules/curly
+[deprecated-8.53.0]: https://eslint.org/blog/2023/10/deprecating-formatting-rules/
 [end-of-line]: https://prettier.io/docs/en/options.html#end-of-line
 [eslint 4.0.0]: https://eslint.org/blog/2017/06/eslint-v4.0.0-released
 [eslint 4.6.0]: https://eslint.org/blog/2017/09/eslint-v4.6.0-released
@@ -520,6 +526,8 @@
 [unicode-bom]: https://eslint.org/docs/rules/unicode-bom
 [unicorn/empty-brace-spaces]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/empty-brace-spaces.md
 [unicorn/no-nested-ternary]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-nested-ternary.md
+[unicorn/template-indent-special]: https://github.com/prettier/eslint-config-prettier/blob/4110dff0c5b258be37506ecee9578cd7ff8e4759/README.md#unicorntemplate-indent
+[unicorn/template-indent]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/template-indent.md
 [vue/array-element-newline]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/array-element-newline.md
 [vue/arrow-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/arrow-spacing.md
 [vue/block-spacing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/block-spacing.md
