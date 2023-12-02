@@ -25,7 +25,6 @@ module.exports = {
     ),
   ],
   parserOptions: {
-    parser: "@babel/eslint-parser",
     ecmaVersion: 2018,
     sourceType: "script",
     // Needed for the lint-verify-fail.test.js test.
@@ -83,6 +82,10 @@ module.exports = {
         // This is included in "plugin:@typescript-eslint/recommended".
         "@typescript-eslint/indent": "error",
       },
+    },
+    {
+      files: ["test-lint/{react,flowtype}.js"],
+      parserOptions: { parser: "@babel/eslint-parser" },
     },
   ],
   settings: {
