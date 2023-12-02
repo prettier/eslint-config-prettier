@@ -82,24 +82,18 @@ rule("unicorn/template-indent", {
     ],
   ],
   invalid: [
+    [{ comments: ["HTML"] }],
+    [{ tags: ["css"] }],
+    [{ tags: ["graphql"] }],
+    [{ tags: ["gql"] }],
+    [{ tags: ["html"] }],
+    [{ tags: ["markdown"] }],
+    [{ tags: ["md"] }],
+    [{ comments: 5 }],
+    [{ tags: {} }],
     [
       {
         tags: ["outdent", "dedent", "gql", "sql", "html", "styled"],
-      },
-    ],
-    [
-      {
-        tags: ["html", "styled"],
-      },
-    ],
-    [
-      {
-        tags: ["gql"],
-      },
-    ],
-    [
-      {
-        tags: {},
       },
     ],
   ],
