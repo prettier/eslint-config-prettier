@@ -648,6 +648,67 @@ Prettier:
 }
 ```
 
+### [unicorn/template-indent]
+
+**This rule can be used with certain options.**
+
+This rule will automatically fix the indentation of multiline string templates, to keep them in alignment with the code they are found in. A configurable whitelist is used to ensure no whitespace-sensitive strings are edited.
+
+Prettier deals with:
+
+- HTML
+- CSS
+- GraphQL
+- markdown
+
+Using various tags, functions and comments.
+
+`unicorn/template-indent` by default formats some of the same tagged templates, which can cause conflicts. For example, the rule and Prettier disagree about indentation in ternaries:
+
+```js
+condition
+  ? null
+  : html`
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui
+        mauris.
+      </p>
+    `;
+```
+
+If you like this rule, it can be used just fine with Prettier as long as you configure the rule to not deal with the same templates as Prettier.
+
+Example ESLint configuration:
+
+<!-- prettier-ignore -->
+```json
+{
+  "rules": {
+    "unicorn/template-indent": [
+      "error",
+      {
+        "tags": [
+          "outdent",
+          "dedent",
+          "sql",
+          "styled"
+        ],
+        "functions": [
+          "dedent",
+          "stripIndent"
+        ],
+        "selectors": [],
+        "comments": [
+          "indent"
+        ]
+      }
+    ]
+  }
+}
+```
+
+Note: If you use `"selectors"`, the CLI helper tool cannot detect if your selectors might cause conflicts.
+
 ### [vue/html-self-closing]
 
 **This rule requires certain options.**
@@ -825,5 +886,6 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [quotes]: https://eslint.org/docs/rules/quotes
 [singlequote]: https://prettier.io/docs/en/options.html#quotes
 [string formatting rules]: https://prettier.io/docs/en/rationale.html#strings
+[unicorn/template-indent]: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md
 [vue/html-self-closing]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/html-self-closing.md
 [vue/max-len]: https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/max-len.md

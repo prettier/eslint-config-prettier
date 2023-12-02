@@ -48,6 +48,29 @@ module.exports = {
     return Boolean(firstOption && firstOption.allowIndentationTabs);
   },
 
+  "unicorn/template-indent"({ options }) {
+    if (options.length === 0) {
+      return false;
+    }
+
+    const { comments = [], tags = [] } = options[0] || {};
+
+    return (
+      Array.isArray(comments) &&
+      Array.isArray(tags) &&
+      !(
+        comments.includes("GraphQL") ||
+        comments.includes("HTML") ||
+        tags.includes("css") ||
+        tags.includes("graphql") ||
+        tags.includes("gql") ||
+        tags.includes("html") ||
+        tags.includes("markdown") ||
+        tags.includes("md")
+      )
+    );
+  },
+
   "vue/html-self-closing"({ options }) {
     if (options.length === 0) {
       return false;

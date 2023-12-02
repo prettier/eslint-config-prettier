@@ -18,6 +18,7 @@ module.exports = {
     "@typescript-eslint/lines-around-comment": 0,
     "@typescript-eslint/quotes": 0,
     "babel/quotes": 0,
+    "unicorn/template-indent": 0,
     "vue/html-self-closing": 0,
     "vue/max-len": 0,
 

@@ -65,6 +65,42 @@ rule("no-tabs", {
   invalid: [[], [null], [{ allowIndentationTabs: false }], [{ other: true }]],
 });
 
+rule("unicorn/template-indent", {
+  valid: [
+    [
+      {
+        tags: ["outdent", "dedent", "sql", "styled"],
+        functions: ["dedent", "stripIndent"],
+        selectors: [],
+        comments: ["indent"],
+      },
+    ],
+    [
+      {
+        comments: ["indent"],
+      },
+    ],
+  ],
+  invalid: [
+    [],
+    [{ comments: ["GraphQL"] }],
+    [{ comments: ["HTML"] }],
+    [{ tags: ["css"] }],
+    [{ tags: ["graphql"] }],
+    [{ tags: ["gql"] }],
+    [{ tags: ["html"] }],
+    [{ tags: ["markdown"] }],
+    [{ tags: ["md"] }],
+    [{ comments: 5 }],
+    [{ tags: {} }],
+    [
+      {
+        tags: ["outdent", "dedent", "gql", "sql", "html", "styled"],
+      },
+    ],
+  ],
+});
+
 rule("vue/html-self-closing", {
   valid: [
     [{ html: { void: "any" } }],

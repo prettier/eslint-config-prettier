@@ -126,6 +126,7 @@ test("all the things", () => {
     "vue/html-self-closing",
     "prefer-arrow-callback",
     "arrow-body-style",
+    "unicorn/template-indent",
   ];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
     {
@@ -144,6 +145,7 @@ test("all the things", () => {
     - lines-around-comment
     - no-confusing-arrow
     - no-tabs
+    - unicorn/template-indent
     - vue/html-self-closing
 
     The following rules are enabled but cannot be automatically checked. See:
