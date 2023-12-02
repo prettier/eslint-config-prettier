@@ -41,7 +41,7 @@ describe("does not flag", () => {
 });
 
 describe("does flag", () => {
-  const rules = ["strict", "arrow-parens"];
+  const rules = ["strict", "unicorn/empty-brace-spaces"];
 
   const results = onPatterns.map((pattern) => ({
     pattern: JSON.stringify(pattern),
@@ -54,7 +54,7 @@ describe("does flag", () => {
         "code": 2,
         "stdout": "The following rules are unnecessary or might conflict with Prettier:
 
-      - arrow-parens",
+      - unicorn/empty-brace-spaces",
       }
     `);
   });
@@ -90,14 +90,14 @@ test("conflicting options", () => {
 });
 
 test("special rules", () => {
-  const rules = ["strict", "max-len"];
+  const rules = ["strict", "no-unexpected-multiline"];
   expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
     {
       "code": 0,
       "stdout": "The following rules are enabled but cannot be automatically checked. See:
     https://github.com/prettier/eslint-config-prettier#special-rules
 
-    - max-len
+    - no-unexpected-multiline
 
     Other than that, no rules that are unnecessary or conflict with Prettier were found.",
     }
@@ -128,7 +128,33 @@ test("all the things", () => {
     "arrow-body-style",
     "unicorn/template-indent",
   ];
-  expect(cli.processRules(createRules(rules, "error"))).toMatchInlineSnapshot(`
+
+  const result = cli.processRules(createRules(rules, "error"));
+
+  if (process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED) {
+    expect(result).toMatchInlineSnapshot(`
+    {
+      "code": 2,
+      "stdout": "The following rules are unnecessary or might conflict with Prettier:
+
+    - flowtype/semi
+    - react/jsx-indent
+
+    The following rules are enabled with config that might conflict with Prettier. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
+
+    - curly
+    - unicorn/template-indent
+    - vue/html-self-closing
+
+    The following rules are enabled but cannot be automatically checked. See:
+    https://github.com/prettier/eslint-config-prettier#special-rules
+
+    - no-unexpected-multiline",
+    }
+  `);
+  } else {
+    expect(result).toMatchInlineSnapshot(`
     {
       "code": 2,
       "stdout": "The following rules are unnecessary or might conflict with Prettier:
@@ -157,6 +183,7 @@ test("all the things", () => {
     - quotes",
     }
   `);
+  }
 });
 
 test("eslint-plugin-prettier", () => {

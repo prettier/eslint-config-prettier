@@ -2,85 +2,24 @@
 
 const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 
+const specialRule = 0;
+
 module.exports = {
   rules: {
     // The following rules can be used in some cases. See the README for more
-    // information. (These are marked with `0` instead of `"off"` so that a
-    // script can distinguish them.)
-    "curly": 0,
-    "lines-around-comment": 0,
-    "max-len": 0,
-    "no-confusing-arrow": 0,
-    "no-mixed-operators": 0,
-    "no-tabs": 0,
-    "no-unexpected-multiline": 0,
-    "quotes": 0,
-    "@typescript-eslint/lines-around-comment": 0,
-    "@typescript-eslint/quotes": 0,
-    "babel/quotes": 0,
-    "unicorn/template-indent": 0,
-    "vue/html-self-closing": 0,
-    "vue/max-len": 0,
+    // information. These are marked with `0` instead of `"off"` so that a
+    // script can distinguish them. Note that there are a few more of these
+    // in the deprecated section below.
+    "curly": specialRule,
+    "no-unexpected-multiline": specialRule,
+    "@typescript-eslint/lines-around-comment": specialRule,
+    "@typescript-eslint/quotes": specialRule,
+    "babel/quotes": specialRule,
+    "unicorn/template-indent": specialRule,
+    "vue/html-self-closing": specialRule,
+    "vue/max-len": specialRule,
 
     // The rest are rules that you never need to enable when using Prettier.
-    "array-bracket-newline": "off",
-    "array-bracket-spacing": "off",
-    "array-element-newline": "off",
-    "arrow-parens": "off",
-    "arrow-spacing": "off",
-    "block-spacing": "off",
-    "brace-style": "off",
-    "comma-dangle": "off",
-    "comma-spacing": "off",
-    "comma-style": "off",
-    "computed-property-spacing": "off",
-    "dot-location": "off",
-    "eol-last": "off",
-    "func-call-spacing": "off",
-    "function-call-argument-newline": "off",
-    "function-paren-newline": "off",
-    "generator-star-spacing": "off",
-    "implicit-arrow-linebreak": "off",
-    "indent": "off",
-    "jsx-quotes": "off",
-    "key-spacing": "off",
-    "keyword-spacing": "off",
-    "linebreak-style": "off",
-    "max-statements-per-line": "off",
-    "multiline-ternary": "off",
-    "newline-per-chained-call": "off",
-    "new-parens": "off",
-    "no-extra-parens": "off",
-    "no-extra-semi": "off",
-    "no-floating-decimal": "off",
-    "no-mixed-spaces-and-tabs": "off",
-    "no-multi-spaces": "off",
-    "no-multiple-empty-lines": "off",
-    "no-trailing-spaces": "off",
-    "no-whitespace-before-property": "off",
-    "nonblock-statement-body-position": "off",
-    "object-curly-newline": "off",
-    "object-curly-spacing": "off",
-    "object-property-newline": "off",
-    "one-var-declaration-per-line": "off",
-    "operator-linebreak": "off",
-    "padded-blocks": "off",
-    "quote-props": "off",
-    "rest-spread-spacing": "off",
-    "semi": "off",
-    "semi-spacing": "off",
-    "semi-style": "off",
-    "space-before-blocks": "off",
-    "space-before-function-paren": "off",
-    "space-in-parens": "off",
-    "space-infix-ops": "off",
-    "space-unary-ops": "off",
-    "switch-colon-spacing": "off",
-    "template-curly-spacing": "off",
-    "template-tag-spacing": "off",
-    "wrap-iife": "off",
-    "wrap-regex": "off",
-    "yield-star-spacing": "off",
     "@babel/object-curly-spacing": "off",
     "@babel/semi": "off",
     "@typescript-eslint/block-spacing": "off",
@@ -173,51 +112,103 @@ module.exports = {
     "vue/template-curly-spacing": "off",
 
     ...(includeDeprecated && {
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/generator-star
-      "generator-star": "off",
-      // Deprecated since version 4.0.0.
-      // https://github.com/eslint/eslint/pull/8286
-      "indent-legacy": "off",
-      // Removed in version 2.0.0.
-      // https://eslint.org/docs/latest/rules/no-arrow-condition
-      "no-arrow-condition": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-comma-dangle
-      "no-comma-dangle": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-reserved-keys
-      "no-reserved-keys": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-space-before-semi
-      "no-space-before-semi": "off",
-      // Deprecated since version 3.3.0.
-      // https://eslint.org/docs/rules/no-spaced-func
-      "no-spaced-func": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-wrap-func
-      "no-wrap-func": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/space-after-function-name
-      "space-after-function-name": "off",
-      // Removed in version 2.0.0.
-      // https://eslint.org/docs/latest/rules/space-after-keywords
-      "space-after-keywords": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/space-before-function-parentheses
-      "space-before-function-parentheses": "off",
-      // Removed in version 2.0.0.
-      // https://eslint.org/docs/latest/rules/space-before-keywords
-      "space-before-keywords": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/space-in-brackets
-      "space-in-brackets": "off",
-      // Removed in version 2.0.0.
-      // https://eslint.org/docs/latest/rules/space-return-throw-case
-      "space-return-throw-case": "off",
       // Removed in version 0.10.0.
       // https://eslint.org/docs/latest/rules/space-unary-word-ops
       "space-unary-word-ops": "off",
+
+      // Removed in version 1.0.0.
+      // https://github.com/eslint/eslint/issues/1898
+      "generator-star": "off",
+      "no-comma-dangle": "off",
+      "no-reserved-keys": "off",
+      "no-space-before-semi": "off",
+      "no-wrap-func": "off",
+      "space-after-function-name": "off",
+      "space-before-function-parentheses": "off",
+      "space-in-brackets": "off",
+
+      // Removed in version 2.0.0.
+      // https://github.com/eslint/eslint/issues/5032
+      "no-arrow-condition": "off",
+      "space-after-keywords": "off",
+      "space-before-keywords": "off",
+      "space-return-throw-case": "off",
+
+      // Deprecated since version 3.3.0.
+      // https://eslint.org/docs/rules/no-spaced-func
+      "no-spaced-func": "off",
+
+      // Deprecated since version 4.0.0.
+      // https://github.com/eslint/eslint/pull/8286
+      "indent-legacy": "off",
+
+      // Deprecated since version 8.53.0.
+      // https://eslint.org/blog/2023/10/deprecating-formatting-rules/
+      "array-bracket-newline": "off",
+      "array-bracket-spacing": "off",
+      "array-element-newline": "off",
+      "arrow-parens": "off",
+      "arrow-spacing": "off",
+      "block-spacing": "off",
+      "brace-style": "off",
+      "comma-dangle": "off",
+      "comma-spacing": "off",
+      "comma-style": "off",
+      "computed-property-spacing": "off",
+      "dot-location": "off",
+      "eol-last": "off",
+      "func-call-spacing": "off",
+      "function-call-argument-newline": "off",
+      "function-paren-newline": "off",
+      "generator-star-spacing": "off",
+      "implicit-arrow-linebreak": "off",
+      "indent": "off",
+      "jsx-quotes": "off",
+      "key-spacing": "off",
+      "keyword-spacing": "off",
+      "linebreak-style": "off",
+      "lines-around-comment": specialRule,
+      "max-len": specialRule,
+      "max-statements-per-line": "off",
+      "multiline-ternary": "off",
+      "new-parens": "off",
+      "newline-per-chained-call": "off",
+      "no-confusing-arrow": specialRule,
+      "no-extra-parens": "off",
+      "no-extra-semi": "off",
+      "no-floating-decimal": "off",
+      "no-mixed-operators": specialRule,
+      "no-mixed-spaces-and-tabs": "off",
+      "no-multi-spaces": "off",
+      "no-multiple-empty-lines": "off",
+      "no-tabs": specialRule,
+      "no-trailing-spaces": "off",
+      "no-whitespace-before-property": "off",
+      "nonblock-statement-body-position": "off",
+      "object-curly-newline": "off",
+      "object-curly-spacing": "off",
+      "object-property-newline": "off",
+      "one-var-declaration-per-line": "off",
+      "operator-linebreak": "off",
+      "padded-blocks": "off",
+      "quote-props": "off",
+      "quotes": specialRule,
+      "rest-spread-spacing": "off",
+      "semi": "off",
+      "semi-spacing": "off",
+      "semi-style": "off",
+      "space-before-blocks": "off",
+      "space-before-function-paren": "off",
+      "space-in-parens": "off",
+      "space-infix-ops": "off",
+      "space-unary-ops": "off",
+      "switch-colon-spacing": "off",
+      "template-curly-spacing": "off",
+      "template-tag-spacing": "off",
+      "wrap-iife": "off",
+      "wrap-regex": "off",
+      "yield-star-spacing": "off",
+
       // Deprecated since version 7.0.0.
       // https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06
       "react/jsx-space-before-closing": "off",
