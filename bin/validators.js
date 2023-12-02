@@ -59,6 +59,7 @@ module.exports = {
       Array.isArray(comments) &&
       Array.isArray(tags) &&
       !(
+        comments.includes("GraphQL") ||
         comments.includes("HTML") ||
         tags.includes("css") ||
         tags.includes("graphql") ||
