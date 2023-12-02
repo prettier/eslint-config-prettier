@@ -27,11 +27,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "script",
-    // Needed for the lint-verify-fail.test.js test.
-    loggerFn: () => {},
-    ecmaFeatures: {
-      jsx: true,
-    },
   },
   env: {
     es6: true,
