@@ -7,6 +7,8 @@
 
 const config = require(".");
 
+const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
+
 module.exports = {
   extends: [
     "google",
@@ -68,6 +70,19 @@ module.exports = {
     "object-curly-spacing": "off",
     "babel/object-curly-spacing": ["error", "never"],
     "@babel/object-curly-spacing": ["error", "never"],
+
+    // Workaround: These rules are deprecated, but added by eslint-config-google.
+    // We have to exclude them when testing the flat config, but also turn them
+    // off for the linting tests to pass. It’s time to get rid of eslint-config-google
+    // (their GitHub repo is archived as well).
+    ...(includeDeprecated
+      ? {}
+      : {
+          "comma-dangle": "off",
+          "max-len": "off",
+          "operator-linebreak": "off",
+          "quotes": "off",
+        }),
   },
   overrides: [
     {
