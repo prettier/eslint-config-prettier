@@ -60,6 +60,7 @@ module.exports = {
     "unicorn/prefer-flat-map": "off",
     "unicorn/prefer-module": "off",
     "unicorn/prefer-node-protocol": "off",
+    "unicorn/prefer-optional-catch-binding": "off",
     "unicorn/prefer-spread": "off",
     "unicorn/prefer-top-level-await": "off",
     "unicorn/prevent-abbreviations": "off",

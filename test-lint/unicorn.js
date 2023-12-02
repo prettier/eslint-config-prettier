@@ -8,4 +8,4 @@
 // Prettier wants line break in `try`, but
 // `plugin:unicorn/recommended` wants whitespace removed.
 try {
-} catch {}
+} catch (_error) {}
