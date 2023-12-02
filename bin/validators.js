@@ -49,20 +49,24 @@ module.exports = {
   },
 
   "unicorn/template-indent"({ options }) {
-    if (!options[0]) {
+    if (options.length === 0) {
       return false;
     }
 
-    const firstOption = options[0];
+    const { comments = [], tags = [] } = options[0] || {};
 
-    return !(
-      firstOption.comments?.includes("HTML") ||
-      firstOption.tags?.includes("css") ||
-      firstOption.tags?.includes("graphql") ||
-      firstOption.tags?.includes("gql") ||
-      firstOption.tags?.includes("html") ||
-      firstOption.tags?.includes("markdown") ||
-      firstOption.tags?.includes("md")
+    return (
+      Array.isArray(comments) &&
+      Array.isArray(tags) &&
+      !(
+        comments.includes("HTML") ||
+        tags.includes("css") ||
+        tags.includes("graphql") ||
+        tags.includes("gql") ||
+        tags.includes("html") ||
+        tags.includes("markdown") ||
+        tags.includes("md")
+      )
     );
   },
 

@@ -97,6 +97,11 @@ rule("unicorn/template-indent", {
         tags: ["gql"],
       },
     ],
+    [
+      {
+        tags: {},
+      },
+    ],
   ],
 });
 
