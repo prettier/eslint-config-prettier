@@ -173,51 +173,36 @@ module.exports = {
     "vue/template-curly-spacing": "off",
 
     ...(includeDeprecated && {
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/generator-star
-      "generator-star": "off",
-      // Deprecated since version 4.0.0.
-      // https://github.com/eslint/eslint/pull/8286
-      "indent-legacy": "off",
-      // Removed in version 2.0.0.
-      // https://eslint.org/docs/latest/rules/no-arrow-condition
-      "no-arrow-condition": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-comma-dangle
-      "no-comma-dangle": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-reserved-keys
-      "no-reserved-keys": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-space-before-semi
-      "no-space-before-semi": "off",
-      // Deprecated since version 3.3.0.
-      // https://eslint.org/docs/rules/no-spaced-func
-      "no-spaced-func": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/no-wrap-func
-      "no-wrap-func": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/space-after-function-name
-      "space-after-function-name": "off",
-      // Removed in version 2.0.0.
-      // https://eslint.org/docs/latest/rules/space-after-keywords
-      "space-after-keywords": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/space-before-function-parentheses
-      "space-before-function-parentheses": "off",
-      // Removed in version 2.0.0.
-      // https://eslint.org/docs/latest/rules/space-before-keywords
-      "space-before-keywords": "off",
-      // Removed in version 1.0.0.
-      // https://eslint.org/docs/latest/rules/space-in-brackets
-      "space-in-brackets": "off",
-      // Removed in version 2.0.0.
-      // https://eslint.org/docs/latest/rules/space-return-throw-case
-      "space-return-throw-case": "off",
       // Removed in version 0.10.0.
       // https://eslint.org/docs/latest/rules/space-unary-word-ops
       "space-unary-word-ops": "off",
+
+      // Removed in version 1.0.0.
+      // https://github.com/eslint/eslint/issues/1898
+      "generator-star": "off",
+      "no-comma-dangle": "off",
+      "no-reserved-keys": "off",
+      "no-space-before-semi": "off",
+      "no-wrap-func": "off",
+      "space-after-function-name": "off",
+      "space-before-function-parentheses": "off",
+      "space-in-brackets": "off",
+
+      // Removed in version 2.0.0.
+      // https://github.com/eslint/eslint/issues/5032
+      "no-arrow-condition": "off",
+      "space-after-keywords": "off",
+      "space-before-keywords": "off",
+      "space-return-throw-case": "off",
+
+      // Deprecated since version 3.3.0.
+      // https://eslint.org/docs/rules/no-spaced-func
+      "no-spaced-func": "off",
+
+      // Deprecated since version 4.0.0.
+      // https://github.com/eslint/eslint/pull/8286
+      "indent-legacy": "off",
+
       // Deprecated since version 7.0.0.
       // https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md#700---2017-05-06
       "react/jsx-space-before-closing": "off",
