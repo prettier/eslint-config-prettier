@@ -9,7 +9,6 @@ const fs = require("fs");
 const path = require("path");
 const babelOld = require("eslint-plugin-babel");
 const babelNew = require("@babel/eslint-plugin");
-const babelParser = require("@babel/eslint-parser");
 const flowtype = require("eslint-plugin-flowtype");
 const globals = require("globals");
 const google = require("eslint-config-google");
@@ -65,7 +64,6 @@ module.exports = [
         ...globals.es6,
         ...globals.node,
       },
-      parser: babelParser,
     },
     rules: eslintrcBase.rules,
     settings: eslintrcBase.settings,
