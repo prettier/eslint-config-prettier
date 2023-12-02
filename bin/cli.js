@@ -18,7 +18,6 @@ const localRequire = (request) =>
 let experimentalApi = {};
 try {
   experimentalApi = localRequire("eslint/use-at-your-own-risk");
-  // eslint-disable-next-line unicorn/prefer-optional-catch-binding
 } catch (_error) {}
 
 const { ESLint, FlatESLint = experimentalApi.FlatESLint } =
