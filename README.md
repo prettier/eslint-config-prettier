@@ -275,7 +275,7 @@ Example ESLint configuration:
 }
 ```
 
-### [lines-around-comment]
+### [lines-around-comment] \(deprecated)
 
 (The following applies to [@typescript-eslint/lines-around-comment] as well.)
 
@@ -334,7 +334,7 @@ Example ESLint configuration:
 }
 ```
 
-### [max-len]
+### [max-len] \(deprecated)
 
 (The following applies to [vue/max-len] as well.)
 
@@ -357,7 +357,7 @@ Example ESLint configuration:
 }
 ```
 
-### [no-confusing-arrow]
+### [no-confusing-arrow] \(deprecated)
 
 **This rule requires certain options.**
 
@@ -407,7 +407,7 @@ Example ESLint configuration:
 
 (Note: The CLI helper tool considers `{allowParens: true}` to be the default, which is the case since ESLint 6.0.0. The tool will produce a warning if you use the default even if you use an older version of ESLint. It doesn’t hurt to explicitly set `{allowParens: false}` even though it is technically redundant. This way you are prepared for a future ESLint upgrade and the CLI tool can be kept simple.)
 
-### [no-mixed-operators]
+### [no-mixed-operators] \(deprecated)
 
 **This rule requires special attention when writing code.**
 
@@ -460,7 +460,7 @@ Example ESLint configuration:
 }
 ```
 
-### [no-tabs]
+### [no-tabs] \(deprecated)
 
 **This rule requires certain options.**
 
@@ -546,7 +546,7 @@ Example configuration:
 }
 ```
 
-### [quotes]
+### [quotes] \(deprecated)
 
 (The following applies to [babel/quotes] and [@typescript-eslint/quotes] as well.)
 
