@@ -656,14 +656,25 @@ This rule will automatically fix the indentation of multiline string templates, 
 
 Prettier deals with:
 
-- html
-- css
-- graphql
+- HTML
+- CSS
+- GraphQL
 - markdown
 
 Using various tags, functions and comments.
 
-`template-indent` by default formats some of the same tagged templates, which causes conflicts.
+`unicorn/template-indent` by default formats some of the same tagged templates, which can cause conflicts. For example, the rule and Prettier disagree about indentation in ternaries:
+
+```js
+condition
+  ? null
+  : html`
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui
+        mauris.
+      </p>
+    `;
+```
 
 If you like this rule, it can be used just fine with Prettier as long as you configure the rule to not deal with the same templates as Prettier.
 
@@ -695,6 +706,8 @@ Example ESLint configuration:
   }
 }
 ```
+
+Note: If you use `"selectors"`, the CLI helper tool cannot detect if your selectors might cause conflicts.
 
 ### [vue/html-self-closing]
 
