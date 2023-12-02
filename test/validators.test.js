@@ -82,6 +82,7 @@ rule("unicorn/template-indent", {
     ],
   ],
   invalid: [
+    [],
     [{ comments: ["GraphQL"] }],
     [{ comments: ["HTML"] }],
     [{ tags: ["css"] }],
