@@ -69,7 +69,7 @@ rule("unicorn/template-indent", {
   valid: [
     [
       {
-        tags: ["outdent", "dedent", "sql"],
+        tags: ["outdent", "dedent", "sql", "styled"],
         functions: ["dedent", "stripIndent"],
         selectors: [],
         comments: ["indent"],

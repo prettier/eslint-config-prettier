@@ -679,7 +679,8 @@ Example ESLint configuration:
         "tags": [
           "outdent",
           "dedent",
-          "sql"
+          "sql",
+          "styled"
         ],
         "functions": [
           "dedent",
