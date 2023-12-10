@@ -19,14 +19,17 @@ module.exports = {
     }
 
     const firstOption = options[0];
+    const requiredProperties = [
+      "allowBlockStart",
+      "allowBlockEnd",
+      "allowObjectStart",
+      "allowObjectEnd",
+      "allowArrayStart",
+      "allowArrayEnd",
+    ];
+
     return Boolean(
-      firstOption &&
-        firstOption.allowBlockStart &&
-        firstOption.allowBlockEnd &&
-        firstOption.allowObjectStart &&
-        firstOption.allowObjectEnd &&
-        firstOption.allowArrayStart &&
-        firstOption.allowArrayEnd
+      firstOption && requiredProperties.every((prop) => firstOption[prop])
     );
   },
 
@@ -54,20 +57,24 @@ module.exports = {
     }
 
     const { comments = [], tags = [] } = options[0] || {};
+    const forbiddenElements = new Set([
+      "GraphQL",
+      "HTML",
+      "css",
+      "graphql",
+      "gql",
+      "html",
+      "markdown",
+      "md",
+    ]);
+
+    const hasForbiddenElement = (array) =>
+      array.some((element) => forbiddenElements.has(element));
 
     return (
       Array.isArray(comments) &&
       Array.isArray(tags) &&
-      !(
-        comments.includes("GraphQL") ||
-        comments.includes("HTML") ||
-        tags.includes("css") ||
-        tags.includes("graphql") ||
-        tags.includes("gql") ||
-        tags.includes("html") ||
-        tags.includes("markdown") ||
-        tags.includes("md")
-      )
+      !(hasForbiddenElement(comments) || hasForbiddenElement(tags))
     );
   },
 
