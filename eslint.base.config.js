@@ -15,6 +15,10 @@ const google = require("eslint-config-google");
 const prettier = require("eslint-plugin-prettier");
 const react = require("eslint-plugin-react");
 const standard = require("eslint-plugin-standard");
+const stylistic = require("@stylistic/eslint-plugin");
+const stylisticJs = require("@stylistic/eslint-plugin-js");
+const stylisticTs = require("@stylistic/eslint-plugin-ts");
+const stylisticJsx = require("@stylistic/eslint-plugin-jsx");
 const typescriptEslint = require("@typescript-eslint/eslint-plugin");
 const unicorn = require("eslint-plugin-unicorn");
 const vue = require("eslint-plugin-vue");
@@ -42,6 +46,10 @@ module.exports = [
       prettier,
       react,
       standard,
+      "@stylistic": stylistic,
+      "@stylistic/js": stylisticJs,
+      "@stylistic/ts": stylisticTs,
+      "@stylistic/jsx": stylisticJsx,
       unicorn,
       vue,
     },
@@ -52,6 +60,9 @@ module.exports = [
   },
   {
     rules: react.configs.all.rules,
+  },
+  {
+    rules: stylistic.configs["all-flat"].rules,
   },
   {
     rules: unicorn.configs.recommended.rules,

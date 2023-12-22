@@ -21,13 +21,17 @@ module.exports = [
   {
     rules: eslintrc.rules,
   },
-  ...eslintrc.overrides.map(({ env = {}, ...override }) => ({
-    ...override,
-    languageOptions: {
-      globals: Object.entries(env).reduce(
-        (acc, [key, enabled]) => (enabled ? { ...acc, ...globals[key] } : acc),
-        {}
-      ),
-    },
-  })),
+  ...eslintrc.overrides.map(
+    ({ env = {}, parserOptions = {}, ...override }) => ({
+      ...override,
+      languageOptions: {
+        globals: Object.entries(env).reduce(
+          (acc, [key, enabled]) =>
+            enabled ? { ...acc, ...globals[key] } : acc,
+          {}
+        ),
+        parserOptions,
+      },
+    })
+  ),
 ];

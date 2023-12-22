@@ -277,7 +277,7 @@ Example ESLint configuration:
 
 ### [lines-around-comment] \(deprecated)
 
-(The following applies to [@typescript-eslint/lines-around-comment] as well.)
+(The following applies to [@stylistic/lines-around-comment], [@stylistic/js/lines-around-comment], [@stylistic/ts/lines-around-comment], and[@typescript-eslint/lines-around-comment] as well.)
 
 **This rule can be used with certain options.**
 
@@ -336,7 +336,7 @@ Example ESLint configuration:
 
 ### [max-len] \(deprecated)
 
-(The following applies to [vue/max-len] as well.)
+(The following applies to [@stylistic/max-len], [@stylistic/js/max-len], and [vue/max-len] as well.)
 
 **This rule requires special attention when writing code.**
 
@@ -358,6 +358,8 @@ Example ESLint configuration:
 ```
 
 ### [no-confusing-arrow] \(deprecated)
+
+(The following applies to [@stylistic/no-confusing-arrow] and [@stylistic/js/no-confusing-arrow] as well.)
 
 **This rule requires certain options.**
 
@@ -408,6 +410,8 @@ Example ESLint configuration:
 (Note: The CLI helper tool considers `{allowParens: true}` to be the default, which is the case since ESLint 6.0.0. The tool will produce a warning if you use the default even if you use an older version of ESLint. It doesn’t hurt to explicitly set `{allowParens: false}` even though it is technically redundant. This way you are prepared for a future ESLint upgrade and the CLI tool can be kept simple.)
 
 ### [no-mixed-operators] \(deprecated)
+
+(The following applies to [@stylistic/no-mixed-operators] and [@stylistic/js/no-mixed-operators] as well.)
 
 **This rule requires special attention when writing code.**
 
@@ -461,6 +465,8 @@ Example ESLint configuration:
 ```
 
 ### [no-tabs] \(deprecated)
+
+(The following applies to [@stylistic/no-tabs] and [@stylistic/js/no-tabs] as well.)
 
 **This rule requires certain options.**
 
@@ -548,7 +554,7 @@ Example configuration:
 
 ### [quotes] \(deprecated)
 
-(The following applies to [babel/quotes] and [@typescript-eslint/quotes] as well.)
+(The following applies to [babel/quotes], [@stylistic/quotes], [@stylistic/js/quotes], [@stylistic/ts/quotes], and [@typescript-eslint/quotes] as well.)
 
 **This rule requires certain options and certain Prettier options.**
 
@@ -853,6 +859,20 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [MIT](LICENSE).
 
 [@babel/eslint-plugin]: https://github.com/babel/babel/tree/main/eslint/babel-eslint-plugin
+[@stylistic/lines-around-comment]: https://eslint.style/rules/default/lines-around-comment
+[@stylistic/js/lines-around-comment]: https://eslint.style/rules/js/lines-around-comment
+[@stylistic/ts/lines-around-comment]: https://eslint.style/rules/ts/lines-around-comment
+[@stylistic/max-len]: https://eslint.style/rules/default/max-len
+[@stylistic/js/max-len]: https://eslint.style/rules/js/max-len
+[@stylistic/no-confusing-arrow]: https://eslint.style/rules/default/no-confusing-arrow
+[@stylistic/js/no-confusing-arrow]: https://eslint.style/rules/js/no-confusing-arrow
+[@stylistic/no-mixed-operators]: https://eslint.style/rules/default/no-mixed-operators
+[@stylistic/js/no-mixed-operators]: https://eslint.style/rules/js/no-mixed-operators
+[@stylistic/no-tabs]: https://eslint.style/rules/default/no-tabs
+[@stylistic/js/no-tabs]: https://eslint.style/rules/js/no-tabs
+[@stylistic/quotes]: https://eslint.style/rules/default/quotes
+[@stylistic/js/quotes]: https://eslint.style/rules/js/quotes
+[@stylistic/ts/quotes]: https://eslint.style/rules/ts/quotes
 [@typescript-eslint/eslint-plugin]: https://github.com/typescript-eslint/typescript-eslint
 [@typescript-eslint/lines-around-comment]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/lines-around-comment.md
 [@typescript-eslint/quotes]: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/quotes.md
