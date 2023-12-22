@@ -32,6 +32,9 @@ module.exports = {
           { avoidEscape: true, allowTemplateLiterals: false },
         ],
       },
+      parserOptions: {
+        ecmaVersion: "latest",
+      },
     },
     {
       files: ["**/*.test.js"],
