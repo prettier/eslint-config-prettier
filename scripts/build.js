@@ -6,16 +6,7 @@ const path = require("path");
 const DIR = path.join(__dirname, "..");
 const BUILD = path.join(DIR, "build");
 
-const READ_MORE =
-  "**[➡️ Full readme](https://github.com/prettier/eslint-config-prettier/)**";
-
 const FILES_TO_COPY = [
-  { src: "LICENSE" },
-  { src: "package-real.json", dest: "package.json" },
-  {
-    src: "README.md",
-    transform: (content) => content.replace(/^##[^]*/m, READ_MORE),
-  },
   { src: "index.js" },
   { src: "prettier.js" },
   ...fs
