@@ -1,5 +1,21 @@
 {
-  "private": true,
+  "name": "eslint-config-prettier",
+  "version": "9.1.0",
+  "license": "MIT",
+  "author": "Simon Lydell",
+  "description": "Turns off all rules that are unnecessary or might conflict with Prettier.",
+  "repository": "prettier/eslint-config-prettier",
+  "bin": "bin/cli.js",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "eslint-prettier",
+    "prettier"
+  ],
+  "peerDependencies": {
+    "eslint": ">=7.0.0"
+  },
   "scripts": {
     "prettier": "prettier --write .",
     "test:prettier": "prettier --check .",
@@ -14,7 +30,8 @@
     "test:cli-sanity-warning": "node ./bin/cli.js react.js ./bin/cli.js",
     "test:with-env": "npm run test:eslint && npm run test:jest && npm run test:cli-sanity && npm run test:cli-sanity-warning",
     "test": "npm run test:prettier && ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npm run test:with-env && ESLINT_USE_FLAT_CONFIG=false npm run test:with-env && npm run build",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "release": "npm run build && clean-pkg-json && changeset publish"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.23.3",
@@ -22,8 +39,11 @@
     "@babel/plugin-syntax-flow": "7.23.3",
     "@babel/plugin-syntax-jsx": "7.23.3",
     "@babel/plugin-transform-react-jsx": "7.23.4",
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
     "@typescript-eslint/eslint-plugin": "6.13.1",
     "@typescript-eslint/parser": "6.13.1",
+    "clean-pkg-json": "^1.2.0",
     "eslint": "8.55.0",
     "eslint-config-google": "0.14.0",
     "eslint-find-rules": "4.1.0",
@@ -39,5 +59,8 @@
     "prettier": "3.1.0",
     "typescript": "5.3.2",
     "vue-eslint-parser": "9.3.2"
+  },
+  "publishConfig": {
+    "directory": "build"
   }
 }
