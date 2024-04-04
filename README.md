@@ -12,8 +12,17 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 
 1. Install eslint-config-prettier:
 
+   ``` javscript
+   npm i -D eslint-config-prettier
    ```
-   npm install --save-dev eslint-config-prettier
+   ``` javscript
+   yarn add -D eslint-config-prettier
+   ```
+   ``` javscript
+   pnpm add -D eslint-config-prettier
+   ```
+   ``` javscript
+   bun add -D eslint-config-prettier
    ```
 
 2. Add eslint-config-prettier to your ESLint configuration – either to [eslintrc] or to [eslint.config.js (flat config)].
