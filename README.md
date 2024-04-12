@@ -12,16 +12,16 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 
 1. Install eslint-config-prettier:
 
-   ``` javscript
+   ```bash
    npm i -D eslint-config-prettier
    ```
-   ``` javscript
+   ```bash
    yarn add -D eslint-config-prettier
    ```
-   ``` javscript
+   ```bash
    pnpm add -D eslint-config-prettier
    ```
-   ``` javscript
+   ```bash
    bun add -D eslint-config-prettier
    ```
 
