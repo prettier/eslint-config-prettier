@@ -868,8 +868,8 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [eslint-plugin-standard]: https://github.com/xjamundx/eslint-plugin-standard
 [eslint-plugin-unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
-[eslint.config.js (flat config)]: https://eslint.org/docs/latest/use/configure/configuration-files-new
-[eslintrc]: https://eslint.org/docs/latest/use/configure/configuration-files
+[eslint.config.js (flat config)]: https://eslint.org/docs/latest/use/configure/configuration-files
+[eslintrc]: https://eslint.org/docs/latest/use/configure/configuration-files-deprecated
 [lines-around-comment]: https://eslint.org/docs/rules/lines-around-comment
 [max-len]: https://eslint.org/docs/rules/max-len
 [multiple configuration files]: https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
