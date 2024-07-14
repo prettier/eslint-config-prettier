@@ -277,7 +277,7 @@ Example ESLint configuration:
 
 ### [lines-around-comment] \(deprecated)
 
-(The following applies to [@stylistic/lines-around-comment], [@stylistic/js/lines-around-comment], [@stylistic/ts/lines-around-comment], and[@typescript-eslint/lines-around-comment] as well.)
+(The following applies to [@stylistic/lines-around-comment], [@stylistic/js/lines-around-comment], [@stylistic/ts/lines-around-comment], and [@typescript-eslint/lines-around-comment] as well.)
 
 **This rule can be used with certain options.**
 
