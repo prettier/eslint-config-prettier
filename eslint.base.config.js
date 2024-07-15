@@ -62,9 +62,6 @@ module.exports = [
     rules: react.configs.all.rules,
   },
   {
-    rules: stylistic.configs["all-flat"].rules,
-  },
-  {
     rules: unicorn.configs.recommended.rules,
   },
   {
