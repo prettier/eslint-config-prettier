@@ -96,4 +96,16 @@ module.exports = [
       languageOptions: { parser: require(parserOptions.parser) },
     })),
   { files: ["test-lint/@stylistic.js"], ...stylistic.configs["all-flat"] },
+  {
+    files: ["test-lint/@stylistic__js.js"],
+    ...stylisticJs.configs["all-flat"],
+  },
+  {
+    files: ["test-lint/@stylistic__jsx.jsx"],
+    ...stylisticJsx.configs["all-flat"],
+  },
+  {
+    files: ["test-lint/@stylistic__ts.ts"],
+    ...stylisticTs.configs["all-flat"],
+  },
 ];
