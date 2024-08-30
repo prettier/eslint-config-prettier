@@ -98,6 +98,15 @@ module.exports = {
       files: ["test-lint/{react,flowtype}.js"],
       parserOptions: { parser: "@babel/eslint-parser" },
     },
+    {
+      files: ["test-lint/@stylistic.js"],
+      extends: [
+        "plugin:@stylistic/all-extends",
+        "plugin:@stylistic/js/all-extends",
+        "plugin:@stylistic/jsx/all-extends",
+        "plugin:@stylistic/ts/all-extends",
+      ],
+    },
   ],
   settings: {
     react: {
