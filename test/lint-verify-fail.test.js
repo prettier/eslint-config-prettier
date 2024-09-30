@@ -52,7 +52,7 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
   output.forEach((data) => {
     const name = path
       .basename(data.filePath)
-      .replace(/\.(?:js|ts)$|-file\.vue$/, "");
+      .replace(/\.(?:js|jsx|ts)$|-file\.vue$/, "");
     const ruleIds = data.messages.map((message) => message.ruleId);
 
     describe(name, () => {
@@ -70,6 +70,14 @@ describe("test-lint/ causes errors without eslint-config-prettier", () => {
               .filter((ruleId) => ruleId.includes("/"))
               .concat("no ruleId should not contain a slash")
           ).toEqual(["no ruleId should not contain a slash"]);
+        } else if (name.startsWith("@stylistic__")) {
+          const stylisticGroup = name.split("__")[1];
+          const rulePrefix = `@stylistic/${stylisticGroup}/`;
+          expect(
+            ruleIds
+              .filter((ruleId) => !ruleId.startsWith(rulePrefix))
+              .concat(`every ruleId should start with: ${rulePrefix}`)
+          ).toEqual([`every ruleId should start with: ${rulePrefix}`]);
         } else {
           expect(
             ruleIds

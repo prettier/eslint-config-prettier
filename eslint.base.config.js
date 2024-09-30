@@ -89,9 +89,23 @@ module.exports = [
       ...vue.configs.recommended.rules,
     },
   },
-  ...eslintrcBase.overrides.map(({ parserOptions, ...override }) => ({
-    ...override,
-    languageOptions: { parser: require(parserOptions.parser) },
-  })),
+  ...eslintrcBase.overrides
+    .filter(({ parserOptions }) => parserOptions)
+    .map(({ parserOptions, ...override }) => ({
+      ...override,
+      languageOptions: { parser: require(parserOptions.parser) },
+    })),
   { files: ["test-lint/@stylistic.js"], ...stylistic.configs["all-flat"] },
+  {
+    files: ["test-lint/@stylistic__js.js"],
+    ...stylisticJs.configs["all-flat"],
+  },
+  {
+    files: ["test-lint/@stylistic__jsx.jsx"],
+    ...stylisticJsx.configs["all-flat"],
+  },
+  {
+    files: ["test-lint/@stylistic__ts.ts"],
+    ...stylisticTs.configs["all-flat"],
+  },
 ];
