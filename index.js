@@ -5,6 +5,7 @@ const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 const specialRule = 0;
 
 module.exports = {
+  name: "config-prettier",
   rules: {
     // The following rules can be used in some cases. See the README for more
     // information. These are marked with `0` instead of `"off"` so that a
