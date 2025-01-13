@@ -1,3 +1,13 @@
+# eslint-config-prettier
+
+## 10.0.0
+
+### Major Changes
+
+- [#272](https://github.com/prettier/eslint-config-prettier/pull/272) [`5be64be`](https://github.com/prettier/eslint-config-prettier/commit/5be64bef68c3a9bf7202f591f54ffec02572e46b) Thanks [@abrahamguo](https://github.com/abrahamguo)! - add support for @stylistic formatting rules
+
+## Versions before 10.0.0
+
 ### Version 9.1.0 (2023-12-02)
 
 - Added: [unicorn/template-indent], (as a [special rule][unicorn/template-indent-special]). Thanks to Gürgün Dayıoğlu (@gurgunday)!
