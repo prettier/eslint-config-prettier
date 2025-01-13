@@ -6,12 +6,12 @@
 
 - [#272](https://github.com/prettier/eslint-config-prettier/pull/272) [`5be64be`](https://github.com/prettier/eslint-config-prettier/commit/5be64bef68c3a9bf7202f591f54ffec02572e46b) Thanks [@abrahamguo](https://github.com/abrahamguo)! - add support for @stylistic formatting rules
 
-- Added: [unicorn/template-indent], (as a [special rule][unicorn/template-indent-special]). Thanks to Gürgün Dayıoğlu (@gurgunday)!
-- Changed: All the [formatting rules that were deprecated in ESLint 8.53.0][deprecated-8.53.0] are now excluded if you set the `ESLINT_CONFIG_PRETTIER_NO_DEPRECATED` environment variable.
-
 ## Versions before 10.0.0
 
 ### Version 9.1.0 (2023-12-02)
+
+- Added: [unicorn/template-indent], (as a [special rule][unicorn/template-indent-special]). Thanks to Gürgün Dayıoğlu (@gurgunday)!
+- Changed: All the [formatting rules that were deprecated in ESLint 8.53.0][deprecated-8.53.0] are now excluded if you set the `ESLINT_CONFIG_PRETTIER_NO_DEPRECATED` environment variable.
 
 ### Version 9.0.0 (2023-08-05)
 
