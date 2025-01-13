@@ -5,7 +5,10 @@
   "author": "Simon Lydell",
   "description": "Turns off all rules that are unnecessary or might conflict with Prettier.",
   "repository": "prettier/eslint-config-prettier",
-  "bin": "bin/cli.js",
+  "bin": "build/bin/cli.js",
+  "files": [
+    "build"
+  ],
   "keywords": [
     "eslint",
     "eslintconfig",
@@ -60,8 +63,5 @@
     "prettier": "3.1.0",
     "typescript": "5.3.2",
     "vue-eslint-parser": "9.3.2"
-  },
-  "publishConfig": {
-    "directory": "build"
   }
 }
