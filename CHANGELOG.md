@@ -1,4 +1,4 @@
-### Version 9.1.0 (2023-12-02)
+# eslint-config-prettier
 
 ## 10.0.0
 
@@ -8,6 +8,10 @@
 
 - Added: [unicorn/template-indent], (as a [special rule][unicorn/template-indent-special]). Thanks to Gürgün Dayıoğlu (@gurgunday)!
 - Changed: All the [formatting rules that were deprecated in ESLint 8.53.0][deprecated-8.53.0] are now excluded if you set the `ESLINT_CONFIG_PRETTIER_NO_DEPRECATED` environment variable.
+
+## Versions before 10.0.0
+
+### Version 9.1.0 (2023-12-02)
 
 ### Version 9.0.0 (2023-08-05)
 
