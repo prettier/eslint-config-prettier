@@ -15,6 +15,10 @@ const google = require("eslint-config-google");
 const prettier = require("eslint-plugin-prettier");
 const react = require("eslint-plugin-react");
 const standard = require("eslint-plugin-standard");
+const stylistic = require("@stylistic/eslint-plugin");
+const stylisticJs = require("@stylistic/eslint-plugin-js");
+const stylisticTs = require("@stylistic/eslint-plugin-ts");
+const stylisticJsx = require("@stylistic/eslint-plugin-jsx");
 const typescriptEslint = require("@typescript-eslint/eslint-plugin");
 const unicorn = require("eslint-plugin-unicorn");
 const vue = require("eslint-plugin-vue");
@@ -38,6 +42,10 @@ module.exports = [
       "@typescript-eslint": typescriptEslint,
       "babel": babelOld,
       "@babel": babelNew,
+      "@stylistic": stylistic,
+      "@stylistic/js": stylisticJs,
+      "@stylistic/ts": stylisticTs,
+      "@stylistic/jsx": stylisticJsx,
       flowtype,
       prettier,
       react,
@@ -81,8 +89,23 @@ module.exports = [
       ...vue.configs.recommended.rules,
     },
   },
-  ...eslintrcBase.overrides.map(({ parserOptions, ...override }) => ({
-    ...override,
-    languageOptions: { parser: require(parserOptions.parser) },
-  })),
+  ...eslintrcBase.overrides
+    .filter(({ parserOptions }) => parserOptions)
+    .map(({ parserOptions, ...override }) => ({
+      ...override,
+      languageOptions: { parser: require(parserOptions.parser) },
+    })),
+  { files: ["test-lint/@stylistic.js"], ...stylistic.configs["all-flat"] },
+  {
+    files: ["test-lint/@stylistic__js.js"],
+    ...stylisticJs.configs["all-flat"],
+  },
+  {
+    files: ["test-lint/@stylistic__jsx.jsx"],
+    ...stylisticJsx.configs["all-flat"],
+  },
+  {
+    files: ["test-lint/@stylistic__ts.ts"],
+    ...stylisticTs.configs["all-flat"],
+  },
 ];
