@@ -7,6 +7,7 @@
   "repository": "prettier/eslint-config-prettier",
   "bin": "build/bin/cli.js",
   "main": "build/index.js",
+  "type": "commonjs",
   "files": [
     "build"
   ],
