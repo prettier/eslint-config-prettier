@@ -1,5 +1,11 @@
 # eslint-config-prettier
 
+## 10.0.2
+
+### Patch Changes
+
+- [#299](https://github.com/prettier/eslint-config-prettier/pull/299) [`e750edc`](https://github.com/prettier/eslint-config-prettier/commit/e750edc530c816e0b3ffabfab1f4e46532bccbfe) Thanks [@Fdawgs](https://github.com/Fdawgs)! - chore(package): explicitly declare js module type
+
 ## 10.0.0
 
 ### Major Changes
