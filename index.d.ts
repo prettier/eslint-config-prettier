@@ -1,7 +1,3 @@
-type Config = {
-  rules: Record<string, 0 | "off">;
-};
+export const name: "config-prettier" | undefined;
 
-declare const config: Config;
-
-export = config;
+export const rules: Record<string, 0 | "off">;
