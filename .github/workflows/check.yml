@@ -6,6 +6,10 @@ on:
       - "main"
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -17,6 +21,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node-version: [20]
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
@@ -26,16 +31,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Cache node_modules
-        id: cache-node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ matrix.os }}-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
+          cache: npm
 
       - name: npm ci
-        if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: npm ci --no-audit
 
       - name: ESLint - flat
