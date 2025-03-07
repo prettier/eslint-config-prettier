@@ -1,5 +1,13 @@
 # eslint-config-prettier
 
+## 10.0.3
+
+### Patch Changes
+
+- [#294](https://github.com/prettier/eslint-config-prettier/pull/294) [`8dbbd6d`](https://github.com/prettier/eslint-config-prettier/commit/8dbbd6d70b8a56cdfa4ea4e185d3699d5729b38e) Thanks [@FloEdelmann](https://github.com/FloEdelmann)! - feat: add name to config
+
+- [#280](https://github.com/prettier/eslint-config-prettier/pull/280) [`cba5737`](https://github.com/prettier/eslint-config-prettier/commit/cba57377e4c86d20d17042d6999eabc754fddc03) Thanks [@zanminkian](https://github.com/zanminkian)! - feat: add declaration file
+
 ## 10.0.2
 
 ### Patch Changes
