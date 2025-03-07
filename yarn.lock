@@ -1251,6 +1251,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stylistic/eslint-plugin-plus@npm:^2.3.0":
+  version: 2.13.0
+  resolution: "@stylistic/eslint-plugin-plus@npm:2.13.0"
+  peerDependencies:
+    eslint: "*"
+  checksum: 10c0/6092e3a6d568d0cee4b0550c58724f84750f58232649be0cfb84bce4c5cb04f212caf0abd659b591a92cd41c1cb8da864dd693378708ac6dfb8e7cbccc586cfb
+  languageName: node
+  linkType: hard
+
 "@stylistic/eslint-plugin-ts@npm:^2.3.0":
   version: 2.13.0
   resolution: "@stylistic/eslint-plugin-ts@npm:2.13.0"
@@ -2670,6 +2679,7 @@ __metadata:
     "@stylistic/eslint-plugin": "npm:^2.3.0"
     "@stylistic/eslint-plugin-js": "npm:^2.3.0"
     "@stylistic/eslint-plugin-jsx": "npm:^2.3.0"
+    "@stylistic/eslint-plugin-plus": "npm:^2.3.0"
     "@stylistic/eslint-plugin-ts": "npm:^2.3.0"
     "@typescript-eslint/eslint-plugin": "npm:6.13.1"
     "@typescript-eslint/parser": "npm:6.13.1"

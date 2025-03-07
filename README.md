@@ -63,8 +63,9 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
 
 eslint-config-prettier not only turns off _core_ rules, but also some from these plugins automatically:
 
-- [@typescript-eslint/eslint-plugin]
 - [@babel/eslint-plugin]
+- [@stylistic/eslint-plugin]
+- [@typescript-eslint/eslint-plugin]
 - [eslint-plugin-babel]
 - [eslint-plugin-flowtype]
 - [eslint-plugin-react]
@@ -871,6 +872,7 @@ When you’re done, run `npm test` to verify that you got it all right. It runs 
 [MIT](LICENSE).
 
 [@babel/eslint-plugin]: https://github.com/babel/babel/tree/main/eslint/babel-eslint-plugin
+[@stylistic/eslint-plugin]: https://github.com/eslint-stylistic/eslint-stylistic
 [@stylistic/lines-around-comment]: https://eslint.style/rules/default/lines-around-comment
 [@stylistic/js/lines-around-comment]: https://eslint.style/rules/js/lines-around-comment
 [@stylistic/ts/lines-around-comment]: https://eslint.style/rules/ts/lines-around-comment

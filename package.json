@@ -54,6 +54,7 @@
     "@stylistic/eslint-plugin": "^2.3.0",
     "@stylistic/eslint-plugin-js": "^2.3.0",
     "@stylistic/eslint-plugin-jsx": "^2.3.0",
+    "@stylistic/eslint-plugin-plus": "^2.3.0",
     "@stylistic/eslint-plugin-ts": "^2.3.0",
     "@typescript-eslint/eslint-plugin": "6.13.1",
     "@typescript-eslint/parser": "6.13.1",
