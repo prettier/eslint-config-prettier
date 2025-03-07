@@ -40,6 +40,3 @@ jobs:
 
       - name: Prettier
         run: yarn prettier --check .
-
-      - name: Build
-        run: yarn build

@@ -2703,7 +2703,7 @@ __metadata:
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
-    eslint-config-prettier: build/bin/cli.js
+    eslint-config-prettier: bin/cli.js
   languageName: unknown
   linkType: soft
 
