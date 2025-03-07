@@ -1,5 +1,6 @@
 {
   "proseWrap": "never",
   "quoteProps": "consistent",
-  "trailingComma": "es5"
+  "trailingComma": "es5",
+  "plugins": ["prettier-plugin-pkg"]
 }

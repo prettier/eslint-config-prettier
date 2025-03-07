@@ -1,14 +1,14 @@
 "use strict";
 
-// const { version } = require("eslint/package.json");
+const { version } = require("eslint/package.json");
 
 const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 
 const specialRule = 0;
 
-// if (+version.split(".")[0] >= 9) {
-//   exports.name = "config-prettier";
-// }
+if (+version.split(".")[0] >= 9) {
+  exports.name = "config-prettier";
+}
 
 exports.rules = {
   // The following rules can be used in some cases. See the README for more

@@ -10,7 +10,7 @@
 
 const globals = require("globals");
 const base = require("./eslint.base.config");
-const index = require(".");
+const index = require("./index.js");
 const prettier = require("./prettier");
 const eslintrc = require("./.eslintrc");
 
@@ -34,10 +34,4 @@ module.exports = [
       },
     })
   ),
-  {
-    files: ["**/*.d.ts"],
-    rules: {
-      strict: "off",
-    },
-  },
 ];

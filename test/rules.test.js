@@ -1,5 +1,9 @@
 "use strict";
 
+/**
+ * @import { ESLint } from 'eslint
+ */
+
 const childProcess = require("child_process");
 const fs = require("fs");
 const path = require("path");
@@ -16,24 +20,6 @@ const plugins = [
     })
   ),
 ];
-
-function parseJson(result) {
-  try {
-    return JSON.parse(result.stdout);
-  } catch (error) {
-    throw new SyntaxError(
-      `
-${error.message}
-
-### stdout
-${result.stdout}
-
-### stderr
-${result.stderr}
-`.trimStart()
-    );
-  }
-}
 
 beforeAll(() => {
   createTestConfigDir();
@@ -126,26 +112,31 @@ describe('all rules are set to "off" or 0', () => {
 
 test("there are no unknown rules", () => {
   const result = childProcess.spawnSync(
-    "npm",
+    "yarn",
     [
-      "run",
       process.env.ESLINT_USE_FLAT_CONFIG === "false"
         ? "test:lint-rules"
         : "test:lint-rules:flat",
-      "--silent",
     ],
     { encoding: "utf8", shell: true }
   );
-  const output = parseJson(result);
 
-  output[0].messages.forEach((message) => {
-    expect(message.message).not.toMatch(/rule\s+'[^']+'.*not found/);
-  });
+  if (result.stdout) {
+    /**
+     * @type {ESLint.LintResult[]}
+     */
+    const output = JSON.parse(result.stdout);
+    output[0].messages.forEach((message) => {
+      expect(message.message).not.toMatch(/rule\s+'[^']+'.*not found/);
+    });
+  } else {
+    expect(result.stderr).not.toMatch(/rule\s+'[^']+'.*not found/);
+  }
 });
 
 test("support omitting all deprecated rules", () => {
-  const run = (env = {}) =>
-    childProcess.spawnSync("npm", ["run", "test:deprecated"], {
+  const run = (env = {}, ...args) =>
+    childProcess.spawnSync("yarn", ["test:deprecated", ...args], {
       encoding: "utf8",
       shell: true,
       env: {
@@ -163,4 +154,20 @@ test("support omitting all deprecated rules", () => {
 
   expect(result1.status).not.toBe(0);
   expect(result2.status).toBe(0);
+
+  const result3 = run(
+    {
+      ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: undefined,
+    },
+    "--flatConfig"
+  );
+  const result4 = run(
+    {
+      ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true",
+    },
+    "--flatConfig"
+  );
+
+  expect(result3.status).not.toBe(0);
+  expect(result4.status).toBe(0);
 });

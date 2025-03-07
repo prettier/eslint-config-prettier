@@ -14,14 +14,8 @@ permissions:
   contents: read
 
 jobs:
-  main:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [20]
-      fail-fast: false
+  check:
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -30,22 +24,22 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
+          node-version: lts/*
+          cache: yarn
 
-      - name: npm ci
-        run: npm ci --no-audit
+      - name: Install Dependencies
+        run: yarn --immutable
 
       - name: ESLint - flat
-        run: npx eslint .
+        run: yarn test:eslint
 
       - name: ESLint - eslintrc
-        run: npx eslint .
+        run: yarn test:eslint
         env:
           ESLINT_USE_FLAT_CONFIG: "false"
 
       - name: Prettier
-        run: npx prettier --check .
+        run: yarn prettier --check .
 
       - name: Build
-        run: npm run build
+        run: yarn build

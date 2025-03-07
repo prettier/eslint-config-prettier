@@ -40,5 +40,11 @@ module.exports = {
       files: ["**/*.test.js"],
       env: { jest: true },
     },
+    {
+      files: ["**/*.d.ts"],
+      rules: {
+        strict: "off",
+      },
+    },
   ],
 };

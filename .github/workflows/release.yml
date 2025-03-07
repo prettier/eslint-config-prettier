@@ -20,10 +20,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: npm
+          cache: yarn
 
       - name: Install Dependencies
-        run: npm ci
+        run: yarn --immutable
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -31,8 +31,7 @@ jobs:
         with:
           commit: "chore: release eslint-config-prettier"
           title: "chore: release eslint-config-prettier"
-          publish: npm run release
-          version: npm run version
+          publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
