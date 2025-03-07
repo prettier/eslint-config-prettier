@@ -17,6 +17,10 @@
       "types": "./index.d.ts",
       "default": "./index.js"
     },
+    "./flat": {
+      "types": "./flat.d.ts",
+      "default": "./flat.js"
+    },
     "./prettier": {
       "types": "./prettier.d.ts",
       "default": "./prettier.js"
@@ -26,6 +30,8 @@
   "types": "index.d.ts",
   "files": [
     "bin",
+    "flat.d.ts",
+    "flat.js",
     "index.d.ts",
     "index.js",
     "prettier.d.ts",
