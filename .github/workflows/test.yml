@@ -14,14 +14,26 @@ permissions:
   contents: read
 
 jobs:
-  main:
+  test:
+    name: Test on ${{ matrix.os }} with Node.js ${{ matrix.node-version }}
+
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-        node-version: [16, 18, 20, 22]
+        os:
+          - macOS-latest
+          - ubuntu-latest
+          - windows-latest
+        node-version:
+          - 16
+          - 18
+          - 20
+          - 22
       fail-fast: false
+
+    env:
+      YARN_IGNORE_NODE: 1
 
     steps:
       - uses: actions/checkout@v4
@@ -31,33 +43,33 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
+          cache: yarn
 
-      - name: npm ci
-        run: npm ci --no-audit
+      - name: Install Dependencies
+        run: yarn --immutable
 
       - name: Jest - flat
-        run: npx jest
+        run: yarn test:jest
         env:
           ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true"
 
       - name: Jest - eslintrc
-        run: npx jest
+        run: yarn test:jest
         env:
           ESLINT_USE_FLAT_CONFIG: "false"
 
       - name: CLI sanity - flat
-        run: npm run test:cli-sanity
+        run: yarn test:cli-sanity
 
       - name: CLI sanity - eslintrc
-        run: npm run test:cli-sanity
+        run: yarn test:cli-sanity
         env:
           ESLINT_USE_FLAT_CONFIG: "false"
 
       - name: CLI sanity warning - flat
-        run: npm run test:cli-sanity-warning
+        run: yarn test:cli-sanity-warning
 
       - name: CLI sanity warning - eslintrc
-        run: npm run test:cli-sanity-warning
+        run: yarn test:cli-sanity-warning
         env:
           ESLINT_USE_FLAT_CONFIG: "false"

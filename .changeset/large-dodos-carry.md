@@ -2,4 +2,4 @@
 "eslint-config-prettier": patch
 ---
 
-Add name to config
+feat: add name to config
