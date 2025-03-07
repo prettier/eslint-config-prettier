@@ -1,5 +1,11 @@
 # eslint-config-prettier
 
+## 10.1.0
+
+### Minor Changes
+
+- [#306](https://github.com/prettier/eslint-config-prettier/pull/306) [`56e2e34`](https://github.com/prettier/eslint-config-prettier/commit/56e2e3466391d0fdfc200e42130309c687aaab53) Thanks [@JounQin](https://github.com/JounQin)! - feat: migrate to exports field
+
 ## 10.0.3
 
 ### Patch Changes
