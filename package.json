@@ -10,11 +10,26 @@
   ],
   "license": "MIT",
   "packageManager": "yarn@4.7.0",
-  "bin": "build/bin/cli.js",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "bin": "bin/cli.js",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./prettier": {
+      "types": "./prettier.d.ts",
+      "default": "./prettier.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "index.d.ts",
   "files": [
-    "build"
+    "bin",
+    "index.d.ts",
+    "index.js",
+    "prettier.d.ts",
+    "prettier.js"
   ],
   "keywords": [
     "eslint",
@@ -24,9 +39,8 @@
     "prettier"
   ],
   "scripts": {
-    "build": "node scripts/build.js",
     "prettier": "prettier --write .",
-    "release": "yarn build && clean-pkg-json && changeset publish",
+    "release": "clean-pkg-json && changeset publish",
     "test": "yarn test:prettier && ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true yarn test:with-env && ESLINT_USE_FLAT_CONFIG=false yarn test:with-env && yarn build",
     "test:cli-sanity": "node ./bin/cli.js index.js",
     "test:cli-sanity-warning": "node ./bin/cli.js react.js ./bin/cli.js",
