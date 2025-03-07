@@ -1,5 +1,23 @@
 # eslint-config-prettier
 
+## 10.1.1
+
+### Patch Changes
+
+- [#309](https://github.com/prettier/eslint-config-prettier/pull/309) [`eb56a5e`](https://github.com/prettier/eslint-config-prettier/commit/eb56a5e09964e49045bccde3c616275eb0a0902d) Thanks [@JounQin](https://github.com/JounQin)! - fix: separate the `/flat` entry for compatibility
+
+  For flat config users, the previous `"eslint-config-prettier"` entry still works, but `"eslint-config-prettier/flat"` adds a new `name` property for [config-inspector](https://eslint.org/blog/2024/04/eslint-config-inspector/), we just can't add it for the default entry for compatibility.
+
+  See also <https://github.com/prettier/eslint-config-prettier/issues/308>
+
+  ```ts
+  // before
+  import eslintConfigPrettier from "eslint-config-prettier";
+
+  // after
+  import eslintConfigPrettier from "eslint-config-prettier/flat";
+  ```
+
 ## 10.1.0
 
 ### Minor Changes
