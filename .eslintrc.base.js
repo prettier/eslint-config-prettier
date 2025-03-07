@@ -114,6 +114,12 @@ module.exports = {
       files: ["test-lint/@stylistic__ts.ts"],
       extends: ["plugin:@stylistic/ts/all-extends"],
     },
+    {
+      files: ["**/*.d.ts"],
+      rules: {
+        strict: "off",
+      },
+    },
   ],
   settings: {
     react: {

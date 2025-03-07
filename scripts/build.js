@@ -8,6 +8,7 @@ const BUILD = path.join(DIR, "build");
 
 const FILES_TO_COPY = [
   { src: "index.js" },
+  { src: "index.d.ts" },
   { src: "prettier.js" },
   ...fs
     .readdirSync(path.join(DIR, "bin"))
