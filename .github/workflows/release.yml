@@ -32,6 +32,7 @@ jobs:
           commit: "chore: release eslint-config-prettier"
           title: "chore: release eslint-config-prettier"
           publish: npm run release
+          version: npm run version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

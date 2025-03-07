@@ -34,4 +34,10 @@ module.exports = [
       },
     })
   ),
+  {
+    files: ["**/*.d.ts"],
+    rules: {
+      strict: "off",
+    },
+  },
 ];
