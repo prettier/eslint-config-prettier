@@ -47,10 +47,7 @@ Note that this config _only_ turns rules _off,_ so it only makes sense using it 
      <!-- prettier-ignore -->
      ```js
      import someConfig from "some-other-config-you-use";
-     // Note the `/flat` suffix here, the difference from default entry is that
-     // `/flat` added `name` property to the exported object to improve
-     // [config-inspector](https://eslint.org/blog/2024/04/eslint-config-inspector/) experience.
-     import eslintConfigPrettier from "eslint-config-prettier/flat";
+     import eslintConfigPrettier from "eslint-config-prettier";
 
      export default [
        someConfig,
@@ -84,7 +81,7 @@ With flat config, _you_ get to decide the plugin name! For example:
 
 ```js
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
   {
@@ -156,7 +153,7 @@ For eslintrc, while the `"prettier"` config can disable problematic rules in `"s
 
 ```js
 import someConfig from "some-other-config-you-use";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
   someConfig,
@@ -173,7 +170,7 @@ With the new ESLint “flat config” format, you can control what things overri
 
 ```js
 import someConfig from "some-other-config-you-use";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
   someConfig,

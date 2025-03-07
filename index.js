@@ -393,3 +393,10 @@ exports.rules = {
     "react/jsx-space-before-closing": "off",
   }),
 };
+
+Object.defineProperty(exports, "name", {
+  value: "config-prettier",
+  configurable: false,
+  writable: false,
+  enumerable: false,
+});

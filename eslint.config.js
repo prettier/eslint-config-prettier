@@ -10,13 +10,13 @@
 
 const globals = require("globals");
 const base = require("./eslint.base.config");
-const flat = require("./flat.js");
+const index = require("./index.js");
 const prettier = require("./prettier");
 const eslintrc = require("./.eslintrc");
 
 module.exports = [
   ...base,
-  flat,
+  index,
   prettier,
   {
     rules: eslintrc.rules,
