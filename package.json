@@ -47,7 +47,7 @@
   "scripts": {
     "prettier": "prettier --write .",
     "release": "clean-pkg-json && changeset publish",
-    "test": "yarn test:prettier && ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true yarn test:with-env && ESLINT_USE_FLAT_CONFIG=false yarn test:with-env && yarn build",
+    "test": "yarn test:prettier && ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true yarn test:with-env && ESLINT_USE_FLAT_CONFIG=false yarn test:with-env",
     "test:cli-sanity": "node ./bin/cli.js index.js",
     "test:cli-sanity-warning": "node ./bin/cli.js react.js ./bin/cli.js",
     "test:deprecated": "eslint-find-rules --deprecated index.js",

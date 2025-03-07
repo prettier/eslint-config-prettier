@@ -5,7 +5,7 @@
 //
 // NOTE: Keep this file in sync with `./eslint.base.config.js`!
 
-const config = require(".");
+const config = require("./index.js");
 
 const includeDeprecated = !process.env.ESLINT_CONFIG_PRETTIER_NO_DEPRECATED;
 
