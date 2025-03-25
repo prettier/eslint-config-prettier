@@ -1,0 +1,105 @@
+diff --git a/node_modules/eslint-plugin-babel/rules/new-cap.js b/node_modules/eslint-plugin-babel/rules/new-cap.js
+index 37ee633..18fd37e 100644
+--- a/node_modules/eslint-plugin-babel/rules/new-cap.js
++++ b/node_modules/eslint-plugin-babel/rules/new-cap.js
+@@ -1,8 +1,8 @@
+ "use strict";
+ 
++const { builtinRules } = require('eslint/use-at-your-own-risk');
+ const ruleComposer = require('eslint-rule-composer');
+-const eslint = require('eslint');
+-const newCapRule = new eslint.Linter().getRules().get('new-cap');
++const newCapRule = builtinRules.get('new-cap');
+ 
+ /**
+  * Returns whether a node is under a decorator or not.
+diff --git a/node_modules/eslint-plugin-babel/rules/no-invalid-this.js b/node_modules/eslint-plugin-babel/rules/no-invalid-this.js
+index 994499e..a96fc80 100644
+--- a/node_modules/eslint-plugin-babel/rules/no-invalid-this.js
++++ b/node_modules/eslint-plugin-babel/rules/no-invalid-this.js
+@@ -1,8 +1,8 @@
+ "use strict";
+ 
++const { builtinRules } = require('eslint/use-at-your-own-risk');
+ const ruleComposer = require('eslint-rule-composer');
+-const eslint = require('eslint');
+-const noInvalidThisRule = new eslint.Linter().getRules().get('no-invalid-this');
++const noInvalidThisRule = builtinRules.get('no-invalid-this');
+ 
+ module.exports = ruleComposer.filterReports(
+     noInvalidThisRule,
+diff --git a/node_modules/eslint-plugin-babel/rules/no-unused-expressions.js b/node_modules/eslint-plugin-babel/rules/no-unused-expressions.js
+index eb1955a..cfce005 100644
+--- a/node_modules/eslint-plugin-babel/rules/no-unused-expressions.js
++++ b/node_modules/eslint-plugin-babel/rules/no-unused-expressions.js
+@@ -1,8 +1,8 @@
+ "use strict";
+ 
++const { builtinRules } = require('eslint/use-at-your-own-risk');
+ const ruleComposer = require('eslint-rule-composer');
+-const eslint = require('eslint');
+-const rule = new eslint.Linter().getRules().get('no-unused-expressions');
++const rule = builtinRules.get('no-unused-expressions');
+ 
+ /**
+  * @param {ASTNode} node - any node
+diff --git a/node_modules/eslint-plugin-babel/rules/object-curly-spacing.js b/node_modules/eslint-plugin-babel/rules/object-curly-spacing.js
+index 19953bf..771c6dc 100644
+--- a/node_modules/eslint-plugin-babel/rules/object-curly-spacing.js
++++ b/node_modules/eslint-plugin-babel/rules/object-curly-spacing.js
+@@ -1,8 +1,8 @@
+ "use strict";
+ 
++const { builtinRules } = require('eslint/use-at-your-own-risk');
+ const ruleComposer = require('eslint-rule-composer');
+-const eslint = require('eslint');
+-const objectCurlySpacingRule = new eslint.Linter().getRules().get('object-curly-spacing');
++const objectCurlySpacingRule = builtinRules.get('object-curly-spacing');
+ 
+ module.exports = ruleComposer.filterReports(
+     objectCurlySpacingRule,
+diff --git a/node_modules/eslint-plugin-babel/rules/quotes.js b/node_modules/eslint-plugin-babel/rules/quotes.js
+index 41cd7da..9e765b3 100644
+--- a/node_modules/eslint-plugin-babel/rules/quotes.js
++++ b/node_modules/eslint-plugin-babel/rules/quotes.js
+@@ -1,8 +1,8 @@
+ 'use strict';
+ 
++const { builtinRules } = require('eslint/use-at-your-own-risk');
+ const ruleComposer = require('eslint-rule-composer');
+-const eslint = require('eslint');
+-const quotesRule = new eslint.Linter().getRules().get('quotes');
++const quotesRule = builtinRules.get('quotes');
+ 
+ module.exports = ruleComposer.filterReports(
+   quotesRule,
+diff --git a/node_modules/eslint-plugin-babel/rules/semi.js b/node_modules/eslint-plugin-babel/rules/semi.js
+index 4813dfa..f5f565c 100644
+--- a/node_modules/eslint-plugin-babel/rules/semi.js
++++ b/node_modules/eslint-plugin-babel/rules/semi.js
+@@ -1,8 +1,8 @@
+ "use strict";
+ 
++const { builtinRules } = require('eslint/use-at-your-own-risk');
+ const ruleComposer = require('eslint-rule-composer');
+-const eslint = require('eslint');
+-const semiRule = new eslint.Linter().getRules().get('semi');
++const semiRule = builtinRules.get('semi');
+ 
+ const OPT_OUT_PATTERN = /^[-[(/+`]/; // One of [(/+-`
+ 
+diff --git a/node_modules/eslint-plugin-babel/rules/valid-typeof.js b/node_modules/eslint-plugin-babel/rules/valid-typeof.js
+index df5110b..9485f6d 100644
+--- a/node_modules/eslint-plugin-babel/rules/valid-typeof.js
++++ b/node_modules/eslint-plugin-babel/rules/valid-typeof.js
+@@ -1,8 +1,8 @@
+ "use strict";
+ 
++const { builtinRules } = require('eslint/use-at-your-own-risk');
+ const ruleComposer = require('eslint-rule-composer');
+-const eslint = require('eslint');
+-const validTypeOf = new eslint.Linter().getRules().get('valid-typeof');
++const validTypeOf = builtinRules.get('valid-typeof');
+ 
+ module.exports = ruleComposer.filterReports(
+   validTypeOf,

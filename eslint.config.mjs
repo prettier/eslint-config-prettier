@@ -1,5 +1,3 @@
-"use strict";
-
 // This is the internal ESLint config for this project itself – it’s not part of
 // the eslint-config-prettier npm package. The idea here is to extend some
 // sharable config from npm and then include the configs exposed by this package
@@ -8,13 +6,13 @@
 //
 // NOTE: Keep this file in sync with `./.eslintrc.js`!
 
-const globals = require("globals");
-const base = require("./eslint.base.config");
-const flat = require("./flat.js");
-const prettier = require("./prettier");
-const eslintrc = require("./.eslintrc");
+import globals from "globals";
+import base from "./eslint.base.config.mjs";
+import flat from "./flat.js";
+import prettier from "./prettier.js";
+import eslintrc from "./.eslintrc.js";
 
-module.exports = [
+export default [
   ...base,
   flat,
   prettier,

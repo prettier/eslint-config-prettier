@@ -1,0 +1,78 @@
+diff --git a/node_modules/eslint-plugin-standard/rules/computed-property-even-spacing.js b/node_modules/eslint-plugin-standard/rules/computed-property-even-spacing.js
+index 72b67b8..92da1d1 100644
+--- a/node_modules/eslint-plugin-standard/rules/computed-property-even-spacing.js
++++ b/node_modules/eslint-plugin-standard/rules/computed-property-even-spacing.js
+@@ -14,7 +14,12 @@ module.exports = {
+     type: 'layout',
+     docs: {
+       url: 'https://github.com/standard/eslint-plugin-standard#rules-explanations'
+-    }
++    },
++    schema: [{
++      type: 'string',
++      enum: ['never', 'always', 'even'],
++      default: 'never',
++    }],
+   },
+ 
+   create: function (context) {
+@@ -103,10 +108,12 @@ module.exports = {
+ 
+         const property = node[propertyName]
+ 
+-        const before = context.getTokenBefore(property)
+-        const first = context.getFirstToken(property)
+-        const last = context.getLastToken(property)
+-        const after = context.getTokenAfter(property)
++        const sourceCode = context.getSourceCode()
++
++        const before = sourceCode.getTokenBefore(property)
++        const first = sourceCode.getFirstToken(property)
++        const last = sourceCode.getLastToken(property)
++        const after = sourceCode.getTokenAfter(property)
+         let startSpace, endSpace
+ 
+         if (propertyNameMustBeEven) {
+diff --git a/node_modules/eslint-plugin-standard/rules/object-curly-even-spacing.js b/node_modules/eslint-plugin-standard/rules/object-curly-even-spacing.js
+index d0eff49..4777e81 100644
+--- a/node_modules/eslint-plugin-standard/rules/object-curly-even-spacing.js
++++ b/node_modules/eslint-plugin-standard/rules/object-curly-even-spacing.js
+@@ -180,6 +180,8 @@ module.exports = {
+     // Public
+     // --------------------------------------------------------------------------
+ 
++    const sourceCode = context.getSourceCode()
++
+     return {
+       // var {x} = y
+       ObjectPattern: function (node) {
+@@ -228,10 +230,10 @@ module.exports = {
+ 
+         const firstSpecifier = node.specifiers[0]
+         const lastSpecifier = node.specifiers[node.specifiers.length - 1]
+-        const first = context.getTokenBefore(firstSpecifier)
+-        const second = context.getFirstToken(firstSpecifier)
+-        const penultimate = context.getLastToken(lastSpecifier)
+-        const last = context.getTokenAfter(lastSpecifier)
++        const first = sourceCode.getTokenBefore(firstSpecifier)
++        const second = sourceCode.getFirstToken(firstSpecifier)
++        const penultimate = sourceCode.getLastToken(lastSpecifier)
++        const last = sourceCode.getTokenAfter(lastSpecifier)
+ 
+         validateBraceSpacing(node, first, second, penultimate, last)
+       },
+@@ -242,10 +244,10 @@ module.exports = {
+           return
+         }
+ 
+-        const first = context.getFirstToken(node)
+-        const second = context.getFirstToken(node, 1)
+-        const penultimate = context.getLastToken(node, 1)
+-        const last = context.getLastToken(node)
++        const first = sourceCode.getFirstToken(node)
++        const second = sourceCode.getFirstToken(node, 1)
++        const penultimate = sourceCode.getLastToken(node, 1)
++        const last = sourceCode.getLastToken(node)
+ 
+         validateBraceSpacing(node, first, second, penultimate, last)
+       }

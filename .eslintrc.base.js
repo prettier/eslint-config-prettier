@@ -14,7 +14,6 @@ module.exports = {
     "google",
     "plugin:flowtype/recommended",
     "plugin:react/all",
-    "plugin:unicorn/recommended",
     "plugin:vue/recommended",
   ],
   plugins: [
@@ -22,8 +21,16 @@ module.exports = {
     ...new Set(
       Object.keys(config.rules)
         .map((ruleName) => ruleName.split("/"))
-        .filter((parts) => parts.length > 1)
-        .map((parts) => parts[0])
+        .flatMap((parts) => {
+          if (parts.length <= 1) {
+            return [];
+          }
+          const pluginName = parts[0];
+          // The following are ESM only without eslintrc supported now
+          return ["@stylistic", "unicorn"].includes(pluginName)
+            ? []
+            : pluginName;
+        })
     ),
   ],
   parserOptions: {
@@ -38,6 +45,7 @@ module.exports = {
     "indent": "off",
     "linebreak-style": "off",
     "no-dupe-keys": "error",
+    "no-unused-vars": "off",
     "strict": ["error", "global"],
     "prefer-spread": "off",
     "require-jsdoc": "off",
@@ -70,6 +78,8 @@ module.exports = {
     "object-curly-spacing": "off",
     "babel/object-curly-spacing": ["error", "never"],
     "@babel/object-curly-spacing": ["error", "never"],
+    // removed in ESLint v9
+    "valid-jsdoc": "off",
 
     // Workaround: These rules are deprecated, but added by eslint-config-google.
     // We have to exclude them when testing the flat config, but also turn them
@@ -82,42 +92,29 @@ module.exports = {
           "max-len": "off",
           "operator-linebreak": "off",
           "quotes": "off",
+          "space-before-function-paren": "off",
         }),
   },
   overrides: [
     {
       files: ["**/*.{ts,tsx}"],
-      parserOptions: { parser: "@typescript-eslint/parser" },
-      rules: {
-        // Force a conflict with Prettier in test-lint/typescript.js.
-        // This is included in "plugin:@typescript-eslint/recommended".
-        "@typescript-eslint/indent": "error",
-      },
+      parser: "@typescript-eslint/parser",
     },
     {
       files: ["test-lint/{react,flowtype}.js", "test-lint/@stylistic__jsx.jsx"],
-      parserOptions: { parser: "@babel/eslint-parser" },
-    },
-    {
-      files: ["test-lint/@stylistic.js"],
-      extends: ["plugin:@stylistic/all-extends"],
-    },
-    {
-      files: ["test-lint/@stylistic__js.js"],
-      extends: ["plugin:@stylistic/js/all-extends"],
-    },
-    {
-      files: ["test-lint/@stylistic__jsx.jsx"],
-      extends: ["plugin:@stylistic/jsx/all-extends"],
-    },
-    {
-      files: ["test-lint/@stylistic__ts.ts"],
-      extends: ["plugin:@stylistic/ts/all-extends"],
+      parser: "@babel/eslint-parser",
     },
     {
       files: ["**/*.d.ts"],
       rules: {
         strict: "off",
+      },
+    },
+    {
+      files: ["**/*.d.ts", "**/*.mjs"],
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: "module",
       },
     },
   ],
