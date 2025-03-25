@@ -1,4 +1,4 @@
-/* eslint-disable quotes, react/jsx-max-props-per-line */
+/* eslint-disable quotes */
 "use strict";
 
 const React = require("react");

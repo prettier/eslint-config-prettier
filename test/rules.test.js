@@ -47,9 +47,8 @@ function createTestConfigDir() {
     "prettier.js",
     ".eslintrc.js",
     ".eslintrc.base.js",
-    "eslint.config.js",
-    "eslint.base.config.js",
-    ".eslintignore",
+    "eslint.config.mjs",
+    "eslint.base.config.mjs",
   ];
 
   for (const fileToCopy of filesToCopy) {
@@ -111,13 +110,10 @@ describe('all rules are set to "off" or 0', () => {
 });
 
 test("there are no unknown rules", () => {
+  const useEslintrc = process.env.ESLINT_USE_FLAT_CONFIG === "false";
   const result = childProcess.spawnSync(
     "yarn",
-    [
-      process.env.ESLINT_USE_FLAT_CONFIG === "false"
-        ? "test:lint-rules"
-        : "test:lint-rules:flat",
-    ],
+    [useEslintrc ? "test:lint-rules" : "test:lint-rules:flat"],
     { encoding: "utf8", shell: true }
   );
 
@@ -126,8 +122,15 @@ test("there are no unknown rules", () => {
      * @type {ESLint.LintResult[]}
      */
     const output = JSON.parse(result.stdout);
-    output[0].messages.forEach((message) => {
-      expect(message.message).not.toMatch(/rule\s+'[^']+'.*not found/);
+    output[0].messages.forEach(({ message }) => {
+      const matched = /rule\s+'([^']+)'.*not found/.exec(message);
+      const ruleName = matched?.[1];
+      expect(
+        ruleName == null ||
+          !useEslintrc ||
+          // The following are ESM only without eslintrc supported now
+          /^(@stylistic|@typescript-eslint|unicorn)\//.exec(ruleName) != null
+      ).toBe(true);
     });
   } else {
     expect(result.stderr).not.toMatch(/rule\s+'[^']+'.*not found/);

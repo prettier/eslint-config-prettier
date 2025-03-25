@@ -1,4 +1,4 @@
-/* eslint-disable quotes, no-unused-vars */
+/* eslint-disable quotes */
 "use strict";
 
 // Prettier wants 2-space indentation,

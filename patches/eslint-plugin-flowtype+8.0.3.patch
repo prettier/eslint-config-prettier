@@ -1,0 +1,201 @@
+diff --git a/node_modules/eslint-plugin-flowtype/dist/configs/recommended.json b/node_modules/eslint-plugin-flowtype/dist/configs/recommended.json
+index 90a0d69..2ad7d68 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/configs/recommended.json
++++ b/node_modules/eslint-plugin-flowtype/dist/configs/recommended.json
+@@ -1,5 +1,5 @@
+ {
+-  "parser": "@babel/eslint",
++  "parser": "@babel/eslint-parser",
+   "parserOptions": {
+     "babelOptions": {
+       "plugins": [
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/booleanStyle.js b/node_modules/eslint-plugin-flowtype/dist/rules/booleanStyle.js
+index e4e722b..f2d0bcd 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/booleanStyle.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/booleanStyle.js
+@@ -44,9 +44,9 @@ const create = context => {
+ var _default = {
+   create,
+   meta: {
+-    fixable: 'code'
+-  },
+-  schema
++    fixable: 'code',
++    schema
++  }
+ };
+ exports.default = _default;
+ module.exports = exports.default;
+\ No newline at end of file
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/defineFlowType.js b/node_modules/eslint-plugin-flowtype/dist/rules/defineFlowType.js
+index c5e62fa..d2c82e1 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/defineFlowType.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/defineFlowType.js
+@@ -66,8 +66,8 @@ const create = context => {
+       }
+     },
+ 
+-    Program() {
+-      globalScope = context.getScope();
++    Program(node) {
++      globalScope = context.getSourceCode().getScope(node);
+     },
+ 
+     TypeParameterDeclaration(node) {
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/genericSpacing.js b/node_modules/eslint-plugin-flowtype/dist/rules/genericSpacing.js
+index e011d0c..093232f 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/genericSpacing.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/genericSpacing.js
+@@ -107,12 +107,12 @@ const create = context => {
+ };
+ 
+ const meta = {
+-  fixable: 'whitespace'
++  fixable: 'whitespace',
++  schema
+ };
+ var _default = {
+   create,
+-  meta,
+-  schema
++  meta
+ };
+ exports.default = _default;
+ module.exports = exports.default;
+\ No newline at end of file
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/objectTypeDelimiter.js b/node_modules/eslint-plugin-flowtype/dist/rules/objectTypeDelimiter.js
+index aeccb0c..3ab3a6a 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/objectTypeDelimiter.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/objectTypeDelimiter.js
+@@ -64,9 +64,9 @@ const schema = [{
+ var _default = {
+   create,
+   meta: {
+-    fixable: 'code'
+-  },
+-  schema
++    fixable: 'code',
++    schema
++  }
+ };
+ exports.default = _default;
+ module.exports = exports.default;
+\ No newline at end of file
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/spaceAfterTypeColon.js b/node_modules/eslint-plugin-flowtype/dist/rules/spaceAfterTypeColon.js
+index a4b4f02..257e027 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/spaceAfterTypeColon.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/spaceAfterTypeColon.js
+@@ -34,9 +34,9 @@ const create = context => {
+ var _default = {
+   create,
+   meta: {
+-    fixable: 'code'
+-  },
+-  schema
++    fixable: 'code',
++    schema
++  }
+ };
+ exports.default = _default;
+ module.exports = exports.default;
+\ No newline at end of file
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/spaceBeforeGenericBracket.js b/node_modules/eslint-plugin-flowtype/dist/rules/spaceBeforeGenericBracket.js
+index 6903314..8064acf 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/spaceBeforeGenericBracket.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/spaceBeforeGenericBracket.js
+@@ -66,9 +66,9 @@ const create = context => {
+ var _default = {
+   create,
+   meta: {
+-    fixable: 'code'
+-  },
+-  schema
++    fixable: 'code',
++    schema
++  }
+ };
+ exports.default = _default;
+ module.exports = exports.default;
+\ No newline at end of file
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/spaceBeforeTypeColon.js b/node_modules/eslint-plugin-flowtype/dist/rules/spaceBeforeTypeColon.js
+index 61276e6..8e20d3b 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/spaceBeforeTypeColon.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/spaceBeforeTypeColon.js
+@@ -23,9 +23,9 @@ const create = context => {
+ var _default = {
+   create,
+   meta: {
+-    fixable: 'code'
+-  },
+-  schema
++    fixable: 'code',
++    schema
++  }
+ };
+ exports.default = _default;
+ module.exports = exports.default;
+\ No newline at end of file
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/unionIntersectionSpacing.js b/node_modules/eslint-plugin-flowtype/dist/rules/unionIntersectionSpacing.js
+index 24baa02..904378d 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/unionIntersectionSpacing.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/unionIntersectionSpacing.js
+@@ -80,9 +80,9 @@ const create = context => {
+ var _default = {
+   create,
+   meta: {
+-    fixable: 'code'
+-  },
+-  schema
++    fixable: 'code',
++    schema
++  }
+ };
+ exports.default = _default;
+ module.exports = exports.default;
+\ No newline at end of file
+diff --git a/node_modules/eslint-plugin-flowtype/dist/rules/useFlowType.js b/node_modules/eslint-plugin-flowtype/dist/rules/useFlowType.js
+index 02c71a4..619a712 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/rules/useFlowType.js
++++ b/node_modules/eslint-plugin-flowtype/dist/rules/useFlowType.js
+@@ -26,11 +26,13 @@ const create = context => {
+       } while (typeId.qualification);
+     }
+ 
+-    for (scope = context.getScope(); scope; scope = scope.upper) {
++    const sourceCode = context.getSourceCode();
++
++    for (scope = sourceCode.getScope(node); scope; scope = scope.upper) {
+       variable = scope.set.get(typeId.name);
+ 
+       if (variable && variable.defs.length) {
+-        context.markVariableAsUsed(typeId.name);
++        sourceCode.markVariableAsUsed(typeId.name);
+         break;
+       }
+     }
+diff --git a/node_modules/eslint-plugin-flowtype/dist/utilities/isFlowFile.js b/node_modules/eslint-plugin-flowtype/dist/utilities/isFlowFile.js
+index 647dd1b..66b6c56 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/utilities/isFlowFile.js
++++ b/node_modules/eslint-plugin-flowtype/dist/utilities/isFlowFile.js
+@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
+  * starts by @noflow. When the strict flag is set to false, the function returns true if the flag has @noflow also.
+  */
+ var _default = (context, strict = true) => {
+-  const comments = context.getAllComments();
++  const comments = context.getSourceCode().getAllComments();
+ 
+   if (!comments.length) {
+     return false;
+diff --git a/node_modules/eslint-plugin-flowtype/dist/utilities/isNoFlowFile.js b/node_modules/eslint-plugin-flowtype/dist/utilities/isNoFlowFile.js
+index efec6fc..9f4df89 100644
+--- a/node_modules/eslint-plugin-flowtype/dist/utilities/isNoFlowFile.js
++++ b/node_modules/eslint-plugin-flowtype/dist/utilities/isNoFlowFile.js
+@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
+  * starts by @noflow. When the strict flag is set to false, the function returns true if the flag has @noflow also.
+  */
+ var _default = (context, strict = true) => {
+-  const comments = context.getAllComments();
++  const comments = context.getSourceCode().getAllComments();
+ 
+   if (!comments.length) {
+     return false;

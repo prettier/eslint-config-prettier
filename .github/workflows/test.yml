@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   test:
-    name: Test on ${{ matrix.os }} with Node.js ${{ matrix.node-version }}
+    name: Test on ${{ matrix.os }} with Node.js ${{ matrix.node }}
 
     runs-on: ${{ matrix.os }}
 
@@ -25,7 +25,7 @@ jobs:
           - macOS-latest
           - ubuntu-latest
           - windows-latest
-        node-version:
+        node:
           - 16
           - 18
           - 20
@@ -36,17 +36,21 @@ jobs:
       YARN_IGNORE_NODE: 1
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           persist-credentials: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
           cache: yarn
 
       - name: Install Dependencies
         run: yarn --immutable
+
+      - name: Downgrade for Node ${{ matrix.node }}
+        if: ${{ matrix.node == 16 || matrix.node == 18 }}
+        run: yarn add -D eslint@8 eslint-plugin-unicorn@56
 
       - name: Jest - flat
         run: yarn test:jest
