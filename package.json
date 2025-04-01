@@ -9,7 +9,7 @@
     "JounQin (https://www.1stG.me) <admin@1stg.me>"
   ],
   "license": "MIT",
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.8.1",
   "bin": "bin/cli.js",
   "main": "index.js",
   "exports": {
