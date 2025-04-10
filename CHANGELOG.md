@@ -1,5 +1,11 @@
 # eslint-config-prettier
 
+## 10.1.2
+
+### Patch Changes
+
+- [#321](https://github.com/prettier/eslint-config-prettier/pull/321) [`a8768bf`](https://github.com/prettier/eslint-config-prettier/commit/a8768bfe54a91d08f0cef8705f91de2883436bb0) Thanks [@Fdawgs](https://github.com/Fdawgs)! - chore(package): add homepage for some 3rd-party registry - see [#321](https://github.com/prettier/eslint-config-prettier/pull/321) for more details
+
 ## 10.1.1
 
 ### Patch Changes
