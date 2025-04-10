@@ -3,14 +3,8 @@
   "version": "10.1.1",
   "type": "commonjs",
   "description": "Turns off all rules that are unnecessary or might conflict with Prettier.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/prettier/eslint-config-prettier.git"
-  },
+  "repository": "prettier/eslint-config-prettier",
   "homepage": "https://github.com/prettier/eslint-config-prettier#readme",
-  "bugs": {
-    "url": "https://github.com/prettier/eslint-config-prettier/issues"
-  },
   "author": "Simon Lydell",
   "maintainers": [
     "JounQin (https://www.1stG.me) <admin@1stg.me>"
