@@ -3012,7 +3012,7 @@ __metadata:
     globals: "npm:^16.0.0"
     jest: "npm:^29.7.0"
     prettier: "npm:^3.5.3"
-    prettier-plugin-pkg: "npm:^0.18.1"
+    prettier-plugin-pkg: "npm:^0.19.0"
     typescript: "npm:^5.8.2"
     vue-eslint-parser: "npm:^10.1.1"
     yarn-berry-deduplicate: "npm:^6.1.1"
@@ -5946,12 +5946,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-pkg@npm:^0.18.1":
-  version: 0.18.1
-  resolution: "prettier-plugin-pkg@npm:0.18.1"
+"prettier-plugin-pkg@npm:^0.19.0":
+  version: 0.19.0
+  resolution: "prettier-plugin-pkg@npm:0.19.0"
   peerDependencies:
     prettier: ^3.0.3
-  checksum: 10c0/8f0f1308e53d0197ca7ff532c4136930f42ad334c32728b71d8f81136a5a663d9231b659d848d2d7587461bd68ce3c2a3afe4bd34cc8718471710511113e07f9
+  checksum: 10c0/087bc37c5360c5c17339e810a0667179159ca8e36e75d498eaf224940062b8df0704473aac02d60f87bba7527aca7e780e95af07407952fd72a6239992cd908f
   languageName: node
   linkType: hard
 
