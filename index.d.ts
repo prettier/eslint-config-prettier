@@ -1,1 +1,5 @@
-export const rules: Record<string, 0 | "off">;
+declare const eslintConfigPrettier: {
+    rules: Record<string, 0 | "off">;
+  };
+  
+export = eslintConfigPrettier;
