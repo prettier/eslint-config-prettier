@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-prettier",
-  "version": "10.1.2",
+  "version": "10.1.3",
   "type": "commonjs",
   "description": "Turns off all rules that are unnecessary or might conflict with Prettier.",
   "repository": "prettier/eslint-config-prettier",

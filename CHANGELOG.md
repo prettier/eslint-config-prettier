@@ -1,5 +1,11 @@
 # eslint-config-prettier
 
+## 10.1.3
+
+### Patch Changes
+
+- [#325](https://github.com/prettier/eslint-config-prettier/pull/325) [`4e95a1d`](https://github.com/prettier/eslint-config-prettier/commit/4e95a1d50073f1a24f004239ad6e1a4ffa8476df) Thanks [@pilikan](https://github.com/pilikan)! - fix: this package is `commonjs`, align its types correctly
+
 ## 10.1.2
 
 ### Patch Changes
