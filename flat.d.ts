@@ -1,3 +1,7 @@
-export * from "./index.js";
+import eslintConfigPrettier from "./index.js";
 
-export const name: "config-prettier";
+declare const eslintConfigPrettierFlat: typeof eslintConfigPrettier & {
+  name: "config-prettier";
+};
+
+export = eslintConfigPrettierFlat;
