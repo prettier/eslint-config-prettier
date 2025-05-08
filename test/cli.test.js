@@ -1,5 +1,7 @@
 "use strict";
 
+const childProcess = require("child_process");
+const path = require("path");
 const cli = require("../bin/cli");
 
 const offPatterns = [0, "off", [0], ["off"], ["off", "never"]];
@@ -74,6 +76,14 @@ test("no results", () => {
       "stdout": "No rules that are unnecessary or conflict with Prettier were found.",
     }
   `);
+});
+
+test("empty config", (done) => {
+  childProcess.exec(
+    `node ${path.join(process.cwd(), "bin/cli.js")} index.js`,
+    { cwd: path.join(__dirname, "fixtures/empty-config") },
+    done
+  );
 });
 
 test("conflicting options", () => {
