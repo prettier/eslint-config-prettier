@@ -1,27 +1,25 @@
-name: Check
+name: autofix.ci # For security reasons, the workflow in which the autofix.ci action is used must be named "autofix.ci".
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  check:
+  autofix:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        with:
-          persist-credentials: false
 
       - name: Setup Node.js LTS
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -29,16 +27,13 @@ jobs:
           node-version: lts/*
           cache: yarn
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: yarn --immutable
 
-      - name: ESLint - flat
-        run: yarn test:eslint
+      - name: Format Codes
+        run: yarn format
 
-      - name: ESLint - eslintrc
-        run: yarn test:eslint
-        env:
-          ESLINT_USE_FLAT_CONFIG: "false"
-
-      - name: Prettier
-        run: yarn prettier --check .
+      - name: Apply autofix.ci
+        uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944 # v1
+        with:
+          fail-fast: false
