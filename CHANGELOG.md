@@ -1,5 +1,11 @@
 # eslint-config-prettier
 
+## 10.1.5
+
+### Patch Changes
+
+- [#332](https://github.com/prettier/eslint-config-prettier/pull/332) [`60fef02`](https://github.com/prettier/eslint-config-prettier/commit/60fef02574467d31d10ff47ecb567d378483c9d4) Thanks [@JounQin](https://github.com/JounQin)! - chore: add `funding` field into `package.json`
+
 ## 10.1.4
 
 ### Patch Changes
