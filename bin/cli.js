@@ -60,8 +60,13 @@ if (module === require.main) {
     })
   )
     .then((configs) => {
-      const rules = configs.flatMap(({ rules }, index) =>
-        Object.entries(rules).map((entry) => [...entry, args[index]])
+      const rules = configs.flatMap(
+        (
+          // Initializing config and rules for files that aren't included in the flat config,
+          // which is a very unlikely scenario, but should still be treated as a success
+          { rules = {} } = {},
+          index
+        ) => Object.entries(rules).map((entry) => [...entry, args[index]])
       );
       const result = processRules(rules);
       if (result.stderr) {
