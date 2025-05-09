@@ -1,7 +1,8 @@
 "use strict";
 
-const childProcess = require("child_process");
-const path = require("path");
+const childProcess = require("node:child_process");
+const path = require("node:path");
+
 const cli = require("../bin/cli");
 
 const offPatterns = [0, "off", [0], ["off"], ["off", "never"]];
@@ -80,8 +81,8 @@ test("no results", () => {
 
 test("empty config", (done) => {
   childProcess.exec(
-    `node ${path.join(process.cwd(), "bin/cli.js")} index.js`,
-    { cwd: path.join(__dirname, "fixtures/empty-config") },
+    `node ${path.resolve("bin/cli.js")} index.js`,
+    { cwd: path.resolve(__dirname, "fixtures/empty-config") },
     done
   );
 });
