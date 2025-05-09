@@ -1,5 +1,11 @@
 # eslint-config-prettier
 
+## 10.1.4
+
+### Patch Changes
+
+- [#328](https://github.com/prettier/eslint-config-prettier/pull/328) [`94b4799`](https://github.com/prettier/eslint-config-prettier/commit/94b47999e7eb13b703835729331376cef598b850) Thanks [@silvenon](https://github.com/silvenon)! - fix(cli): do not crash on no rules configured
+
 ## 10.1.3
 
 ### Patch Changes
