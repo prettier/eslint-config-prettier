@@ -3,5 +3,9 @@
   "extends": [
     "github>1stG/configs"
   ],
-  "ignoreDeps": ["eslint-find-rules"]
+  "ignoreDeps": [
+    "eslint-find-rules",
+    "eslint-plugin-standard",
+    "yarn"
+  ]
 }

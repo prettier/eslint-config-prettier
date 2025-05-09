@@ -1,10 +1,7 @@
-name: Check
-
+name: Publish Any Commit
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+  - push
+  - pull_request
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -14,14 +11,12 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        with:
-          persist-credentials: false
 
       - name: Setup Node.js LTS
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
@@ -29,16 +24,8 @@ jobs:
           node-version: lts/*
           cache: yarn
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: yarn --immutable
 
-      - name: ESLint - flat
-        run: yarn test:eslint
-
-      - name: ESLint - eslintrc
-        run: yarn test:eslint
-        env:
-          ESLINT_USE_FLAT_CONFIG: "false"
-
-      - name: Prettier
-        run: yarn prettier --check .
+      - name: Publish
+        run: yarn dlx pkg-pr-new publish --compact
