@@ -9,6 +9,7 @@
   "maintainers": [
     "JounQin (https://www.1stG.me) <admin@1stg.me>"
   ],
+  "funding": "https://opencollective.com/eslint-config-prettier",
   "license": "MIT",
   "packageManager": "yarn@4.8.1",
   "bin": "bin/cli.js",
