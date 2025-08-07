@@ -34,6 +34,6 @@ jobs:
         run: yarn format
 
       - name: Apply autofix.ci
-        uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944 # v1
+        uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27 # v1
         with:
           fail-fast: false
