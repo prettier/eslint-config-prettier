@@ -616,7 +616,7 @@ If you’d like ESLint to enforce `` `could have been a regular string` `` being
 - The first (string) option needs to be set to `"single"` or `"double"` and be kept in sync with Prettier’s [singleQuote] option.
 - The second (object) option needs the following properties:
   - `"avoidEscape": true` to follow Prettier’s [string formatting rules].
-  - `"allowTemplateLiterals": false` to disallow unnecessary backticks.
+  - `"allowTemplateLiterals": false` ([@stylistic/quotes] uses `"never"` instead of `false`) to disallow unnecessary backticks.
 
 ##### Example double quote configuration
 
