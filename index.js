@@ -46,6 +46,7 @@ exports.rules = {
   "@stylistic/comma-spacing": "off",
   "@stylistic/comma-style": "off",
   "@stylistic/computed-property-spacing": "off",
+  "@stylistic/curly-newline": "off",
   "@stylistic/dot-location": "off",
   "@stylistic/eol-last": "off",
   "@stylistic/func-call-spacing": "off",
