@@ -31,6 +31,9 @@ jobs:
           node-version: lts/*
           cache: yarn
 
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
       - name: Install Dependencies
         run: yarn --immutable
 
@@ -43,5 +46,3 @@ jobs:
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
