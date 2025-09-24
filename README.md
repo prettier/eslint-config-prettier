@@ -126,10 +126,10 @@ env ESLINT_CONFIG_PRETTIER_NO_DEPRECATED=true npx eslint-find-rules --deprecated
 eslint-config-prettier also ships with a little CLI tool to help you check if your configuration contains any rules that are unnecessary or conflict with Prettier. Here’s how to run it:
 
 ```
-npx eslint-config-prettier path/to/main.js
+npx eslint-config-prettier path/to/config.js
 ```
 
-(Change `path/to/main.js` to a file that exists in your project.)
+Note: Change `path/to/config.js` to the actual path of your ESLint configuration file, such as `.eslintrc` or `eslint.config.js` in your project.
 
 ### What and why
 
