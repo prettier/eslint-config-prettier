@@ -11,7 +11,7 @@
   ],
   "funding": "https://opencollective.com/eslint-config-prettier",
   "license": "MIT",
-  "packageManager": "yarn@4.8.1",
+  "packageManager": "yarn@4.18.0",
   "bin": "bin/cli.js",
   "main": "index.js",
   "types": "index.d.ts",
