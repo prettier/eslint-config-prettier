@@ -157,12 +157,12 @@ test("support omitting all deprecated rules", () => {
 
   expect(result1.status).not.toBe(0);
 
-try {
-  expect(result2.status).toBe(0);
-} catch (error) {
-  console.error(result2)
-  throw error
-}
+  try {
+    expect(result2.status).toBe(0);
+  } catch (error) {
+    console.error(result2);
+    throw error;
+  }
 
   const result3 = run(
     {
