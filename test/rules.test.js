@@ -158,7 +158,6 @@ test("support omitting all deprecated rules", () => {
   expect(result1.status).not.toBe(0);
   expect(result2.status).toBe(0);
 
-
   const result3 = run(
     {
       ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: undefined,
