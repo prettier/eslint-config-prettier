@@ -21,12 +21,12 @@ module.exports = {
     const firstOption = options[0];
     return Boolean(
       firstOption &&
-        firstOption.allowBlockStart &&
-        firstOption.allowBlockEnd &&
-        firstOption.allowObjectStart &&
-        firstOption.allowObjectEnd &&
-        firstOption.allowArrayStart &&
-        firstOption.allowArrayEnd
+      firstOption.allowBlockStart &&
+      firstOption.allowBlockEnd &&
+      firstOption.allowObjectStart &&
+      firstOption.allowObjectEnd &&
+      firstOption.allowArrayStart &&
+      firstOption.allowArrayEnd
     );
   },
 

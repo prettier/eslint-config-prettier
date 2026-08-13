@@ -3122,7 +3122,7 @@ __metadata:
     eslint-plugin-vue: "npm:^10.1.0"
     globals: "npm:^16.1.0"
     jest: "npm:^29.7.0"
-    prettier: "npm:^3.5.3"
+    prettier: "npm:3.9.6"
     prettier-plugin-pkg: "npm:^0.19.0"
     typescript: "npm:^5.8.3"
     vue-eslint-parser: "npm:^10.1.3"
@@ -6223,21 +6223,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:3.9.6":
+  version: 3.9.6
+  resolution: "prettier@npm:3.9.6"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10c0/9f7ddae234035868f3daab3dc34e6de7e54622185afb017378029f0c09a9c023248ccf6f34def0b17a0538e18c47aa1b3188bab72965d1bf735919baa0747e99
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.7.1":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:
     prettier: bin-prettier.js
   checksum: 10c0/463ea8f9a0946cd5b828d8cf27bd8b567345cf02f56562d5ecde198b91f47a76b7ac9eae0facd247ace70e927143af6135e8cf411986b8cb8478784a4d6d724a
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^3.5.3":
-  version: 3.5.3
-  resolution: "prettier@npm:3.5.3"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 10c0/3880cb90b9dc0635819ab52ff571518c35bd7f15a6e80a2054c05dbc8a3aa6e74f135519e91197de63705bcb38388ded7e7230e2178432a1468005406238b877
   languageName: node
   linkType: hard
 
