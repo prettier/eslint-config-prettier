@@ -149,18 +149,24 @@ test("support omitting all deprecated rules", () => {
     });
 
   const result1 = run({
-    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "",
+    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: undefined,
   });
   const result2 = run({
     ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true",
   });
 
   expect(result1.status).not.toBe(0);
+
+try {
   expect(result2.status).toBe(0);
+} catch (error) {
+  console.error(result2)
+  throw error
+}
 
   const result3 = run(
     {
-      ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "",
+      ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: undefined,
     },
     "--flatConfig"
   );
