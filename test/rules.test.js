@@ -149,7 +149,7 @@ test("support omitting all deprecated rules", () => {
     });
 
   const result1 = run({
-    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: undefined,
+    ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "",
   });
   const result2 = run({
     ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "true",
@@ -160,7 +160,7 @@ test("support omitting all deprecated rules", () => {
 
   const result3 = run(
     {
-      ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: undefined,
+      ESLINT_CONFIG_PRETTIER_NO_DEPRECATED: "",
     },
     "--flatConfig"
   );
