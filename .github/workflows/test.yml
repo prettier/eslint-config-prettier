@@ -24,7 +24,7 @@ jobs:
         os:
           - macOS-latest
           - ubuntu-latest
-          # Not sure where the error comes from, but fails on `windows-2025`
+          # Not sure where the error comes from, but fails on `windows-2025` with the following message
           # `'wmic' is not recognized as an internal or external command, operable program or batch file.`
           - windows-2022
         node:
