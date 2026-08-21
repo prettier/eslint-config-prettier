@@ -28,7 +28,7 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        run: yarn --immutable
+        run: yarn --no-immutable
 
       - name: Format Codes
         run: yarn format
