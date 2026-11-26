@@ -59,6 +59,7 @@ exports.rules = {
   "@stylistic/key-spacing": "off",
   "@stylistic/keyword-spacing": "off",
   "@stylistic/linebreak-style": "off",
+  "@stylistic/list-style": "off",
   "@stylistic/max-statements-per-line": "off",
   "@stylistic/multiline-ternary": "off",
   "@stylistic/new-parens": "off",
