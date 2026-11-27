@@ -1,5 +1,11 @@
 # eslint-config-prettier
 
+## 10.1.9
+
+### Patch Changes
+
+- [#382](https://github.com/prettier/eslint-config-prettier/pull/382) [`976eede`](https://github.com/prettier/eslint-config-prettier/commit/976eede6260db6b3c674813f3b87db6010c50daf) Thanks [@CEXpp](https://github.com/CEXpp)! - Disable `@stylistic/list-style` because it conflicts with Prettier.
+
 ## 10.1.5
 
 ### Patch Changes
